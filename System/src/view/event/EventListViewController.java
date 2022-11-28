@@ -34,6 +34,8 @@ public class EventListViewController extends ViewController
         .getDescriptionProperty());
     dateColumn.setCellValueFactory( cellData -> cellData.getValue()
         .getDateProperty());
+
+    eventListTable.setItems(viewModel.getList());
   }
 
   public void reset(){

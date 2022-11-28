@@ -9,7 +9,7 @@ public abstract class ViewController
 
   private ViewHandler viewHandler;
 
-  private BoardGamesModel model;
+  protected BoardGamesModel model;
 
   public Region getRoot(){ return root; }
 

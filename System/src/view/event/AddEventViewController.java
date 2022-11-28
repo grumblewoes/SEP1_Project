@@ -51,7 +51,8 @@ public class AddEventViewController extends ViewController
     LocalDate date = datePicker.getValue();
 
     try{
-      getModel().addEvent( new Event(title,description,date) );
+      model.addEvent( new Event(title,description,date) );
+
       cancelBtnClicked();
     }catch (Exception e){
       errorLabel.setText("Exception: " +e.getMessage());
