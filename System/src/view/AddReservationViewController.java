@@ -47,7 +47,7 @@ public class AddReservationViewController
       Reservation reservation = new Reservation(datePicker.getValue());
       model.addReservation(reservation);
       errorLabel.setText("Success");
-      viewHandler.openView();
+      viewHandler.openView("reservationsList");
     }
     catch (Exception e)
     {

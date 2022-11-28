@@ -29,11 +29,10 @@ public class BoardGamesModelManager implements BoardGamesModel
   public void addGame(Game game){ gameList.addGame(game); }
 
   public void removeGame(String title){ gameList.removeGame(title); }
-  //remove game  by id probably ?! , cuz games can be multiple of the same title
 
   public ArrayList<Game> getAllGames(){ return gameList.getAllGames(); }
 
-  public Game getGameByTitle(String title){ return gameList.removeGame(title); }
+  public Game getGameByTitle(String title){ return gameList.getGameByTitle(title); }
 
   public void addReservation(Reservation reservation){ reservationList.addReservation(reservation); }
 

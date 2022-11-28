@@ -22,4 +22,15 @@ public class GameList
     return txt;
   }
 
+  public void removeGame(String title){
+    //to be changed
+  }
+
+  public ArrayList<Game> getAllGames(){ return games; }
+
+  public Game getGameByTitle(String title){
+    //to be changed
+    return null;
+  }
+
 }
