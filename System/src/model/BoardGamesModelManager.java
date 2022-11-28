@@ -1,5 +1,59 @@
 package model;
 
-public class BoardGamesModelManager
+import java.util.ArrayList;
+
+public class BoardGamesModelManager implements BoardGamesModel
 {
+  private WishList wishList;
+  private GameList gameList;
+  private ReservationList reservationList;
+  private ClubAssociateList clubAssociateList;
+  private EventList eventList;
+
+  public BoardGamesModelManager(){
+    wishList = new WishList();
+    gameList = new GameList();
+    reservationList = new ReservationList();
+    clubAssociateList = new ClubAssociateList();
+    eventList = new EventList();
+  }
+
+  public void addWish(Wish wish){ wishList.addWish(wish); }
+
+  public void voteForWish(String title){ wishList.getVotesForWish(title); }
+
+  public Wish getWishByTitle(String title){ return wishList.getWishByTitle(title); }
+
+  public ArrayList<Wish> getAllWishes(){ return wishList.getAllWishes(); }
+
+  public void addGame(Game game){ gameList.addGame(game); }
+
+  public void removeGame(String title){ gameList.removeGame(title); }
+  //remove game  by id probably ?! , cuz games can be multiple of the same title
+
+  public ArrayList<Game> getAllGames(){ return gameList.getAllGames(); }
+
+  public Game getGameByTitle(String title){ return gameList.removeGame(title); }
+
+  public void addReservation(Reservation reservation){ reservationList.addReservation(reservation); }
+
+  public void removeExpiredReservations(){ reservationList.removeExpiredReservation(); }
+
+  public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservation(); }
+
+  public void addClubAssociate(ClubAssociate associate){ clubAssociateList.addClubAssociate( associate ); }
+
+  public void updateClubAssociate(int id){ clubAssociateList.updateClubAssociate(id); }
+
+  public ClubAssociate getClubAssociate(int id){ return clubAssociateList.getClubAssociate(id); }
+
+  public ArrayList<ClubAssociate> getAllClubAssociates(){ return clubAssociateList.getAllClubAssociates(); }
+
+  public void addEvent(Event event){ eventList.addEvent(event); }
+
+  public void removeEvent(String title){ eventList.removeEvent(title); }
+
+  public ArrayList<Event> getAllEvents(){ return eventList.getAllEvents(); }
+
+  public int getNumberOfEvents(){ return eventList.getNumberOfEvents(); }
 }
