@@ -26,14 +26,35 @@ public class Game
 
   public boolean isAvailable()
   {
-    return false;
-//    if()
+    if(games.size()!=0)
+      {
+        for (int i = 0; i < games.size(); i++)
+        {
+          if (this.title.equals(games.get(i)))
+          {
+            return true;
+          }
+          return false;
+        }
+      }
+      return false;
   }
 
   public boolean isReserved()
  {
-   return false;
-//    if()
+   if(reservations.size()!=0)
+      {
+        for (int i = 0; i < reservations.size(); i++)
+        {
+          if (this.title.equals(reservations.get(i)))
+          {
+            return true;
+          }
+          return false;
+        }
+      }
+      return false;
+
   }
 
   public String getTitle()
