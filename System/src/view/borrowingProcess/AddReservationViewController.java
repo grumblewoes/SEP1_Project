@@ -1,4 +1,4 @@
-package view;
+package view.borrowingProcess;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Reservation;
+import view.ViewHandler;
 
 public class AddReservationViewController
 {
