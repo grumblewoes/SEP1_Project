@@ -4,15 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Reservation;
+import view.ViewController;
 import view.ViewHandler;
 
+import javax.swing.text.View;
 import java.time.LocalDate;
 
-public class BorrowViewController
+public class BorrowViewController extends ViewController
 {
-  private Region root;
-  private BoardGamesModel model;
-  private ViewHandler viewHandler;
 
   public BorrowViewController()
   {
@@ -31,10 +30,6 @@ public class BorrowViewController
   {
   }
 
-  public Region getRoot()
-  {
-    return root;
-  }
 
   @FXML private void changeBorrowButton()
   {

@@ -110,4 +110,5 @@ public class Game
         " and it supports a maximum of " + numberOfPlayers + " players. " + " Description: " + description;
  }
 
+  public ArrayList<Rating> getRatings() { return ratings; }
 }

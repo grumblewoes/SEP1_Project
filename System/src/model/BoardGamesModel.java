@@ -25,4 +25,5 @@ public interface BoardGamesModel
   public void removeEvent(String title);
   public int getNumberOfEvents();
   public ArrayList<Event> getAllEvents();
+  public boolean generateModelDataFile();
 }

@@ -33,18 +33,18 @@ public class WishListViewController extends ViewController {
 
     @FXML
     void addWish(ActionEvent event) {
-        getViewHandler().openView("addWish");
+        viewHandler.openView("addWish");
     }
 
     @FXML
     void goBack(ActionEvent event) {
-        getViewHandler().openView("menu");
+        viewHandler.openView("menu");
     }
 
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
-        setRoot(root);
-        setViewHandler(viewHandler);
-        setModel(model);
+        this.viewHandler=viewHandler;
+        this.model=model;
+        this.root=root;
     }
 
     public void reset () {

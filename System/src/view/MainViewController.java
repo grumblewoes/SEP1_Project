@@ -7,9 +7,9 @@ import model.BoardGamesModel;
 public class MainViewController extends  ViewController
 {
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
+    this.viewHandler=viewHandler;
+    this.model=model;
+    this.root=root;
   }
 
   public void reset()
@@ -19,31 +19,31 @@ public class MainViewController extends  ViewController
 
   public void gamesBtnClicked()
   {
-    getViewHandler().openView("gameList");
+    viewHandler.openView("gameList");
   }
 
   public void clubAssociateBtnClicked()
   {
-    getViewHandler().openView("clubAssociateList");
+    viewHandler.openView("clubAssociateList");
   }
 
   public void wishListBtnClicked()
   {
-    getViewHandler().openView("wishList");
+    viewHandler.openView("wishList");
   }
 
   public void eventsBtnClicked()
   {
-    getViewHandler().openView("eventList");
+    viewHandler.openView("eventList");
   }
 
   public void updateWebsiteBtnClicked()
   {
-    getViewHandler().openView("updateWebsite");
+    model.generateModelDataFile();
   }
 
   public void exitBtnClicked()
   {
-    getViewHandler().closeView();
+    viewHandler.closeView();
   }
 }

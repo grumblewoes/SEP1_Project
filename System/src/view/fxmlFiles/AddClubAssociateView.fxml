@@ -2,17 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/19"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="view.clubAssociate.AddClubAssociateViewController">
+<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.AddClubAssociateViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="64.0" prefWidth="401.0">
          <children>
@@ -36,7 +34,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="nameField" onKeyTyped="#keyTyped" onAction="#onEnter">
+            <TextField fx:id="nameField" onAction="#onEnter" onKeyTyped="#keyTyped">
             </TextField>
          </children>
       </HBox>
@@ -50,7 +48,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="surnameField" onKeyTyped="#keyTyped" onAction="#onEnter">
+            <TextField fx:id="surnameField" onAction="#onEnter" onKeyTyped="#keyTyped">
             </TextField>
          </children>
       </HBox>
@@ -64,28 +62,25 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="idField" onKeyTyped="#keyTyped" onAction="#onEnter">
+            <TextField fx:id="idField" onAction="#onEnter" onKeyTyped="#keyTyped">
             </TextField>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="345.0">
          <children>
-            <CheckBox onAction="#isMember" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Member">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="15.0" />
-               </HBox.margin>
-            </CheckBox>
-            <CheckBox onAction="#isGuest" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Guest">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="15.0" />
-               </HBox.margin>
-            </CheckBox>
+            <RadioButton fx:id="guestRadioBtn" mnemonicParsing="false" selected="true" text="Guest">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <toggleGroup>
+                  <ToggleGroup fx:id="membershipGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="memberRadioBtn" mnemonicParsing="false" text="Member" toggleGroup="$membershipGroup">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </RadioButton>
          </children>
          <opaqueInsets>
             <Insets />
@@ -104,7 +99,7 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="addClubAssociateButton" mnemonicParsing="false" text="Add">
+            <Button mnemonicParsing="false" onAction="#addClubAssociateBtnClicked" text="Add">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -112,7 +107,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="cancelClubAssociateButton" mnemonicParsing="false" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelClubAssociateBtnClicked" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

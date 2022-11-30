@@ -22,9 +22,9 @@ public class EventListViewController extends ViewController
   private EventListViewModel viewModel;
 
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
+    this.viewHandler=viewHandler;
+    this.model=model;
+    this.root=root;
 
     this.viewModel = new EventListViewModel(model);
 
@@ -45,11 +45,11 @@ public class EventListViewController extends ViewController
 
 
   @FXML private void returnBtnClicked(){
-    getViewHandler().openView("menu");
+    viewHandler.openView("menu");
   }
 
   @FXML  private void addEventBtnPressed() {
-    getViewHandler().openView("addEvent");
+    viewHandler.openView("addEvent");
   }
 
   @FXML private void removeEventBtnPressed() {
@@ -58,7 +58,7 @@ public class EventListViewController extends ViewController
       EventViewModel selectedItem = eventListTable.getSelectionModel().getSelectedItem();
       boolean remove = confirmation();
       if(remove){
-        getModel().removeEvent(selectedItem.getTitleProperty().get());
+        model.removeEvent(selectedItem.getTitleProperty().get());
         viewModel.remove(selectedItem.getTitleProperty().get());
         eventListTable.getSelectionModel().clearSelection();
       }

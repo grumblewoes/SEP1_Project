@@ -5,9 +5,9 @@ import model.BoardGamesModel;
 
 public abstract class ViewController
 {
-  private Region root;
+  protected Region root;
 
-  private ViewHandler viewHandler;
+  protected ViewHandler viewHandler;
 
   protected BoardGamesModel model;
 

@@ -1,8 +1,9 @@
 package view.clubAssociate;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.ClubAssociate;
@@ -17,15 +18,16 @@ public class AddClubAssociateViewController extends ViewController
   @FXML private TextField surnameField;
   @FXML private TextField idField;
   @FXML private Label errorLabel;
+  @FXML private ToggleGroup membershipGroup;
 
 
   public AddClubAssociateViewController() {
   }
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
-    setModel(model);
-    setViewHandler(viewHandler);
-    setRoot(root);
+    this.viewHandler=viewHandler;
+    this.model=model;
+    this.root=root;
   }
   public void reset() {
     nameField.setText("");
@@ -34,23 +36,42 @@ public class AddClubAssociateViewController extends ViewController
     errorLabel.setText("");
   }
 
-  @FXML private void addClubAssociateButton()
+  @FXML private void addClubAssociateBtnClicked()
   {
     errorLabel.setText("");
     try
     {
-      ClubAssociate associate = new ClubAssociate(new Name(nameField.getText(),
-          surnameField.getText()), Integer.parseInt(idField.getText()));
+      //tp be updated...
+      RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
+
+      ClubAssociate associate = new ClubAssociate(
+          new Name(
+              nameField.getText(),
+              surnameField.getText()
+              ),
+          Integer.parseInt(idField.getText()),
+          !"guestRadioBtn".equals(membershipGroupBtn.getId())
+        );
+
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
-      getViewHandler().openView("clubAssociateList");
+      viewHandler.openView("clubAssociateList");
     }
     catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
     }
   }
-    @FXML private void cancelClubAssociateButton() {
-      getViewHandler().openView("clubAssociateList");
+    @FXML private void cancelClubAssociateBtnClicked() {
+      viewHandler.openView("clubAssociateList");
     }
+
+  public void onEnter()
+  {
   }
+
+  public void keyTyped()
+  {
+
+  }
+}

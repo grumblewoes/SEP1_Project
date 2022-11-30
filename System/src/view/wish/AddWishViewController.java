@@ -25,20 +25,21 @@ public class AddWishViewController extends ViewController {
   @FXML
   void cancelWish(ActionEvent event) {
     //show WishListView
-    getViewHandler().openView("wishList");
+    viewHandler.openView("wishList");
   }
 
   @FXML
-  void submitWish(ActionEvent event) { //submits a wish to the list, initialized with 1 vote
+  void submitWish() { //submits a wish to the list, initialized with 1 vote
     String name = wishTextField.getText();
     Wish wish = new Wish(name);
     model.addWish(wish);
+    viewHandler.openView("wishList");
   }
 
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
+    this.viewHandler=viewHandler;
+    this.model=model;
+    this.root=root;
   }
 
   public void reset () {

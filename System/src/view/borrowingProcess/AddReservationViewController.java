@@ -7,16 +7,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Reservation;
+import view.ViewController;
 import view.ViewHandler;
 
-public class AddReservationViewController
+public class AddReservationViewController extends ViewController
 {
   @FXML private DatePicker datePicker;
   @FXML private Label errorLabel;
 
-  private Region root;
-  private BoardGamesModel model;
-  private ViewHandler viewHandler;
 
   public AddReservationViewController()
   {
@@ -35,10 +33,6 @@ public class AddReservationViewController
   {
   }
 
-  public Region getRoot()
-  {
-    return root;
-  }
 
   @FXML private void addReservationButton()
   {

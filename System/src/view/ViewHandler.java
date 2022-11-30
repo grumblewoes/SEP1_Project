@@ -59,12 +59,12 @@ public class ViewHandler
         root =addClubAssociateViewController.getRoot();
         break;
       case "wishList":
-        mainViewController = loadViewController("WishListView.fxml", mainViewController);
-        root = mainViewController.getRoot();
+        wishListViewController = loadViewController("WishListView.fxml", wishListViewController);
+        root = wishListViewController.getRoot();
         break;
       case "addWish":
-        wishListViewController = loadViewController("AddWishView.fxml", wishListViewController);
-        root = wishListViewController.getRoot();
+        addWishViewController = loadViewController("AddWishView.fxml", addWishViewController);
+        root = addWishViewController.getRoot();
         break;
       default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);

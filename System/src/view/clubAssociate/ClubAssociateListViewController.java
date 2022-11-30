@@ -5,38 +5,54 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.layout.Region;
+import model.BoardGamesModel;
+import view.ViewController;
+import view.ViewHandler;
 
-public class ClubAssociateListViewController {
+public class ClubAssociateListViewController extends ViewController
+{
 
-    @FXML
-    private Button addAssociateBtn;
+    private ClubAssociateListViewModel viewModel;
+    @FXML private Label errorLabel;
 
-    @FXML
-    private Button backBtn;
 
-    @FXML
-    private Button changeInfoBtn;
+    @FXML private TableColumn nameColumn;
+    @FXML private TableColumn surnameColumn;
+    @FXML private TableColumn typeColumn;
 
-    @FXML
-    private Label errorLabel;
+    public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
+    {
+        this.viewHandler=viewHandler;
+        this.model=model;
+        this.root=root;
 
-    @FXML
-    private TableColumn<?, ?> tableView;
+        this.viewModel = new ClubAssociateListViewModel(model);
+    }
 
-    @FXML
-    void addAssociate(ActionEvent event) {
+    public void reset(){
+        errorLabel.setText("");
+        viewModel.update();
+    }
+
+    public void addAssociateBtnClicked()
+    {
+        viewHandler.openView("addClubAssociate");
+    }
+
+    public void toggleMembershipBtnClicked()
+    {
 
     }
 
-    @FXML
-    void changeInfo(ActionEvent event) {
+    public void detailsBtnClicked()
+    {
 
     }
 
-    @FXML
-    void goBack(ActionEvent event) {
-
+    public void returnBtnClicked()
+    {
+        viewHandler.openView("menu");
     }
-
 }
 
