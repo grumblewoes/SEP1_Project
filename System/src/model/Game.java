@@ -26,14 +26,35 @@ public class Game
 
   public boolean isAvailable()
   {
-    return false;
-//    if()
+    if(games.size()!=0)
+      {
+        for (int i = 0; i < games.size(); i++)
+        {
+          if (this.title.equals(games.get(i)))
+          {
+            return true;
+          }
+          return false;
+        }
+      }
+      return false;
   }
 
   public boolean isReserved()
  {
-   return false;
-//    if()
+   if(reservations.size()!=0)
+      {
+        for (int i = 0; i < reservations.size(); i++)
+        {
+          if (this.title.equals(reservations.get(i)))
+          {
+            return true;
+          }
+          return false;
+        }
+      }
+      return false;
+
   }
 
   public String getTitle()
@@ -57,20 +78,24 @@ public class Game
   }
 
   public Rating addRatings(){
-//
-//    ratings.add();
-    return null;
+    for(int i=0; i<games.size(); i++)
+    {
+      if (rating.isLegalRating())
+      {
+        ratings.add(rating);
+      }
+    }
   }
-//
-//  double totalRatings;
+
+ double totalRatings=0.0;
 
 
   public double calculateAverageRating(){
-//    for(int index=0; index<ratings.size(); index++){
-//      totalRatings += ratings.get(index);
-//    }
-//    return totalRatings/ratings.size()-1;
-    return 0.0;
+      for(int i=0; i<ratings.size()-1; i++){
+        totalRatings += ratings.get(i);
+        i++;
+      }
+      return (double)(totalRatings/ratings.size());
   }
 
   public boolean equals(Object obj){
