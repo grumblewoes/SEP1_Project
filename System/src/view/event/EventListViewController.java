@@ -45,7 +45,7 @@ public class EventListViewController extends ViewController
 
 
   @FXML private void returnBtnClicked(){
-    getViewHandler().openView("main");
+    getViewHandler().openView("menu");
   }
 
   @FXML  private void addEventBtnPressed() {
