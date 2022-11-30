@@ -1,10 +1,12 @@
-package view;
+package view.wish;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.layout.Region;
+import view.ViewController;
+import view.ViewHandler;
 import model.BoardGamesModel;
 
 public class WishListViewController extends ViewController {
@@ -31,7 +33,7 @@ public class WishListViewController extends ViewController {
 
     @FXML
     void addWish(ActionEvent event) {
-        getViewHandler().openView("addWishView");
+        getViewHandler().openView("addWish");
     }
 
     @FXML
@@ -48,5 +50,4 @@ public class WishListViewController extends ViewController {
     public void reset () {
 
     }
-
 }
