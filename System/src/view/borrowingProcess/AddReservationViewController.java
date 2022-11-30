@@ -1,4 +1,4 @@
-package view;
+package view.borrowingProcess;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Reservation;
+import view.ViewHandler;
 
 public class AddReservationViewController
 {
@@ -47,7 +48,7 @@ public class AddReservationViewController
       Reservation reservation = new Reservation(datePicker.getValue());
       model.addReservation(reservation);
       errorLabel.setText("Success");
-      viewHandler.openView();
+      viewHandler.openView("reservationsList");
     }
     catch (Exception e)
     {
