@@ -17,32 +17,32 @@ public class MainViewController extends  ViewController
 
   }
 
-  public void gamesBtnClicked(ActionEvent actionEvent)
+  public void gamesBtnClicked()
   {
     getViewHandler().openView("gameList");
   }
 
-  public void clubAssociateBtnClicked(ActionEvent actionEvent)
+  public void clubAssociateBtnClicked()
   {
     getViewHandler().openView("clubAssociateList");
   }
 
-  public void wishListBtnClicked(ActionEvent actionEvent)
+  public void wishListBtnClicked()
   {
     getViewHandler().openView("wishList");
   }
 
-  public void eventsBtnClicked(ActionEvent actionEvent)
+  public void eventsBtnClicked()
   {
     getViewHandler().openView("eventList");
   }
 
-  public void updateWebsiteBtnClicked(ActionEvent actionEvent)
+  public void updateWebsiteBtnClicked()
   {
     getViewHandler().openView("updateWebsite");
   }
 
-  public void exitBtnClicked(ActionEvent actionEvent)
+  public void exitBtnClicked()
   {
     getViewHandler().closeView();
   }

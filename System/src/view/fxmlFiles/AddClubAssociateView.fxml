@@ -10,7 +10,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlFiles.AddClubAssociateView">
+<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="view.clubAssociate.AddClubAssociateViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="64.0" prefWidth="401.0">
          <children>
@@ -34,7 +36,8 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="nameField" onKeyTyped="#keyTyped" onAction="#onEnter">
+            </TextField>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -47,7 +50,8 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="surnameField" onKeyTyped="#keyTyped" onAction="#onEnter">
+            </TextField>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -60,12 +64,13 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="idField" onKeyTyped="#keyTyped" onAction="#onEnter">
+            </TextField>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="345.0">
          <children>
-            <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Member">
+            <CheckBox onAction="#isMember" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Member">
                <font>
                   <Font size="14.0" />
                </font>
@@ -73,7 +78,7 @@
                   <Insets right="15.0" />
                </HBox.margin>
             </CheckBox>
-            <CheckBox alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Guest">
+            <CheckBox onAction="#isGuest" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Guest">
                <font>
                   <Font size="14.0" />
                </font>
@@ -89,7 +94,7 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <Label text="Error" textFill="#ee0000">
+      <Label fx:id="errorLabel" text="Error" textFill="#ee0000">
          <font>
             <Font size="15.0" />
          </font>
@@ -99,7 +104,7 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Add">
+            <Button fx:id="addClubAssociateButton" mnemonicParsing="false" text="Add">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -107,7 +112,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Cancel">
+            <Button fx:id="cancelClubAssociateButton" mnemonicParsing="false" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
