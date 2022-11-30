@@ -11,6 +11,7 @@ public class ClubAssociate extends Person
     this.schoolId = schoolId;
     this.isMember = false;
   }
+
   public boolean isMember() {
     return isMember;
   }

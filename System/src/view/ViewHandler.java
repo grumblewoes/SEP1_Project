@@ -50,6 +50,14 @@ public class ViewHandler
         eventListViewController = loadViewController("EventListView.fxml", eventListViewController);
         root = eventListViewController.getRoot();
         break;
+      case "clubAssociateList":
+        clubAssociateListViewController = loadViewController("ClubAssociateListView.fxml", clubAssociateListViewController);
+        root =clubAssociateListViewController.getRoot();
+        break;
+      case "addClubAssociate":
+        addClubAssociateViewController = loadViewController("AddClubAssociateView.fxml", addClubAssociateViewController);
+        root =addClubAssociateViewController.getRoot();
+        break;
     }
 
     currentScene.setRoot(root);
