@@ -7,8 +7,8 @@ public abstract class Person
   public Person(Name name) {
     setName(name);
   }
-  public Name getName() {
-    return name;
+  public String getName() {
+    return name.getFullName();
   }
   public void setName (Name name) {
     this.name = name;

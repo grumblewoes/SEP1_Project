@@ -5,11 +5,25 @@ import java.util.Objects;
 
 public class Reservation
 {
+  private Game game;
+  private ClubAssociate associate;
   private LocalDate dateFrom;
   private LocalDate dateTo;
 
-  public Reservation(LocalDate dateFrom){
+  public Reservation(Game game, ClubAssociate associate, LocalDate dateFrom){
     setDateFrom(dateFrom);
+    this.game=game;
+    this.associate=associate;
+  }
+
+  public String getAssociate()
+  {
+    return associate.getName();
+  }
+
+  public String getGame()
+  {
+    return game.getTitle();
   }
 
   public LocalDate getDateFrom()

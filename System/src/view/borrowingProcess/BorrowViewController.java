@@ -36,13 +36,13 @@ public class BorrowViewController
     return root;
   }
 
-  @FXML private void addReservationButton()
+  @FXML private void changeBorrowButton()
   {
 //    errorLabel.setText("");
     try
     {
-      Reservation reservation = new Reservation(LocalDate.now());
-      model.addReservation(reservation);
+//      Reservation reservation = new Reservation(LocalDate.now());
+//      model.addReservation(reservation);
 //      errorLabel.setText("Success");
       viewHandler.openView("reservationsList");
     }
