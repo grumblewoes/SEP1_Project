@@ -19,6 +19,11 @@ public class Event
 
   public String getDescription(){ return description; }
 
+  public String getStringDate(){
+    return
+      dateTime.getDayOfMonth()+"/"+
+      + dateTime.getMonthValue()+"/"+
+      + dateTime.getYear();}
   public void setTitle(String title){ this.title = title; }
   //some validation later? no null or empty string
 
