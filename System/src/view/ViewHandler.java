@@ -59,6 +59,10 @@ public class ViewHandler
         addClubAssociateViewController = loadViewController("AddClubAssociateView.fxml", addClubAssociateViewController);
         root =addClubAssociateViewController.getRoot();
         break;
+      case "wishList":
+        mainViewController = loadViewController("WishListView.fxml", mainViewController);
+        root = mainViewController.getRoot();
+        break;
     }
 
     currentScene.setRoot(root);

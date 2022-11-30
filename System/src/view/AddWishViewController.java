@@ -5,8 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import model.Wish;
 
-public class AddWishViewController {
+//Anna P
+//for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
+public class AddWishViewController extends ViewController {
 
   @FXML
   private Button cancelButton;
@@ -17,32 +20,28 @@ public class AddWishViewController {
   @FXML
   private TextField wishTextField;
 
-  private Region root;
-  private BoardGamesModel model;
-  private ViewHandler viewHandler;
-
   @FXML
   void cancelWish(ActionEvent event) {
-
+    //show WishListView
+    getViewHandler().openView("wishList");
   }
 
   @FXML
-  void submitWish(ActionEvent event) {
-
+  void submitWish(ActionEvent event) { //submits a wish to the list, initialized with 1 vote
+    String name = wishTextField.getText();
+    Wish wish = new Wish(name);
+    model.addWish(wish);
   }
 
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
-    this.viewHandler = viewHandler;
-    this.root = root;
-    this.model = model;
+    setRoot(root);
+    setViewHandler(viewHandler);
+    setModel(model);
   }
 
   public void reset () {
     wishTextField.setText("");
   }
 
-  public Region getRoot() {
-    return root;
-  }
 
 }
