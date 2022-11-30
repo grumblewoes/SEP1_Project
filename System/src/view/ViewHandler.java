@@ -63,6 +63,10 @@ public class ViewHandler
         mainViewController = loadViewController("WishListView.fxml", mainViewController);
         root = mainViewController.getRoot();
         break;
+      case "addWish":
+        mainViewController = loadViewController("AddWishView.fxml", mainViewController);
+        root = mainViewController.getRoot();
+        break;
     }
 
     currentScene.setRoot(root);

@@ -1,10 +1,12 @@
-package view;
+package view.wish;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import view.ViewController;
+import view.ViewHandler;
 import model.Wish;
 
 //Anna P
