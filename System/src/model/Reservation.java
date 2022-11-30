@@ -16,12 +16,12 @@ public class Reservation
     this.associate=associate;
   }
 
-  public String getAssociate()
+  public String getAssociateName()
   {
     return associate.getName();
   }
 
-  public String getGame()
+  public String getGameTitle()
   {
     return game.getTitle();
   }

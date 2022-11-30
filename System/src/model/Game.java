@@ -1,14 +1,13 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Game
 {
-  private String title;
-  private String numberOfPlayers;
-  private String type;
-  private String description;
+  private String title, numberOfPlayers, type, description;
   private ClubAssociate borrowedTo;
+  private LocalDate borrowedFrom;
   private ClubAssociate owner;
   public static final String DEDUCTION="Deduction";
   public static final String ABSTRACT="Abstract";
@@ -26,6 +25,7 @@ public class Game
     this.description = description;
     ratings=new ArrayList<Rating>();
     this.borrowedTo=null;
+    this.borrowedFrom=null;
   }
 
   public boolean isAvailable()
@@ -54,6 +54,30 @@ public class Game
 
   public String getDescription(){
     return description;
+  }
+
+  public ClubAssociate getBorrowedTo()
+  {
+    return borrowedTo;
+  }
+
+  public void setBorrowedTo(ClubAssociate borrowedTo)
+  {
+    this.borrowedTo = borrowedTo;
+  }
+  public void setBorrowedFrom(LocalDate borrowedFrom)
+  {
+    this.borrowedFrom = borrowedFrom;
+  }
+
+  public ClubAssociate getOwner()
+  {
+    return owner;
+  }
+
+  public LocalDate getBorrowedFrom()
+  {
+    return borrowedFrom;
   }
 
   public void addRatings(Rating rating){

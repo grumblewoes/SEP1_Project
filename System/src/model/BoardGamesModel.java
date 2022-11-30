@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public interface BoardGamesModel
 {
   public void addWish(Wish wish);
-  public void voteForWish(String title);
+  public void voteForWish(Wish wish);
+  public int getVotesForWish(String title);
   public Wish getWishByTitle(String title);
   public ArrayList<Wish> getAllWishes();
   public void addGame(Game game);

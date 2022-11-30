@@ -20,7 +20,8 @@ public class BoardGamesModelManager implements BoardGamesModel
 
   public void addWish(Wish wish){ wishList.addWish(wish); }
 
-  public void voteForWish(String title){ wishList.getVotesForWish(title); }
+  public void voteForWish(Wish wish){ wishList.voteForWish(wish); }
+  public int getVotesForWish(String title){ return wishList.getVotesForWish(title); }
 
   public Wish getWishByTitle(String title){ return wishList.getWishByTitle(title); }
 
