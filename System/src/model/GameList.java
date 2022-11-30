@@ -1,7 +1,8 @@
 package model;
 import java.util.ArrayList;
 
-//
+private ArrayList <Game> games;
+
 public class GameList
 {
   private ArrayList<Game> games;
