@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #FFFFEA;" userData="Board Games Association System" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@boardgame_blackandwhite.png" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </ImageView>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Board Games Association System" wrappingWidth="371.2187805175781">
+                    <font>
+                        <Font name="System Bold" size="38.0" />
+                    </font>
+                </Text>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="50.0">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="155.0" text="Games">
+                    <HBox.margin>
+                        <Insets right="50.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Club associates" />
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="60.0">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Wishlist">
+                    <HBox.margin>
+                        <Insets right="50.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefWidth="155.0" text="Events" />
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #99E938; -fx-font-weight: BOLD;" text="Update website">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #FF2A2A;" text="Exit">
+                    <HBox.margin>
+                        <Insets left="108.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>
