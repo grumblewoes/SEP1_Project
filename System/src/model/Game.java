@@ -8,59 +8,38 @@ public class Game
   private String numberOfPlayers;
   private String type;
   private String description;
+  private ClubAssociate borrowedTo;
   private ClubAssociate owner;
   public static final String DEDUCTION="Deduction";
   public static final String ABSTRACT="Abstract";
   public static final String CITY_BUILDING="City Building";
   public static final String DECK_BUILDING="Deck Building";
   public static final String CARDS="Cards";
-  private ArrayList<Rating> ratings=new ArrayList<Rating>();
+  private ArrayList<Rating> ratings;
 
-  public Game(String title, ClubAssociate owner, String numberOfPlayers, String description)
+  public Game(String title, ClubAssociate owner, String type, String numberOfPlayers, String description)
   {
     this.title = title;
     this.owner = owner;
+    this.type=type;
     this.numberOfPlayers = numberOfPlayers;
     this.description = description;
+    ratings=new ArrayList<Rating>();
+    this.borrowedTo=null;
   }
 
   public boolean isAvailable()
   {
-    if(games.size()!=0)
+    if(borrowedTo==null)
       {
-        for (int i = 0; i < games.size(); i++)
-        {
-          if (this.title.equals(games.get(i)))
-          {
-            return true;
-          }
-          return false;
-        }
+        return true;
       }
-      return false;
-  }
-
-  public boolean isReserved()
- {
-   if(reservations.size()!=0)
-      {
-        for (int i = 0; i < reservations.size(); i++)
-        {
-          if (this.title.equals(reservations.get(i)))
-          {
-            return true;
-          }
-          return false;
-        }
-      }
-      return false;
-
+    return false;
   }
 
   public String getTitle()
   {
     return title;
-
   }
 
   public String getNumberOfPlayers()
@@ -77,25 +56,18 @@ public class Game
     return description;
   }
 
-  public Rating addRatings(){
-    for(int i=0; i<games.size(); i++)
-    {
-      if (rating.isLegalRating())
-      {
-        ratings.add(rating);
-      }
-    }
+  public void addRatings(Rating rating){
+    ratings.add(rating);
   }
 
- double totalRatings=0.0;
 
-
-  public double calculateAverageRating(){
-      for(int i=0; i<ratings.size()-1; i++){
-        totalRatings += ratings.get(i);
+  public double calculateAverageRating(Game game){
+    double totalRating = 0.0;
+    for(int i=0; i<ratings.size(); i++){
+        totalRating = ratings.get(i).getRating();
         i++;
       }
-      return (double)(totalRatings/ratings.size());
+      return (double)(totalRating/ratings.size());
   }
 
   public boolean equals(Object obj){

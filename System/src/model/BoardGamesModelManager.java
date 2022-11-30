@@ -28,7 +28,7 @@ public class BoardGamesModelManager implements BoardGamesModel
 
   public void addGame(Game game){ gameList.addGame(game); }
 
-  public void removeGame(String title){ gameList.removeGame(title); }
+  public void removeGame(Game game){ gameList.removeGame(game); }
 
   public ArrayList<Game> getAllGames(){ return gameList.getAllGames(); }
 
@@ -37,6 +37,7 @@ public class BoardGamesModelManager implements BoardGamesModel
   public void addReservation(Reservation reservation){ reservationList.addReservation(reservation); }
 
   public void removeExpiredReservations(){ reservationList.removeExpiredReservation(); }
+  public boolean isReserved(Game game){return reservationList.isReserved(game);}
 
   public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservation(); }
 

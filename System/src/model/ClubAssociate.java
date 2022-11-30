@@ -11,6 +11,12 @@ public class ClubAssociate extends Person
     this.schoolId = schoolId;
     this.isMember = false;
   }
+
+  @Override public String getName()
+  {
+    return name.getFullName();
+  }
+
   public boolean isMember() {
     return isMember;
   }
