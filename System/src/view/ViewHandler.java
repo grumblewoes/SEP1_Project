@@ -16,7 +16,7 @@ public class ViewHandler
 
 
   private ViewController
-
+      mainViewController,
       addReservationViewController,
       addEventViewController,
       addWishViewController,
@@ -49,6 +49,10 @@ public class ViewHandler
       case "eventList":
         eventListViewController = loadViewController("EventListView.fxml", eventListViewController);
         root = eventListViewController.getRoot();
+        break;
+      case "menu":
+        mainViewController = loadViewController("Menu.fxml", mainViewController);
+        root = mainViewController.getRoot();
         break;
     }
 
