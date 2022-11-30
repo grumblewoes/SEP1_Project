@@ -50,7 +50,7 @@ public class ViewHandler
         eventListViewController = loadViewController("EventListView.fxml", eventListViewController);
         root = eventListViewController.getRoot();
         break;
-      case "menu":
+      default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);
         root = mainViewController.getRoot();
         break;
