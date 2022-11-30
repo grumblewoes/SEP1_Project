@@ -17,6 +17,12 @@ public class Rating
     throw new IllegalArgumentException("Illegal rating: " + rating);
   }
 }
+
+  public int getRating()
+  {
+    return rating;
+  }
+
   public static boolean isLegalRating(int rating)
   {
     for (int i = 0; i < LEGAL_RATINGS.length; i++)
