@@ -19,7 +19,7 @@ public class ReservationList
     {
       for (int i = 0; i < reservations.size(); i++)
       {
-        if (game.getTitle().equals(reservations.get(i).getGame()))
+        if (game.getTitle().equals(reservations.get(i).getGameTitle()))
         {
           return true;
         }
@@ -33,6 +33,13 @@ public class ReservationList
   }
   public ArrayList<Reservation> getAllReservation(){
     return reservations;
+  }
+  public String toString() {
+    String text = "";
+    for (Reservation reservation: reservations) {
+      text += reservation;
+    }
+    return text;
   }
 
 }

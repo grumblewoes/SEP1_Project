@@ -21,6 +21,10 @@ public class WishList
     return -1;
   }
 
+  public void voteForWish(Wish wish){
+    wish.incrementVoteBy1();
+  }
+
   public ArrayList<Wish> getAllWishes() { return wishes; }
 
   public void addWish(Wish w) {

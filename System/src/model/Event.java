@@ -31,12 +31,10 @@ public class Event
   //lets say that description can be empty or null
   @Override public String toString(){
     return title + " | " + description + " | "
-        + dateTime.getDayOfMonth()+"/"+
-        + dateTime.getMonthValue()+"/"+
-        + dateTime.getYear();
+        + getStringDate();
   }
 
-  public boolean equal(Object obj){
+  public boolean equals(Object obj){
     if(obj==null || !(obj instanceof Event) ) return false;
     Event other = (Event) obj;
 

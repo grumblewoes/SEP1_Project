@@ -5,14 +5,11 @@ public abstract class Person
   private Name name;
 
   public Person(Name name) {
-    setName(name);
+    this.name=name;
   }
-  public String getName() {
-    return name.getFullName();
-  }
-  public void setName (Name name) {
-    this.name = name;
-  }
+
+  public abstract String getName();
+
   public boolean equals (Object obj) {
     if (obj == null || getClass() != obj.getClass()) {
       return false;
@@ -21,7 +18,7 @@ public abstract class Person
     return this.name.equals(other.name);
   }
   public String toString() {
-    return name.getFirstName();
+    return name.getFullName();
   }
 
 }
