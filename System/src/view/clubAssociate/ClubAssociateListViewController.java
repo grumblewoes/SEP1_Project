@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import view.ViewController;
@@ -12,15 +13,16 @@ import view.ViewHandler;
 
 public class ClubAssociateListViewController extends ViewController
 {
-
-    private ClubAssociateListViewModel viewModel;
+    @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
+    @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;
+    @FXML private TableColumn<ClubAssociateViewModel, String> surnameColumn;
+    @FXML private TableColumn<ClubAssociateViewModel, String> statusColumn;
     @FXML private Label errorLabel;
+    private ClubAssociateListViewModel viewModel;
 
+    public ClubAssociateListViewController() {
 
-    @FXML private TableColumn nameColumn;
-    @FXML private TableColumn surnameColumn;
-    @FXML private TableColumn typeColumn;
-
+    }
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
         this.viewHandler=viewHandler;

@@ -66,12 +66,4 @@ public class AddClubAssociateViewController extends ViewController
       viewHandler.openView("clubAssociateList");
     }
 
-  public void onEnter()
-  {
-  }
-
-  public void keyTyped()
-  {
-
-  }
 }

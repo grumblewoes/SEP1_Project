@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.ClubAssociateListViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.ClubAssociateListViewController">
     <children>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
             <children>
@@ -46,11 +46,11 @@
                     <children>
                         <ScrollPane prefHeight="200.0" prefWidth="405.0">
                             <content>
-                                <TableView fx:id="eventListTable" prefHeight="200.0" prefWidth="400.0">
+                                <TableView fx:id="eventListTable" prefHeight="200.0" prefWidth="420.0">
                                     <columns>
                                         <TableColumn fx:id="nameColumn" prefWidth="153.05659174919128" text="Name" />
                                         <TableColumn fx:id="surnameColumn" prefWidth="158.49063110351562" text="Surname" />
-                                        <TableColumn fx:id="typeColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Type" />
+                                        <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Status" />
                                     </columns>
                                 </TableView>
                             </content>

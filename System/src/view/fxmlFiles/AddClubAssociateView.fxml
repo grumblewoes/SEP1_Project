@@ -34,7 +34,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="nameField" onAction="#onEnter" onKeyTyped="#keyTyped">
+            <TextField fx:id="nameField">
             </TextField>
          </children>
       </HBox>
@@ -48,7 +48,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="surnameField" onAction="#onEnter" onKeyTyped="#keyTyped">
+            <TextField fx:id="surnameField">
             </TextField>
          </children>
       </HBox>
@@ -62,7 +62,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="idField" onAction="#onEnter" onKeyTyped="#keyTyped">
+            <TextField fx:id="idField" >
             </TextField>
          </children>
       </HBox>
