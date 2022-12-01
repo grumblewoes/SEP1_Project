@@ -1,18 +1,19 @@
 package view.wish;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Wish;
 
 public class WishViewModel
 {
-  private StringProperty
-      titleProperty,
-      votesProperty;
+  private StringProperty titleProperty;
+  private IntegerProperty votesProperty;
 
   public WishViewModel (Wish wish){
     titleProperty = new SimpleStringProperty(wish.getTitle());
-    votesProperty = new SimpleStringProperty(Integer.toString(wish.getVotes()));
+    votesProperty = new SimpleIntegerProperty(wish.getVotes());
   }
 
   public StringProperty getTitleProperty()
@@ -20,5 +21,6 @@ public class WishViewModel
     return titleProperty;
   }
 
-  public StringProperty getVotesProperty(){ return votesProperty; }
+  //requires casting, returns error otherwise.
+  public SimpleIntegerProperty getVotesProperty(){ return (SimpleIntegerProperty) votesProperty; }
 }

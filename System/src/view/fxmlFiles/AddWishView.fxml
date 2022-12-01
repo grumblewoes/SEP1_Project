@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="view.wish.AddWishViewController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
     <children>
         <VBox layoutX="34.0" layoutY="14.0" prefHeight="91.0" prefWidth="532.0">
             <children>
@@ -22,5 +21,6 @@
         </VBox>
         <Button fx:id="cancelButton" layoutX="34.0" layoutY="112.0" mnemonicParsing="false" onAction="#cancelWish" text="Cancel" />
         <Button fx:id="submitButton" layoutX="512.0" layoutY="112.0" mnemonicParsing="false" onAction="#submitWish" text="Submit" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="128.0" layoutY="115.0" prefHeight="18.0" prefWidth="344.0" textFill="RED" />
     </children>
 </AnchorPane>

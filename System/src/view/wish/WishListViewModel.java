@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Wish;
-import view.wish.WishViewModel;
 
 import java.util.ArrayList;
 
@@ -14,7 +13,7 @@ public class WishListViewModel
   private BoardGamesModel model;
 
   public WishListViewModel(BoardGamesModel model){
-    this.model=model;
+    this.model = model;
     this.list = FXCollections.observableArrayList();
     update();
   }
@@ -26,7 +25,7 @@ public class WishListViewModel
   public void update(){
     list.clear();
     ArrayList<Wish> wishes = model.getAllWishes();
-    for(Wish wish : wishes)
+    for (Wish wish : wishes)
       list.add(new WishViewModel(wish));
   }
 
@@ -41,8 +40,5 @@ public class WishListViewModel
         break;
       }
   }
-
-
-
 
 }

@@ -45,10 +45,10 @@
                <children>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <TableView prefHeight="200.0" prefWidth="466.0">
+                        <TableView fx:id="wishTable" prefHeight="200.0" prefWidth="466.0">
                           <columns>
-                            <TableColumn fx:id="tableView" prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="wishName" prefWidth="332.8000114560127" text="Game Title" />
+                            <TableColumn fx:id="wishVotes" minWidth="0.0" prefWidth="75.20001220703125" text="Votes" />
                           </columns>
                         </TableView>
                      </content>
@@ -62,7 +62,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" text="Label" textFill="RED" />
+            <Label fx:id="errorLabel" textFill="RED" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0">
