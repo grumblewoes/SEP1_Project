@@ -45,6 +45,9 @@ public class AddWishViewController extends ViewController {
       viewHandler.openView("wishList");
       reset();
     }
+    else if (name.equals(""))
+      errorLabel.setText("Input is blank. Try again.");
+
     else
       errorLabel.setText("That game is already on the wishlist.");
   }
