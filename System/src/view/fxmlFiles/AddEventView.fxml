@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox stylesheets="@../styles.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.event.AddEventViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.event.AddEventViewController">
     <children>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
             <children>
@@ -54,25 +54,12 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="125.0" prefWidth="100.0">
                      <children>
-                        <Label text="Start hour">
+                        <Label text="Starting time">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="startHourField" prefWidth="150.0" />
-                     </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
-                  </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="125.0" prefWidth="100.0">
-                     <children>
-                        <Label text="End hour">
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="endHourField" prefWidth="150.0" />
+                        <TextField fx:id="startHourField" prefWidth="150.0" promptText="hh:mm / hh.mm / hh.mm" />
                      </children>
                      <padding>
                         <Insets left="20.0" right="20.0" />

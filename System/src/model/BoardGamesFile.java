@@ -12,12 +12,12 @@ public class BoardGamesFile
   public BoardGamesFile(BoardGamesModel model){
     this.model = model;
     this.xml="<root>"
-        + "\n<games>"+
-         "\n</games>"+
-         "\n<wishes>"+
-         "\n</wishes>"+
-         "\n<events>"+
-         "\n</events>"+
+        + "\n <games>"+
+         "\n  </games>"+
+         "\n  <wishes>"+
+         "\n  </wishes>"+
+         "\n  <events>"+
+         "\n  </events>"+
          "\n</root>";
   }
 
@@ -28,17 +28,17 @@ public class BoardGamesFile
     String ratingsTemp = "";
     ArrayList<Rating> ratings = game.getRatings();
     for(Rating rating : ratings)
-      ratingsTemp+="<rating>"+rating.getRating()+"</rating>";
+      ratingsTemp+="\n  <rating>"+rating.getRating()+"</rating>";
 
-    String temp = "\n<game>"+
-        "\n<title>"+game.getTitle()+"</title>"+
-        "\n<numberOfPlayers>"+game.getNumberOfPlayers()+"</numberOfPlayers>"+
-        "\n<type>"+game.getType()+"</type>"+
-        "\n<description>"+game.getDescription()+"</description>"+
-        "\n<borrowedTo>"+game.getBorrowedTo()+"</borrowedTo>"+
-        "\n<owner>"+game.getOwner()+"</owner>"+
-        "\n<ratings>"+ratingsTemp+"</ratings>"+
-        "\n<game>";
+    String temp = "\n <game>"+
+        "\n   <title>"+game.getTitle()+"</title>"+
+        "\n   <numberOfPlayers>"+game.getNumberOfPlayers()+"</numberOfPlayers>"+
+        "\n   <type>"+game.getType()+"</type>"+
+        "\n   <description>"+game.getDescription()+"</description>"+
+        "\n   <borrowedTo>"+game.getBorrowedTo()+"</borrowedTo>"+
+        "\n   <owner>"+game.getOwner()+"</owner>"+
+        "\n   <ratings>"+ratingsTemp+"</ratings>"+
+        "\n </game>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
   }
@@ -46,10 +46,10 @@ public class BoardGamesFile
     String search = "<wishes>";
     int index = xml.indexOf(search);
 
-    String temp = "\n<wish>"+
-        "\n<title>"+wish.getTitle()+"</title>"+
-        "\n<votes>"+wish.getVotes()+"</votes>"+
-        "\n<wish>";
+    String temp = "\n <wish>"+
+        "\n   <title>"+wish.getTitle()+"</title>"+
+        "\n   <votes>"+wish.getVotes()+"</votes>"+
+        "\n  </wish>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
   }
@@ -58,11 +58,11 @@ public class BoardGamesFile
     String search = "<events>";
     int index = xml.indexOf(search);
 
-    String temp = "\n<event>"+
-        "\n<title>"+event.getTitle()+"</title>"+
-        "\n<description>"+event.getDescription()+"</description>"+
-        "\n<date>"+event.getStringDate()+"</date>"+
-        "\n<event>";
+    String temp = "\n <event>"+
+        "\n   <title>"+event.getTitle()+"</title>"+
+        "\n   <description>"+event.getDescription()+"</description>"+
+        "\n   <date>"+event.getStringDate()+"</date>"+
+        "\n </event>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
   }

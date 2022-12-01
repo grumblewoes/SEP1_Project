@@ -12,14 +12,16 @@ import view.ViewController;
 import view.ViewHandler;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.Chronology;
 
 public class AddEventViewController extends ViewController
 {
 
   @FXML private TextField
       titleField,
-      startHourField,
-      endHourField;
+      startHourField;
 
   @FXML private TextArea descriptionArea;
 
@@ -31,27 +33,42 @@ public class AddEventViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    reset();
   }
 
   public void reset(){
     titleField.setText("");
     startHourField.setText("");
-    endHourField.setText("");
     descriptionArea.setText("");
     errorLabel.setText("");
-    datePicker.getEditor().setText("");
+    datePicker.setValue(LocalDate.now());
   }
 
+  private int[] convertStartInput(){
+    String value = startHourField.getText();
+
+    if(
+        !value.matches("(2[0-3])|([0-1][0-9])[.,:]([0-5][0-9])")
+    ) throw new IllegalArgumentException("Given pattern does not match the criteria!");
+
+    //version v2.0 h:mm | hh:m
+    int h = Integer.parseInt( value.substring(0, 2  ) );
+    int m = Integer.parseInt( value.substring(value.length()-2) );
+
+    return new int[]{h,m};
+  }
 
   @FXML private void submitBtnClicked(){
     String title = titleField.getText();
-    String startHour = startHourField.getText();
-    String endHour = endHourField.getText();
     String description = descriptionArea.getText();
     LocalDate date = datePicker.getValue();
 
+
     try{
-      model.addEvent( new Event(title,description,date) );
+      int[] arr = convertStartInput();
+      LocalTime time = LocalTime.of(arr[0],arr[1]);
+      LocalDateTime dateTime = LocalDateTime.of(date,time);
+      model.addEvent( new Event(title,description,dateTime) );
 
       cancelBtnClicked();
     }catch (Exception e){

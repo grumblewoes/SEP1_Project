@@ -1,13 +1,13 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Event
 {
   private String title, description;
-  private LocalDate dateTime;
+  private LocalDateTime dateTime;
 
-  public Event( String title, String description, LocalDate dateTime){
+  public Event( String title, String description, LocalDateTime dateTime){
     setTitle(title);
     setDescription(description);
 
@@ -23,7 +23,10 @@ public class Event
     return
       dateTime.getDayOfMonth()+"/"+
       + dateTime.getMonthValue()+"/"+
-      + dateTime.getYear();}
+      + dateTime.getYear()+" "
+      + dateTime.getHour()+":"+
+      + dateTime.getMinute();
+  }
   public void setTitle(String title){ this.title = title; }
   //some validation later? no null or empty string
 
