@@ -10,6 +10,9 @@ import view.ViewController;
 import view.ViewHandler;
 import model.BoardGamesModel;
 
+import java.io.File;
+import java.io.PrintWriter;
+
 public class WishListViewController extends ViewController {
 
     @FXML
