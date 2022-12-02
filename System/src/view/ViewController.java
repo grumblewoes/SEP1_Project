@@ -19,11 +19,6 @@ public abstract class ViewController implements Serializable
 
   public BoardGamesModel getModel() { return model; }
 
-  public void setRoot(Region root) { this.root = root; }
-
-  public void setViewHandler(ViewHandler viewHandler) { this.viewHandler = viewHandler; }
-
-  public void setModel(BoardGamesModel model) { this.model = model; }
 
   public abstract void reset();
 

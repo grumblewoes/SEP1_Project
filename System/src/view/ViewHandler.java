@@ -28,7 +28,9 @@ public class ViewHandler implements Serializable
       gameListViewController,
       clubAssociateListViewController,
       gameDetailsViewController,
-      wishListViewController;
+      wishListViewController,
+      borrowViewController,
+      returnViewController;
 
 
   public ViewHandler(BoardGamesModel model)
@@ -71,7 +73,7 @@ public class ViewHandler implements Serializable
         root = addWishViewController.getRoot();
         break;
       case "addGame":
-        addGameViewController = loadViewController("AddWishView.fxml", addGameViewController);
+        addGameViewController = loadViewController("AddGameView.fxml", addGameViewController);
         root = addGameViewController.getRoot();
         break;
       case "gameList":
