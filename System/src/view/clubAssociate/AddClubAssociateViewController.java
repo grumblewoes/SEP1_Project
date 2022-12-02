@@ -43,7 +43,7 @@ public class AddClubAssociateViewController extends ViewController
     errorLabel.setText("");
     try
     {
-      //tp be updated...
+      //to be updated...
       RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
 
       ClubAssociate associate = new ClubAssociate(

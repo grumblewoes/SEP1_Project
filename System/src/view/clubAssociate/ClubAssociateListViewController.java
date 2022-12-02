@@ -15,7 +15,7 @@ public class ClubAssociateListViewController extends ViewController
 {
     @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
     @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;
-    @FXML private TableColumn<ClubAssociateViewModel, String> surnameColumn;
+    @FXML private TableColumn<ClubAssociateViewModel, Number> schoolIdColumn;
     @FXML private TableColumn<ClubAssociateViewModel, String> statusColumn;
     @FXML private Label errorLabel;
     private ClubAssociateListViewModel viewModel;
