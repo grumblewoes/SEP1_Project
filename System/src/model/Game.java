@@ -56,9 +56,9 @@ public class Game
     return description;
   }
 
-  public ClubAssociate getBorrowedTo()
+  public String getBorrowedTo()
   {
-    return borrowedTo;
+    return borrowedTo.getName();
   }
 
   public void setBorrowedTo(ClubAssociate borrowedTo)
@@ -70,9 +70,9 @@ public class Game
     this.borrowedFrom = borrowedFrom;
   }
 
-  public ClubAssociate getOwner()
+  public String getOwner()
   {
-    return owner;
+    return owner.getName();
   }
 
   public LocalDate getBorrowedFrom()

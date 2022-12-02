@@ -7,9 +7,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Reservation;
+import view.ViewController;
 import view.ViewHandler;
 
-public class AddReservationViewController
+public class AddReservationViewController extends ViewController
 {
   @FXML private DatePicker datePicker;
   @FXML private Label errorLabel;
