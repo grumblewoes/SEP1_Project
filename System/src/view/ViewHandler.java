@@ -66,6 +66,22 @@ public class ViewHandler
         addWishViewController = loadViewController("AddWishView.fxml", addWishViewController);
         root = addWishViewController.getRoot();
         break;
+      case "addGame":
+        addGameViewController = loadViewController("AddWishView.fxml", addGameViewController);
+        root = addGameViewController.getRoot();
+        break;
+      case "gameList":
+        gameListViewController = loadViewController("GameListView.fxml", gameListViewController);
+        root = gameListViewController.getRoot();
+        break;
+      case "addReservation":
+        addReservationViewController = loadViewController("AddReservationView.fxml", addReservationViewController);
+        root = addReservationViewController.getRoot();
+        break;
+      case "gameDetails":
+        gameDetailsViewController = loadViewController("GameDetailsView.fxml", gameDetailsViewController);
+        root = gameDetailsViewController.getRoot();
+        break;
       default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);
         root = mainViewController.getRoot();

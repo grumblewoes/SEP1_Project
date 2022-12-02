@@ -46,7 +46,7 @@ public class BoardGamesModelManager implements BoardGamesModel
 
   public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservation(); }
 
-  public void addClubAssociate(ClubAssociate associate){ clubAssociateList.addClubAssociate( associate ); }
+  public void addClubAssociate(ClubAssociate associate){ clubAssociateList.addClubAssociate(associate); }
 
   public void updateClubAssociate(int id){ clubAssociateList.updateClubAssociate(id); }
 

@@ -28,6 +28,8 @@ public class AddClubAssociateViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+
+    reset();
   }
   public void reset() {
     nameField.setText("");
@@ -52,7 +54,7 @@ public class AddClubAssociateViewController extends ViewController
           Integer.parseInt(idField.getText()),
           !"guestRadioBtn".equals(membershipGroupBtn.getId())
         );
-
+//
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");

@@ -30,6 +30,13 @@ public class ClubAssociateListViewController extends ViewController
         this.root=root;
 
         this.viewModel = new ClubAssociateListViewModel(model);
+        nameColumn.setCellValueFactory(
+            cellData -> cellData.getValue().getNameProperty());
+        schoolIdColumn.setCellValueFactory(
+            cellData -> cellData.getValue().getSchoolIdProperty());
+        statusColumn.setCellValueFactory(cellData -> cellData.getValue().getIsMemberProperty());
+
+        clubAssociatesListTable.setItems(viewModel.getList());
     }
 
     public void reset(){

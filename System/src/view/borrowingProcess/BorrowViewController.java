@@ -4,31 +4,22 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Reservation;
+import view.ViewController;
 import view.ViewHandler;
 
 import java.time.LocalDate;
 
-public class BorrowViewController
+public class BorrowViewController extends ViewController
 {
-  private Region root;
-  private BoardGamesModel model;
-  private ViewHandler viewHandler;
-
-  public BorrowViewController()
+  @Override public void reset()
   {
-    // Called by FXMLLoader
+
   }
 
-  public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
-  {
-    this.model = model;
-    this.viewHandler = viewHandler;
-    this.root = root;
-    reset();
-  }
-
-  public void reset()
-  {
+  @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
+    setRoot(root);
+    setViewHandler(viewHandler);
+    setModel(model);
   }
 
   public Region getRoot()
@@ -36,20 +27,8 @@ public class BorrowViewController
     return root;
   }
 
-  @FXML private void changeBorrowButton()
+  @FXML private void borrowGameButton()
   {
-//    errorLabel.setText("");
-    try
-    {
-//      Reservation reservation = new Reservation(LocalDate.now());
-//      model.addReservation(reservation);
-//      errorLabel.setText("Success");
-      viewHandler.openView("reservationsList");
-    }
-    catch (Exception e)
-    {
-//      errorLabel.setText(e.getMessage());
-    }
 
   }
 }

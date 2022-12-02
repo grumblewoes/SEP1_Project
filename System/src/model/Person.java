@@ -8,7 +8,9 @@ public abstract class Person
     this.name=name;
   }
 
-  public abstract String getName();
+  public String getFullName(){
+    return name.getFullName();
+  }
 
   public boolean equals (Object obj) {
     if (obj == null || getClass() != obj.getClass()) {

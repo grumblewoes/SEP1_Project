@@ -46,7 +46,7 @@
                     <children>
                         <ScrollPane prefHeight="200.0" prefWidth="405.0">
                             <content>
-                                <TableView fx:id="eventListTable" prefHeight="200.0" prefWidth="420.0">
+                                <TableView fx:id="clubAssociatesListTable" prefHeight="200.0" prefWidth="420.0">
                                     <columns>
                                         <TableColumn fx:id="nameColumn" prefWidth="153.05659174919128" text="Name" />
                                         <TableColumn fx:id="surnameColumn" prefWidth="158.49063110351562" text="Surname" />
