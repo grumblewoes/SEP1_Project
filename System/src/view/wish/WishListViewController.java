@@ -13,12 +13,6 @@ import model.BoardGamesModel;
 public class WishListViewController extends ViewController {
 
     @FXML
-    private Button addVoteBtn;
-    @FXML
-    private Button addWishBtn;
-    @FXML
-    private Button backBtn;
-    @FXML
     private Label errorLabel;
     @FXML
     private TableColumn<WishViewModel, String> wishName;
@@ -46,7 +40,7 @@ public class WishListViewController extends ViewController {
 
     //adds vote to currently selected table row. get() is there to convert SimpleStringProperty to String
     @FXML
-    void addVote(ActionEvent event) {
+    public void addVote() {
         WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
         //display error if voting with a null selection. not the right way to do it currently
         if (wishView == null) {
@@ -60,12 +54,12 @@ public class WishListViewController extends ViewController {
     }
 
     @FXML
-    void addWish(ActionEvent event) {
+    public void addWish() {
         viewHandler.openView("addWish");
     }
 
     @FXML
-    void goBack(ActionEvent event) {
+    public void goBack() {
         viewHandler.openView("menu");
     }
 

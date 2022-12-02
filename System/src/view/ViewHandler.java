@@ -26,7 +26,9 @@ public class ViewHandler
       gameListViewController,
       clubAssociateListViewController,
       gameDetailsViewController,
-      wishListViewController;
+      wishListViewController,
+      borrowViewController,
+      returnViewController;
 
 
   public ViewHandler(BoardGamesModel model)
