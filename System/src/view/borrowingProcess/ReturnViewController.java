@@ -3,6 +3,7 @@ package view.borrowingProcess;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import model.Game;
 import model.Rating;
 import view.ViewController;
 import view.ViewHandler;
@@ -37,7 +38,18 @@ public class ReturnViewController extends ViewController
     return Rating.LEGAL_RATINGS[4];
   }
 
+
   @FXML private void returnGameButton(){
+    int StarRating[] = {oneStar(),twoStars(),threeStars(),fourStars(),fiveStars()};
+    Game game =new Game("",null,"","","");
+    switch (StarRating.length){
+      case 0:new Rating(oneStar());break;
+      case 1:new Rating(twoStars());break;
+      case 2:new Rating(threeStars());break;
+      case 3:new Rating(fourStars());break;
+      case 4:new Rating(fiveStars());break;
+      default:game.isAvailable();
+    }
   }
   @FXML private void cancelButton(){}
 }

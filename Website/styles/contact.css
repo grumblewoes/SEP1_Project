@@ -1,0 +1,17 @@
+/* Jakub Cerovsky */
+.mailto{
+  text-decoration: none;
+  color: #000000;
+/*   mailto links will be displayed as normal text */
+}
+.contactPhoto{
+  width: 100%;
+  max-width: 315px; 
+/*   pictures of people will cover 100% width of column while being maximum 320px */
+  height: auto;
+  border-radius: 15%;
+}
+.contact-box{
+  background:transparent;
+}
+

@@ -28,6 +28,8 @@ public class AddClubAssociateViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+
+    reset();
   }
   public void reset() {
     nameField.setText("");
@@ -41,7 +43,7 @@ public class AddClubAssociateViewController extends ViewController
     errorLabel.setText("");
     try
     {
-      //tp be updated...
+      //to be updated...
       RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
 
       ClubAssociate associate = new ClubAssociate(
@@ -52,7 +54,7 @@ public class AddClubAssociateViewController extends ViewController
           Integer.parseInt(idField.getText()),
           !"guestRadioBtn".equals(membershipGroupBtn.getId())
         );
-
+//
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");

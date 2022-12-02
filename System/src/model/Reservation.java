@@ -18,7 +18,7 @@ public class Reservation
 
   public String getAssociateName()
   {
-    return associate.getName();
+    return associate.getFullName();
   }
 
   public String getGameTitle()

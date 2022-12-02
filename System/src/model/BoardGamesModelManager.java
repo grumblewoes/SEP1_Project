@@ -11,7 +11,7 @@ public class BoardGamesModelManager implements BoardGamesModel
   private EventList eventList;
 
   private BoardGamesFile fileManager;
-  private final static String XML_FILE_PATH = "./System/src/xml/ModelData.xml";
+
 
   public BoardGamesModelManager(){
     wishList = new WishList();
@@ -46,7 +46,7 @@ public class BoardGamesModelManager implements BoardGamesModel
 
   public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservation(); }
 
-  public void addClubAssociate(ClubAssociate associate){ clubAssociateList.addClubAssociate( associate ); }
+  public void addClubAssociate(ClubAssociate associate){ clubAssociateList.addClubAssociate(associate); }
 
   public void updateClubAssociate(int id){ clubAssociateList.updateClubAssociate(id); }
 
@@ -63,6 +63,6 @@ public class BoardGamesModelManager implements BoardGamesModel
   public int getNumberOfEvents(){ return eventList.getNumberOfEvents(); }
 
   public boolean generateModelDataFile(){
-    return fileManager.createFile(XML_FILE_PATH);
+    return fileManager.createFile();
   }
 }

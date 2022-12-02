@@ -3,9 +3,7 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.BoardGamesModel;
-import model.Event;
 import model.Game;
-import view.event.EventViewModel;
 
 import java.util.ArrayList;
 
@@ -29,5 +27,6 @@ public class GameListViewModel
     for(Game game : games)
       list.add(new GameViewModel(game));
   }
-
+  public void add(Game game){list.add(new GameViewModel(game));}
+  public void remove(Game game){list.remove(game);}
 }

@@ -1,0 +1,43 @@
+/* .game{
+  background-color:white;
+  width:100%;
+  overflow:auto;
+  padding:1rem 0.5rem;
+  margin:1rem 0;
+} */
+
+.game img{
+  object-fit: cover;
+  object-position: center;
+}
+
+/* .game info{
+  min-width:80%;
+  float:left;
+} */
+
+
+.game .info p:not(p.description){
+  border:1px solid gray;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+  float:left;
+
+  cursor: default;
+  transition:  background-color .25s ease-in-out,
+                color .25s ease-in-out;
+}
+
+.game .info p:not(p.description):hover{
+  background-color: gray;
+  color:white;
+}
+
+
+
+.game .info p.description{
+  clear:both;
+  padding:5px;
+  margin:5px;
+}

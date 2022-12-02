@@ -1,0 +1,70 @@
+/*events.css was written by Catarina de Jesus*/
+*{
+  box-sizing: border-box;
+}
+
+/*Work on the main title*/
+h1{
+  font-size:38px;
+  text-align: center;
+
+}
+
+/*Work on the subtitle*/
+h3{
+  font-size:23px;
+  text-align:center;
+}
+
+/*Using the bigBox id to establish characteristics I want this area to have*/ 
+/* #bigBox{
+  height: auto;
+  width:100%;
+  overflow:auto;
+} */
+
+
+
+/*Using leftBox id to establish characteristics I want the left area to have*/
+/* #leftBox{
+  height:auto;
+  width:47%;
+  float:left;
+  margin:20px;
+  text-align:center;
+  border-style:groove;
+  padding:10px;
+  
+} */
+
+/*Using rightBox id to establish characteristics I want the right area to have*/
+/* #rightBox{
+  height:auto;
+  width:47%;
+  float:right;
+  margin:20px;
+  border-style:groove;
+  padding: 10px;
+} */
+
+/*Using the id's from different pieces of information to styling according to different preferences(eg create a border around each one for aesthetic purposes)*/
+/* #left1, #left2, #left3{
+  border-style:solid;
+  padding:30px;  
+  width:auto;
+  height:auto;
+  background:white;
+  justify-content: flex-start;
+} */
+
+
+/* #right1, #right2, #right3, #right4, #right5, #right6, #right7{
+  border-style:solid;
+  padding: 30px;
+  width: auto;
+  height:auto;
+  background:white;
+  justify-content: flex-end;
+} */
+
+ 

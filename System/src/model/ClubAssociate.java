@@ -5,14 +5,16 @@ public class ClubAssociate extends Person
   private int schoolId;
   private Name name;
   private boolean isMember;
+
+
   public ClubAssociate(Name name, int schoolId, boolean isMember) {
     super(name);
     this.schoolId = schoolId;
     this.isMember = isMember;
   }
-  @Override public String getName()
+  public String getName()
   {
-    return name.getFullName();
+    return getFullName();
   }
   public boolean isMember() {
     return isMember;

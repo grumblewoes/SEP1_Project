@@ -15,7 +15,7 @@ public class Name
   public String getFirstName() {
     return firstName;
   }
-  public String getLastName () {
+  public String getLastName() {
     return lastName;
   }
   public boolean equals (Object obj) {
