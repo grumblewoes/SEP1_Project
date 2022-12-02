@@ -17,14 +17,9 @@ public class BorrowViewController extends ViewController
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
-  }
-
-  public Region getRoot()
-  {
-    return root;
+    this.root=root;
+    this.viewHandler=viewHandler;
+    this.model=model;
   }
 
   @FXML private void borrowGameButton()

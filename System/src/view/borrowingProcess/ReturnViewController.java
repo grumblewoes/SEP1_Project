@@ -18,9 +18,9 @@ public class ReturnViewController extends ViewController
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
+    this.root=root;
+    this.viewHandler=viewHandler;
+    this.model=model;
   }
   @FXML private int oneStar(){
     return Rating.LEGAL_RATINGS[0];
@@ -51,5 +51,7 @@ public class ReturnViewController extends ViewController
       default:game.isAvailable();
     }
   }
-  @FXML private void cancelButton(){}
+  @FXML private void goBack(){
+    viewHandler.openView("main");
+  }
 }

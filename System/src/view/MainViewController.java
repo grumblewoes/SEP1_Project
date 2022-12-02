@@ -1,6 +1,7 @@
 package view;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 
@@ -17,32 +18,27 @@ public class MainViewController extends  ViewController
 
   }
 
-  public void gamesBtnClicked()
+  @FXML public void gamesBtnClicked()
   {
     viewHandler.openView("gameList");
   }
 
-  public void clubAssociateBtnClicked()
+  @FXML public void clubAssociateBtnClicked()
   {
     viewHandler.openView("clubAssociateList");
   }
 
-  public void wishListBtnClicked()
+  @FXML public void wishListBtnClicked()
   {
     viewHandler.openView("wishList");
   }
 
-  public void eventsBtnClicked()
+  @FXML public void eventsBtnClicked()
   {
     viewHandler.openView("eventList");
   }
 
-  public void updateWebsiteBtnClicked()
-  {
-    model.generateModelDataFile();
-  }
-
-  public void exitBtnClicked()
+  @FXML public void exitBtnClicked()
   {
     viewHandler.closeView();
   }

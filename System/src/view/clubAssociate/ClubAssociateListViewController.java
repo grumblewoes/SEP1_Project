@@ -20,9 +20,6 @@ public class ClubAssociateListViewController extends ViewController
     @FXML private Label errorLabel;
     private ClubAssociateListViewModel viewModel;
 
-    public ClubAssociateListViewController() {
-
-    }
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
         this.viewHandler=viewHandler;
@@ -50,11 +47,6 @@ public class ClubAssociateListViewController extends ViewController
     }
 
     public void toggleMembershipBtnClicked()
-    {
-
-    }
-
-    public void detailsBtnClicked()
     {
 
     }
