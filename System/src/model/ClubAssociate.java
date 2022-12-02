@@ -9,6 +9,7 @@ public class ClubAssociate extends Person
 
   public ClubAssociate(Name name, int schoolId, boolean isMember) {
     super(name);
+
     this.schoolId = schoolId;
     this.isMember = isMember;
   }

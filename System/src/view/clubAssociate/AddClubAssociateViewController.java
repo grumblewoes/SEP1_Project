@@ -59,10 +59,13 @@ public class AddClubAssociateViewController extends ViewController
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");
     }
-    catch (Exception e)
-    {
-      errorLabel.setText(e.getMessage());
+    catch (IllegalArgumentException e) {
+      errorLabel.setText("");
     }
+//    catch (Exception e)
+//    {
+//      errorLabel.setText("It should be a number");
+//    }
   }
     @FXML private void cancelClubAssociateBtnClicked() {
       viewHandler.openView("clubAssociateList");

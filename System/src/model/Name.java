@@ -6,6 +6,12 @@ public class Name
   private String lastName;
 
   public Name(String firstName, String lastName) {
+    if (firstName == null || firstName.isEmpty()) {
+      throw new IllegalArgumentException("Write the Name");
+    }
+    if (lastName == null || lastName.isEmpty()) {
+      throw new IllegalArgumentException("Write the Surname");
+    }
     this.firstName = firstName;
     this.lastName = lastName;
   }
