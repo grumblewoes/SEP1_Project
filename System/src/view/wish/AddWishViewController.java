@@ -9,6 +9,7 @@ import model.BoardGamesModel;
 import view.ViewController;
 import view.ViewHandler;
 import model.Wish;
+import model.BoardGamesFile;
 
 //Anna P
 //for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
@@ -22,10 +23,13 @@ public class AddWishViewController extends ViewController {
   @FXML
   private Label errorLabel;
 
+  private BoardGamesFile file;
+
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    file = new BoardGamesFile(this.model);
   }
 
   public void reset () {
@@ -40,8 +44,9 @@ public class AddWishViewController extends ViewController {
     //checks if wishlist already has the specified game
     if (!model.getAllWishes().contains(model.getWishByTitle(name)) && !name.equals(""))
     {
-      model.addWish(new Wish(name));
-      //WishList in model is updating, but screen is not. find a way to connect WishListViewModel here to update on screen
+      Wish wish = new Wish(name);
+      model.addWish(wish);
+
       viewHandler.openView("wishList");
       reset();
     }

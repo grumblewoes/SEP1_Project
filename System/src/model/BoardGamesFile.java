@@ -11,17 +11,10 @@ public class BoardGamesFile
 
   public BoardGamesFile(BoardGamesModel model){
     this.model = model;
-    this.xml="<root>"
-        + "\n <games>"+
-         "\n  </games>"+
-         "\n  <wishes>"+
-         "\n  </wishes>"+
-         "\n  <events>"+
-         "\n  </events>"+
-         "\n</root>";
   }
 
-  private void addGame(Game game){
+  public void addGame(Game game){
+    String xml = getContextFromDatabase();
     String search = "<games>";
     int index = xml.indexOf(search);
 
@@ -42,7 +35,8 @@ public class BoardGamesFile
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
   }
-  private void addWish(Wish wish){
+  public void addWish(Wish wish){
+    String xml = getContextFromDatabase();
     String search = "<wishes>";
     int index = xml.indexOf(search);
 
@@ -54,7 +48,8 @@ public class BoardGamesFile
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
   }
 
-  private void addEvent(Event event){
+  public void addEvent(Event event){
+    String xml = getContextFromDatabase();
     String search = "<events>";
     int index = xml.indexOf(search);
 
