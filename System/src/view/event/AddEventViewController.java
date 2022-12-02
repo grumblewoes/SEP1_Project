@@ -17,8 +17,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.chrono.Chronology;
 
-public class AddEventViewController extends ViewController implements
-    Serializable
+public class AddEventViewController extends ViewController
 {
 
   @FXML private TextField
@@ -50,7 +49,7 @@ public class AddEventViewController extends ViewController implements
     String value = startHourField.getText();
 
     if(
-        !value.matches("(2[0-3])|([0-1][0-9])[.,:]([0-5][0-9])")
+        !value.matches("((2[0-3])|([0-1][0-9]))[.,:]([0-5][0-9])")
     ) throw new IllegalArgumentException("Given pattern does not match the criteria!");
 
     //version v2.0 h:mm | hh:m

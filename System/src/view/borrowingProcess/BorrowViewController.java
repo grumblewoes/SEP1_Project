@@ -10,7 +10,7 @@ import view.ViewHandler;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class BorrowViewController extends ViewController implements Serializable
+public class BorrowViewController extends ViewController
 {
   @Override public void reset()
   {

@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class ClubAssociate extends Person implements Serializable
+public class ClubAssociate extends Person
 {
   private int schoolId;
   private Name name;

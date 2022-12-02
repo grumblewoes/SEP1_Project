@@ -13,8 +13,7 @@ import view.ViewHandler;
 
 import java.io.Serializable;
 
-public class AddClubAssociateViewController extends ViewController implements
-    Serializable
+public class AddClubAssociateViewController extends ViewController
 {
   @FXML private TextField nameField;
   @FXML private TextField surnameField;

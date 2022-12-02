@@ -12,8 +12,7 @@ import view.ViewHandler;
 
 import java.io.Serializable;
 
-public class AddReservationViewController extends ViewController implements
-    Serializable
+public class AddReservationViewController extends ViewController
 {
   @FXML private DatePicker datePicker;
   @FXML private Label errorLabel;

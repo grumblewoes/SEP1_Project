@@ -2,7 +2,6 @@ package model;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BoardGamesFile implements Serializable
 {

@@ -11,8 +11,7 @@ import view.ViewHandler;
 import java.io.Serializable;
 import java.util.Optional;
 
-public class EventListViewController extends ViewController implements
-    Serializable
+public class EventListViewController extends ViewController
 {
   @FXML private TableView<EventViewModel> eventListTable;
   @FXML private TableColumn<EventViewModel,String> titleColumn;

@@ -11,8 +11,7 @@ import java.util.Optional;
 
 import java.io.Serializable;
 
-public class GameListViewController extends ViewController implements
-    Serializable
+public class GameListViewController extends ViewController
 {
     @FXML private Label errorLabel;
     @FXML private TableView<GameViewModel> gameListTable;

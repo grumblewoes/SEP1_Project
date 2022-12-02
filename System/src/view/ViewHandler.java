@@ -112,7 +112,7 @@ public class ViewHandler implements Serializable
     String relativePath = "./fxmlFiles/";
     if (controller == null)
     {
-      System.out.println("loading a new controller..."+controller);
+      System.out.println("loading a new controller... "+controller);
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -128,7 +128,7 @@ public class ViewHandler implements Serializable
     }
     else
     {
-      System.out.println("reusing a controller..."+controller);
+      System.out.println("reusing a controller... "+controller);
       controller.reset();
     }
     return controller;

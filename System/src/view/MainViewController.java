@@ -6,7 +6,7 @@ import model.BoardGamesModel;
 
 import java.io.Serializable;
 
-public class MainViewController extends  ViewController implements Serializable
+public class MainViewController extends  ViewController
 {
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
     this.viewHandler=viewHandler;

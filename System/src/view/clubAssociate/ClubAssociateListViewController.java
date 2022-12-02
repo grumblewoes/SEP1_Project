@@ -13,8 +13,7 @@ import view.ViewHandler;
 
 import java.io.Serializable;
 
-public class ClubAssociateListViewController extends ViewController implements
-    Serializable
+public class ClubAssociateListViewController extends ViewController
 {
     @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
     @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;

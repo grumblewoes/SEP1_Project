@@ -2,6 +2,6 @@ package view;
 
 import java.io.Serializable;
 
-public class GameDetailsViewController implements Serializable
+public class GameDetailsViewController
 {
 }
