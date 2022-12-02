@@ -1,17 +1,18 @@
 package view;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import view.clubAssociate.ClubAssociateListViewModel;
 import view.clubAssociate.ClubAssociateViewModel;
+import view.event.EventViewModel;
+
+import java.util.Optional;
 
 public class GameListViewController extends ViewController
 {
+    @FXML private Label errorLabel;
     @FXML private TableView<GameViewModel> gameListTable;
     @FXML private TableColumn<GameViewModel, String> titleColumn;
     @FXML private TableColumn<GameViewModel, String> ownerColumn;
@@ -45,8 +46,30 @@ public class GameListViewController extends ViewController
     }
 
     @FXML
-    public void borrowGame(ActionEvent event) {
+    public void removeGame(ActionEvent event) {
+        errorLabel.setText("");
+        try{
+            GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
+            boolean remove = confirmation();
+            if(remove){
+                model.removeEvent(selectedItem.getTitleProperty().get());
+                viewModel.remove(selectedItem.getTitleProperty().get());
+                gameListTable.getSelectionModel().clearSelection();
+            }
+        }catch(Exception e){
+            errorLabel.setText("Exception:" + e.getMessage());
+        }
+    }
+    private boolean confirmation(){
+        int index = gameListTable.getSelectionModel().getSelectedIndex();
+        GameViewModel selectedItem= gameListTable.getItems().get(index);
+        if (index < 0 || index >= gameListTable.getItems().size())  return false;
 
+        Alert alert= new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Removing Game {" + selectedItem.getTitleProperty().get() + ": "+ selectedItem.getOwnerProperty().get() + "}");
+        Optional<ButtonType> result = alert.showAndWait();
+        return (result.isPresent())&&(result.get()==ButtonType.OK);
     }
 
     @FXML
@@ -55,13 +78,8 @@ public class GameListViewController extends ViewController
     }
 
     @FXML
-    public void reserveGame(ActionEvent event) {
-
-    }
-
-    @FXML
-    public void returnGame(ActionEvent event) {
-
+    public void getDetails(ActionEvent event) {
+        viewHandler.openView("gameDetails");
     }
 
 }
