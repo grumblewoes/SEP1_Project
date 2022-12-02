@@ -18,9 +18,9 @@ public class BorrowViewController extends ViewController implements Serializable
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
+    this.viewHandler=viewHandler;
+    this.model=model;
+    this.root=root;
   }
 
   public Region getRoot()

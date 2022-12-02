@@ -19,9 +19,9 @@ public class ReturnViewController extends ViewController implements Serializable
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
-    setRoot(root);
-    setViewHandler(viewHandler);
-    setModel(model);
+    this.viewHandler=viewHandler;
+    this.model=model;
+    this.root=root;
   }
   @FXML private int oneStar(){
     return Rating.LEGAL_RATINGS[0];
