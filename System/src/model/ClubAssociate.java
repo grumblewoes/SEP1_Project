@@ -1,6 +1,8 @@
 package model;
 
-public class ClubAssociate extends Person
+import java.io.Serializable;
+
+public class ClubAssociate extends Person implements Serializable
 {
   private int schoolId;
   private Name name;

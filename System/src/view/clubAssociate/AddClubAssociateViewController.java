@@ -11,8 +11,10 @@ import model.Name;
 import view.ViewController;
 import view.ViewHandler;
 
+import java.io.Serializable;
 
-public class AddClubAssociateViewController extends ViewController
+public class AddClubAssociateViewController extends ViewController implements
+    Serializable
 {
   @FXML private TextField nameField;
   @FXML private TextField surnameField;

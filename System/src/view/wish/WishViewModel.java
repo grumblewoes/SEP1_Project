@@ -6,7 +6,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Wish;
 
-public class WishViewModel
+import java.io.Serializable;
+
+public class WishViewModel implements Serializable
 {
   private StringProperty titleProperty;
   private IntegerProperty votesProperty;

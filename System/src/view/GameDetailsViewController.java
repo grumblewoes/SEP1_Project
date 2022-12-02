@@ -1,5 +1,7 @@
 package view;
 
-public class GameDetailsViewController
+import java.io.Serializable;
+
+public class GameDetailsViewController implements Serializable
 {
 }

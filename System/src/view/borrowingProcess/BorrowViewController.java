@@ -7,9 +7,10 @@ import model.Reservation;
 import view.ViewController;
 import view.ViewHandler;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class BorrowViewController extends ViewController
+public class BorrowViewController extends ViewController implements Serializable
 {
   @Override public void reset()
   {

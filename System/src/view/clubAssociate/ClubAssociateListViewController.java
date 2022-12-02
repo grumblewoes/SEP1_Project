@@ -11,7 +11,10 @@ import model.BoardGamesModel;
 import view.ViewController;
 import view.ViewHandler;
 
-public class ClubAssociateListViewController extends ViewController
+import java.io.Serializable;
+
+public class ClubAssociateListViewController extends ViewController implements
+    Serializable
 {
     @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
     @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;

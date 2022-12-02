@@ -4,7 +4,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Event;
 
-public class EventViewModel
+import java.io.Serializable;
+
+public class EventViewModel implements Serializable
 {
   private StringProperty
       titleProperty,

@@ -1,9 +1,11 @@
 package model;
 
+import view.ViewHandler;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public interface BoardGamesModel extends Serializable
+public interface BoardGamesModel
 {
   public void addWish(Wish wish);
   public void voteForWish(Wish wish);
@@ -26,5 +28,5 @@ public interface BoardGamesModel extends Serializable
   public void removeEvent(String title);
   public int getNumberOfEvents();
   public ArrayList<Event> getAllEvents();
-  public boolean generateModelDataFile();
+  public BoardGamesFile getFileManager();
 }

@@ -3,7 +3,9 @@ package view;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 
-public abstract class ViewController
+import java.io.Serializable;
+
+public abstract class ViewController implements Serializable
 {
   protected Region root;
 

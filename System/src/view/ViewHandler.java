@@ -8,7 +8,9 @@ import model.BoardGamesModel;
 import view.event.AddEventViewController;
 import view.event.EventListViewController;
 
-public class ViewHandler
+import java.io.Serializable;
+
+public class ViewHandler implements Serializable
 {
   private Scene currentScene;
   private Stage primaryStage;
@@ -34,6 +36,8 @@ public class ViewHandler
     this.model=model;
     this.currentScene= new Scene(new Region());
   }
+
+
   public void start(Stage primaryStage){
     this.primaryStage= primaryStage;
     openView("menu");

@@ -10,7 +10,11 @@ import view.ViewController;
 import view.ViewHandler;
 import model.BoardGamesModel;
 
-public class WishListViewController extends ViewController {
+import java.io.Serializable;
+
+public class WishListViewController extends ViewController implements
+    Serializable
+{
 
     @FXML
     private Button addVoteBtn;

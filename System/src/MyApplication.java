@@ -8,8 +8,10 @@ public class MyApplication extends Application
 {
   public void start(Stage primaryStage)
   {
-    BoardGamesModel model = new BoardGamesModelManager();
+    BoardGamesModel model = new BoardGamesModelManager().getFileManager().importModelFromDatabase();
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);
+
+
   }
 }

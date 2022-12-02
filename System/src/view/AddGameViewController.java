@@ -1,5 +1,7 @@
 package view;
 
-public class AddGameViewController
+import java.io.Serializable;
+
+public class AddGameViewController implements Serializable
 {
 }

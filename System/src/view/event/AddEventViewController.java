@@ -11,12 +11,14 @@ import model.Event;
 import view.ViewController;
 import view.ViewHandler;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.chrono.Chronology;
 
-public class AddEventViewController extends ViewController
+public class AddEventViewController extends ViewController implements
+    Serializable
 {
 
   @FXML private TextField

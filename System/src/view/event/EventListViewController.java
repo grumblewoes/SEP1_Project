@@ -8,9 +8,11 @@ import model.BoardGamesModel;
 import view.ViewController;
 import view.ViewHandler;
 
+import java.io.Serializable;
 import java.util.Optional;
 
-public class EventListViewController extends ViewController
+public class EventListViewController extends ViewController implements
+    Serializable
 {
   @FXML private TableView<EventViewModel> eventListTable;
   @FXML private TableColumn<EventViewModel,String> titleColumn;

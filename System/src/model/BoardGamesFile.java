@@ -6,25 +6,25 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BoardGamesFile
+public class BoardGamesFile implements Serializable
 {
-  private final static String XML_FILE_PATH = "./System/src/xml/ModelData.xml";
-  private final static String DATABASE_FILE_PATH = "./System/src/xml/DatabaseData.xml";
+  private final static String XML_FILE_PATH = "xml.xml";
+  private final static String DATABASE_FILE_PATH = "database.bin";
   private BoardGamesModel model;
 
   public BoardGamesFile(BoardGamesModel model){
     this.model = model;
   }
 
-  public void getDobeDabaDatabase(){
-    FileInputStream fos = null;
+  public BoardGamesModel importModelFromDatabase(){
+    FileInputStream fis = null;
     ObjectInputStream in = null;
     BoardGamesModel newModel = null;
 
     try{
       File file = new File(DATABASE_FILE_PATH);
-      fos=new FileInputStream(file);
-      in=new ObjectInputStream(fos);
+      fis=new FileInputStream(file);
+      in=new ObjectInputStream(fis);
 
       newModel = (BoardGamesModel) in.readObject();
 
@@ -38,14 +38,16 @@ public class BoardGamesFile
     finally
     {
       try{
-        in.close();
+        if(in!=null)
+          in.close();
       }catch (IOException e){
         e.printStackTrace();
       }
     }
+    return newModel==null ? new BoardGamesModelManager() : newModel;
   }
 
-  public void dobeDabaDatabase(){
+  public void exportModelToDatabase(){
     FileOutputStream fos = null;
     ObjectOutputStream out = null;
 
@@ -57,7 +59,7 @@ public class BoardGamesFile
       out.writeObject(model);
 
     }catch (IOException e){
-      System.out.println("You are fucked up...3.1");
+      System.out.println("You are fucked up...3.0: "+e.getMessage());
     }
     finally
     {
@@ -66,36 +68,13 @@ public class BoardGamesFile
       }catch (IOException e){
         e.printStackTrace();
       }
+      createXMLFile();
     }
   }
 
-  private String getContextFromDatabase(){
-
-    String xml = "";
-
-    File file= new File(XML_FILE_PATH);
-
-    try{
-      Scanner in = new Scanner(file);
-      while( in.hasNext() )
-        xml+=in.nextLine();
-    }catch (Exception e){
-      xml = "<root>"
-          + "\n <games>"+
-          "\n  </games>"+
-          "\n  <wishes>"+
-          "\n  </wishes>"+
-          "\n  <events>"+
-          "\n  </events>"+
-          "\n  </root>";
-    }
 
 
-    return xml;
-  }
-
-  public void addGame(Game game){
-    String xml = getContextFromDatabase();
+  public String addGame(Game game,String xml){
     String search = "<games>";
     int index = xml.indexOf(search);
 
@@ -115,10 +94,9 @@ public class BoardGamesFile
         "\n </game>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
-    createFile();
+    return xml;
   }
-  public void addWish(Wish wish){
-    String xml = getContextFromDatabase();
+  public String addWish(Wish wish,String xml){
     String search = "<wishes>";
     int index = xml.indexOf(search);
 
@@ -128,11 +106,10 @@ public class BoardGamesFile
         "\n  </wish>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
-    createFile();
+    return xml;
   }
 
-  public void addEvent(Event event){
-    String xml = getContextFromDatabase();
+  public String addEvent(Event event,String xml){
     String search = "<events>";
     int index = xml.indexOf(search);
 
@@ -143,25 +120,40 @@ public class BoardGamesFile
         "\n </event>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
-    createFile();
+    return xml;
   }
 
-  private void prepareFileContent(){
+
+
+
+
+
+  private String prepareFileContent(){
     ArrayList<Game> games = model.getAllGames();
     ArrayList<Wish> wishes = model.getAllWishes();
     ArrayList<Event> events = model.getAllEvents();
 
-    for(Game game : games)addGame(game);
-    for(Wish wish : wishes)addWish(wish);
-    for(Event event : events)addEvent(event);
+    String xml = xml =
+        "<root>" +
+        "\n <games>"+
+        "\n  </games>"+
+        "\n  <wishes>"+
+        "\n  </wishes>"+
+        "\n  <events>"+
+        "\n  </events>"+
+        "\n  </root>";
+    for(Game game : games) xml=addGame(game,xml);
+    for(Wish wish : wishes) xml=addWish(wish,xml);
+    for(Event event : events) xml=addEvent(event,xml);
+
+    return xml;
   }
 
-  public boolean createFile(){
+  public boolean createXMLFile(){
     File file = new File(XML_FILE_PATH);
     PrintWriter out = null;
 
-    String xml = getContextFromDatabase();
-    prepareFileContent();
+    String xml = prepareFileContent();
 
     System.out.println("creating the file...");
     try{

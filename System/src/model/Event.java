@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Event
+public class Event implements Serializable
 {
   private String title, description;
   private LocalDateTime dateTime;

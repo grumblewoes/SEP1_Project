@@ -5,9 +5,10 @@ import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Event;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EventListViewModel
+public class EventListViewModel implements Serializable
 {
   private ObservableList<EventViewModel> list;
   private BoardGamesModel model;

@@ -11,9 +11,13 @@ import view.ViewHandler;
 import model.Wish;
 import model.BoardGamesFile;
 
+import java.io.Serializable;
+
 //Anna P
 //for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
-public class AddWishViewController extends ViewController {
+public class AddWishViewController extends ViewController implements
+    Serializable
+{
   @FXML
   private Button cancelButton;
   @FXML

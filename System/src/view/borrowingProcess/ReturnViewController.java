@@ -9,8 +9,9 @@ import view.ViewController;
 import view.ViewHandler;
 
 import java.awt.*;
+import java.io.Serializable;
 
-public class ReturnViewController extends ViewController
+public class ReturnViewController extends ViewController implements Serializable
 {
   @Override public void reset()
   {

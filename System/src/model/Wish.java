@@ -1,6 +1,8 @@
 package model;
 
-public class Wish
+import java.io.Serializable;
+
+public class Wish implements Serializable
 {
   private String title;
   private int votes;

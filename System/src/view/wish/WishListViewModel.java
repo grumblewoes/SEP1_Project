@@ -5,9 +5,10 @@ import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Wish;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WishListViewModel
+public class WishListViewModel implements Serializable
 {
   private ObservableList<WishViewModel> list;
   private BoardGamesModel model;
