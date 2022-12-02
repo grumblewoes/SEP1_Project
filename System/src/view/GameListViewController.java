@@ -4,9 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
-import view.clubAssociate.ClubAssociateListViewModel;
-import view.clubAssociate.ClubAssociateViewModel;
-import view.event.EventViewModel;
+import view.ViewHandler;
+import view.ViewController;
 
 import java.util.Optional;
 
@@ -23,9 +22,9 @@ public class GameListViewController extends ViewController
     }
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
-        this.viewHandler=viewHandler;
-        this.model=model;
-        this.root=root;
+        this.viewHandler = viewHandler;
+        this.model = model;
+        this.root = root;
 
         this.viewModel = new GameListViewModel(model);
         titleColumn.setCellValueFactory(
