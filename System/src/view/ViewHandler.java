@@ -66,6 +66,10 @@ public class ViewHandler
         addWishViewController = loadViewController("AddWishView.fxml", addWishViewController);
         root = addWishViewController.getRoot();
         break;
+      case "gameList":
+        gameListViewController= loadViewController("GameListView.fxml", gameListViewController);
+        root = gameListViewController.getRoot();
+        break;
       default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);
         root = mainViewController.getRoot();
