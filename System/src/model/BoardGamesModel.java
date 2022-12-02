@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public interface BoardGamesModel
+public interface BoardGamesModel extends Serializable
 {
   public void addWish(Wish wish);
   public void voteForWish(Wish wish);
