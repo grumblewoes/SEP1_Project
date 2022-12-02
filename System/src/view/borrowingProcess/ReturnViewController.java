@@ -37,10 +37,7 @@ public class ReturnViewController extends ViewController
     return Rating.LEGAL_RATINGS[4];
   }
 
-  @FXML private void rateGameButton(){
-
-  }
-  @FXML private void returnOnlyButton(){
+  @FXML private void returnGameButton(){
   }
   @FXML private void cancelButton(){}
 }
