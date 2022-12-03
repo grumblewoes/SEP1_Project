@@ -12,8 +12,9 @@ public class WishViewModel implements Serializable
 {
   private StringProperty titleProperty;
   private IntegerProperty votesProperty;
-
+  private Wish wish;
   public WishViewModel (Wish wish){
+    this.wish = wish;
     titleProperty = new SimpleStringProperty(wish.getTitle());
     votesProperty = new SimpleIntegerProperty(wish.getVotes());
   }
@@ -25,4 +26,6 @@ public class WishViewModel implements Serializable
 
   //requires casting, returns error otherwise.
   public SimpleIntegerProperty getVotesProperty(){ return (SimpleIntegerProperty) votesProperty; }
+
+  public Wish getWish() { return wish; }
 }

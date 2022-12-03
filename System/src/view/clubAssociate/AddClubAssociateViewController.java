@@ -21,9 +21,6 @@ public class AddClubAssociateViewController extends ViewController
   @FXML private Label errorLabel;
   @FXML private ToggleGroup membershipGroup;
 
-
-  public AddClubAssociateViewController() {
-  }
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
     this.viewHandler=viewHandler;

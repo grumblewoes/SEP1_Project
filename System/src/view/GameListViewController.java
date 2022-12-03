@@ -42,12 +42,12 @@ public class GameListViewController extends ViewController
         viewModel.update();
     }
     @FXML
-    public void addGame(ActionEvent event) {
+    public void addGame() {
         viewHandler.openView("addGame");
     }
 
     @FXML
-    public void removeGame(ActionEvent event) {
+    public void removeGame() {
         errorLabel.setText("");
         try{
             GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
@@ -74,7 +74,7 @@ public class GameListViewController extends ViewController
     }
 
     @FXML
-    public void goBack(ActionEvent event) {
+    public void goBack() {
         viewHandler.openView("menu");
     }
 

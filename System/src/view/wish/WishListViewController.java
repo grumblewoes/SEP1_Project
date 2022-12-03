@@ -57,7 +57,7 @@ public class WishListViewController extends ViewController
         }
         else {
             errorLabel.setText("");
-            model.getWishByTitle(wishView.getTitleProperty().get()).incrementVoteBy1();
+            model.voteForWish(wishView.getWish());
             viewModel.update();
         }
     }
