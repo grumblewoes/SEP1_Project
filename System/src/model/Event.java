@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
  * Is responsible for answering question : what event, when does it happen.
  *
  * @author Damian Trafiałek
- * @version 1.0 - 02.12.2021
+ * @version 2.0 - 03 December 2021
  */
 public class Event implements Serializable
 {
@@ -32,7 +32,8 @@ public class Event implements Serializable
   }
 
   /**
-   *  Methods that returns the events' title as a String
+   * Methods that returns the events' title as a String
+   *
    * @return the title of the event
    */
   public String getTitle(){ return title; }
@@ -45,7 +46,8 @@ public class Event implements Serializable
   public String getDescription(){ return description; }
 
   /**
-   *  Methods that converts LocalDateTime to readable String in a wanted patten - D/M/Y hh:mm
+   * Methods that converts LocalDateTime to readable String in a wanted patten - D/M/Y hh:mm
+   *
    * @return the date as a readable string
    */
   public String getStringDate(){
@@ -70,6 +72,12 @@ public class Event implements Serializable
   }
 
   private void setDescription(String description){ this.description = description; }
+  /**
+   * A method that returns the string representation of the event
+   *
+   * @return the string representation of the event -> MyEvent | Description D/M/Y hh:mm
+   *        
+   */
   @Override public String toString(){
     return title + " | " + description + " | "
         + getStringDate();
@@ -79,7 +87,7 @@ public class Event implements Serializable
    * Comparing an object to the current one
    *
    * @param obj - the object that is to be compared to the current one
-   * @return true/false depending on if the objects passed as a parameter has the same content as the current one
+   * @return boolean depending on if the objects passed as a parameter has the same content as the current one
    */
   public boolean equals(Object obj){
     if(obj==null || !(obj instanceof Event) ) return false;

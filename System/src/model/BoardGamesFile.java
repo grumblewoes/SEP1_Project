@@ -3,16 +3,37 @@ package model;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * A class that is responsible for importing and exporting the BoardGamesModel to and from local file (local database).
+ * While exporting the model (saving the data) it also creates/overwrite xml file with data that is to be used on the website (events,wishes,games).
+ * 
+ * 
+ * @author Damian Trafiałek
+ * @version 2.0 - 03 December 2022
+ */
 public class BoardGamesFile implements Serializable
 {
   private final static String XML_FILE_PATH = "xml.xml";
   private final static String DATABASE_FILE_PATH = "database.bin";
   private BoardGamesModel model;
 
+  /**
+   * 1-argument constructor creating a new BoardGamesFile instance. Taking model reference as a parameter it will be used to change it - import/export.
+   * 
+   * 
+   * @param model 
+   *        the current instance of the BoardGamesModel
+   */
   public BoardGamesFile(BoardGamesModel model){
     this.model = model;
   }
 
+  /**
+   * A method returning the model that is to be used for this run of the application.
+   *
+   * @return imported/previous BoardGamesModel with all its data or a new instance of the model if one doesn't exist
+   *        
+   */
   public BoardGamesModel importModelFromDatabase(){
     FileInputStream fis = null;
     ObjectInputStream in = null;
@@ -47,6 +68,10 @@ public class BoardGamesFile implements Serializable
     return newModel==null ? new BoardGamesModelManager() : newModel;
   }
 
+  /**
+   * A method that saves the current model with its data to the local binary file.
+   * 
+   */
   public void exportModelToDatabase(){
     FileOutputStream fos = null;
     ObjectOutputStream out = null;
@@ -73,8 +98,7 @@ public class BoardGamesFile implements Serializable
   }
 
 
-
-  public String addGame(Game game,String xml){
+  private String addGame(Game game,String xml){
     String search = "<games>";
     int index = xml.indexOf(search);
 
@@ -96,7 +120,8 @@ public class BoardGamesFile implements Serializable
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
     return xml;
   }
-  public String addWish(Wish wish,String xml){
+
+  private String addWish(Wish wish,String xml){
     String search = "<wishes>";
     int index = xml.indexOf(search);
 
@@ -109,7 +134,8 @@ public class BoardGamesFile implements Serializable
     return xml;
   }
 
-  public String addEvent(Event event,String xml){
+
+  private String addEvent(Event event,String xml){
     String search = "<events>";
     int index = xml.indexOf(search);
 
@@ -122,9 +148,6 @@ public class BoardGamesFile implements Serializable
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
     return xml;
   }
-
-
-
 
 
 
@@ -149,7 +172,8 @@ public class BoardGamesFile implements Serializable
     return xml;
   }
 
-  public boolean createXMLFile(){
+
+  private boolean createXMLFile(){
     File file = new File(XML_FILE_PATH);
     PrintWriter out = null;
 

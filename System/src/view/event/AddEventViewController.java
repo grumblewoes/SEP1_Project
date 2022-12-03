@@ -11,12 +11,17 @@ import model.Event;
 import view.ViewController;
 import view.ViewHandler;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.chrono.Chronology;
 
+/**
+ * A class extending viewController which controls/manages the GUI regarding the addition of the event.
+ * 
+ * 
+ * @author Damian Trafiałek
+ * @version 1.0 - 03 December 2022
+ */
 public class AddEventViewController extends ViewController
 {
 
@@ -30,6 +35,16 @@ public class AddEventViewController extends ViewController
   @FXML private Label errorLabel;
 
 
+  /**
+   * A method that initialises the controller alongside the rest of its components.
+   * 
+   * @param viewHandler 
+   *        the current viewHandler that connects view and model packages
+   * @param model 
+   *        the model of board games system that is being used
+   * @param root
+   *        the root of the region
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
     this.viewHandler=viewHandler;
     this.model=model;
@@ -37,6 +52,10 @@ public class AddEventViewController extends ViewController
     reset();
   }
 
+  /**
+   * A method that resets the data displayed in the view.
+   *
+   */
   public void reset(){
     titleField.setText("");
     startHourField.setText("");

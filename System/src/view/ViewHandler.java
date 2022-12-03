@@ -10,6 +10,14 @@ import view.event.EventListViewController;
 
 import java.io.Serializable;
 
+/**
+ * A class that connects the view and model packages together.
+ * Handles the usage of the GUI.
+ * 
+ * 
+ * @author Damian Trafiałek
+ * @version 03 December 2022
+ */
 public class ViewHandler implements Serializable
 {
   private Scene currentScene;
@@ -33,6 +41,13 @@ public class ViewHandler implements Serializable
       returnViewController;
 
 
+  /**
+   * 1-argument constructor. Connects the model to view package. Creates the current scene.
+   * 
+   * 
+   * @param model 
+   *        the model of the board games system
+   */
   public ViewHandler(BoardGamesModel model)
   {
     this.model=model;
@@ -40,10 +55,22 @@ public class ViewHandler implements Serializable
   }
 
 
+  /**
+   * A method that start the GUI.
+   * 
+   * @param primaryStage 
+   *        the stage which displays GUI.
+   */
   public void start(Stage primaryStage){
     this.primaryStage= primaryStage;
     openView("menu");
   }
+  /**
+   * A method handling the opening of different views. Takes the unique id and chooses the correct controller and fxml file to open/load.
+   * 
+   * @param id 
+   *        the unique id based on which different views open
+   */
   public void openView(String id){
     Region root = null;
 
@@ -134,6 +161,10 @@ public class ViewHandler implements Serializable
     return controller;
   }
 
+  /**
+   *  A method that closes the application, closes the view.
+   *
+   */
   public void closeView(){ primaryStage.close(); }
 
 }

@@ -11,6 +11,12 @@ import view.ViewHandler;
 import java.io.Serializable;
 import java.util.Optional;
 
+/**
+ * A class extending viewController which controls/manages the GUI regarding the display of events.
+ *
+ * @author Damian Trafiałek
+ * @version 1.0 - 03 December 2022
+ */
 public class EventListViewController extends ViewController
 {
   @FXML private TableView<EventViewModel> eventListTable;
@@ -22,6 +28,17 @@ public class EventListViewController extends ViewController
 
   private EventListViewModel viewModel;
 
+  /**
+   * A method that initialises the controller alongside the rest of its components.
+   * Creates the connection with the viewModel and list of events displayed in the view.
+   *
+   * @param viewHandler
+   *        the current viewHandler that connects view and model packages
+   * @param model
+   *        the model of board games system that is being used
+   * @param root
+   *        the root of the region
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
     this.viewHandler=viewHandler;
     this.model=model;
@@ -39,6 +56,10 @@ public class EventListViewController extends ViewController
     eventListTable.setItems(viewModel.getList());
   }
 
+  /**
+   * A method that resets the data displayed in the view and updates it.
+   *
+   */
   public void reset(){
     errorLabel.setText("");
     viewModel.update();
@@ -49,7 +70,7 @@ public class EventListViewController extends ViewController
     viewHandler.openView("menu");
   }
 
-  @FXML  private void addEventBtnPressed() {
+  @FXML private void addEventBtnPressed() {
     viewHandler.openView("addEvent");
   }
 
