@@ -41,6 +41,7 @@ public class GameListViewController extends ViewController
     public void reset(){
         viewModel.update();
     }
+
     @FXML
     public void addGame() {
         viewHandler.openView("addGame");
@@ -61,6 +62,7 @@ public class GameListViewController extends ViewController
             errorLabel.setText("Exception:" + e.getMessage());
         }
     }
+
     private boolean confirmation(){
         int index = gameListTable.getSelectionModel().getSelectedIndex();
         GameViewModel selectedItem= gameListTable.getItems().get(index);
@@ -82,5 +84,6 @@ public class GameListViewController extends ViewController
     public void getDetails(ActionEvent event) {
         viewHandler.openView("gameDetails");
     }
+
 
 }

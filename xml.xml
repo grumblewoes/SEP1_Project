@@ -1,37 +1,7 @@
 <root>
  <games>
- <game>
-   <title>Monopoly</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>Capitalism</type>
-   <description>Destroy friendships in a couple of hours</description>
-   <borrowedTo>Nobody borrows it</borrowedTo>
-   <owner>Bob Bobson</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>sadas</title>
-   <numberOfPlayers>5</numberOfPlayers>
-   <type>dfas</type>
-   <description>asd sad asda dasd asd sad</description>
-   <borrowedTo>Nobody borrows it</borrowedTo>
-   <owner>asd sdfdfdfs</owner>
-   <ratings></ratings>
- </game>
   </games>
   <wishes>
- <wish>
-   <title>Ludo</title>
-   <votes>4</votes>
-  </wish>
- <wish>
-   <title>The Game of Life</title>
-   <votes>2</votes>
-  </wish>
- <wish>
-   <title>Cluedo</title>
-   <votes>2</votes>
-  </wish>
   </wishes>
   <events>
   </events>

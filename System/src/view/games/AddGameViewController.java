@@ -1,6 +1,4 @@
 package view.games;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -34,13 +32,13 @@ public class AddGameViewController extends ViewController
   private TextField titleBox;
 
   @FXML
-  void cancelGame(ActionEvent event) {
+  void cancelGame() {
     viewHandler.openView("gameList");
     reset();
   }
 
   @FXML
-  void submitGame(ActionEvent event) {
+  void submitGame() {
 
     try {
       String title = titleBox.getText();
@@ -58,9 +56,6 @@ public class AddGameViewController extends ViewController
     {
       errorLabel.setText("That owner's ID does not exist in the system. Check that you entered the ID correctly.");
     }
-
-
-
 
   }
 

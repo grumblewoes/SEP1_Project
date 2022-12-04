@@ -9,6 +9,7 @@ import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import view.ViewController;
 import view.ViewHandler;
+import model.Game;
 
 public class GameDetailsViewController extends ViewController {
 
@@ -34,7 +35,20 @@ public class GameDetailsViewController extends ViewController {
 
   @Override public void reset()
   {
+    titleField.setText("");
+    ownerField.setText("");
+    playersField.setText("");
+    genreField.setText("");
+    descriptionField.setText("");
+  }
 
+  //needs info from GameListViewController, but can't get it
+  public void setFields(Game game) {
+    titleField.setText(game.getTitle());
+    ownerField.setText(game.getOwner());
+    playersField.setText(game.getNumberOfPlayers());
+    genreField.setText(game.getType());
+    descriptionField.setText(game.getDescription());
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
