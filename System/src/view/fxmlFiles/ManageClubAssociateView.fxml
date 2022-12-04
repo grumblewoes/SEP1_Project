@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlFiles.AddClubAssociateView">
+<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.AddClubAssociateViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="64.0" prefWidth="401.0">
          <children>
