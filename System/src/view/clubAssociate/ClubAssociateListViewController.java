@@ -57,5 +57,9 @@ public class ClubAssociateListViewController extends ViewController
     {
         viewHandler.openView("menu");
     }
+
+    public void detailsBtnClicked()
+    {
+    }
 }
 

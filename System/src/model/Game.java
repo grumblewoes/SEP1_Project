@@ -59,6 +59,8 @@ public class Game implements Serializable
 
   public String getBorrowedTo()
   {
+    if(borrowedTo==null)
+      return "Nobody borrows it";
     return borrowedTo.getFullName();
   }
 
