@@ -73,9 +73,10 @@ public class WishListViewController extends ViewController
     void removeWish(ActionEvent event) {
         try{
             WishViewModel selectedItem = wishTable.getSelectionModel().getSelectedItem();
-            model.removeEvent(selectedItem.getTitleProperty().get());
+            model.removeWish(selectedItem.getWish());
             viewModel.remove(selectedItem.getWish());
             wishTable.getSelectionModel().clearSelection();
+
         }catch(Exception e){
             errorLabel.setText("Exception:" + e.getMessage());
         }
