@@ -2,24 +2,19 @@
  <games>
  <game>
    <title>sadas</title>
-   <numberOfPlayers>43</numberOfPlayers>
-   <type>asd</type>
-   <description>sadd adsa ad </description>
+   <numberOfPlayers>5</numberOfPlayers>
+   <type>dfas</type>
+   <description>asd sad asda dasd asd sad</description>
    <borrowedTo>Nobody borrows it</borrowedTo>
-   <owner>asd 123</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>sda</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>asd</type>
-   <description>asdasd</description>
-   <borrowedTo>Nobody borrows it</borrowedTo>
-   <owner>asd 123</owner>
+   <owner>asd sdfdfdfs</owner>
    <ratings></ratings>
  </game>
   </games>
   <wishes>
+ <wish>
+   <title>ads</title>
+   <votes>1</votes>
+  </wish>
  <wish>
    <title>Ludo</title>
    <votes>4</votes>

@@ -64,6 +64,7 @@ public class BoardGamesFile implements Serializable
       }catch (IOException e){
         e.printStackTrace();
       }
+      createXMLFile();
     }
     return newModel==null ? new BoardGamesModelManager() : newModel;
   }
