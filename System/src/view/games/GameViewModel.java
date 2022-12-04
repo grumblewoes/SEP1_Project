@@ -1,4 +1,4 @@
-package view;
+package view.games;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

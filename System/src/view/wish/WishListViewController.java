@@ -12,6 +12,7 @@ import model.BoardGamesModel;
 
 import java.io.Serializable;
 
+
 public class WishListViewController extends ViewController
 {
 
