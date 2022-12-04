@@ -1,10 +1,9 @@
-package view;
+package view.games;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Game;
-import view.event.EventViewModel;
 
 import java.util.ArrayList;
 
