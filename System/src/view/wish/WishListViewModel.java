@@ -23,6 +23,7 @@ public class WishListViewModel implements Serializable
     return list;
   }
 
+  //refreshes the table shown on screen
   public void update(){
     list.clear();
     ArrayList<Wish> wishes = model.getAllWishes();
@@ -34,6 +35,7 @@ public class WishListViewModel implements Serializable
     list.add(new WishViewModel(wish));
   }
 
+  //removes wish models from the table
   public void remove(Wish wish){
     for(WishViewModel wvm : list)
       if( wvm.getWish().equals(wish)){
