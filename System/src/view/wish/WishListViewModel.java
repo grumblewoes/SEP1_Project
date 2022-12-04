@@ -8,6 +8,13 @@ import model.Wish;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * A class that defines the javafx table of wishes that corresponds to WishList
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
+ */
 public class WishListViewModel implements Serializable
 {
   private ObservableList<WishViewModel> list;

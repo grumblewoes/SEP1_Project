@@ -13,7 +13,13 @@ import view.event.EventViewModel;
 
 import java.io.Serializable;
 
-
+/**
+ * A class extending ViewController that controls the GUI side of viewing/modifying the wishlist.
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
+ */
 public class WishListViewController extends ViewController
 {
 
@@ -70,6 +76,7 @@ public class WishListViewController extends ViewController
         viewHandler.openView("addWish");
     }
 
+    //removes a wish from the list
     @FXML
     void removeWish(ActionEvent event) {
         try{

@@ -10,6 +10,15 @@ import view.ViewController;
 import view.ViewHandler;
 import model.Game;
 
+/**
+ * A class extending ViewController that controls the GUI side of adding a game to the game list
+ *
+ *
+ * @author Anna P, Catarina J
+ * @version 1.0 - 04 December 2022
+ */
+
+
 public class AddGameViewController extends ViewController
 {
 

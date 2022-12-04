@@ -8,6 +8,13 @@ import model.Wish;
 
 import java.io.Serializable;
 
+/**
+ * A class that defines the javafx wish that corresponds to Wishes in the WishList
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
+ */
 public class WishViewModel implements Serializable
 {
   private StringProperty titleProperty;
@@ -18,6 +25,8 @@ public class WishViewModel implements Serializable
     titleProperty = new SimpleStringProperty(wish.getTitle());
     votesProperty = new SimpleIntegerProperty(wish.getVotes());
   }
+
+  //collection of get methods for all field properties
 
   public StringProperty getTitleProperty()
   {

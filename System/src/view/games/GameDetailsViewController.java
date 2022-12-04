@@ -11,6 +11,14 @@ import view.ViewController;
 import view.ViewHandler;
 import model.Game;
 
+/**
+ * A class extending ViewController that controls the GUI side of allowing the user to view details of a selected game from the game list.
+ *
+ *
+ * @author Anna P, Catarina J
+ * @version 1.0 - 04 December 2022
+ */
+
 public class GameDetailsViewController extends ViewController {
 
   @FXML
