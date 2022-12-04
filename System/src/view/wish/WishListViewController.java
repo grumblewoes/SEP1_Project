@@ -10,10 +10,10 @@ import view.ViewController;
 import view.ViewHandler;
 import model.BoardGamesModel;
 
-import java.io.File;
-import java.io.PrintWriter;
+import java.io.Serializable;
 
-public class WishListViewController extends ViewController {
+public class WishListViewController extends ViewController
+{
 
     @FXML
     private Button addVoteBtn;
@@ -57,7 +57,7 @@ public class WishListViewController extends ViewController {
         }
         else {
             errorLabel.setText("");
-            model.getWishByTitle(wishView.getTitleProperty().get()).incrementVoteBy1();
+            model.voteForWish(wishView.getWish());
             viewModel.update();
         }
     }

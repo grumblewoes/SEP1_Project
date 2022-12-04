@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ClubAssociateList
+public class ClubAssociateList implements Serializable
 {
   private ArrayList<ClubAssociate> clubAssociates;
 

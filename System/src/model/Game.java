@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Game
+public class Game implements Serializable
 {
   private String title, numberOfPlayers, type, description;
   private ClubAssociate borrowedTo;
