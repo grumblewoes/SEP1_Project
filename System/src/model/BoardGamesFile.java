@@ -84,7 +84,7 @@ public class BoardGamesFile implements Serializable
       out.writeObject(model);
 
     }catch (IOException e){
-      System.out.println("You are fucked up...3.0: "+e.getMessage());
+      System.out.println("Unable to save the model: "+e.getMessage());
     }
     finally
     {
