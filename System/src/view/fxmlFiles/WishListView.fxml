@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.WishListViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.WishListViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0">
          <children>
@@ -36,6 +36,7 @@
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#removeWish" text="Remove Wish" />
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" />

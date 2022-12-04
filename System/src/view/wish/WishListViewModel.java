@@ -34,9 +34,9 @@ public class WishListViewModel implements Serializable
     list.add(new WishViewModel(wish));
   }
 
-  public void remove(String title){
+  public void remove(Wish wish){
     for(WishViewModel wvm : list)
-      if( wvm.getTitleProperty().get().equals(title)){
+      if( wvm.getWish().equals(wish)){
         list.remove(wvm);
         break;
       }

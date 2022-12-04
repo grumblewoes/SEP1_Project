@@ -58,6 +58,15 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    * @param wish
    *        wish that is to be voted for
    */
+
+  public void removeWish(Wish wish) { wishList.removeWish(wish); fileManager.exportModelToDatabase(); }
+  /**
+   * A method that calls wishList to remove the wish and calls the fileManager to save the model.
+   *
+   * @see BoardGamesFile
+   * @param wish
+   *        wish that is to be removed
+   */
   public void voteForWish(Wish wish){ wishList.voteForWish(wish); fileManager.exportModelToDatabase();}
   /**
    * A method calls the wishList asking for the number of votes that the wish of a certain title have and fileManager to save the model.

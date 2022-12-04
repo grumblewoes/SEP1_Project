@@ -9,6 +9,8 @@ public interface BoardGamesModel
 
   public void addWish(Wish wish);
 
+  public void removeWish(Wish wish);
+
   public void voteForWish(Wish wish);
 
   public int getVotesForWish(String title);
