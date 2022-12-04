@@ -37,7 +37,7 @@ $.get("../../xml.xml", function (xml, status) {
             $(wishesContainer).append(createWishElement(title, votes))
         }
     } catch (e) {
-        console.warn("...Unable to read xml and load wishes...")
+        console.warn("...Unable to read xml or load wishes...")
     }
 })
 

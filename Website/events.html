@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/blobz.min.css">
     <link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <script src="./js/jquery.min.js"></script>
     <script src=" js/bootstrap.bundle.min.js">
   </script>
   </head>
@@ -62,11 +63,12 @@
 
     <!-- main content-->
     <div class="container">
-      <div class="row">
-        <!--left half of page-->
+
+      <!-- <div class="row">
+        left half of page
         <div class="col-md">
           <h3 class="text-center mb-0">Next Events</h3>
-          <!-- first content box-->
+          first content box
           <div class="col text-center border border-danger p-3 mb-3">
             <figure>
               <img id="chess" class="d-block img-fluid mx-auto"
@@ -82,7 +84,7 @@
               games will begin at 10 pm and end at 19
               pm.</p>
           </div>
-          <!-- second content box-->
+          second content box
           <div class="col text-center border border-danger p-3 mb-3">
             <figure>
               <img src="images/Clue.jpg" class="d-block img-fluid mx-auto"
@@ -101,7 +103,7 @@
               issues.
             </p>
           </div>
-          <!--third content box-->
+          third content box
           <div class="col text-center border border-danger p-3 mb-3">
             <figure>
               <img src="images/party.jpg" class="d-block img-fluid mx-auto"
@@ -124,7 +126,7 @@
           </div>
         </div>
 
-        <!--right half of page-->
+        right half of page
         <div class="col-md">
           <div class="col">
             <h4 class="text-center mb-0">Other Events</h4>
@@ -227,9 +229,11 @@
           </div>
         </div>
 
+      </div> -->
+      <div class="row">
+        <h1>Events</h1>
+        <div class="events d-flex flex-column bg-danger"></div>
       </div>
-
-
 
       <!--References:
         
@@ -245,7 +249,7 @@
         W3Schools, 2022. W3Schools Online Web Tutorials.[online] 
         Available at:https://www.w3schools.com/ [5 October 2022].
 -->
-      <div class="container-fluid footer">
+      <div class="fixed-bottom container-fluid footer">
         <!-- 100% width footer with class given by me so I can play with it in css(background color) -->
         <div class="row">
           <div class="col-12 text-center mt-1 mb-3">Copyright&#169; SEP Group 3,
@@ -286,6 +290,9 @@
           </path>
         </svg>
       </div>
+
+      <script src="./js/vanilla-tilt.min.js"></script>
+      <script src="./js/events.js"></script>
     </body>
 
 
