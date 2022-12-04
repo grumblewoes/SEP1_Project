@@ -2,6 +2,18 @@
  <games>
   </games>
   <wishes>
+ <wish>
+   <title>Ludo</title>
+   <votes>4</votes>
+  </wish>
+ <wish>
+   <title>The Game of Life</title>
+   <votes>2</votes>
+  </wish>
+ <wish>
+   <title>Cluedo</title>
+   <votes>2</votes>
+  </wish>
   </wishes>
   <events>
   </events>
