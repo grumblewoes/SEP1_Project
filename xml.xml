@@ -3,15 +3,47 @@
   </games>
   <wishes>
  <wish>
-   <title>123e</title>
+   <title>asdasd</title>
    <votes>1</votes>
   </wish>
  <wish>
+   <title>123e</title>
+   <votes>2</votes>
+  </wish>
+ <wish>
    <title>das</title>
-   <votes>4</votes>
+   <votes>5</votes>
   </wish>
   </wishes>
   <events>
+ <event>
+   <title>dfsfsd</title>
+   <description>dasasd
+sda
+asdasdas sda das asdadasda
+dsadasda sada sdad sadada asdadas</description>
+   <date>4/12/2022 17:30</date>
+ </event>
+ <event>
+   <title>das</title>
+   <description>sadwfsd
+fsdf
+sfsd
+fsd
+fsd
+fsdfsdfsdfsdfs
+dsfsfsd</description>
+   <date>14/12/2022 20:00</date>
+ </event>
+ <event>
+   <title>my event</title>
+   <description>the best event you can join, free food etc...
+sd
+dfsfgd. dadas . asd 
+asd da
+dasda</description>
+   <date>23/12/2022 12:00</date>
+ </event>
  <event>
    <title>das</title>
    <description></description>
