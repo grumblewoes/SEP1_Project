@@ -8,7 +8,17 @@ import model.BoardGamesModel;
 import view.event.AddEventViewController;
 import view.event.EventListViewController;
 
-public class ViewHandler
+import java.io.Serializable;
+
+/**
+ * A class that connects the view and model packages together.
+ * Handles the usage of the GUI.
+ * 
+ * 
+ * @author Damian Trafiałek
+ * @version 03 December 2022
+ */
+public class ViewHandler implements Serializable
 {
   private Scene currentScene;
   private Stage primaryStage;
@@ -26,18 +36,41 @@ public class ViewHandler
       gameListViewController,
       clubAssociateListViewController,
       gameDetailsViewController,
-      wishListViewController;
+      wishListViewController,
+      borrowViewController,
+      returnViewController;
 
 
+  /**
+   * 1-argument constructor. Connects the model to view package. Creates the current scene.
+   * 
+   * 
+   * @param model 
+   *        the model of the board games system
+   */
   public ViewHandler(BoardGamesModel model)
   {
     this.model=model;
     this.currentScene= new Scene(new Region());
   }
+
+
+  /**
+   * A method that start the GUI.
+   * 
+   * @param primaryStage 
+   *        the stage which displays GUI.
+   */
   public void start(Stage primaryStage){
     this.primaryStage= primaryStage;
     openView("menu");
   }
+  /**
+   * A method handling the opening of different views. Takes the unique id and chooses the correct controller and fxml file to open/load.
+   * 
+   * @param id 
+   *        the unique id based on which different views open
+   */
   public void openView(String id){
     Region root = null;
 
@@ -66,9 +99,21 @@ public class ViewHandler
         addWishViewController = loadViewController("AddWishView.fxml", addWishViewController);
         root = addWishViewController.getRoot();
         break;
+      case "addGame":
+        addGameViewController = loadViewController("AddGameView.fxml", addGameViewController);
+        root = addGameViewController.getRoot();
+        break;
       case "gameList":
-        gameListViewController= loadViewController("GameListView.fxml", gameListViewController);
+        gameListViewController = loadViewController("GameListView.fxml", gameListViewController);
         root = gameListViewController.getRoot();
+        break;
+      case "addReservation":
+        addReservationViewController = loadViewController("AddReservationView.fxml", addReservationViewController);
+        root = addReservationViewController.getRoot();
+        break;
+      case "gameDetails":
+        gameDetailsViewController = loadViewController("GameDetailsView.fxml", gameDetailsViewController);
+        root = gameDetailsViewController.getRoot();
         break;
       default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);
@@ -94,7 +139,7 @@ public class ViewHandler
     String relativePath = "./fxmlFiles/";
     if (controller == null)
     {
-      System.out.println("loading a new controller..."+controller);
+      System.out.println("loading a new controller... "+controller);
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -110,12 +155,16 @@ public class ViewHandler
     }
     else
     {
-      System.out.println("reusing a controller..."+controller);
+      System.out.println("reusing a controller... "+controller);
       controller.reset();
     }
     return controller;
   }
 
+  /**
+   *  A method that closes the application, closes the view.
+   *
+   */
   public void closeView(){ primaryStage.close(); }
 
 }

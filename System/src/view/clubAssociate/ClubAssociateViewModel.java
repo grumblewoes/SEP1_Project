@@ -6,7 +6,9 @@ import javafx.stage.Stage;
 import model.ClubAssociate;
 import org.w3c.dom.ls.LSOutput;
 
-public class ClubAssociateViewModel
+import java.io.Serializable;
+
+public class ClubAssociateViewModel implements Serializable
 {
   private StringProperty nameProperty;
   private IntegerProperty schoolIdProperty;

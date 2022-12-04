@@ -3,7 +3,16 @@ package view;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 
-public abstract class ViewController
+import java.io.Serializable;
+
+/**
+ * An abstract class with the default functionality and variables of the controllers
+ * 
+ * 
+ * @author Damian Trafiałek
+ * @version 2.0 - 03 December 2022
+ */
+public abstract class ViewController implements Serializable
 {
   protected Region root;
 
@@ -11,19 +20,18 @@ public abstract class ViewController
 
   protected BoardGamesModel model;
 
+  /**
+   * A method that returns the root region of the controller.
+   * 
+   *
+   * @return root
+   *        the region element of the controller
+   */
   public Region getRoot(){ return root; }
 
-  public ViewHandler getViewHandler() { return viewHandler; }
-
-  public BoardGamesModel getModel() { return model; }
-
-  public void setRoot(Region root) { this.root = root; }
-
-  public void setViewHandler(ViewHandler viewHandler) { this.viewHandler = viewHandler; }
-
-  public void setModel(BoardGamesModel model) { this.model = model; }
 
   public abstract void reset();
+
 
   public abstract void init(ViewHandler viewHandler, BoardGamesModel model, Region root);
 }

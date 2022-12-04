@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Reservation
+public class Reservation implements Serializable
 {
   private Game game;
   private ClubAssociate associate;

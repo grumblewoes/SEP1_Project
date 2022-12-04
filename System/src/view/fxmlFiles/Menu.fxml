@@ -57,14 +57,9 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#updateWebsiteBtnClicked" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #99E938; -fx-font-weight: BOLD;" text="Update website">
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </Button>
                 <Button mnemonicParsing="false" onAction="#exitBtnClicked" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #FF2A2A;" text="Exit">
                     <HBox.margin>
-                        <Insets left="108.0" />
+                        <Insets />
                     </HBox.margin>
                     <font>
                         <Font name="System Bold" size="12.0" />

@@ -6,12 +6,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Wish;
 
-public class WishViewModel
+import java.io.Serializable;
+
+public class WishViewModel implements Serializable
 {
   private StringProperty titleProperty;
   private IntegerProperty votesProperty;
-
+  private Wish wish;
   public WishViewModel (Wish wish){
+    this.wish = wish;
     titleProperty = new SimpleStringProperty(wish.getTitle());
     votesProperty = new SimpleIntegerProperty(wish.getVotes());
   }
@@ -23,4 +26,6 @@ public class WishViewModel
 
   //requires casting, returns error otherwise.
   public SimpleIntegerProperty getVotesProperty(){ return (SimpleIntegerProperty) votesProperty; }
+
+  public Wish getWish() { return wish; }
 }

@@ -1,7 +1,8 @@
 package model;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WishList
+public class WishList implements Serializable
 {
   //getVotesForWish moved from Wish
   //add addWish to the class diagram
