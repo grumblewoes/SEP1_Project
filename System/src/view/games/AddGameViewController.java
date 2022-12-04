@@ -43,18 +43,19 @@ public class AddGameViewController extends ViewController
   void submitGame(ActionEvent event) {
     String title = titleBox.getText();
     String players = playersBox.getText();
-    int owner = Integer.parseInt(ownerBox.getText());
-    ClubAssociate clubAssociate = model.getClubAssociate(owner);
+    try {
+      int owner = Integer.parseInt(ownerBox.getText());
+      ClubAssociate clubAssociate = model.getClubAssociate(owner);
+
+    }
+    catch (NumberFormatException e)
+    {
+      errorLabel.setText("That owner's ID does not exist in the system. Check that you entered the ID correctly.");
+    }
     String description = descriptionBox.getText();
     String genre = genreBox.getText();
 
-    if (clubAssociate != null) {
-      model.addGame(new Game(title, clubAssociate, genre, players, description));
-      viewHandler.openView("gameList");
-      reset();
-    }
-    else
-      errorLabel.setText("That owner's ID does not exist in the system.");
+
 
   }
 
