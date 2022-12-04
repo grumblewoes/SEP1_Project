@@ -32,6 +32,8 @@ public class WishList implements Serializable
     wishes.add(w);
   }
 
+  public void removeWish(Wish w) { wishes.remove(w); }
+
   public Wish getWishByTitle(String title) {
     for (Wish wish : wishes)
     {

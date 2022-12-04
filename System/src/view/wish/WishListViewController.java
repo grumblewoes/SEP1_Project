@@ -9,6 +9,7 @@ import javafx.scene.layout.Region;
 import view.ViewController;
 import view.ViewHandler;
 import model.BoardGamesModel;
+import view.event.EventViewModel;
 
 import java.io.Serializable;
 
@@ -69,11 +70,21 @@ public class WishListViewController extends ViewController
     }
 
     @FXML
+    void removeWish(ActionEvent event) {
+        try{
+            WishViewModel selectedItem = wishTable.getSelectionModel().getSelectedItem();
+            model.removeEvent(selectedItem.getTitleProperty().get());
+            viewModel.remove(selectedItem.getWish());
+            wishTable.getSelectionModel().clearSelection();
+        }catch(Exception e){
+            errorLabel.setText("Exception:" + e.getMessage());
+        }
+    }
+
+    @FXML
     void goBack(ActionEvent event) {
         viewHandler.openView("menu");
     }
-
-
 
     public void reset () {
         errorLabel.setText("");
