@@ -20,16 +20,34 @@ public class WishListViewModel implements Serializable
   private ObservableList<WishViewModel> list;
   private BoardGamesModel model;
 
+  /**
+   * 1-argument constructor 
+   * 
+   * 
+   * @param model 
+   *        
+   */
   public WishListViewModel(BoardGamesModel model){
     this.model = model;
     this.list = FXCollections.observableArrayList();
     update();
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public ObservableList<WishViewModel> getList(){
     return list;
   }
 
+  /**
+   * 
+   * 
+   */
   //refreshes the table shown on screen
   public void update(){
     list.clear();
@@ -38,10 +56,22 @@ public class WishListViewModel implements Serializable
       list.add(new WishViewModel(wish));
   }
 
+  /**
+   * 
+   * 
+   * @param wish 
+   *        
+   */
   public void add(Wish wish){
     list.add(new WishViewModel(wish));
   }
 
+  /**
+   * 
+   * 
+   * @param wish 
+   *        
+   */
   //removes wish models from the table
   public void remove(Wish wish){
     for(WishViewModel wvm : list)

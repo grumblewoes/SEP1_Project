@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import model.ClubAssociate;
 import model.Reservation;
 import view.ViewController;
 import view.ViewHandler;
@@ -12,6 +13,13 @@ import view.clubAssociate.ClubAssociateViewModel;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class AddReservationViewController extends ViewController
 {
   @FXML private DatePicker datePicker;
@@ -23,11 +31,26 @@ public class AddReservationViewController extends ViewController
   private ClubAssociateListViewModel viewModel;
 
 
+  /**
+   * 0-argument constructor 
+   * 
+   * 
+   */
   public AddReservationViewController()
   {
     // Called by FXMLLoader
   }
 
+  /**
+   * 
+   * 
+   * @param viewHandler 
+   *        
+   * @param model 
+   *        
+   * @param root 
+   *        
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
     this.model = model;
@@ -40,10 +63,14 @@ public class AddReservationViewController extends ViewController
         cellData -> cellData.getValue().getSchoolIdProperty());
     statusColumn.setCellValueFactory(cellData -> cellData.getValue().getIsMemberProperty());
 
-    clubAssociatesListTable.setItems(viewModel.getList());
+    clubAssociatesListTable.setItems(viewModel.getListOfMembers());
     reset();
   }
 
+  /**
+   * 
+   * 
+   */
   public void reset()
   {
   }
@@ -54,8 +81,12 @@ public class AddReservationViewController extends ViewController
     errorLabel.setText("");
     try
     {
-      Reservation reservation = new Reservation(null,null,datePicker.getValue());
-      model.addReservation(reservation);
+      for(int i=0;i<model.getAllClubAssociates().size();i++){
+        if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
+          Reservation reservation = new Reservation(null,model.getAllClubAssociates().get(i),datePicker.getValue());
+          model.addReservation(reservation);
+        }
+      }
       errorLabel.setText("Success");
       viewHandler.openView("reservationsList");
     }

@@ -30,8 +30,22 @@ public abstract class ViewController implements Serializable
   public Region getRoot(){ return root; }
 
 
+  /**
+   * 
+   * 
+   */
   public abstract void reset();
 
 
+  /**
+   * 
+   * 
+   * @param viewHandler 
+   *        
+   * @param model 
+   *        
+   * @param root 
+   *        
+   */
   public abstract void init(ViewHandler viewHandler, BoardGamesModel model, Region root);
 }

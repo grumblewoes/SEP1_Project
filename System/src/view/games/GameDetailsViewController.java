@@ -1,7 +1,6 @@
 package view.games;
 
 import java.io.Serializable;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,20 +18,18 @@ import model.Game;
  * @version 1.0 - 04 December 2022
  */
 
-public class GameDetailsViewController extends ViewController {
-
+public class GameDetailsViewController extends ViewController
+{
+  @FXML
+  private Label errorLabel;
   @FXML
   private Label descriptionField;
-
   @FXML
   private Label genreField;
-
   @FXML
   private Label ownerField;
-
   @FXML
   private Label playersField;
-
   @FXML
   private Label titleField;
 
@@ -48,6 +45,8 @@ public class GameDetailsViewController extends ViewController {
     playersField.setText("");
     genreField.setText("");
     descriptionField.setText("");
+    Game game = model.getSelectedGame();
+    setFields(game);
   }
 
   //needs info from GameListViewController, but can't get it
@@ -59,11 +58,31 @@ public class GameDetailsViewController extends ViewController {
     descriptionField.setText(game.getDescription());
   }
 
+  @FXML
+  void borrowGame(ActionEvent event) {
+    viewHandler.openView("borrow");
+  }
+
+  @FXML
+  void reserveGame(ActionEvent event) {
+    viewHandler.openView("addReservation");
+  }
+
+  @FXML
+  void returnGame(ActionEvent event) {
+    viewHandler.openView("return");
+  }
+
+
+  //game and setFields() needs to be in both init() and reset() because otherwise, it wouldn't refresh upon switch
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
       Region root)
   {
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    Game game = model.getSelectedGame();
+    setFields(game);
   }
+
 }

@@ -8,6 +8,13 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class ClubAssociateViewModel implements Serializable
 {
   private StringProperty nameProperty;
@@ -20,12 +27,33 @@ public class ClubAssociateViewModel implements Serializable
     this.isMemberProperty = new SimpleStringProperty(clubAssociate.isMember() ? "Member" :"Guest"); // if statement in one line
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getNameProperty() {
     return nameProperty;
   }
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public IntegerProperty getSchoolIdProperty() {
     return schoolIdProperty;
   }
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getIsMemberProperty() {
 
     return isMemberProperty;

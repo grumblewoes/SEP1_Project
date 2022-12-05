@@ -13,6 +13,7 @@ import view.event.EventViewModel;
 
 import java.io.Serializable;
 
+
 /**
  * A class extending ViewController that controls the GUI side of viewing/modifying the wishlist.
  *
@@ -40,6 +41,16 @@ public class WishListViewController extends ViewController
 
     private WishListViewModel viewModel;
 
+    /**
+     * 
+     * 
+     * @param viewHandler 
+     *        
+     * @param model 
+     *        
+     * @param root 
+     *        
+     */
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
         this.viewHandler=viewHandler;
         this.model=model;
