@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.ClubAssociate;
+import model.Wish;
 import view.ViewController;
 import view.ViewHandler;
 import model.Game;
@@ -66,6 +67,12 @@ public class AddGameViewController extends ViewController
       {
         Game game = new Game(title, clubAssociate, genre, players, description);
         model.addGame(game);
+
+        //check if game is on the wishlist. if it is, remove it
+        //covers [ALT2] in RegisterNewGame
+        Wish wish = model.getWishByTitle(game.getTitle());
+        if ( wish != null)
+          model.removeWish(wish);
         viewHandler.openView("gameList");
       }
     }
