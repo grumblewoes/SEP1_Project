@@ -22,19 +22,14 @@ public class GameDetailsViewController extends ViewController
 {
   @FXML
   private Label errorLabel;
-
   @FXML
   private Label descriptionField;
-
   @FXML
   private Label genreField;
-
   @FXML
   private Label ownerField;
-
   @FXML
   private Label playersField;
-
   @FXML
   private Label titleField;
 
@@ -78,6 +73,8 @@ public class GameDetailsViewController extends ViewController
     viewHandler.openView("return");
   }
 
+
+  //game and setFields() needs to be in both init() and reset() because otherwise, it wouldn't refresh upon switch
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
       Region root)
   {
