@@ -73,6 +73,7 @@ public class AddReservationViewController extends ViewController
    */
   public void reset()
   {
+    errorLabel.setText("");
   }
 
 
@@ -83,12 +84,12 @@ public class AddReservationViewController extends ViewController
     {
       for(int i=0;i<model.getAllClubAssociates().size();i++){
         if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
-          Reservation reservation = new Reservation(null,model.getAllClubAssociates().get(i),datePicker.getValue());
+          Reservation reservation = new Reservation(model.getSelectedGame(),model.getAllClubAssociates().get(i),datePicker.getValue());
           model.addReservation(reservation);
         }
       }
       errorLabel.setText("Success");
-      viewHandler.openView("reservationsList");
+      viewHandler.openView("gameList");
     }
     catch (Exception e)
     {

@@ -63,7 +63,6 @@ public class BorrowViewController extends ViewController
             .getSchoolIdProperty().get() == model.getAllClubAssociates().get(x)
             .getSchoolId())
         {
-          Game game = new Game("", null, "", "", "");
           if (!model.getAllClubAssociates().get(x).isMember())
           {
             for (int i = 0; i < model.getAllGames().size(); i++)
@@ -75,14 +74,14 @@ public class BorrowViewController extends ViewController
                     "Guest cannot borrow more then one game.\nPlease return game first.");
               }
             }
-            checkBorrowedDate(game, model.getAllClubAssociates().get(x));
+            checkBorrowedDate(model.getSelectedGame(), model.getAllClubAssociates().get(x));
           }
           else
           {
-            checkBorrowedDate(game, model.getAllClubAssociates().get(x));
+            checkBorrowedDate(model.getSelectedGame(), model.getAllClubAssociates().get(x));
           }
-          game.setBorrowedTo(null);
-          game.setBorrowedFrom(LocalDate.now());
+          model.getSelectedGame().setBorrowedTo(model.getAllClubAssociates().get(x));
+          model.getSelectedGame().setBorrowedFrom(LocalDate.now());
         }
       }
     }
