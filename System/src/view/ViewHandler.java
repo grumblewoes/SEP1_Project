@@ -111,6 +111,14 @@ public class ViewHandler implements Serializable
         addReservationViewController = loadViewController("AddReservationView.fxml", addReservationViewController);
         root = addReservationViewController.getRoot();
         break;
+      case "return":
+        returnViewController = loadViewController("ReturnView.fxml", returnViewController);
+        root = returnViewController.getRoot();
+        break;
+      case "borrow":
+        borrowViewController = loadViewController("BorrowView.fxml", borrowViewController);
+        root = borrowViewController.getRoot();
+        break;
       case "gameDetails":
         gameDetailsViewController = loadViewController("GameDetailsView.fxml", gameDetailsViewController);
         root = gameDetailsViewController.getRoot();

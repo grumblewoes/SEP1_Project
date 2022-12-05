@@ -1,12 +1,8 @@
 package view.games;
 
 import java.io.Serializable;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
@@ -69,17 +65,17 @@ public class GameDetailsViewController extends ViewController
 
   @FXML
   void borrowGame(ActionEvent event) {
-
+    viewHandler.openView("borrow");
   }
 
   @FXML
   void reserveGame(ActionEvent event) {
-
+    viewHandler.openView("addReservation");
   }
 
   @FXML
   void returnGame(ActionEvent event) {
-
+    viewHandler.openView("return");
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
