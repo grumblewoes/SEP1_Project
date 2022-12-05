@@ -10,47 +10,19 @@ import view.ViewHandler;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- * 
- * 
- * 
- * @author 
- * @version 
- */
 public class BorrowViewController extends ViewController
 {
-  /**
-   * 
-   * 
-   */
   @Override public void reset()
   {
 
   }
 
-  /**
-   * 
-   * 
-   * @param viewHandler 
-   *        
-   * @param model 
-   *        
-   * @param root 
-   *        
-   */
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
   }
 
-  /**
-   * 
-   * 
-   *
-   * @return 
-   *        
-   */
   public Region getRoot()
   {
     return root;

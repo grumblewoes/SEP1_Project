@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import model.ClubAssociate;
 import model.Reservation;
 import view.ViewController;
 import view.ViewHandler;
@@ -62,7 +63,7 @@ public class AddReservationViewController extends ViewController
         cellData -> cellData.getValue().getSchoolIdProperty());
     statusColumn.setCellValueFactory(cellData -> cellData.getValue().getIsMemberProperty());
 
-    clubAssociatesListTable.setItems(viewModel.getList());
+    clubAssociatesListTable.setItems(viewModel.getListOfMembers());
     reset();
   }
 
@@ -80,8 +81,12 @@ public class AddReservationViewController extends ViewController
     errorLabel.setText("");
     try
     {
-      Reservation reservation = new Reservation(null,null,datePicker.getValue());
-      model.addReservation(reservation);
+      for(int i=0;i<model.getAllClubAssociates().size();i++){
+        if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
+          Reservation reservation = new Reservation(null,model.getAllClubAssociates().get(i),datePicker.getValue());
+          model.addReservation(reservation);
+        }
+      }
       errorLabel.setText("Success");
       viewHandler.openView("reservationsList");
     }
