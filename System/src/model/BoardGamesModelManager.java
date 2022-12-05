@@ -14,6 +14,8 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
 {
   private WishList wishList;
   private GameList gameList;
+
+  private Game selectedGame;
   private ReservationList reservationList;
   private ClubAssociateList clubAssociateList;
   private EventList eventList;
@@ -108,6 +110,9 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    */
   public void addGame(Game game){ gameList.addGame(game);fileManager.exportModelToDatabase(); }
 
+  public void setSelectedGame(Game game) { selectedGame = game; }
+
+  public Game getSelectedGame() { return selectedGame; }
   /**
    * A method that calls the gameList to remove the games and fileManager to save the model.
    *

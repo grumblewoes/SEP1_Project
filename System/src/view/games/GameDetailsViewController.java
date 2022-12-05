@@ -1,9 +1,12 @@
 package view.games;
 
 import java.io.Serializable;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
@@ -19,14 +22,10 @@ import model.Game;
  * @version 1.0 - 04 December 2022
  */
 
-/**
- * 
- * 
- * 
- * @author 
- * @version 
- */
-public class GameDetailsViewController extends ViewController {
+public class GameDetailsViewController extends ViewController
+{
+  @FXML
+  private Label errorLabel;
 
   @FXML
   private Label descriptionField;
@@ -48,10 +47,6 @@ public class GameDetailsViewController extends ViewController {
     viewHandler.openView("gameList");
   }
 
-  /**
-   * 
-   * 
-   */
   @Override public void reset()
   {
     titleField.setText("");
@@ -59,6 +54,8 @@ public class GameDetailsViewController extends ViewController {
     playersField.setText("");
     genreField.setText("");
     descriptionField.setText("");
+    Game game = model.getSelectedGame();
+    setFields(game);
   }
 
   //needs info from GameListViewController, but can't get it
@@ -70,11 +67,29 @@ public class GameDetailsViewController extends ViewController {
     descriptionField.setText(game.getDescription());
   }
 
+  @FXML
+  void borrowGame(ActionEvent event) {
+
+  }
+
+  @FXML
+  void reserveGame(ActionEvent event) {
+
+  }
+
+  @FXML
+  void returnGame(ActionEvent event) {
+
+  }
+
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
       Region root)
   {
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    Game game = model.getSelectedGame();
+    setFields(game);
   }
+
 }

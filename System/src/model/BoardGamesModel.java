@@ -103,6 +103,10 @@ public interface BoardGamesModel
    */
   public Game getGameByTitle(String title);
 
+  public void setSelectedGame(Game game);
+
+  public Game getSelectedGame();
+
   /**
    * 
    * 

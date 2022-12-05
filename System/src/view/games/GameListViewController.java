@@ -126,6 +126,7 @@ public class GameListViewController extends ViewController
      *        
      */
     public void getDetails(ActionEvent event) {
+        model.setSelectedGame(gameListTable.getSelectionModel().getSelectedItem().getGame());
         viewHandler.openView("gameDetails");
     }
 
