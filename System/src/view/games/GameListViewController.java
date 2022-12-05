@@ -11,6 +11,13 @@ import java.util.Optional;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class GameListViewController extends ViewController
 {
     @FXML private Label errorLabel;
@@ -20,8 +27,23 @@ public class GameListViewController extends ViewController
     @FXML private TableColumn<GameViewModel, String> typeColumn;
 
     private GameListViewModel viewModel;
+    /**
+     * 0-argument constructor 
+     * 
+     * 
+     */
     public GameListViewController(){
     }
+    /**
+     * 
+     * 
+     * @param viewHandler 
+     *        
+     * @param model 
+     *        
+     * @param root 
+     *        
+     */
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
         this.viewHandler = viewHandler;
@@ -38,15 +60,27 @@ public class GameListViewController extends ViewController
         gameListTable.setItems(viewModel.getList());
     }
 
+    /**
+     * 
+     * 
+     */
     public void reset(){
         viewModel.update();
     }
     @FXML
+    /**
+     * 
+     * 
+     */
     public void addGame() {
         viewHandler.openView("addGame");
     }
 
     @FXML
+    /**
+     * 
+     * 
+     */
     public void removeGame() {
         errorLabel.setText("");
         try{
@@ -74,11 +108,21 @@ public class GameListViewController extends ViewController
     }
 
     @FXML
+    /**
+     * 
+     * 
+     */
     public void goBack() {
         viewHandler.openView("menu");
     }
 
     @FXML
+    /**
+     * 
+     * 
+     * @param event 
+     *        
+     */
     public void getDetails(ActionEvent event) {
         viewHandler.openView("gameDetails");
     }

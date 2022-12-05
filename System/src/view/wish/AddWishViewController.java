@@ -15,6 +15,13 @@ import java.io.Serializable;
 
 //Anna P
 //for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class AddWishViewController extends ViewController
 {
   @FXML
@@ -22,6 +29,16 @@ public class AddWishViewController extends ViewController
   @FXML
   private Label errorLabel;
 
+  /**
+   * 
+   * 
+   * @param viewHandler 
+   *        
+   * @param model 
+   *        
+   * @param root 
+   *        
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
     this.viewHandler=viewHandler;
     this.model=model;
@@ -34,6 +51,10 @@ public class AddWishViewController extends ViewController
   }
 
   @FXML
+  /**
+   * 
+   * 
+   */
   public void submitWish() {
     String name = wishTextField.getText();
 
@@ -54,6 +75,12 @@ public class AddWishViewController extends ViewController
   }
 
   @FXML
+  /**
+   * 
+   * 
+   * @param event 
+   *        
+   */
   public void cancelWish(ActionEvent event) {
     viewHandler.openView("wishList");
     reset();

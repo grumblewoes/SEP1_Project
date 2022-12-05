@@ -12,6 +12,13 @@ import view.clubAssociate.ClubAssociateViewModel;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class AddReservationViewController extends ViewController
 {
   @FXML private DatePicker datePicker;
@@ -23,11 +30,26 @@ public class AddReservationViewController extends ViewController
   private ClubAssociateListViewModel viewModel;
 
 
+  /**
+   * 0-argument constructor 
+   * 
+   * 
+   */
   public AddReservationViewController()
   {
     // Called by FXMLLoader
   }
 
+  /**
+   * 
+   * 
+   * @param viewHandler 
+   *        
+   * @param model 
+   *        
+   * @param root 
+   *        
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
     this.model = model;
@@ -44,6 +66,10 @@ public class AddReservationViewController extends ViewController
     reset();
   }
 
+  /**
+   * 
+   * 
+   */
   public void reset()
   {
   }

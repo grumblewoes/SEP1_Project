@@ -12,6 +12,13 @@ import view.ViewController;
 import view.ViewHandler;
 import model.Game;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class AddGameViewController extends ViewController
 {
 
@@ -58,6 +65,10 @@ public class AddGameViewController extends ViewController
 
   }
 
+  /**
+   * 
+   * 
+   */
   @Override public void reset()
   {
     titleBox.setText("");

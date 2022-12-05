@@ -13,6 +13,13 @@ import view.ViewHandler;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class AddClubAssociateViewController extends ViewController
 {
   @FXML private TextField nameField;
@@ -21,6 +28,16 @@ public class AddClubAssociateViewController extends ViewController
   @FXML private Label errorLabel;
   @FXML private ToggleGroup membershipGroup;
 
+  /**
+   * 
+   * 
+   * @param viewHandler 
+   *        
+   * @param model 
+   *        
+   * @param root 
+   *        
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
     this.viewHandler=viewHandler;
@@ -29,6 +46,10 @@ public class AddClubAssociateViewController extends ViewController
 
     reset();
   }
+  /**
+   * 
+   * 
+   */
   public void reset() {
     nameField.setText("");
     surnameField.setText("");

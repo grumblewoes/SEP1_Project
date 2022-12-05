@@ -6,9 +6,23 @@ import model.Game;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class GameViewModel implements Serializable
 {
   private StringProperty titleProperty, ownerProperty, typeProperty, numberOfPlayersProperty, descriptionProperty, borrowedToProperty;
+  /**
+   * 1-argument constructor 
+   * 
+   * 
+   * @param game 
+   *        
+   */
   public GameViewModel(Game game)
   {
     this.titleProperty=new SimpleStringProperty(game.getTitle());
@@ -19,31 +33,73 @@ public class GameViewModel implements Serializable
     this.borrowedToProperty=new SimpleStringProperty(game.getBorrowedTo());
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getTitleProperty()
   {
     return titleProperty;
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getOwnerProperty()
   {
     return ownerProperty;
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getTypeProperty()
   {
     return typeProperty;
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getNumberOfPlayersProperty()
   {
     return numberOfPlayersProperty;
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getDescriptionProperty()
   {
     return descriptionProperty;
   }
 
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public StringProperty getBorrowedToProperty()
   {
     return borrowedToProperty;

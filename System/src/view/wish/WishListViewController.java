@@ -14,6 +14,13 @@ import view.event.EventViewModel;
 import java.io.Serializable;
 
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class WishListViewController extends ViewController
 {
 
@@ -34,6 +41,16 @@ public class WishListViewController extends ViewController
 
     private WishListViewModel viewModel;
 
+    /**
+     * 
+     * 
+     * @param viewHandler 
+     *        
+     * @param model 
+     *        
+     * @param root 
+     *        
+     */
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
         this.viewHandler=viewHandler;
         this.model=model;

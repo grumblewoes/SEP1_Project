@@ -10,6 +10,13 @@ import model.BoardGamesModel;
 import view.ViewController;
 import view.ViewHandler;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class GameDetailsViewController extends ViewController {
 
   @FXML
@@ -32,6 +39,10 @@ public class GameDetailsViewController extends ViewController {
     viewHandler.openView("gameList");
   }
 
+  /**
+   * 
+   * 
+   */
   @Override public void reset()
   {
 

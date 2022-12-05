@@ -13,6 +13,13 @@ import view.ViewHandler;
 
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class ClubAssociateListViewController extends ViewController
 {
     @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
@@ -22,6 +29,16 @@ public class ClubAssociateListViewController extends ViewController
     @FXML private Label errorLabel;
     private ClubAssociateListViewModel viewModel;
 
+    /**
+     * 
+     * 
+     * @param viewHandler 
+     *        
+     * @param model 
+     *        
+     * @param root 
+     *        
+     */
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
         this.viewHandler=viewHandler;
@@ -38,26 +55,46 @@ public class ClubAssociateListViewController extends ViewController
         clubAssociatesListTable.setItems(viewModel.getList());
     }
 
+    /**
+     * 
+     * 
+     */
     public void reset(){
         errorLabel.setText("");
         viewModel.update();
     }
 
+    /**
+     * 
+     * 
+     */
     public void addAssociateBtnClicked()
     {
         viewHandler.openView("addClubAssociate");
     }
 
+    /**
+     * 
+     * 
+     */
     public void toggleMembershipBtnClicked()
     {
 
     }
 
+    /**
+     * 
+     * 
+     */
     public void returnBtnClicked()
     {
         viewHandler.openView("menu");
     }
 
+    /**
+     * 
+     * 
+     */
     public void detailsBtnClicked()
     {
     }

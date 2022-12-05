@@ -11,13 +11,34 @@ import view.ViewHandler;
 import java.awt.*;
 import java.io.Serializable;
 
+/**
+ * 
+ * 
+ * 
+ * @author 
+ * @version 
+ */
 public class ReturnViewController extends ViewController
 {
+  /**
+   * 
+   * 
+   */
   @Override public void reset()
   {
 
   }
 
+  /**
+   * 
+   * 
+   * @param viewHandler 
+   *        
+   * @param model 
+   *        
+   * @param root 
+   *        
+   */
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
     this.viewHandler=viewHandler;
     this.model=model;
