@@ -15,11 +15,11 @@ import java.io.Serializable;
 
 
 /**
- * 
- * 
- * 
- * @author 
- * @version 
+ * A class extending ViewController that controls the GUI side of viewing/modifying the wishlist.
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
  */
 public class WishListViewController extends ViewController
 {
@@ -58,6 +58,7 @@ public class WishListViewController extends ViewController
 
         this.viewModel = new WishListViewModel(model);
 
+        //sets all table values to ones fetched from the model
         wishName.setCellValueFactory( cellData -> cellData.getValue()
                 .getTitleProperty());
         wishVotes.setCellValueFactory( cellData -> cellData.getValue()
@@ -86,15 +87,23 @@ public class WishListViewController extends ViewController
         viewHandler.openView("addWish");
     }
 
+    //removes a wish from the list
     @FXML
     void removeWish(ActionEvent event) {
         try{
-            WishViewModel selectedItem = wishTable.getSelectionModel().getSelectedItem();
-            model.removeWish(selectedItem.getWish());
-            viewModel.remove(selectedItem.getWish());
-            wishTable.getSelectionModel().clearSelection();
-
-        }catch(Exception e){
+            WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
+            if (wishView == null) {
+                errorLabel.setText("Please select a wish to delete.");
+            }
+            else {
+                errorLabel.setText("");
+                model.removeWish(wishView.getWish());
+                viewModel.remove(wishView.getWish());
+                wishTable.getSelectionModel().clearSelection();
+                viewModel.update();
+            }
+        }
+        catch(Exception e){
             errorLabel.setText("Exception:" + e.getMessage());
         }
     }

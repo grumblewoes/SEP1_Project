@@ -9,11 +9,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * 
- * 
- * 
- * @author 
- * @version 
+ * A class that defines the javafx table of wishes that corresponds to WishList
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
  */
 public class WishListViewModel implements Serializable
 {
@@ -48,6 +48,7 @@ public class WishListViewModel implements Serializable
    * 
    * 
    */
+  //refreshes the table shown on screen
   public void update(){
     list.clear();
     ArrayList<Wish> wishes = model.getAllWishes();
@@ -71,6 +72,7 @@ public class WishListViewModel implements Serializable
    * @param wish 
    *        
    */
+  //removes wish models from the table
   public void remove(Wish wish){
     for(WishViewModel wvm : list)
       if( wvm.getWish().equals(wish)){

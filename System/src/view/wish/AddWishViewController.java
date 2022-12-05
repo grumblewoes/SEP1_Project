@@ -13,15 +13,17 @@ import model.BoardGamesFile;
 
 import java.io.Serializable;
 
+
 //Anna P
 //for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
+
 /**
- * 
- * 
- * 
- * @author 
- * @version 
- */
+* A class extending ViewController that controls the GUI side of allowing the user to add games to the wishlist.
+*
+*
+* @author Anna Pomerantz
+* @version 1.0 - 04 December 2022
+*/
 public class AddWishViewController extends ViewController
 {
   @FXML
@@ -50,6 +52,7 @@ public class AddWishViewController extends ViewController
     errorLabel.setText("");
   }
 
+  //submits a wish to the list, initialized with 1 vote
   @FXML
   /**
    * 
@@ -85,13 +88,5 @@ public class AddWishViewController extends ViewController
     viewHandler.openView("wishList");
     reset();
   }
-
-  //submits a wish to the list, initialized with 1 vote
-
-
-
-
-
-
 
 }

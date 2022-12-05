@@ -9,11 +9,11 @@ import model.Wish;
 import java.io.Serializable;
 
 /**
- * 
- * 
- * 
- * @author 
- * @version 
+ * A class that defines the javafx wish that corresponds to Wishes in the WishList
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
  */
 public class WishViewModel implements Serializable
 {
@@ -33,6 +33,7 @@ public class WishViewModel implements Serializable
    * @return 
    *        
    */
+  //collection of get methods for all field properties
   public StringProperty getTitleProperty()
   {
     return titleProperty;

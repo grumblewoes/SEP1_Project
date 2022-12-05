@@ -1,32 +1,7 @@
 <root>
  <games>
- <game>
-   <title>sadas</title>
-   <numberOfPlayers>5</numberOfPlayers>
-   <type>dfas</type>
-   <description>asd sad asda dasd asd sad</description>
-   <borrowedTo>Nobody borrows it</borrowedTo>
-   <owner>asd sdfdfdfs</owner>
-   <ratings></ratings>
- </game>
   </games>
   <wishes>
- <wish>
-   <title>ads</title>
-   <votes>1</votes>
-  </wish>
- <wish>
-   <title>Ludo</title>
-   <votes>4</votes>
-  </wish>
- <wish>
-   <title>The Game of Life</title>
-   <votes>2</votes>
-  </wish>
- <wish>
-   <title>Cluedo</title>
-   <votes>2</votes>
-  </wish>
   </wishes>
   <events>
   </events>

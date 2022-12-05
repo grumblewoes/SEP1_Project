@@ -15,6 +15,7 @@ import java.io.Serializable;
  */
 public class GameViewModel implements Serializable
 {
+  private Game game;
   private StringProperty titleProperty, ownerProperty, typeProperty, numberOfPlayersProperty, descriptionProperty, borrowedToProperty;
   /**
    * 1-argument constructor 
@@ -25,6 +26,7 @@ public class GameViewModel implements Serializable
    */
   public GameViewModel(Game game)
   {
+    this.game = game;
     this.titleProperty=new SimpleStringProperty(game.getTitle());
     this.ownerProperty=new SimpleStringProperty(game.getOwner());
     this.typeProperty=new SimpleStringProperty(game.getType());
@@ -40,6 +42,8 @@ public class GameViewModel implements Serializable
    * @return 
    *        
    */
+  public Game getGame() { return game; }
+
   public StringProperty getTitleProperty()
   {
     return titleProperty;

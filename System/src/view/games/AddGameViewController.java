@@ -1,6 +1,4 @@
 package view.games;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,12 +11,14 @@ import view.ViewHandler;
 import model.Game;
 
 /**
- * 
- * 
- * 
- * @author 
- * @version 
+ * A class extending ViewController that controls the GUI side of adding a game to the game list
+ *
+ *
+ * @author Anna P, Catarina J
+ * @version 1.0 - 04 December 2022
  */
+
+
 public class AddGameViewController extends ViewController
 {
 
@@ -41,28 +41,38 @@ public class AddGameViewController extends ViewController
   private TextField titleBox;
 
   @FXML
-  void cancelGame(ActionEvent event) {
+  void cancelGame() {
     viewHandler.openView("gameList");
     reset();
   }
 
+  //submits game to game list. first checks that all fields are set. try-catch catches number formatting exceptions, fx.
+  //if a name gets submitted in the owner field instead of an id.
   @FXML
-  void submitGame(ActionEvent event) {
-    String title = titleBox.getText();
-    String players = playersBox.getText();
-    int owner = Integer.parseInt(ownerBox.getText());
-    ClubAssociate clubAssociate = model.getClubAssociate(owner);
-    String description = descriptionBox.getText();
-    String genre = genreBox.getText();
+  void submitGame() {
+    try
+    {
+      String title = titleBox.getText();
+      String players = playersBox.getText();
+      int owner = Integer.parseInt(ownerBox.getText());
+      ClubAssociate clubAssociate = model.getClubAssociate(owner);
+      String description = descriptionBox.getText();
+      String genre = genreBox.getText();
 
-    if (clubAssociate != null) {
-      model.addGame(new Game(title, clubAssociate, genre, players, description));
-      viewHandler.openView("gameList");
-      reset();
+      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || genre.equals(""))
+        errorLabel.setText("Make sure all fields are filled before submission.");
+
+      else
+      {
+        Game game = new Game(title, clubAssociate, genre, players, description);
+        model.addGame(game);
+        viewHandler.openView("gameList");
+      }
     }
-    else
-      errorLabel.setText("That owner's ID does not exist in the system.");
-
+    catch (NumberFormatException e)
+    {
+      errorLabel.setText("Make sure to enter the owner using their ID.");
+    }
   }
 
   /**
