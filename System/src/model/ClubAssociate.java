@@ -29,6 +29,13 @@ public class ClubAssociate extends Person
    */
   public ClubAssociate(Name name, int schoolId, boolean isMember) {
     super(name);
+
+    // if the ID is not a six digit number as is supposed to be, throw an exception
+    if (!(schoolId > 0 && Integer.toString(schoolId).length() == 6))
+    {
+      throw new IllegalArgumentException("Invalid ID");
+    }
+
     this.schoolId = schoolId;
     this.isMember = isMember;
   }
