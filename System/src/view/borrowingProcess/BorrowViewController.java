@@ -89,7 +89,6 @@ public class BorrowViewController extends ViewController
     catch (Exception e){
       errorLabel.setText("Something went wrong: "+e);
     }
-
   }
 
   private void checkBorrowedDate(Game game, ClubAssociate clubAssociate){
