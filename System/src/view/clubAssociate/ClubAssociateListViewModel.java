@@ -47,8 +47,4 @@ public class ClubAssociateListViewModel implements Serializable
   public void add(ClubAssociate clubAssociate) {
     list.add(new ClubAssociateViewModel(clubAssociate));
   }
-  public void addMember(ClubAssociate clubAssociate){
-    listOfMembers.add(new ClubAssociateViewModel(clubAssociate));
-  }
-
 }
