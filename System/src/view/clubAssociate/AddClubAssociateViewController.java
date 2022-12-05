@@ -12,6 +12,7 @@ import view.ViewController;
 import view.ViewHandler;
 
 import java.io.Serializable;
+import java.util.InputMismatchException;
 
 public class AddClubAssociateViewController extends ViewController
 {
@@ -41,29 +42,23 @@ public class AddClubAssociateViewController extends ViewController
     errorLabel.setText("");
     try
     {
-      //to be updated...
       RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
 
       ClubAssociate associate = new ClubAssociate(
-          new Name(
-              nameField.getText(),
-              surnameField.getText()
-              ),
-          Integer.parseInt(idField.getText()),
-          !"guestRadioBtn".equals(membershipGroupBtn.getId())
-        );
-//
+          new Name(nameField.getText(), surnameField.getText()),
+          Integer.parseInt(idField.getText()), !"guestRadioBtn".equals(membershipGroupBtn.getId()));
+
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");
     }
     catch (IllegalArgumentException e) {
-      errorLabel.setText("");
+      errorLabel.setText(e.getMessage());
     }
-//    catch (Exception e)
-//    {
-//      errorLabel.setText("It should be a number");
-//    }
+    catch (Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
   }
     @FXML private void cancelClubAssociateBtnClicked() {
       viewHandler.openView("clubAssociateList");

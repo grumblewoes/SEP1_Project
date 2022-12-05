@@ -9,10 +9,11 @@ public class Name implements Serializable
 
   public Name(String firstName, String lastName) {
     if (firstName == null || firstName.isEmpty()) {
-      throw new IllegalArgumentException("Write the Name");
+      throw new IllegalArgumentException("Write the name");
     }
+
     if (lastName == null || lastName.isEmpty()) {
-      throw new IllegalArgumentException("Write the Surname");
+      throw new IllegalArgumentException("Write the surname");
     }
     this.firstName = firstName;
     this.lastName = lastName;
