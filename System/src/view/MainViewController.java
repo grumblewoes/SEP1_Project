@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 
+import java.io.Serializable;
+
 public class MainViewController extends  ViewController
 {
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
@@ -37,13 +39,11 @@ public class MainViewController extends  ViewController
     viewHandler.openView("eventList");
   }
 
-  public void updateWebsiteBtnClicked()
-  {
-    model.generateModelDataFile();
-  }
+
 
   public void exitBtnClicked()
   {
     viewHandler.closeView();
   }
+
 }

@@ -1,14 +1,14 @@
-package view;
+package view.games;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Game;
-import view.event.EventViewModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GameListViewModel
+public class GameListViewModel implements Serializable
 {
   private ObservableList<GameViewModel> list;
   private BoardGamesModel model;

@@ -1,14 +1,15 @@
-package view;
+package view.games;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
-import view.clubAssociate.ClubAssociateListViewModel;
-import view.clubAssociate.ClubAssociateViewModel;
-import view.event.EventViewModel;
+import view.ViewHandler;
+import view.ViewController;
 
 import java.util.Optional;
+
+import java.io.Serializable;
 
 public class GameListViewController extends ViewController
 {
@@ -23,9 +24,9 @@ public class GameListViewController extends ViewController
     }
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
-        this.viewHandler=viewHandler;
-        this.model=model;
-        this.root=root;
+        this.viewHandler = viewHandler;
+        this.model = model;
+        this.root = root;
 
         this.viewModel = new GameListViewModel(model);
         titleColumn.setCellValueFactory(
@@ -40,13 +41,14 @@ public class GameListViewController extends ViewController
     public void reset(){
         viewModel.update();
     }
+
     @FXML
-    public void addGame(ActionEvent event) {
+    public void addGame() {
         viewHandler.openView("addGame");
     }
 
     @FXML
-    public void removeGame(ActionEvent event) {
+    public void removeGame() {
         errorLabel.setText("");
         try{
             GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
@@ -60,6 +62,7 @@ public class GameListViewController extends ViewController
             errorLabel.setText("Exception:" + e.getMessage());
         }
     }
+
     private boolean confirmation(){
         int index = gameListTable.getSelectionModel().getSelectedIndex();
         GameViewModel selectedItem= gameListTable.getItems().get(index);
@@ -73,7 +76,7 @@ public class GameListViewController extends ViewController
     }
 
     @FXML
-    public void goBack(ActionEvent event) {
+    public void goBack() {
         viewHandler.openView("menu");
     }
 
@@ -81,5 +84,6 @@ public class GameListViewController extends ViewController
     public void getDetails(ActionEvent event) {
         viewHandler.openView("gameDetails");
     }
+
 
 }

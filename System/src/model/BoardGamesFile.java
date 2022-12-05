@@ -1,35 +1,56 @@
 package model;
 
-import view.GameViewModel;
-
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class BoardGamesFile
+/**
+ * A class that is responsible for importing and exporting the BoardGamesModel to and from local file (local database).
+ * While exporting the model (saving the data) it also creates/overwrite xml file with data that is to be used on the website (events,wishes,games).
+ * 
+ * 
+ * @author Damian Trafiałek
+ * @version 2.0 - 03 December 2022
+ */
+public class BoardGamesFile implements Serializable
 {
-  private final static String XML_FILE_PATH = "./System/src/xml/ModelData.xml";
-  private final static String DATABASE_FILE_PATH = "./System/src/xml/DatabaseData.xml";
+  private final static String XML_FILE_PATH = "xml.xml";
+  private final static String DATABASE_FILE_PATH = "database.bin";
   private BoardGamesModel model;
 
+  /**
+   * 1-argument constructor creating a new BoardGamesFile instance. Taking model reference as a parameter it will be used to change it - import/export.
+   * 
+   * 
+   * @param model 
+   *        the current instance of the BoardGamesModel
+   */
   public BoardGamesFile(BoardGamesModel model){
     this.model = model;
   }
 
-  public void getDobeDabaDatabase(){
-    FileInputStream fos = null;
+  /**
+   * A method returning the model that is to be used for this run of the application.
+   *
+   * @return imported/previous BoardGamesModel with all its data or a new instance of the model if one doesn't exist
+   *        
+   */
+  public BoardGamesModel importModelFromDatabase(){
+    FileInputStream fis = null;
     ObjectInputStream in = null;
     BoardGamesModel newModel = null;
 
     try{
       File file = new File(DATABASE_FILE_PATH);
-      fos=new FileInputStream(file);
-      in=new ObjectInputStream(fos);
+      fis=new FileInputStream(file);
+      in=new ObjectInputStream(fis);
 
       newModel = (BoardGamesModel) in.readObject();
 
     }catch (IOException e){
-      System.out.println("You are fucked up...3.1");
+      System.out.println("ALLERT : No previous or current model exists in database. Generating a new model...");
+      System.out.println("NOTE   : Every slightest change in the code may result that the previous model will be redundant thus impossible to import: ");
+      System.out.println("         EXAMPLE : A new model has a method that the old one didn't have. They are incompatible and a new model must be created.");
+      System.out.println("");
     }
     catch (ClassNotFoundException e)
     {
@@ -38,14 +59,21 @@ public class BoardGamesFile
     finally
     {
       try{
-        in.close();
+        if(in!=null)
+          in.close();
       }catch (IOException e){
         e.printStackTrace();
       }
+      createXMLFile();
     }
+    return newModel==null ? new BoardGamesModelManager() : newModel;
   }
 
-  public void dobeDabaDatabase(){
+  /**
+   * A method that saves the current model with its data to the local binary file.
+   * 
+   */
+  public void exportModelToDatabase(){
     FileOutputStream fos = null;
     ObjectOutputStream out = null;
 
@@ -57,7 +85,7 @@ public class BoardGamesFile
       out.writeObject(model);
 
     }catch (IOException e){
-      System.out.println("You are fucked up...3.1");
+      System.out.println("Unable to save the model: "+e.getMessage());
     }
     finally
     {
@@ -66,36 +94,12 @@ public class BoardGamesFile
       }catch (IOException e){
         e.printStackTrace();
       }
+      createXMLFile();
     }
   }
 
-  private String getContextFromDatabase(){
 
-    String xml = "";
-
-    File file= new File(XML_FILE_PATH);
-
-    try{
-      Scanner in = new Scanner(file);
-      while( in.hasNext() )
-        xml+=in.nextLine();
-    }catch (Exception e){
-      xml = "<root>"
-          + "\n <games>"+
-          "\n  </games>"+
-          "\n  <wishes>"+
-          "\n  </wishes>"+
-          "\n  <events>"+
-          "\n  </events>"+
-          "\n  </root>";
-    }
-
-
-    return xml;
-  }
-
-  public void addGame(Game game){
-    String xml = getContextFromDatabase();
+  private String addGame(Game game,String xml){
     String search = "<games>";
     int index = xml.indexOf(search);
 
@@ -115,10 +119,10 @@ public class BoardGamesFile
         "\n </game>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
-    createFile();
+    return xml;
   }
-  public void addWish(Wish wish){
-    String xml = getContextFromDatabase();
+
+  private String addWish(Wish wish,String xml){
     String search = "<wishes>";
     int index = xml.indexOf(search);
 
@@ -128,11 +132,11 @@ public class BoardGamesFile
         "\n  </wish>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
-    createFile();
+    return xml;
   }
 
-  public void addEvent(Event event){
-    String xml = getContextFromDatabase();
+
+  private String addEvent(Event event,String xml){
     String search = "<events>";
     int index = xml.indexOf(search);
 
@@ -143,25 +147,38 @@ public class BoardGamesFile
         "\n </event>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
-    createFile();
+    return xml;
   }
 
-  private void prepareFileContent(){
+
+
+  private String prepareFileContent(){
     ArrayList<Game> games = model.getAllGames();
     ArrayList<Wish> wishes = model.getAllWishes();
     ArrayList<Event> events = model.getAllEvents();
 
-    for(Game game : games)addGame(game);
-    for(Wish wish : wishes)addWish(wish);
-    for(Event event : events)addEvent(event);
+    String xml = xml =
+        "<root>" +
+        "\n <games>"+
+        "\n  </games>"+
+        "\n  <wishes>"+
+        "\n  </wishes>"+
+        "\n  <events>"+
+        "\n  </events>"+
+        "\n  </root>";
+    for(Game game : games) xml=addGame(game,xml);
+    for(Wish wish : wishes) xml=addWish(wish,xml);
+    for(Event event : events) xml=addEvent(event,xml);
+
+    return xml;
   }
 
-  public boolean createFile(){
+
+  private boolean createXMLFile(){
     File file = new File(XML_FILE_PATH);
     PrintWriter out = null;
 
-    String xml = getContextFromDatabase();
-    prepareFileContent();
+    String xml = prepareFileContent();
 
     System.out.println("creating the file...");
     try{

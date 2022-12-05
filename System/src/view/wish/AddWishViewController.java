@@ -11,25 +11,26 @@ import view.ViewHandler;
 import model.Wish;
 import model.BoardGamesFile;
 
-//Anna P
-//for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
-public class AddWishViewController extends ViewController {
-  @FXML
-  private Button cancelButton;
-  @FXML
-  private Button submitButton;
+import java.io.Serializable;
+
+/**
+* A class extending ViewController that controls the GUI side of allowing the user to add games to the wishlist.
+*
+*
+* @author Anna Pomerantz
+* @version 1.0 - 04 December 2022
+*/
+public class AddWishViewController extends ViewController
+{
   @FXML
   private TextField wishTextField;
   @FXML
   private Label errorLabel;
 
-  private BoardGamesFile file;
-
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    file = new BoardGamesFile(this.model);
   }
 
   public void reset () {
@@ -37,8 +38,9 @@ public class AddWishViewController extends ViewController {
     errorLabel.setText("");
   }
 
+  //submits a wish to the list, initialized with 1 vote
   @FXML
-  void submitWish() {
+  public void submitWish() {
     String name = wishTextField.getText();
 
     //checks if wishlist already has the specified game
@@ -58,17 +60,9 @@ public class AddWishViewController extends ViewController {
   }
 
   @FXML
-  void cancelWish(ActionEvent event) {
+  public void cancelWish(ActionEvent event) {
     viewHandler.openView("wishList");
     reset();
   }
-
-  //submits a wish to the list, initialized with 1 vote
-
-
-
-
-
-
 
 }

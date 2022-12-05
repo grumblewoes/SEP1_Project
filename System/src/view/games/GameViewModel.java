@@ -1,14 +1,18 @@
-package view;
+package view.games;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Game;
 
-public class GameViewModel
+import java.io.Serializable;
+
+public class GameViewModel implements Serializable
 {
+  private Game game;
   private StringProperty titleProperty, ownerProperty, typeProperty, numberOfPlayersProperty, descriptionProperty, borrowedToProperty;
   public GameViewModel(Game game)
   {
+    this.game = game;
     this.titleProperty=new SimpleStringProperty(game.getTitle());
     this.ownerProperty=new SimpleStringProperty(game.getOwner());
     this.typeProperty=new SimpleStringProperty(game.getType());
@@ -16,6 +20,8 @@ public class GameViewModel
     this.descriptionProperty=new SimpleStringProperty(game.getDescription());
     this.borrowedToProperty=new SimpleStringProperty(game.getBorrowedTo());
   }
+
+  public Game getGame() { return game; }
 
   public StringProperty getTitleProperty()
   {

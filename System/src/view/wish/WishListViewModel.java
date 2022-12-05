@@ -5,9 +5,17 @@ import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Wish;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WishListViewModel
+/**
+ * A class that defines the javafx table of wishes that corresponds to WishList
+ *
+ *
+ * @author Anna Pomerantz
+ * @version 1.0 - 04 December 2022
+ */
+public class WishListViewModel implements Serializable
 {
   private ObservableList<WishViewModel> list;
   private BoardGamesModel model;
@@ -22,6 +30,7 @@ public class WishListViewModel
     return list;
   }
 
+  //refreshes the table shown on screen
   public void update(){
     list.clear();
     ArrayList<Wish> wishes = model.getAllWishes();
@@ -33,9 +42,10 @@ public class WishListViewModel
     list.add(new WishViewModel(wish));
   }
 
-  public void remove(String title){
+  //removes wish models from the table
+  public void remove(Wish wish){
     for(WishViewModel wvm : list)
-      if( wvm.getTitleProperty().get().equals(title)){
+      if( wvm.getWish().equals(wish)){
         list.remove(wvm);
         break;
       }

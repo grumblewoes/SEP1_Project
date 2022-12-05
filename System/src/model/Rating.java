@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Rating
+public class Rating implements Serializable
 {
   int rating;
   public final static int LEGAL_RATINGS[] = { 1, 2, 3, 4, 5};
