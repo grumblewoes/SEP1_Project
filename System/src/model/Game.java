@@ -66,11 +66,16 @@ public class Game implements Serializable
 
   public void setBorrowedTo(ClubAssociate borrowedTo)
   {
-    this.borrowedTo = borrowedTo;
+    if(borrowedTo.isMember()==false){
+      if(borrowedTo.equals(borrowedTo)){
+        throw new IllegalArgumentException("Guest cannot borrow more then one game.\nPlease return game first.");
+      }
+    }
+    this.borrowedTo=borrowedTo;
   }
   public void setBorrowedFrom(LocalDate borrowedFrom)
   {
-    this.borrowedFrom = borrowedFrom;
+    this.borrowedFrom=borrowedFrom;
   }
 
   public String getOwner()

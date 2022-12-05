@@ -12,7 +12,21 @@ public class ReservationList implements Serializable
   }
 
   public void addReservation(Reservation reservation){
-    reservations.add(reservation);
+    if(reservation!=null)
+    {
+      for (int i = 0; i < reservations.size(); i++)
+      {
+        if (reservation.equals(reservations.get(i)))
+        {
+          throw new IllegalStateException(
+              "Another person has already reserved this game for given date.\nPlease pick a new date.");
+        }
+      }
+      reservations.add(reservation);
+    }
+    else{
+      throw new IllegalArgumentException("Select all information needed to finish the reservation... (Associate, Date)");
+    }
   }
   public boolean isReserved(Game game)
   {
