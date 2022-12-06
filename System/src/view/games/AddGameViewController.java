@@ -1,5 +1,6 @@
 package view.games;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -30,7 +31,7 @@ public class AddGameViewController extends ViewController
   private Label errorLabel;
 
   @FXML
-  private TextField genreBox;
+  private ChoiceBox<String> genreBox;
 
   @FXML
   private TextField ownerBox;
@@ -58,9 +59,10 @@ public class AddGameViewController extends ViewController
       int owner = Integer.parseInt(ownerBox.getText());
       ClubAssociate clubAssociate = model.getClubAssociate(owner);
       String description = descriptionBox.getText();
-      String genre = genreBox.getText();
+      //fetch selected value
+      String genre = genreBox.getValue();
 
-      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || genre.equals(""))
+      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || genre == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
 
       else
@@ -80,6 +82,10 @@ public class AddGameViewController extends ViewController
     {
       errorLabel.setText("Make sure to enter the owner using their ID.");
     }
+    catch (NullPointerException e)
+    {
+      errorLabel.setText("No owner by that ID exists in the system.");
+    }
   }
 
   /**
@@ -92,7 +98,7 @@ public class AddGameViewController extends ViewController
     ownerBox.setText("");
     playersBox.setText("");
     descriptionBox.setText("");
-    genreBox.setText("");
+    genreBox.setValue("");
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
@@ -101,6 +107,9 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    genreBox.getItems().add("Deduction");
+    genreBox.getItems().add("City Building");
+    genreBox.getItems().add("Deck Building");
   }
 }
 
