@@ -49,7 +49,9 @@ public class AddEventViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-
+    locationChoiceBox.getItems().add(CANTEEN);
+    locationChoiceBox.getItems().add(CLASSROOM);
+    locationChoiceBox.getItems().add(ASK_BOB);
     reset();
   }
 
@@ -63,9 +65,7 @@ public class AddEventViewController extends ViewController
     descriptionArea.setText("");
     errorLabel.setText("");
     datePicker.setValue(LocalDate.now());
-    locationChoiceBox.getItems().add(CANTEEN);
-    locationChoiceBox.getItems().add(CLASSROOM);
-    locationChoiceBox.getItems().add(ASK_BOB);
+
   }
 
   private int[] convertStartInput(){
@@ -86,7 +86,7 @@ public class AddEventViewController extends ViewController
     String title = titleField.getText();
     String description = descriptionArea.getText();
     LocalDate date = datePicker.getValue();
-    String location= "";
+    String location=locationChoiceBox.getSelectionModel().getSelectedItem();
 
     try{
       int[] arr = convertStartInput();
