@@ -124,8 +124,8 @@ public class Game implements Serializable
   public String getBorrowedTo()
   {
     if(borrowedTo==null)
-      return "Nobody borrows it";
-    return borrowedTo.getFullName();
+      return "Available";
+    return "Borrowed by "+borrowedTo.getFullName();
   }
 
   /**
@@ -134,18 +134,8 @@ public class Game implements Serializable
    * @param borrowedTo 
    *        
    */
-  //fix this logic
   public void setBorrowedTo(ClubAssociate borrowedTo)
   {
-    //if we want to return the game then we set borrowedTo to null right? / added this
-    if(borrowedTo!=null){
-      if(borrowedTo.isMember()==false){
-        //this logic => if objetc equals itself? -> happens always
-        if(borrowedTo.equals(borrowedTo)){
-          throw new IllegalArgumentException("Guest cannot borrow more then one game.\nPlease return game first.");
-        }
-      }
-    }
     this.borrowedTo=borrowedTo;
   }
   /**

@@ -9,8 +9,6 @@ import view.ViewController;
 
 import java.util.Optional;
 
-import java.io.Serializable;
-
 /**
  * 
  * 
@@ -24,7 +22,7 @@ public class GameListViewController extends ViewController
     @FXML private TableView<GameViewModel> gameListTable;
     @FXML private TableColumn<GameViewModel, String> titleColumn;
     @FXML private TableColumn<GameViewModel, String> ownerColumn;
-    @FXML private TableColumn<GameViewModel, String> typeColumn;
+    @FXML private TableColumn<GameViewModel, String> statusColumn;
 
     private GameListViewModel viewModel;
     /**
@@ -35,7 +33,6 @@ public class GameListViewController extends ViewController
     public GameListViewController(){
     }
     /**
-     * 
      * 
      * @param viewHandler 
      *        
@@ -55,23 +52,24 @@ public class GameListViewController extends ViewController
             cellData -> cellData.getValue().getTitleProperty());
         ownerColumn.setCellValueFactory(
             cellData -> cellData.getValue().getOwnerProperty());
-        typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
+        statusColumn.setCellValueFactory(cellData -> cellData.getValue().getBorrowedToProperty());
 
         gameListTable.setItems(viewModel.getList());
+        reset();
     }
 
     /**
-     * 
-     * 
+     * resets the screen to its initial state
      */
     public void reset(){
+        errorLabel.setText("");
         viewModel.update();
     }
 
     @FXML
     /**
      * 
-     * 
+     * adds a game to the game list
      */
     public void addGame() {
         viewHandler.openView("addGame");
@@ -80,17 +78,21 @@ public class GameListViewController extends ViewController
     @FXML
     /**
      * 
-     * 
+     * removes game from the game list
      */
     public void removeGame() {
         errorLabel.setText("");
         try{
-            GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
+            GameViewModel selectedItem = gameListTable.getSelectionModel()
+                .getSelectedItem();
             boolean remove = confirmation();
-            if(remove){
-                model.removeEvent(selectedItem.getTitleProperty().get());
-                viewModel.remove(selectedItem.getTitleProperty().get());
-                gameListTable.getSelectionModel().clearSelection();
+            for(int i=0;i<model.getAllGames().size();i++) {
+                if (remove && selectedItem.equals(model.getAllGames().get(i)))
+                {
+                    model.removeGame(model.getAllGames().get(i));
+                    viewModel.remove(selectedItem.getTitleProperty().get());
+                    gameListTable.getSelectionModel().clearSelection();
+                }
             }
         }catch(Exception e){
             errorLabel.setText("Exception:" + e.getMessage());
@@ -111,8 +113,7 @@ public class GameListViewController extends ViewController
 
     @FXML
     /**
-     * 
-     * 
+     * returns to menu screen
      */
     public void goBack() {
         viewHandler.openView("menu");
@@ -120,14 +121,17 @@ public class GameListViewController extends ViewController
 
     @FXML
     /**
-     * 
-     * 
-     * @param event 
-     *        
+     *  get details of a selected game
      */
-    public void getDetails(ActionEvent event) {
-        model.setSelectedGame(gameListTable.getSelectionModel().getSelectedItem().getGame());
-        viewHandler.openView("gameDetails");
+    public void getDetails() {
+        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
+        if (selected == null)
+            errorLabel.setText("Please select a game to fetch information on.");
+        else
+        {
+            model.setSelectedGame(selected.getGame());
+            viewHandler.openView("gameDetails");
+        }
     }
 
 

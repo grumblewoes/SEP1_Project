@@ -54,6 +54,7 @@ public class EventListViewController extends ViewController
         .getDateProperty());
 
     eventListTable.setItems(viewModel.getList());
+    reset();
   }
 
   /**
