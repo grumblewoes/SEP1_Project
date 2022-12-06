@@ -53,6 +53,7 @@ public class ClubAssociateListViewController extends ViewController
         statusColumn.setCellValueFactory(cellData -> cellData.getValue().getIsMemberProperty());
 
         clubAssociatesListTable.setItems(viewModel.getList());
+        reset();
     }
 
     /**
@@ -91,12 +92,5 @@ public class ClubAssociateListViewController extends ViewController
         viewHandler.openView("menu");
     }
 
-    /**
-     * 
-     * 
-     */
-    public void detailsBtnClicked()
-    {
-    }
 }
 

@@ -13,42 +13,41 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.ClubAssociateListViewController">
     <children>
-        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club Associate">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club Associates">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
                 </Text>
             </children>
         </HBox>
-        <HBox prefHeight="250.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
             <children>
-                <VBox alignment="CENTER_LEFT" prefHeight="224.0" prefWidth="157.0">
+                <VBox alignment="CENTER_LEFT" prefHeight="241.0" prefWidth="180.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#addAssociateBtnClicked" text="Add associate">
+                        <Button mnemonicParsing="false" onAction="#addAssociateBtnClicked" prefHeight="25.0" prefWidth="130.0" text="Add Associate">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#toggleMembershipBtnClicked" prefWidth="97.0" text="Toggle membership">
+                        <Button mnemonicParsing="false" onAction="#toggleMembershipBtnClicked" prefHeight="25.0" prefWidth="130.0" text="Toggle membership">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
                         </Button>
-                  <Button mnemonicParsing="false" onAction="#detailsBtnClicked" text="Details" />
                     </children>
                     <padding>
                         <Insets left="20.0" right="20.0" />
                     </padding>
                 </VBox>
-                <VBox alignment="CENTER" prefHeight="226.0" prefWidth="484.0">
+                <VBox alignment="CENTER" prefHeight="241.0" prefWidth="410.0">
                     <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="405.0">
+                        <ScrollPane prefHeight="200.0" prefWidth="350.0">
                             <content>
-                                <TableView fx:id="clubAssociatesListTable" prefHeight="200.0" prefWidth="420.0">
+                                <TableView fx:id="clubAssociatesListTable" prefHeight="200.0" prefWidth="350.0">
                                     <columns>
-                                        <TableColumn fx:id="nameColumn" prefWidth="153.05659174919128" text="Name and Surname" />
+                                        <TableColumn fx:id="nameColumn" prefWidth="153.05659174919128" text="Full Name" />
                                         <TableColumn fx:id="schoolIdColumn" minWidth="0.0" prefWidth="96.00003051757812" text="ID" />
                                         <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Status" />
                                     </columns>
@@ -64,17 +63,20 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
             <children>
-                <Label fx:id="errorLabel" text="Label" />
+                <Label fx:id="errorLabel" text="Label" textFill="RED" />
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
+        <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="600.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#returnBtnClicked" text="Main">
+                <Button mnemonicParsing="false" onAction="#returnBtnClicked" prefHeight="25.0" prefWidth="50.0" text="Back">
                     <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                     </HBox.margin>
                 </Button>
             </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
         </HBox>
     </children>
 </VBox>

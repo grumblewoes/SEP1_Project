@@ -9,8 +9,6 @@ import view.ViewController;
 
 import java.util.Optional;
 
-import java.io.Serializable;
-
 /**
  * 
  * 
@@ -24,7 +22,7 @@ public class GameListViewController extends ViewController
     @FXML private TableView<GameViewModel> gameListTable;
     @FXML private TableColumn<GameViewModel, String> titleColumn;
     @FXML private TableColumn<GameViewModel, String> ownerColumn;
-    @FXML private TableColumn<GameViewModel, String> typeColumn;
+    @FXML private TableColumn<GameViewModel, String> statusColumn;
 
     private GameListViewModel viewModel;
     /**
@@ -55,9 +53,10 @@ public class GameListViewController extends ViewController
             cellData -> cellData.getValue().getTitleProperty());
         ownerColumn.setCellValueFactory(
             cellData -> cellData.getValue().getOwnerProperty());
-        typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
+        statusColumn.setCellValueFactory(cellData -> cellData.getValue().getBorrowedToProperty());
 
         gameListTable.setItems(viewModel.getList());
+        reset();
     }
 
     /**
@@ -65,6 +64,7 @@ public class GameListViewController extends ViewController
      * 
      */
     public void reset(){
+        errorLabel.setText("");
         viewModel.update();
     }
 
@@ -85,12 +85,16 @@ public class GameListViewController extends ViewController
     public void removeGame() {
         errorLabel.setText("");
         try{
-            GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
+            GameViewModel selectedItem = gameListTable.getSelectionModel()
+                .getSelectedItem();
             boolean remove = confirmation();
-            if(remove){
-                model.removeEvent(selectedItem.getTitleProperty().get());
-                viewModel.remove(selectedItem.getTitleProperty().get());
-                gameListTable.getSelectionModel().clearSelection();
+            for(int i=0;i<model.getAllGames().size();i++) {
+                if (remove && selectedItem.equals(model.getAllGames().get(i)))
+                {
+                    model.removeGame(model.getAllGames().get(i));
+                    viewModel.remove(selectedItem.getTitleProperty().get());
+                    gameListTable.getSelectionModel().clearSelection();
+                }
             }
         }catch(Exception e){
             errorLabel.setText("Exception:" + e.getMessage());
