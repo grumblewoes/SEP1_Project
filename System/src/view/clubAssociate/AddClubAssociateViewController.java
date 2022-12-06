@@ -15,11 +15,11 @@ import java.io.Serializable;
 import java.util.InputMismatchException;
 
 /**
+ * A class extending ViewController that controls the GUI side of adding a club associate to the club associate list
  * 
  * 
- * 
- * @author 
- * @version 
+ * @author Julia Gramovich
+ * @version 1.0 - 06 December 2022
  */
 public class AddClubAssociateViewController extends ViewController
 {
@@ -76,13 +76,9 @@ public class AddClubAssociateViewController extends ViewController
     }
     catch (NumberFormatException e)
     {
-      errorLabel.setText("Make sure to enter the ID.");
+      errorLabel.setText("Make sure to enter the valid ID.");
     }
     catch (IllegalArgumentException e) {
-      errorLabel.setText(e.getMessage());
-    }
-    catch (Exception e)
-    {
       errorLabel.setText(e.getMessage());
     }
   }

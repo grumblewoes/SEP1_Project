@@ -27,11 +27,11 @@ public class ClubAssociate extends Person
    * @param isMember 
    *        
    */
-  public ClubAssociate(Name name, int schoolId, boolean isMember) throws Exception{
+  public ClubAssociate(Name name, int schoolId, boolean isMember) throws NumberFormatException{
     super(name);
 
     // if the ID is not a six digit number as is supposed to be, throw an exception
-    if (!(schoolId > 0 && Integer.toString(schoolId).length() == 6))
+    if (!(schoolId > 0 && Integer.toString(schoolId).length() == 6) )
     {
       throw new IllegalArgumentException("Invalid ID");
     }
