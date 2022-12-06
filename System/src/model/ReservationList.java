@@ -36,6 +36,9 @@ public class ReservationList implements Serializable
       {
         if (reservation.equals(reservations.get(i)))
         {
+          if(reservation.getAssociateName().equals(reservations.get(i).getAssociateName())){
+            throw new IllegalStateException("Associate has already reserved this game for chosen date.");
+          }
           throw new IllegalStateException(
               "Another person has already reserved this game for given date.\nPlease pick a new date.");
         }

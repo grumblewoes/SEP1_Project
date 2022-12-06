@@ -84,6 +84,8 @@ public class BorrowViewController extends ViewController
           model.getSelectedGame().setBorrowedFrom(LocalDate.now());
         }
       }
+      errorLabel.setText("Success");
+      viewHandler.openView("gameList");
     }
     catch (Exception e){
       errorLabel.setText("Something went wrong: "+e);
@@ -98,7 +100,7 @@ public class BorrowViewController extends ViewController
     if(model.isReserved(game)){
       for(int i=0;i<model.getAllReservation().size();i++){
         if(LocalDate.now().isEqual(model.getAllReservation().get(i).getDateFrom())&&game.getTitle().equals(model.getAllReservation().get(i).getGameTitle())){
-          if(clubAssociate.getName()==model.getAllReservation().get(i).getAssociateName()){
+          if(clubAssociate.getName().equals(model.getAllReservation().get(i).getAssociateName())){
               break;
           }
           throw new IllegalStateException("Game is reserved for today by somebody else. Come again and try tomorrow.");

@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="394.0" prefWidth="401.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.AddClubAssociateViewController">
+<VBox prefHeight="394.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.AddClubAssociateViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="64.0" prefWidth="401.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="400.0">
          <children>
-            <Label contentDisplay="CENTER" text="Add a club associate">
+            <Label contentDisplay="CENTER" text="Add Club Associate">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -26,47 +26,62 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="73.0" text="Name">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nameField">
-            </TextField>
+            <VBox alignment="CENTER_RIGHT" prefHeight="138.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="90.0" text="First Name">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="90.0" text="Last Name">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="30.0" text="ID">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="153.0" prefWidth="230.0">
+               <children>
+                  <TextField fx:id="nameField">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="surnameField">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="idField" prefHeight="25.0" prefWidth="170.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
          </children>
+         <padding>
+            <Insets right="20.0" top="20.0" />
+         </padding>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label alignment="CENTER" prefHeight="26.0" prefWidth="73.0" text="Surname">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <TextField fx:id="surnameField">
-            </TextField>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="73.0" text="ID">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <TextField fx:id="idField" >
-            </TextField>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="345.0">
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="400.0">
          <children>
             <RadioButton fx:id="guestRadioBtn" mnemonicParsing="false" selected="true" text="Guest">
                <padding>
@@ -89,15 +104,19 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <Label fx:id="errorLabel" text="Error" textFill="#ee0000">
-         <font>
-            <Font size="15.0" />
-         </font>
+      <HBox alignment="CENTER" prefHeight="21.0" prefWidth="366.0">
          <VBox.margin>
-            <Insets left="30.0" />
+            <Insets />
          </VBox.margin>
-      </Label>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="errorLabel" text="Error" textFill="#ee0000">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="400.0">
          <children>
             <Button mnemonicParsing="false" onAction="#addClubAssociateBtnClicked" text="Add">
                <HBox.margin>
@@ -116,6 +135,9 @@
                </font>
             </Button>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </HBox>
    </children>
 </VBox>

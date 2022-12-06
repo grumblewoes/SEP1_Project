@@ -124,8 +124,8 @@ public class Game implements Serializable
   public String getBorrowedTo()
   {
     if(borrowedTo==null)
-      return "Nobody borrows it";
-    return borrowedTo.getFullName();
+      return "Available";
+    return "Borrowed by "+borrowedTo.getFullName();
   }
 
   /**
@@ -136,11 +136,6 @@ public class Game implements Serializable
    */
   public void setBorrowedTo(ClubAssociate borrowedTo)
   {
-    if(borrowedTo.isMember()==false){
-      if(borrowedTo.equals(borrowedTo)){
-        throw new IllegalArgumentException("Guest cannot borrow more then one game.\nPlease return game first.");
-      }
-    }
     this.borrowedTo=borrowedTo;
   }
   /**
