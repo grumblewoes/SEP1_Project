@@ -1,6 +1,5 @@
 package model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -220,7 +219,7 @@ public interface BoardGamesModel
    * @return 
    *        
    */
-  public BoardGamesFile getFileManager();
+  public BoardGamesFileManager getFileManager();
 
   public void removeExpiredEvents();
 }

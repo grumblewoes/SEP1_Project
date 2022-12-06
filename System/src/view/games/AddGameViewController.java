@@ -45,6 +45,7 @@ public class AddGameViewController extends ViewController
   @FXML
   void cancelGame() {
     viewHandler.openView("gameList");
+    //why reset after canceling? no need
     reset();
   }
 
@@ -58,6 +59,7 @@ public class AddGameViewController extends ViewController
       String players = playersBox.getText();
       int owner = Integer.parseInt(ownerBox.getText());
       ClubAssociate clubAssociate = model.getClubAssociate(owner);
+      System.out.println(clubAssociate);
       String description = descriptionBox.getText();
       //fetch selected value
       String genre = genreBox.getValue();
@@ -67,14 +69,22 @@ public class AddGameViewController extends ViewController
 
       else
       {
+        //ur still adding the game to the model even tho clubAssociate doesnt exsit
+        //thats because there no validation for Game
+        //and then theres the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
+        //so "NullPointerException e" happens not because the clubAssociate by given id doesnt exist but because we have no validation in Game
+
         Game game = new Game(title, clubAssociate, genre, players, description);
         model.addGame(game);
+        System.out.println("the game was added");
 
         //check if game is on the wishlist. if it is, remove it
         //covers [ALT2] in RegisterNewGame
         Wish wish = model.getWishByTitle(game.getTitle());
-        if ( wish != null)
+        if ( wish != null){
+          //confirmation that the wish will be removed would be useful here
           model.removeWish(wish);
+        }
         viewHandler.openView("gameList");
       }
     }
