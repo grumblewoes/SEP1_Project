@@ -27,7 +27,7 @@ public class ClubAssociate extends Person
    * @param isMember 
    *        
    */
-  public ClubAssociate(Name name, int schoolId, boolean isMember) {
+  public ClubAssociate(Name name, int schoolId, boolean isMember) throws Exception{
     super(name);
 
     // if the ID is not a six digit number as is supposed to be, throw an exception

@@ -63,6 +63,7 @@ public class AddClubAssociateViewController extends ViewController
     errorLabel.setText("");
     try
     {
+      // to be updated
       RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
 
       ClubAssociate associate = new ClubAssociate(
@@ -72,6 +73,10 @@ public class AddClubAssociateViewController extends ViewController
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");
+    }
+    catch (NumberFormatException e)
+    {
+      errorLabel.setText("Make sure to enter the ID.");
     }
     catch (IllegalArgumentException e) {
       errorLabel.setText(e.getMessage());
