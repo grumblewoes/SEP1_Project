@@ -110,7 +110,6 @@ public class Event implements Serializable
     return title + " | " + description + " | "
         + getStringDate();
   }
-
   public void addParticipant(ClubAssociate participant){
     for (int i=0;i< participants.size();i++){
       if(participant.getSchoolId()==participants.get(i).getSchoolId()){
