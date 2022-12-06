@@ -36,7 +36,6 @@ public class GameListViewController extends ViewController
     }
     /**
      * 
-     * 
      * @param viewHandler 
      *        
      * @param model 
@@ -61,17 +60,17 @@ public class GameListViewController extends ViewController
     }
 
     /**
-     * 
-     * 
+     * resets the screen to its initial state
      */
     public void reset(){
+        errorLabel.setText("");
         viewModel.update();
     }
 
     @FXML
     /**
      * 
-     * 
+     * adds a game to the game list
      */
     public void addGame() {
         viewHandler.openView("addGame");
@@ -80,7 +79,7 @@ public class GameListViewController extends ViewController
     @FXML
     /**
      * 
-     * 
+     * removes game from the game list
      */
     public void removeGame() {
         errorLabel.setText("");
@@ -111,8 +110,7 @@ public class GameListViewController extends ViewController
 
     @FXML
     /**
-     * 
-     * 
+     * returns to menu screen
      */
     public void goBack() {
         viewHandler.openView("menu");
@@ -120,14 +118,17 @@ public class GameListViewController extends ViewController
 
     @FXML
     /**
-     * 
-     * 
-     * @param event 
-     *        
+     *  get details of a selected game
      */
-    public void getDetails(ActionEvent event) {
-        model.setSelectedGame(gameListTable.getSelectionModel().getSelectedItem().getGame());
-        viewHandler.openView("gameDetails");
+    public void getDetails() {
+        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
+        if (selected == null)
+            errorLabel.setText("Please select a game to fetch information on.");
+        else
+        {
+            model.setSelectedGame(selected.getGame());
+            viewHandler.openView("gameDetails");
+        }
     }
 
 
