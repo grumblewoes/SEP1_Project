@@ -1,10 +1,7 @@
 package view.event;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Event;
@@ -14,6 +11,8 @@ import view.ViewHandler;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+
+import static model.Event.*;
 
 /**
  * A class extending viewController which controls/manages the GUI regarding the addition of the event.
@@ -32,6 +31,7 @@ public class AddEventViewController extends ViewController
   @FXML private TextArea descriptionArea;
 
   @FXML private DatePicker datePicker;
+  @FXML private ChoiceBox<String> locationChoiceBox;
   @FXML private Label errorLabel;
 
 
@@ -49,6 +49,7 @@ public class AddEventViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+
     reset();
   }
 
@@ -62,6 +63,9 @@ public class AddEventViewController extends ViewController
     descriptionArea.setText("");
     errorLabel.setText("");
     datePicker.setValue(LocalDate.now());
+    locationChoiceBox.getItems().add(CANTEEN);
+    locationChoiceBox.getItems().add(CLASSROOM);
+    locationChoiceBox.getItems().add(ASK_BOB);
   }
 
   private int[] convertStartInput(){
@@ -82,13 +86,13 @@ public class AddEventViewController extends ViewController
     String title = titleField.getText();
     String description = descriptionArea.getText();
     LocalDate date = datePicker.getValue();
-
+    String location= "";
 
     try{
       int[] arr = convertStartInput();
       LocalTime time = LocalTime.of(arr[0],arr[1]);
       LocalDateTime dateTime = LocalDateTime.of(date,time);
-      model.addEvent( new Event(title,description,dateTime) );
+      model.addEvent( new Event(title,description,dateTime,location) );
 
       cancelBtnClicked();
     }catch (Exception e){

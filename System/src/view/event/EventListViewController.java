@@ -22,7 +22,7 @@ public class EventListViewController extends ViewController
   @FXML private TableView<EventViewModel> eventListTable;
   @FXML private TableColumn<EventViewModel,String> titleColumn;
   @FXML private TableColumn<EventViewModel,String> dateColumn;
-  @FXML private TableColumn<EventViewModel,String> descriptionColumn;
+  @FXML private TableColumn<EventViewModel,String> locationColumn;
   @FXML private Label errorLabel;
 
 
@@ -48,8 +48,8 @@ public class EventListViewController extends ViewController
 
     titleColumn.setCellValueFactory( cellData -> cellData.getValue()
         .getTitleProperty());
-    descriptionColumn.setCellValueFactory( cellData -> cellData.getValue()
-        .getDescriptionProperty());
+    locationColumn.setCellValueFactory( cellData -> cellData.getValue()
+        .getLocationProperty());
     dateColumn.setCellValueFactory( cellData -> cellData.getValue()
         .getDateProperty());
 

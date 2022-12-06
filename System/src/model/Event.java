@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * A class representing an event - game board organised event in VIA.
@@ -15,6 +16,11 @@ public class Event implements Serializable
 
   private String title, description;
   private LocalDateTime dateTime;
+  private String location;
+  private ArrayList<ClubAssociate> participants;
+  public static final String CANTEEN = "Canteen";
+  public static final String CLASSROOM = "C05.16b";
+  public static final String ASK_BOB = "Bob will decide...";
 
   /**
    * Three-argument constructor.
@@ -25,10 +31,12 @@ public class Event implements Serializable
    * @param description - the description of the event
    * @param dateTime - the date of the event (including starting hour)
    */
-  public Event( String title, String description, LocalDateTime dateTime){
+  public Event( String title, String description, LocalDateTime dateTime, String location){
     setTitle(title);
     setDescription(description);
     setDateTime(dateTime);
+    setLocation(location);
+    participants=new ArrayList<>();
   }
 
   /**
@@ -60,6 +68,26 @@ public class Event implements Serializable
       + hourString.substring( hourString.length()-2 )+":"
       + minuteString.substring( minuteString.length()-2);
   }
+
+  public ArrayList<ClubAssociate> getParticipants()
+  {
+    return participants;
+  }
+
+  public String getLocation()
+  {
+    switch (location){
+      case(CANTEEN):return CANTEEN;
+      case(CLASSROOM):return CLASSROOM;
+      default:return ASK_BOB;
+    }
+  }
+
+  public void setLocation(String location)
+  {
+    this.location = location;
+  }
+
   private void setDateTime(LocalDateTime dateTime) {
     if(dateTime==null || dateTime.isBefore(LocalDateTime.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
     this.dateTime=dateTime;
@@ -81,6 +109,15 @@ public class Event implements Serializable
   @Override public String toString(){
     return title + " | " + description + " | "
         + getStringDate();
+  }
+
+  public void addParticipant(ClubAssociate participant){
+    for (int i=0;i< participants.size();i++){
+      if(participant.getSchoolId()==participants.get(i).getSchoolId()){
+        throw new IllegalStateException("Associate is already on participation list.");
+      }
+    }
+    participants.add(participant);
   }
 
   /**
