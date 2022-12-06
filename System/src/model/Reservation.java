@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -91,7 +92,8 @@ public class Reservation implements Serializable
    */
   public void setDateFrom(LocalDate dateFrom)
   {
-    this.dateFrom = dateFrom;
+    if(dateFrom==null || dateFrom.isBefore(LocalDate.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
+    this.dateFrom=dateFrom;
   }
 
   /**

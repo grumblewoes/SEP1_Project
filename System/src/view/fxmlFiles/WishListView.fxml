@@ -13,42 +13,45 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.WishListViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wishlist">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wish List">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Text>
          </children>
       </HBox>
-      <HBox prefHeight="250.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="224.0" prefWidth="157.0">
+            <VBox alignment="CENTER" prefHeight="242.0" prefWidth="250.0">
                <children>
-                  <Button fx:id="addWishBtn" mnemonicParsing="false" onAction="#addWish" text="Add Wish">
+                  <Button fx:id="addWishBtn" mnemonicParsing="false" onAction="#addWish" prefHeight="25.0" prefWidth="90.0" text="Add Wish">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="addVoteBtn" mnemonicParsing="false" onAction="#addVote" text="Add Vote">
+                  <Button fx:id="addVoteBtn" mnemonicParsing="false" onAction="#addVote" prefHeight="25.0" prefWidth="90.0" text="Vote">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#removeWish" text="Remove Wish" />
+                  <Button mnemonicParsing="false" onAction="#removeWish" prefHeight="25.0" prefWidth="90.0" text="Remove">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin></Button>
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="226.0" prefWidth="484.0">
+            <VBox alignment="CENTER" prefHeight="242.0" prefWidth="350.0">
                <children>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                  <ScrollPane prefHeight="200.0" prefWidth="349.0">
                      <content>
-                        <TableView fx:id="wishTable" prefHeight="200.0" prefWidth="466.0">
+                        <TableView fx:id="wishTable" prefHeight="200.0" prefWidth="300.0">
                           <columns>
-                            <TableColumn fx:id="wishName" prefWidth="332.8000114560127" text="Game Title" />
+                            <TableColumn fx:id="wishName" prefWidth="200.0" text="Game Title" />
                             <TableColumn fx:id="wishVotes" minWidth="0.0" prefWidth="75.20001220703125" text="Votes" />
                           </columns>
                         </TableView>
@@ -63,10 +66,10 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" textFill="RED" />
+            <Label fx:id="errorLabel" text="Label" textFill="RED" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0">
+      <HBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="600.0">
          <children>
             <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" text="Back">
                <HBox.margin>
@@ -74,6 +77,9 @@
                </HBox.margin>
             </Button>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </HBox>
    </children>
 </VBox>

@@ -124,8 +124,8 @@ public class Game implements Serializable
   public String getBorrowedTo()
   {
     if(borrowedTo==null)
-      return "Nobody borrows it";
-    return borrowedTo.getFullName();
+      return "Available";
+    return "Borrowed by "+borrowedTo.getFullName();
   }
 
   /**
@@ -136,7 +136,7 @@ public class Game implements Serializable
    */
   public void setBorrowedTo(ClubAssociate borrowedTo)
   {
-    this.borrowedTo = borrowedTo;
+    this.borrowedTo=borrowedTo;
   }
   /**
    * 
@@ -146,7 +146,7 @@ public class Game implements Serializable
    */
   public void setBorrowedFrom(LocalDate borrowedFrom)
   {
-    this.borrowedFrom = borrowedFrom;
+    this.borrowedFrom=borrowedFrom;
   }
 
   /**

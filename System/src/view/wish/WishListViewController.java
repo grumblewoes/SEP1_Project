@@ -65,6 +65,7 @@ public class WishListViewController extends ViewController
                 .getVotesProperty().asObject()); //won't take IntegerProperty, needs object type to work
 
         wishTable.setItems(viewModel.getList());
+        reset();
     }
 
     //adds vote to currently selected table row. get() is there to convert SimpleStringProperty to String

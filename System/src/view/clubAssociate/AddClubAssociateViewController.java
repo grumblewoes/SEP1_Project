@@ -12,6 +12,7 @@ import view.ViewController;
 import view.ViewHandler;
 
 import java.io.Serializable;
+import java.util.InputMismatchException;
 
 /**
  * 
@@ -62,21 +63,23 @@ public class AddClubAssociateViewController extends ViewController
     errorLabel.setText("");
     try
     {
-      //to be updated...
+      // to be updated
       RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
 
       ClubAssociate associate = new ClubAssociate(
-          new Name(
-              nameField.getText(),
-              surnameField.getText()
-              ),
-          Integer.parseInt(idField.getText()),
-          !"guestRadioBtn".equals(membershipGroupBtn.getId())
-        );
-//
+          new Name(nameField.getText(), surnameField.getText()),
+          Integer.parseInt(idField.getText()), !"guestRadioBtn".equals(membershipGroupBtn.getId()));
+
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");
+    }
+    catch (NumberFormatException e)
+    {
+      errorLabel.setText("Make sure to enter the ID.");
+    }
+    catch (IllegalArgumentException e) {
+      errorLabel.setText(e.getMessage());
     }
     catch (Exception e)
     {

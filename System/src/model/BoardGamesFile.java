@@ -64,9 +64,11 @@ public class BoardGamesFile implements Serializable
       }catch (IOException e){
         e.printStackTrace();
       }
-      createXMLFile();
     }
-    return newModel==null ? new BoardGamesModelManager() : newModel;
+    if(newModel==null) newModel = new BoardGamesModelManager();
+
+    createXMLFile();
+    return newModel;
   }
 
   /**
@@ -157,7 +159,7 @@ public class BoardGamesFile implements Serializable
     ArrayList<Wish> wishes = model.getAllWishes();
     ArrayList<Event> events = model.getAllEvents();
 
-    String xml = xml =
+    String xml =
         "<root>" +
         "\n <games>"+
         "\n  </games>"+

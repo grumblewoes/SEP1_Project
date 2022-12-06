@@ -70,7 +70,7 @@ public class GameDetailsViewController extends ViewController
 
   @FXML
   void returnGame(ActionEvent event) {
-    viewHandler.openView("return");
+    viewHandler.openView("returnGame");
   }
 
 

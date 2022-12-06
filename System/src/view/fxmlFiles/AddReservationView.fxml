@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -16,7 +15,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFEA;" userData="Reservation" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.borrowingProcess.AddReservationViewController">
 
     <children>
-        <HBox alignment="CENTER" prefHeight="49.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation">
                     <font>
@@ -25,60 +24,72 @@
                 </Text>
             </children>
         </HBox>
-        <HBox prefHeight="198.0" prefWidth="600.0">
+        <HBox prefHeight="220.0" prefWidth="600.0">
             <children>
-                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0">
+                <VBox alignment="CENTER" prefHeight="198.0" prefWidth="220.0">
                     <children>
-                        <HBox alignment="CENTER">
+                        <HBox alignment="CENTER_LEFT">
                             <children>
                                 <Label text="Date of reservation: " />
+                            </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                            <children>
                                 <DatePicker fx:id="datePicker" />
                             </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                            <children>
-                                <Label fx:id="errorLabel" layoutX="22.0" text="" textFill="RED">
-                                    <HBox.margin>
-                                        <Insets top="10.0" />
-                                    </HBox.margin>
-                                </Label>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                            <children>
-                                <Button mnemonicParsing="false" onAction="#addReservationButton" text="Submit" />
-                                <Button mnemonicParsing="false" onAction="#goBack" text="Cancel">
-                                    <HBox.margin>
-                                        <Insets left="30.0" />
-                                    </HBox.margin>
-                                </Button>
-                            </children>
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                         </HBox>
                     </children>
                 </VBox>
-                <VBox prefHeight="100.0" prefWidth="300.0">
+                <VBox prefHeight="198.0" prefWidth="370.0">
                     <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="239.0">
-                                    <children>
-                                        <TableView fx:id="clubAssociatesListTable" prefHeight="200.0" prefWidth="420.0">
-                                            <columns>
-                                                <TableColumn fx:id="nameColumn" prefWidth="153.05659174919128" text="Name and Surname" />
-                                                <TableColumn fx:id="schoolIdColumn" minWidth="0.0" prefWidth="96.00003051757812" text="ID" />
-                                                <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Status" />
-                                            </columns>
-                                        </TableView>
-                                    </children>
-                                </AnchorPane>
-                            </content>
+                        <ScrollPane prefHeight="198.0" prefWidth="361.0">
+                     <content>
+                                  <TableView fx:id="clubAssociatesListTable" prefHeight="200.0" prefWidth="360.0">
+                                      <columns>
+                                          <TableColumn fx:id="nameColumn" prefWidth="153.05659174919128" text="Name and Surname" />
+                                          <TableColumn fx:id="schoolIdColumn" minWidth="0.0" prefWidth="96.00003051757812" text="ID" />
+                                          <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Status" />
+                                      </columns>
+                                  </TableView>
+                     </content>
                         </ScrollPane>
                     </children>
                 </VBox>
             </children>
         </HBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="600.0">
+         <children>
+                    <Label fx:id="errorLabel" text="Label" textFill="RED">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+         </children>
+      </HBox>
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
+                <children>
+                    <Button mnemonicParsing="false" onAction="#addReservationButton" text="Submit" />
+                    <Button mnemonicParsing="false" onAction="#goBack" text="Cancel">
+                        <HBox.margin>
+                            <Insets left="30.0" />
+                        </HBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </HBox>
     </children>
 </VBox>

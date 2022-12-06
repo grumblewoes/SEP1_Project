@@ -13,9 +13,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameListViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game List">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -26,19 +26,19 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="224.0" prefWidth="157.0">
                <children>
-                  <Button fx:id="addGameBtn" mnemonicParsing="false" onAction="#addGame" text="Add">
+                  <Button fx:id="addGameBtn" mnemonicParsing="false" onAction="#addGame" prefHeight="25.0" prefWidth="90.0" text="Add Games">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="removeGameBtn" mnemonicParsing="false" onAction="#removeGame" text="Remove">
+                  <Button fx:id="gameDetailsBtn" mnemonicParsing="false" onAction="#getDetails" prefHeight="25.0" prefWidth="90.0" text="Details">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="gameDetailsBtn" mnemonicParsing="false" onAction="#getDetails" text="Details">
+                  <Button fx:id="removeGameBtn" mnemonicParsing="false" onAction="#removeGame" prefHeight="25.0" prefWidth="90.0" text="Remove">
                      <VBox.margin>
-                        <Insets bottom="20.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                </children>
@@ -54,7 +54,7 @@
                            <columns>
                               <TableColumn fx:id="titleColumn" prefWidth="153.05659174919128" text="Title" />
                               <TableColumn fx:id="ownerColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Owner" />
-                              <TableColumn fx:id="typeColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Type" />
+                              <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Status" />
                            </columns>
                         </TableView>
                      </content>
@@ -68,10 +68,10 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" textFill="RED" />
+            <Label fx:id="errorLabel" text="Label" textFill="RED" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="600.0">
+      <HBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="600.0">
          <children>
             <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" text="Back">
                <HBox.margin>
@@ -79,6 +79,9 @@
                </HBox.margin>
             </Button>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </HBox>
    </children>
 </VBox>

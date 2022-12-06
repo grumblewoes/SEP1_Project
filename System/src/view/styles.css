@@ -1,0 +1,11 @@
+.white-star{
+  -fx-background-image: url("./fxmlFiles/whiteStar.jpg");
+  -fx-background-position: center ;
+  -fx-background-repeat:no-repeat ;
+}
+.yellow-star{
+  -fx-background-image: url("./fxmlFiles/yellowStar.jpg") !important;
+  -fx-background-position: center !important;
+  -fx-background-repeat:no-repeat !important;
+}
+

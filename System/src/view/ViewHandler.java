@@ -38,7 +38,7 @@ public class ViewHandler implements Serializable
       gameDetailsViewController,
       wishListViewController,
       borrowViewController,
-      returnViewController;
+      returnGameViewController;
 
 
   /**
@@ -111,10 +111,6 @@ public class ViewHandler implements Serializable
         addReservationViewController = loadViewController("AddReservationView.fxml", addReservationViewController);
         root = addReservationViewController.getRoot();
         break;
-      case "return":
-        returnViewController = loadViewController("ReturnView.fxml", returnViewController);
-        root = returnViewController.getRoot();
-        break;
       case "borrow":
         borrowViewController = loadViewController("BorrowView.fxml", borrowViewController);
         root = borrowViewController.getRoot();
@@ -122,6 +118,10 @@ public class ViewHandler implements Serializable
       case "gameDetails":
         gameDetailsViewController = loadViewController("GameDetailsView.fxml", gameDetailsViewController);
         root = gameDetailsViewController.getRoot();
+        break;
+      case "returnGame":
+        returnGameViewController = loadViewController("ReturnGameView.fxml", returnGameViewController);
+        root = returnGameViewController.getRoot();
         break;
       default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);

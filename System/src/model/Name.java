@@ -24,6 +24,13 @@ public class Name implements Serializable
    *        
    */
   public Name(String firstName, String lastName) {
+    if (firstName == null || firstName.isEmpty()) {
+      throw new IllegalArgumentException("Make sure to enter the name.");
+    }
+
+    if (lastName == null || lastName.isEmpty()) {
+      throw new IllegalArgumentException("Make sure to enter the surname.");
+    }
     this.firstName = firstName;
     this.lastName = lastName;
   }

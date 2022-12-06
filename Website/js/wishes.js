@@ -13,13 +13,17 @@ const convertWishToObject = (wish) => {
 
 // change this to style the wish element
 //just write the html code in the string below
-const createWishElement = (title, votes) => `
-    <div class="wish">
-        <h3>${title}</h3>
-        <p>Number of votes: ${votes}</p>
-    </div>
-`
+function createWishElement(title, votes) {
 
+    let stringEl = `
+        <div class="wish">
+            <h3>${title}</h3>
+            <p>Number of votes: ${votes}</p>
+        </div>
+        `
+
+    return stringEl;
+}
 
 
 
