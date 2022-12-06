@@ -16,7 +16,8 @@
     <children>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Event">
+                <Text fx:id="headingText" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Add Event">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>

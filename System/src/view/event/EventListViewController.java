@@ -23,6 +23,7 @@ public class EventListViewController extends ViewController
   @FXML private TableColumn<EventViewModel,String> titleColumn;
   @FXML private TableColumn<EventViewModel,String> dateColumn;
   @FXML private TableColumn<EventViewModel,String> locationColumn;
+  @FXML private TableColumn<EventViewModel,String> descriptionColumn;
   @FXML private Label errorLabel;
 
 
@@ -44,6 +45,8 @@ public class EventListViewController extends ViewController
     this.model=model;
     this.root=root;
 
+    model.removeExpiredEvents();
+
     this.viewModel = new EventListViewModel(model);
 
     titleColumn.setCellValueFactory( cellData -> cellData.getValue()
@@ -52,6 +55,8 @@ public class EventListViewController extends ViewController
         .getLocationProperty());
     dateColumn.setCellValueFactory( cellData -> cellData.getValue()
         .getDateProperty());
+    descriptionColumn.setCellValueFactory( cellData -> cellData.getValue()
+        .getDescriptionProperty());
 
     eventListTable.setItems(viewModel.getList());
     reset();
@@ -63,6 +68,7 @@ public class EventListViewController extends ViewController
    */
   public void reset(){
     errorLabel.setText("");
+    model.removeExpiredEvents();
     viewModel.update();
   }
 
@@ -79,6 +85,7 @@ public class EventListViewController extends ViewController
     errorLabel.setText("");
     try{
       EventViewModel selectedItem = eventListTable.getSelectionModel().getSelectedItem();
+      if(selectedItem==null)throw new IllegalStateException("No event was selected. Just do it!");
       boolean remove = confirmation();
       if(remove){
         model.removeEvent(selectedItem.getTitleProperty().get());
@@ -86,7 +93,7 @@ public class EventListViewController extends ViewController
         eventListTable.getSelectionModel().clearSelection();
       }
     }catch(Exception e){
-      errorLabel.setText("Exception:" + e.getMessage());
+      errorLabel.setText(e.getMessage());
     }
   }
 
@@ -100,5 +107,19 @@ public class EventListViewController extends ViewController
     alert.setHeaderText("Removing event {" + selectedItem.getTitleProperty().get() + ": "+ selectedItem.getDateProperty().get() + "}");
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent())&&(result.get()==ButtonType.OK);
+  }
+
+  public void editEventBtnClicked()
+  {
+    errorLabel.setText("");
+    try{
+      EventViewModel selectedItem = eventListTable.getSelectionModel().getSelectedItem();
+      if(selectedItem==null)throw new IllegalStateException("No event was selected. Just do it!");
+
+      model.setSelectedEvent( model.getEventByTitle(selectedItem.getTitleProperty().get() ) );
+      viewHandler.openView("addEvent");
+    }catch(Exception e){
+      errorLabel.setText(e.getMessage());
+    }
   }
 }

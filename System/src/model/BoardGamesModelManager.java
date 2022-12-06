@@ -16,6 +16,8 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   private GameList gameList;
 
   private Game selectedGame;
+
+  private Event selectedEvent;
   private ReservationList reservationList;
   private ClubAssociateList clubAssociateList;
   private EventList eventList;
@@ -33,6 +35,8 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
     clubAssociateList = new ClubAssociateList();
     eventList = new EventList();
     fileManager = new BoardGamesFile(this);
+    selectedGame=null;
+    selectedEvent=null;
   }
 
   /**
@@ -112,6 +116,9 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
 
   public void setSelectedGame(Game game) { selectedGame = game; }
 
+  public void removeExpiredEvents(){
+    eventList.removeExpiredEvents();
+  }
   public Game getSelectedGame() { return selectedGame; }
   /**
    * A method that calls the gameList to remove the games and fileManager to save the model.
@@ -217,6 +224,10 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    */
   public void addEvent(Event event){ eventList.addEvent(event); fileManager.exportModelToDatabase(); }
 
+
+  public Event getEventByTitle(String title){
+    return eventList.getEventByTitle(title);
+  }
   /**
    * A method that calls the eventList to remove the event and fileManager to save the model.
    *
@@ -225,6 +236,11 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the unique title of the event that is to be removed
    */
   public void removeEvent(String title){ eventList.removeEvent(title); fileManager.exportModelToDatabase(); }
+
+
+  public void setSelectedEvent(Event event) { selectedEvent = event; }
+
+  public Event getSelectedEvent() { return selectedEvent; }
 
   /**
    * A method that calls eventList to return a list of all events.

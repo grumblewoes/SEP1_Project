@@ -14,9 +14,8 @@ import java.util.ArrayList;
 public class Event implements Serializable
 {
 
-  private String title, description;
+  private String title, description, location;
   private LocalDateTime dateTime;
-  private String location;
   private ArrayList<ClubAssociate> participants;
   public static final String CANTEEN = "Canteen";
   public static final String CLASSROOM = "C05.16b";
@@ -54,6 +53,13 @@ public class Event implements Serializable
   public String getDescription(){ return description; }
 
   /**
+   * A method that returns events' date.
+   *
+   * @return the localDateTime variable stroring the beginning of the event
+   */
+  public LocalDateTime getDateTime(){ return dateTime; }
+
+  /**
    * Methods that converts LocalDateTime to readable String in a wanted patten - D/M/Y hh:mm
    *
    * @return the date as a readable string
@@ -61,6 +67,7 @@ public class Event implements Serializable
   public String getStringDate(){
     String hourString = "0"+dateTime.getHour();
     String minuteString = "0"+dateTime.getMinute();
+
     return
       dateTime.getDayOfMonth()+"/"
       + dateTime.getMonthValue()+"/"
@@ -74,18 +81,19 @@ public class Event implements Serializable
     return participants;
   }
 
-  public String getLocation()
-  {
-    switch (location){
-      case(CANTEEN):return CANTEEN;
-      case(CLASSROOM):return CLASSROOM;
-      default:return ASK_BOB;
-    }
-  }
+  public String getLocation() { return this.location; }
 
-  public void setLocation(String location)
-  {
-    this.location = location;
+  public void setLocation(String location) {
+    switch (location){
+      case CANTEEN :
+        this.location = CANTEEN;
+        break;
+      case CLASSROOM:
+        this.location = CLASSROOM;
+        break;
+      default:
+        this.location = ASK_BOB;
+    }
   }
 
   private void setDateTime(LocalDateTime dateTime) {
