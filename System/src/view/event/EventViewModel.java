@@ -18,7 +18,8 @@ public class EventViewModel implements Serializable
   private StringProperty
       titleProperty,
       descriptionProperty,
-      dateProperty;
+      dateProperty,
+      locationProperty;
 
   /**
    * 1-argument constructor that sets up the eventViewModel based on the Event.
@@ -31,6 +32,7 @@ public class EventViewModel implements Serializable
     titleProperty = new SimpleStringProperty(event.getTitle());
     descriptionProperty = new SimpleStringProperty(event.getDescription());
     dateProperty = new SimpleStringProperty(event.getStringDate());
+    locationProperty=new SimpleStringProperty(event.getLocation());
   }
 
   /**
@@ -64,5 +66,10 @@ public class EventViewModel implements Serializable
   public StringProperty getDateProperty()
   {
     return dateProperty;
+  }
+
+  public StringProperty getLocationProperty()
+  {
+    return locationProperty;
   }
 }

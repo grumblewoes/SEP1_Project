@@ -21,7 +21,6 @@ public class Game implements Serializable
   public static final String ABSTRACT="Abstract";
   public static final String CITY_BUILDING="City Building";
   public static final String DECK_BUILDING="Deck Building";
-  public static final String CARDS="Cards";
   private ArrayList<Rating> ratings;
 
   /**
@@ -41,6 +40,13 @@ public class Game implements Serializable
    */
   public Game(String title, ClubAssociate owner, String type, String numberOfPlayers, String description)
   {
+    //validate the input:
+    //1.game must have a title
+    //2.the owner cannot be null
+    //3.type cannot be empty
+    //4.string numberOfPlayers ? why not integer??
+    //5.description can posibbly be empty? idk
+    // throw proper exceptions
     this.title = title;
     this.owner = owner;
     this.type=type;
@@ -98,6 +104,22 @@ public class Game implements Serializable
    * @return 
    *        
    */
+
+  public void setType(String type) {
+    switch (type){
+      case DEDUCTION:
+        this.type = DEDUCTION;
+        break;
+      case DECK_BUILDING:
+        this.type = DECK_BUILDING;
+        break;
+      case CITY_BUILDING:
+        this.type = CITY_BUILDING;
+        break;
+      default:
+        this.type = ABSTRACT;
+    }
+  }
   public String getType()
   {
     return type;
@@ -156,6 +178,7 @@ public class Game implements Serializable
    * @return 
    *        
    */
+  //getOwner would indicate clubAssociate => change name that would indicate their name or String value
   public String getOwner()
   {
     return owner.getFullName();

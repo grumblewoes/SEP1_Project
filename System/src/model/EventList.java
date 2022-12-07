@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -40,6 +41,15 @@ public class EventList implements Serializable
       event -> event.getTitle().equals(title) // beacuse title cant be null for event
   );}
 
+
+  public Event getEventByTitle(String title){
+    if(title==null) return null;
+    for(Event event : events)
+      if(title.equals(event.getTitle()))
+        return event;
+    return null;
+  }
+
   /**
    * A method that returns the size of the event list
    *
@@ -56,6 +66,19 @@ public class EventList implements Serializable
    *        the list of all events
    */
   public ArrayList<Event> getAllEvents(){ return events; }
+
+  /**
+   * A method which removes expired events from the list of events. Expired means older than 1 day (24h) after the beginning of the event.
+   *
+   */
+  public void removeExpiredEvents(){
+    LocalDateTime limit = LocalDateTime.now().minusDays(1);
+    for(Event event : events){
+      if(limit.isAfter(event.getDateTime()))
+        events.remove(event);
+    }
+  }
+
   /**
    * A method that converts the list of all events to readable string value.
    * 

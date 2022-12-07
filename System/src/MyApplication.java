@@ -22,6 +22,7 @@ public class MyApplication extends Application
   public void start(Stage primaryStage)
   {
     BoardGamesModel model = new BoardGamesModelManager().getFileManager().importModelFromDatabase();
+    model.getFileManager().exportModelToDatabase();
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);
   }

@@ -1,5 +1,6 @@
 package view.games;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -11,10 +12,10 @@ import view.ViewController;
 import view.ViewHandler;
 import model.Game;
 
+import static model.Game.*;
+
 /**
  * A class extending ViewController that controls the GUI side of adding a game to the game list
- *
- *
  * @author Anna P, Catarina J
  * @version 1.0 - 04 December 2022
  */
@@ -30,7 +31,7 @@ public class AddGameViewController extends ViewController
   private Label errorLabel;
 
   @FXML
-  private TextField genreBox;
+  private ChoiceBox<String> typeBox;
 
   @FXML
   private TextField ownerBox;
@@ -44,6 +45,7 @@ public class AddGameViewController extends ViewController
   @FXML
   void cancelGame() {
     viewHandler.openView("gameList");
+    //why reset after canceling? no need
     reset();
   }
 
@@ -57,28 +59,42 @@ public class AddGameViewController extends ViewController
       String players = playersBox.getText();
       int owner = Integer.parseInt(ownerBox.getText());
       ClubAssociate clubAssociate = model.getClubAssociate(owner);
+      System.out.println(clubAssociate);
       String description = descriptionBox.getText();
-      String genre = genreBox.getText();
+      //fetch selected value
+      String type = typeBox.getValue();
 
-      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || genre.equals(""))
+      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || type == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
 
       else
       {
-        Game game = new Game(title, clubAssociate, genre, players, description);
+        //ur still adding the game to the model even tho clubAssociate doesnt exsit
+        //thats because there no validation for Game
+        //and then theres the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
+        //so "NullPointerException e" happens not because the clubAssociate by given id doesnt exist but because we have no validation in Game
+
+        Game game = new Game(title, clubAssociate, type, players, description);
         model.addGame(game);
+        System.out.println("the game was added");
 
         //check if game is on the wishlist. if it is, remove it
         //covers [ALT2] in RegisterNewGame
         Wish wish = model.getWishByTitle(game.getTitle());
-        if ( wish != null)
+        if ( wish != null){
+          //confirmation that the wish will be removed would be useful here
           model.removeWish(wish);
+        }
         viewHandler.openView("gameList");
       }
     }
     catch (NumberFormatException e)
     {
       errorLabel.setText("Make sure to enter the owner using their ID.");
+    }
+    catch (NullPointerException e)
+    {
+      errorLabel.setText("No owner by that ID exists in the system.");
     }
   }
 
@@ -92,7 +108,6 @@ public class AddGameViewController extends ViewController
     ownerBox.setText("");
     playersBox.setText("");
     descriptionBox.setText("");
-    genreBox.setText("");
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
@@ -101,6 +116,9 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION);
+    typeBox.setValue(ABSTRACT);
+    reset();
   }
 }
 

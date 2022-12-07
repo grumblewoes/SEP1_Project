@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.BoardGamesModel;
 import model.Game;
+import view.event.EventViewModel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -63,13 +64,13 @@ public class GameListViewModel implements Serializable
   /**
    * 
    * 
-   * @param title 
+   * @param game
    *        
    */
   public void remove(String title){
-    for(GameViewModel game : list)
-      if( game.getTitleProperty().get().equals(title)){
-        list.remove(game);
+    for(GameViewModel gvm : list)
+      if( gvm.getTitleProperty().get().equals(title)){
+        list.remove(gvm);
         break;
       }
   }

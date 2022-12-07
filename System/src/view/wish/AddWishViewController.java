@@ -1,7 +1,6 @@
 package view.wish;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
@@ -9,10 +8,6 @@ import model.BoardGamesModel;
 import view.ViewController;
 import view.ViewHandler;
 import model.Wish;
-import model.BoardGamesFile;
-
-import java.io.Serializable;
-
 
 //Anna P
 //for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
