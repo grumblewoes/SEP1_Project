@@ -9,11 +9,11 @@ import org.w3c.dom.ls.LSOutput;
 import java.io.Serializable;
 
 /**
- * 
- * 
- * 
- * @author 
- * @version 
+ * A class that converts the Club Associate from model to the one that can be used from GUI.
+ *
+ *
+ * @author Julia Gramovicha
+ * @version 1.0 - 03 December 2022
  */
 public class ClubAssociateViewModel implements Serializable
 {
@@ -21,38 +21,47 @@ public class ClubAssociateViewModel implements Serializable
   private IntegerProperty schoolIdProperty;
   private StringProperty isMemberProperty;
 
+  /**
+   * 1-argument constructor that sets up the ClubAssociateVieModel based on the ClubAssociate.
+   * It converts the Club Associate to the structure that can be understood by GUI.
+   *
+   * @param clubAssociate
+   *        the instance of the Event that is to be converted
+   */
+
   public ClubAssociateViewModel (ClubAssociate clubAssociate) {
     this.nameProperty = new SimpleStringProperty(clubAssociate.getFullName());
     this.schoolIdProperty = new SimpleIntegerProperty(clubAssociate.getSchoolId());
-    this.isMemberProperty = new SimpleStringProperty(clubAssociate.isMember() ? "Member" :"Guest"); // if statement in one line
+    this.isMemberProperty = new SimpleStringProperty(clubAssociate.isMember() ? "Member" :"Guest");
+    // if statement in one line
   }
-
   /**
-   * 
-   * 
+   * A method that returns the name property.
    *
-   * @return 
-   *        
+   *
+   * @return nameProperty
+   *        the simpleStringProperty of the ClubAssociateViewModel title
    */
   public StringProperty getNameProperty() {
     return nameProperty;
   }
+
   /**
-   * 
-   * 
+   * A method that returns the schoolId property.
    *
-   * @return 
-   *        
+   *
+   * @return schoolIdProperty
+   *        the simpleStringProperty of the ClubAssociateViewModel title
    */
   public IntegerProperty getSchoolIdProperty() {
     return schoolIdProperty;
   }
   /**
-   * 
-   * 
+   * A method that returns the isMember property.
    *
-   * @return 
-   *        
+   *
+   * @return isMemberProperty
+   *        the simpleStringProperty of the ClubAssociateViewModel title
    */
   public StringProperty getIsMemberProperty() {
 

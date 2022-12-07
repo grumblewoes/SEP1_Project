@@ -15,10 +15,10 @@ import java.io.Serializable;
 import java.util.InputMismatchException;
 
 /**
- * A class extending ViewController that controls the GUI side of adding a club associate to the club associate list
+ * A class extending ViewController, which controls the GUI side of adding a club associate to the club associate list
  * 
  * 
- * @author Julia Gramovich
+ * @author Julia Gramovicha
  * @version 1.0 - 06 December 2022
  */
 public class AddClubAssociateViewController extends ViewController
@@ -30,13 +30,14 @@ public class AddClubAssociateViewController extends ViewController
   @FXML private ToggleGroup membershipGroup;
 
   /**
-   * 
+   *  Method that initialises the controller and its components
    * 
    * @param viewHandler 
-   *        
-   * @param model 
-   *        
-   * @param root 
+   *      the current viewHandler that connects view and model packages
+   * @param model
+   *      the model of board games system that is being used
+   * @param root
+   *      the root of the region
    *        
    */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
@@ -48,7 +49,7 @@ public class AddClubAssociateViewController extends ViewController
     reset();
   }
   /**
-   * 
+   *  A method that resets the data displayed in the view.
    * 
    */
   public void reset() {
@@ -57,7 +58,9 @@ public class AddClubAssociateViewController extends ViewController
     idField.setText("");
     errorLabel.setText("");
   }
-
+// Method to add a club associate to the list. Try-catch catches number formatting expression,
+// in case if the ID was entered incorrectly(not right format and not an integer). Also, it catches Illegal Argument
+// Exception, if the Name and Surname were not entered at all.
   @FXML private void addClubAssociateBtnClicked()
   {
     errorLabel.setText("");
@@ -69,7 +72,6 @@ public class AddClubAssociateViewController extends ViewController
       ClubAssociate associate = new ClubAssociate(
           new Name(nameField.getText(), surnameField.getText()),
           Integer.parseInt(idField.getText()), !"guestRadioBtn".equals(membershipGroupBtn.getId()));
-
       model.addClubAssociate(associate);
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");
