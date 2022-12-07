@@ -105,6 +105,8 @@ public interface BoardGamesModel
 
   public void setSelectedGame(Game game);
 
+  public double getAverageRating(Game game);
+
   public Game getSelectedGame();
 
   /**

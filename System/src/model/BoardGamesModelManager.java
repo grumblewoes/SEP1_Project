@@ -112,6 +112,8 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
 
   public void setSelectedGame(Game game) { selectedGame = game; }
 
+  public double getAverageRating(Game game) { return gameList.getGameByTitle(game.getTitle()).calculateAverageRating();}
+
   public Game getSelectedGame() { return selectedGame; }
   /**
    * A method that calls the gameList to remove the games and fileManager to save the model.
