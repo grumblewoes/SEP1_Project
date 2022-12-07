@@ -78,7 +78,7 @@
                         <Insets left="50.0" right="30.0" />
                      </HBox.margin>
                   </Text>
-                  <ChoiceBox fx:id="genreBox" prefWidth="150.0" />
+                  <ChoiceBox fx:id="typeBox" prefWidth="150.0" />
                </children>
                <opaqueInsets>
                   <Insets />

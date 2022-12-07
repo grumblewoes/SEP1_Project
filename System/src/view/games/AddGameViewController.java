@@ -12,6 +12,8 @@ import view.ViewController;
 import view.ViewHandler;
 import model.Game;
 
+import static model.Game.*;
+
 /**
  * A class extending ViewController that controls the GUI side of adding a game to the game list
  * @author Anna P, Catarina J
@@ -29,7 +31,7 @@ public class AddGameViewController extends ViewController
   private Label errorLabel;
 
   @FXML
-  private ChoiceBox<String> genreBox;
+  private ChoiceBox<String> typeBox;
 
   @FXML
   private TextField ownerBox;
@@ -60,9 +62,9 @@ public class AddGameViewController extends ViewController
       System.out.println(clubAssociate);
       String description = descriptionBox.getText();
       //fetch selected value
-      String genre = genreBox.getValue();
+      String type = typeBox.getValue();
 
-      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || genre == null)
+      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || type == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
 
       else
@@ -72,7 +74,7 @@ public class AddGameViewController extends ViewController
         //and then theres the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
         //so "NullPointerException e" happens not because the clubAssociate by given id doesnt exist but because we have no validation in Game
 
-        Game game = new Game(title, clubAssociate, genre, players, description);
+        Game game = new Game(title, clubAssociate, type, players, description);
         model.addGame(game);
         System.out.println("the game was added");
 
@@ -106,7 +108,6 @@ public class AddGameViewController extends ViewController
     ownerBox.setText("");
     playersBox.setText("");
     descriptionBox.setText("");
-    genreBox.setValue("");
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
@@ -115,8 +116,9 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    genreBox.getItems().addAll("Abstract", "Deduction", "City Building", "Deck Building");
-    genreBox.setValue("Abstract");
+    typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION);
+    typeBox.setValue(ABSTRACT);
+    reset();
   }
 }
 

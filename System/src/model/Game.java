@@ -21,7 +21,6 @@ public class Game implements Serializable
   public static final String ABSTRACT="Abstract";
   public static final String CITY_BUILDING="City Building";
   public static final String DECK_BUILDING="Deck Building";
-  public static final String CARDS="Cards";
   private ArrayList<Rating> ratings;
 
   /**
@@ -105,6 +104,22 @@ public class Game implements Serializable
    * @return 
    *        
    */
+
+  public void setType(String type) {
+    switch (type){
+      case DEDUCTION:
+        this.type = DEDUCTION;
+        break;
+      case DECK_BUILDING:
+        this.type = DECK_BUILDING;
+        break;
+      case CITY_BUILDING:
+        this.type = CITY_BUILDING;
+        break;
+      default:
+        this.type = ABSTRACT;
+    }
+  }
   public String getType()
   {
     return type;
