@@ -1,9 +1,6 @@
 package view.games;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.ClubAssociate;
@@ -11,6 +8,8 @@ import model.Wish;
 import view.ViewController;
 import view.ViewHandler;
 import model.Game;
+import view.clubAssociate.ClubAssociateListViewModel;
+import view.clubAssociate.ClubAssociateViewModel;
 
 import static model.Game.*;
 
@@ -32,10 +31,10 @@ public class AddGameViewController extends ViewController
 
   @FXML
   private ChoiceBox<String> typeBox;
-
-  @FXML
-  private TextField ownerBox;
-
+  @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
+  @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;
+  @FXML private TableColumn<ClubAssociateViewModel, Number> schoolIdColumn;
+  private ClubAssociateListViewModel viewModel;
   @FXML
   private TextField playersBox;
 
@@ -49,10 +48,8 @@ public class AddGameViewController extends ViewController
     reset();
   }
 
-  private boolean formatNumberOfPlayers(String value){
-    value = playersBox.getText();
-
-    if(!value.matches("[1-9]\\d*-[1-9]\\d*")&&value.charAt(0)<value.charAt(1)) {
+  private boolean validNumberOfPlayers(String value){
+    if(!value.matches("[1-9]\\d*-[1-9]\\d*|[1-9]\\d*")) {
       return false;
     }
     return true;
@@ -65,14 +62,16 @@ public class AddGameViewController extends ViewController
     {
       String title = titleBox.getText();
       String players = playersBox.getText();
-      int owner = Integer.parseInt(ownerBox.getText());
-      ClubAssociate clubAssociate = model.getClubAssociate(owner);
-      System.out.println(clubAssociate);
+      ClubAssociateViewModel owner = clubAssociatesListTable.getSelectionModel().getSelectedItem();
+      if (owner == null){
+        throw new IllegalStateException("No owner selected.");
+      }
+      ClubAssociate clubAssociate = model.getClubAssociate(owner.getSchoolIdProperty().get());
       String description = descriptionBox.getText();
       //fetch selected value
       String type = typeBox.getValue();
 
-      if (title.equals("") || formatNumberOfPlayers(players) || owner == 0 || description.equals("") || type == null)
+      if (title.equals("") || !validNumberOfPlayers(players) || clubAssociate == null|| type == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
 
       else
@@ -100,9 +99,9 @@ public class AddGameViewController extends ViewController
     {
       errorLabel.setText("Make sure to enter the owner using their ID.");
     }
-    catch (NullPointerException e)
+    catch (Exception e)
     {
-      errorLabel.setText("No owner by that ID exists in the system.");
+      errorLabel.setText(e.getMessage());
     }
   }
 
@@ -113,9 +112,9 @@ public class AddGameViewController extends ViewController
   @Override public void reset()
   {
     titleBox.setText("");
-    ownerBox.setText("");
     playersBox.setText("");
     descriptionBox.setText("");
+    viewModel.update();
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
@@ -126,6 +125,13 @@ public class AddGameViewController extends ViewController
     this.root=root;
     typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION);
     typeBox.setValue(ABSTRACT);
+    this.viewModel = new ClubAssociateListViewModel(model);
+    nameColumn.setCellValueFactory(
+        cellData -> cellData.getValue().getNameProperty());
+    schoolIdColumn.setCellValueFactory(
+        cellData -> cellData.getValue().getSchoolIdProperty());
+
+    clubAssociatesListTable.setItems(viewModel.getList());
     reset();
   }
 }

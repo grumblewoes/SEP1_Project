@@ -54,10 +54,10 @@
                                 <TableView fx:id="eventListTable" prefHeight="200.0" prefWidth="500.0">
                                     <columns>
                                         <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Name" />
-                                        <TableColumn fx:id="dateColumn" prefWidth="126.79249572753906" text="Date" />
-                                        <TableColumn fx:id="locationColumn" minWidth="0.0" prefWidth="81.50932312011719" text="Location" />
-                                        <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="194.71707153320312" text="Description" />
-                                        <TableColumn fx:id="participantsColumn" minWidth="50.0" prefWidth="194.71707153320312" text="No. of Participants" />
+                                        <TableColumn fx:id="dateColumn" prefWidth="125" text="Date" />
+                                        <TableColumn fx:id="locationColumn" minWidth="0.0" prefWidth="80" text="Location" />
+                                        <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="120" text="Description" />
+                                        <TableColumn fx:id="participantsColumn" minWidth="0.0" prefWidth="100" text="No. of Participants" />
                                     </columns>
                                 </TableView>
                             </content>

@@ -12,6 +12,7 @@ import view.clubAssociate.ClubAssociateListViewModel;
 import view.clubAssociate.ClubAssociateViewModel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * 
@@ -82,9 +83,17 @@ public class AddReservationViewController extends ViewController
     errorLabel.setText("");
     try
     {
+      ClubAssociateViewModel clubAssociate=clubAssociatesListTable.getSelectionModel().getSelectedItem();
+      if(clubAssociate==null){
+        throw new IllegalStateException("No Club associate selected.");
+      }
+      LocalDate reservationDate=datePicker.getValue();
+      if (reservationDate==null){
+        throw new IllegalStateException("Choose a date please.");
+      }
       for(int i=0;i<model.getAllClubAssociates().size();i++){
-        if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
-          Reservation reservation = new Reservation(model.getSelectedGame(),model.getAllClubAssociates().get(i),datePicker.getValue());
+        if(clubAssociate.getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
+          Reservation reservation = new Reservation(model.getSelectedGame(),model.getAllClubAssociates().get(i),reservationDate);
           model.addReservation(reservation);
         }
       }
