@@ -1,52 +1,17 @@
 <root>
  <games>
  <game>
-<<<<<<< HEAD
-   <title>sad</title>
-   <numberOfPlayers>2-4</numberOfPlayers>
-   <type>City Building</type>
-   <description>asd</description>
-   <borrowedTo>Borrowed by Jakub Cerovsky</borrowedTo>
+   <title>oans</title>
+   <numberOfPlayers>2-6</numberOfPlayers>
+   <type>Abstract</type>
+   <description>afs</description>
+   <borrowedTo>Available</borrowedTo>
    <owner>Jakub Cerovsky</owner>
-   <ratings>
-  <rating>2</rating></ratings>
+   <ratings></ratings>
  </game>
   </games>
   <wishes>
   </wishes>
   <events>
-=======
-   <title>new hame for memebers</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>ds</type>
-   <description>fdsfvddsasa</description>
-   <borrowedTo>member memebr</borrowedTo>
-   <owner>member memebr</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>mario bros</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>idk</type>
-   <description>sdav sad 
-sad</description>
-   <borrowedTo>Nobody borrows it</borrowedTo>
-   <owner>damian t</owner>
-   <ratings></ratings>
- </game>
-  </games>
-  <wishes>
- <wish>
-   <title>new wish</title>
-   <votes>2</votes>
-  </wish>
-  </wishes>
-  <events>
- <event>
-   <title>new event</title>
-   <description></description>
-   <date>6/12/2022 12:00</date>
- </event>
->>>>>>> origin/main
   </events>
   </root>

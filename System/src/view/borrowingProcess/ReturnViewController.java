@@ -56,9 +56,7 @@ public class ReturnViewController extends ViewController
 
   @FXML private void returnGameButton(){
     Game selectedGame = model.getSelectedGame();
-    if(selectedGame == null){
-      viewHandler.openView("gameList");
-    }else{
+    if(selectedGame != null){
       int ratingValue = 0;
       for(int i=1;i<=5;++i)
         if(getStar(i).getStyleClass().contains("yellow-star"))
@@ -69,7 +67,7 @@ public class ReturnViewController extends ViewController
 
       model.getGameByTitle(selectedGame.getTitle()).setBorrowedTo(null);
     }
-
+    viewHandler.openView("gameList");
   }
 
 
