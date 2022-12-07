@@ -1,5 +1,23 @@
 <root>
  <games>
+ <game>
+   <title>UNO Dark</title>
+   <numberOfPlayers>4</numberOfPlayers>
+   <type>Deck Building</type>
+   <description>Dark nights can be fun!</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Jakub Cerovsky</owner>
+   <ratings></ratings>
+ </game>
+ <game>
+   <title>UNO</title>
+   <numberOfPlayers>2-6</numberOfPlayers>
+   <type>Deck Building</type>
+   <description>Funny card game.</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Jakub Cerovsky</owner>
+   <ratings></ratings>
+ </game>
   </games>
   <wishes>
   </wishes>
