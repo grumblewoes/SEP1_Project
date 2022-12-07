@@ -29,7 +29,7 @@ public class BorrowViewController extends ViewController
   private ClubAssociateListViewModel viewModel;
   @Override public void reset()
   {
-
+    errorLabel.setText("");
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
@@ -57,10 +57,13 @@ public class BorrowViewController extends ViewController
     errorLabel.setText("");
     try
     {
+      ClubAssociateViewModel clubAssociate=clubAssociatesListTable.getSelectionModel().getSelectedItem();
+      if(clubAssociate==null){
+        throw new IllegalStateException("No Club associate selected.");
+      }
       for (int x = 0; x < model.getAllClubAssociates().size(); x++)
       {
-        if (clubAssociatesListTable.getSelectionModel().getSelectedItem()
-            .getSchoolIdProperty().get() == model.getAllClubAssociates().get(x)
+        if (clubAssociate.getSchoolIdProperty().get() == model.getAllClubAssociates().get(x)
             .getSchoolId())
         {
           if (!model.getAllClubAssociates().get(x).isMember())
@@ -71,7 +74,7 @@ public class BorrowViewController extends ViewController
                   .equals(model.getAllGames().get(i).getBorrowedTo()))
               {
                 throw new IllegalArgumentException(
-                    "Guest cannot borrow more then one game.\nPlease return game first.");
+                    "Guest cannot borrow more then one game. Please return game first.");
               }
             }
             checkBorrowedDate(model.getSelectedGame(), model.getAllClubAssociates().get(x));
@@ -88,7 +91,7 @@ public class BorrowViewController extends ViewController
       viewHandler.openView("gameList");
     }
     catch (Exception e){
-      errorLabel.setText("Something went wrong: "+e);
+      errorLabel.setText(e.getMessage());
     }
 
   }

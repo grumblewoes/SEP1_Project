@@ -8,4 +8,40 @@
   -fx-background-position: center !important;
   -fx-background-repeat:no-repeat !important;
 }
+.body{
+  -fx-background-color:rgb(199, 218, 255);
+}
+.submit{
+  -fx-background-color:green;
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
+.choiceBox{
+  -fx-background-color:white;
+}
+.remove {
+  -fx-background-color: rgb(255, 83, 83);
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
+.details {
+  -fx-background-color: rgb(238, 238, 88);
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
+.edit{
+  -fx-background-color: rgb(233, 70, 233);
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
+.add {
+  -fx-background-color:#7AF372;
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
+.addParticipant{
+  -fx-background-color: rgb(243, 140, 157);
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
 

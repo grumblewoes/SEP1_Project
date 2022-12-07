@@ -1,26 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
     <children>
-        <VBox layoutX="34.0" layoutY="14.0" prefHeight="91.0" prefWidth="532.0">
-            <children>
-                <Label alignment="CENTER" prefHeight="53.0" prefWidth="581.0" text="Enter the name of the game you would like to add to the wishlist.">
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Wish">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+                <Label alignment="CENTER" prefHeight="48.0" prefWidth="278.0" text="Title of wished game">
                     <font>
-                        <Font size="18.0" />
+                        <Font size="15.0" />
                     </font>
                 </Label>
-                <TextField fx:id="wishTextField" prefHeight="25.0" prefWidth="438.0" />
-            </children>
-        </VBox>
-        <Button fx:id="cancelButton" layoutX="34.0" layoutY="112.0" mnemonicParsing="false" onAction="#cancelWish" text="Cancel" />
-        <Button fx:id="submitButton" layoutX="512.0" layoutY="112.0" mnemonicParsing="false" onAction="#submitWish" text="Submit" />
-      <Label fx:id="errorLabel" alignment="CENTER" layoutX="128.0" layoutY="115.0" prefHeight="18.0" prefWidth="344.0" textFill="RED" />
+                <TextField fx:id="wishTextField" prefHeight="25.0" prefWidth="270.0" />
+         </children>
+         <padding>
+            <Insets right="30.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="62.0" text="errorLabel" textFill="RED" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="500.0">
+         <children>
+              <Button mnemonicParsing="false" onAction="#submitWish" styleClass="submit" text="Submit">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+              <Button mnemonicParsing="false" onAction="#cancelWish" text="Cancel">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
     </children>
-</AnchorPane>
+</VBox>

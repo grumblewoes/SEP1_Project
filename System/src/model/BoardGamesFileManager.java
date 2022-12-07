@@ -11,20 +11,20 @@ import java.util.ArrayList;
  * @author Damian Trafiałek
  * @version 2.0 - 03 December 2022
  */
-public class BoardGamesFile implements Serializable
+public class BoardGamesFileManager implements Serializable
 {
   private final static String XML_FILE_PATH = "xml.xml";
   private final static String DATABASE_FILE_PATH = "database.bin";
   private BoardGamesModel model;
 
   /**
-   * 1-argument constructor creating a new BoardGamesFile instance. Taking model reference as a parameter it will be used to change it - import/export.
+   * 1-argument constructor creating a new BoardGamesFileManager instance. Taking model reference as a parameter it will be used to change it - import/export.
    * 
    * 
    * @param model 
    *        the current instance of the BoardGamesModel
    */
-  public BoardGamesFile(BoardGamesModel model){
+  public BoardGamesFileManager(BoardGamesModel model){
     this.model = model;
   }
 
@@ -67,7 +67,6 @@ public class BoardGamesFile implements Serializable
     }
     if(newModel==null) newModel = new BoardGamesModelManager();
 
-    createXMLFile();
     return newModel;
   }
 
@@ -116,7 +115,7 @@ public class BoardGamesFile implements Serializable
         "\n   <type>"+game.getType()+"</type>"+
         "\n   <description>"+game.getDescription()+"</description>"+
         "\n   <borrowedTo>"+game.getBorrowedTo()+"</borrowedTo>"+
-        "\n   <owner>"+game.getOwner()+"</owner>"+
+        "\n   <owner>"+game.getOwnerFullName()+"</owner>"+
         "\n   <ratings>"+ratingsTemp+"</ratings>"+
         "\n </game>";
 
@@ -155,10 +154,6 @@ public class BoardGamesFile implements Serializable
 
 
   private String prepareFileContent(){
-    ArrayList<Game> games = model.getAllGames();
-    ArrayList<Wish> wishes = model.getAllWishes();
-    ArrayList<Event> events = model.getAllEvents();
-
     String xml =
         "<root>" +
         "\n <games>"+
@@ -168,9 +163,19 @@ public class BoardGamesFile implements Serializable
         "\n  <events>"+
         "\n  </events>"+
         "\n  </root>";
-    for(Game game : games) xml=addGame(game,xml);
-    for(Wish wish : wishes) xml=addWish(wish,xml);
-    for(Event event : events) xml=addEvent(event,xml);
+    try{
+      ArrayList<Wish> wishes = model.getAllWishes();
+      ArrayList<Event> events = model.getAllEvents();
+      ArrayList<Game> games = model.getAllGames();
+
+      for(Game game : games) xml=addGame(game,xml);
+      for(Wish wish : wishes) xml=addWish(wish,xml);
+      for(Event event : events) xml=addEvent(event,xml);
+    }catch (Exception e){
+      System.out.println("Wow, congrats! There's a new bug! XML file couldn't be created correctly.");
+      System.out.println("Please reference the issue asap: "+e.getMessage());
+      e.printStackTrace();
+    }
 
     return xml;
   }
@@ -182,12 +187,11 @@ public class BoardGamesFile implements Serializable
 
     String xml = prepareFileContent();
 
-    System.out.println("creating the file...");
     try{
       out=new PrintWriter(file);
       out.print(xml);
       out.flush();
-      System.out.println("successfully created the file...");
+      System.out.println("Successfully wrote to the xml file.");
       return true;
     }
     catch (Exception e){

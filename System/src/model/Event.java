@@ -14,9 +14,8 @@ import java.util.ArrayList;
 public class Event implements Serializable
 {
 
-  private String title, description;
+  private String title, description, location;
   private LocalDateTime dateTime;
-  private String location;
   private ArrayList<ClubAssociate> participants;
   public static final String CANTEEN = "Canteen";
   public static final String CLASSROOM = "C05.16b";
@@ -44,6 +43,7 @@ public class Event implements Serializable
    *
    * @return the title of the event
    */
+
   public String getTitle(){ return title; }
 
   /**
@@ -54,6 +54,13 @@ public class Event implements Serializable
   public String getDescription(){ return description; }
 
   /**
+   * A method that returns events' date.
+   *
+   * @return the localDateTime variable stroring the beginning of the event
+   */
+  public LocalDateTime getDateTime(){ return dateTime; }
+
+  /**
    * Methods that converts LocalDateTime to readable String in a wanted patten - D/M/Y hh:mm
    *
    * @return the date as a readable string
@@ -61,6 +68,7 @@ public class Event implements Serializable
   public String getStringDate(){
     String hourString = "0"+dateTime.getHour();
     String minuteString = "0"+dateTime.getMinute();
+
     return
       dateTime.getDayOfMonth()+"/"
       + dateTime.getMonthValue()+"/"
@@ -74,32 +82,33 @@ public class Event implements Serializable
     return participants;
   }
 
-  public String getLocation()
-  {
+  public String getLocation() { return this.location; }
+
+  public void setLocation(String location) {
     switch (location){
-      case(CANTEEN):return CANTEEN;
-      case(CLASSROOM):return CLASSROOM;
-      default:return ASK_BOB;
+      case CANTEEN :
+        this.location = CANTEEN;
+        break;
+      case CLASSROOM:
+        this.location = CLASSROOM;
+        break;
+      default:
+        this.location = ASK_BOB;
     }
   }
 
-  public void setLocation(String location)
-  {
-    this.location = location;
-  }
-
-  private void setDateTime(LocalDateTime dateTime) {
+  public void setDateTime(LocalDateTime dateTime) {
     if(dateTime==null || dateTime.isBefore(LocalDateTime.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
     this.dateTime=dateTime;
   }
-  private void setTitle(String title){
+  public void setTitle(String title){
     if(title==null || title.equals(""))
       throw new IllegalStateException("Title cannot be left blank!");
 
     this.title = title;
   }
 
-  private void setDescription(String description){ this.description = description; }
+  public void setDescription(String description){ this.description = description; }
   /**
    * A method that returns the string representation of the event
    *
@@ -111,13 +120,14 @@ public class Event implements Serializable
         + getStringDate();
   }
   public void addParticipant(ClubAssociate participant){
-    for (int i=0;i< participants.size();i++){
+    for (int i=0;i< getNumberOfParticipants();i++){
       if(participant.getSchoolId()==participants.get(i).getSchoolId()){
         throw new IllegalStateException("Associate is already on participation list.");
       }
     }
     participants.add(participant);
   }
+  public int getNumberOfParticipants(){return participants.size();}
 
   /**
    * Comparing an object to the current one

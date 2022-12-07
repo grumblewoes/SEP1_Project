@@ -12,8 +12,8 @@ import java.util.Optional;
  * 
  * 
  * 
- * @author 
- * @version 
+ * @author Jakub C and Anna P
+ * @version 1.0
  */
 public class GameListViewController extends ViewController
 {
@@ -25,8 +25,7 @@ public class GameListViewController extends ViewController
 
     private GameListViewModel viewModel;
     /**
-     * 0-argument constructor 
-     * 
+     * 0-argument constructor
      * 
      */
     public GameListViewController(){
@@ -82,21 +81,28 @@ public class GameListViewController extends ViewController
     public void removeGame() {
         errorLabel.setText("");
         try{
-            GameViewModel selectedItem = gameListTable.getSelectionModel()
-                .getSelectedItem();
+            GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
+            if(selectedItem==null) {
+                throw new IndexOutOfBoundsException("Please select a game to remove.");
+            }
             boolean remove = confirmation();
-            for(int i=0;i<model.getAllGames().size();i++) {
-                if (remove && selectedItem.equals(model.getAllGames().get(i)))
+
+                if (remove)
                 {
-                    model.removeGame(model.getAllGames().get(i));
+                    model.removeGame(selectedItem.getGame());
                     viewModel.remove(selectedItem.getTitleProperty().get());
                     gameListTable.getSelectionModel().clearSelection();
+                    viewModel.update();
                 }
             }
-        }catch(Exception e){
-            errorLabel.setText("Exception:" + e.getMessage());
+        catch (IndexOutOfBoundsException i) {
+            errorLabel.setText(""+i);
         }
-    }
+        catch(Exception e){
+            errorLabel.setText("Exception:" + e.getMessage());
+            e.printStackTrace();
+        }
+        }
 
     private boolean confirmation(){
         int index = gameListTable.getSelectionModel().getSelectedIndex();
@@ -132,6 +138,5 @@ public class GameListViewController extends ViewController
             viewHandler.openView("gameDetails");
         }
     }
-
 
 }

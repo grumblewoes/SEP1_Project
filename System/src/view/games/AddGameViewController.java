@@ -1,9 +1,6 @@
 package view.games;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.ClubAssociate;
@@ -11,11 +8,13 @@ import model.Wish;
 import view.ViewController;
 import view.ViewHandler;
 import model.Game;
+import view.clubAssociate.ClubAssociateListViewModel;
+import view.clubAssociate.ClubAssociateViewModel;
+
+import static model.Game.*;
 
 /**
  * A class extending ViewController that controls the GUI side of adding a game to the game list
- *
- *
  * @author Anna P, Catarina J
  * @version 1.0 - 04 December 2022
  */
@@ -31,11 +30,11 @@ public class AddGameViewController extends ViewController
   private Label errorLabel;
 
   @FXML
-  private ChoiceBox<String> genreBox;
-
-  @FXML
-  private TextField ownerBox;
-
+  private ChoiceBox<String> typeBox;
+  @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
+  @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;
+  @FXML private TableColumn<ClubAssociateViewModel, Number> schoolIdColumn;
+  private ClubAssociateListViewModel viewModel;
   @FXML
   private TextField playersBox;
 
@@ -45,9 +44,16 @@ public class AddGameViewController extends ViewController
   @FXML
   void cancelGame() {
     viewHandler.openView("gameList");
+    //why reset after canceling? no need
     reset();
   }
 
+  private boolean validNumberOfPlayers(String value){
+    if(!value.matches("[1-9]\\d*-[1-9]\\d*|[1-9]\\d*")) {
+      return false;
+    }
+    return true;
+  }
   //submits game to game list. first checks that all fields are set. try-catch catches number formatting exceptions, fx.
   //if a name gets submitted in the owner field instead of an id.
   @FXML
@@ -56,25 +62,36 @@ public class AddGameViewController extends ViewController
     {
       String title = titleBox.getText();
       String players = playersBox.getText();
-      int owner = Integer.parseInt(ownerBox.getText());
-      ClubAssociate clubAssociate = model.getClubAssociate(owner);
+      ClubAssociateViewModel owner = clubAssociatesListTable.getSelectionModel().getSelectedItem();
+      if (owner == null){
+        throw new IllegalStateException("No owner selected.");
+      }
+      ClubAssociate clubAssociate = model.getClubAssociate(owner.getSchoolIdProperty().get());
       String description = descriptionBox.getText();
       //fetch selected value
-      String genre = genreBox.getValue();
+      String type = typeBox.getValue();
 
-      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || genre == null)
+      if (title.equals("") || !validNumberOfPlayers(players) || clubAssociate == null|| type == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
 
       else
       {
-        Game game = new Game(title, clubAssociate, genre, players, description);
+        //ur still adding the game to the model even tho clubAssociate doesnt exsit
+        //thats because there no validation for Game
+        //and then theres the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
+        //so "NullPointerException e" happens not because the clubAssociate by given id doesnt exist but because we have no validation in Game
+
+        Game game = new Game(title, clubAssociate, type, players, description);
         model.addGame(game);
+        System.out.println("the game was added");
 
         //check if game is on the wishlist. if it is, remove it
         //covers [ALT2] in RegisterNewGame
         Wish wish = model.getWishByTitle(game.getTitle());
-        if ( wish != null)
+        if ( wish != null){
+          //confirmation that the wish will be removed would be useful here
           model.removeWish(wish);
+        }
         viewHandler.openView("gameList");
       }
     }
@@ -82,9 +99,9 @@ public class AddGameViewController extends ViewController
     {
       errorLabel.setText("Make sure to enter the owner using their ID.");
     }
-    catch (NullPointerException e)
+    catch (Exception e)
     {
-      errorLabel.setText("No owner by that ID exists in the system.");
+      errorLabel.setText(e.getMessage());
     }
   }
 
@@ -95,10 +112,9 @@ public class AddGameViewController extends ViewController
   @Override public void reset()
   {
     titleBox.setText("");
-    ownerBox.setText("");
     playersBox.setText("");
     descriptionBox.setText("");
-    genreBox.setValue("");
+    viewModel.update();
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
@@ -107,9 +123,16 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    genreBox.getItems().add("Deduction");
-    genreBox.getItems().add("City Building");
-    genreBox.getItems().add("Deck Building");
+    typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION);
+    typeBox.setValue(ABSTRACT);
+    this.viewModel = new ClubAssociateListViewModel(model);
+    nameColumn.setCellValueFactory(
+        cellData -> cellData.getValue().getNameProperty());
+    schoolIdColumn.setCellValueFactory(
+        cellData -> cellData.getValue().getSchoolIdProperty());
+
+    clubAssociatesListTable.setItems(viewModel.getList());
+    reset();
   }
 }
 

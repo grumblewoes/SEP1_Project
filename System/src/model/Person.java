@@ -35,6 +35,11 @@ public abstract class Person implements Serializable
     return name.getFullName();
   }
 
+  public Name getName()
+  {
+    return name;
+  }
+
   public boolean equals (Object obj) {
     if (obj == null || getClass() != obj.getClass()) {
       return false;

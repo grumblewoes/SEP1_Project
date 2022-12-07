@@ -1,6 +1,6 @@
 package model;
 
-import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
@@ -109,6 +109,10 @@ public interface BoardGamesModel
 
   public Game getSelectedGame();
 
+  public void setSelectedEvent(Event event);
+
+  public Event getSelectedEvent();
+
   /**
    * 
    * 
@@ -193,6 +197,10 @@ public interface BoardGamesModel
    */
   public void removeEvent(String title);
 
+
+  public void editEvent(Event selectedEvent,String title,String description, LocalDateTime dateTime,String location);
+
+  public Event getEventByTitle(String title);
   /**
    * 
    * 
@@ -217,5 +225,7 @@ public interface BoardGamesModel
    * @return 
    *        
    */
-  public BoardGamesFile getFileManager();
+  public BoardGamesFileManager getFileManager();
+
+  public void removeExpiredEvents();
 }
