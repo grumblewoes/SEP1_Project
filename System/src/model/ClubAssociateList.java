@@ -30,6 +30,13 @@ public class ClubAssociateList implements Serializable
    *        
    */
   public void addClubAssociate(ClubAssociate associate) {
+    for (int i=0; i<clubAssociates.size(); i++)
+    {
+      if (associate.getSchoolId()==clubAssociates.get(i).getSchoolId())
+      {
+        throw new IllegalArgumentException("The associate with this ID is already registered.");
+      }
+    }
     clubAssociates.add(associate);
   }
 
