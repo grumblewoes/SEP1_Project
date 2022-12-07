@@ -1,13 +1,18 @@
 <root>
  <games>
+ <game>
+   <title>sad</title>
+   <numberOfPlayers>2-4</numberOfPlayers>
+   <type>City Building</type>
+   <description>asd</description>
+   <borrowedTo>Borrowed by Jakub Cerovsky</borrowedTo>
+   <owner>Jakub Cerovsky</owner>
+   <ratings>
+  <rating>2</rating></ratings>
+ </game>
   </games>
   <wishes>
   </wishes>
   <events>
- <event>
-   <title>Usanf</title>
-   <description>asdasf</description>
-   <date>7/12/2022 22:00</date>
- </event>
   </events>
   </root>
