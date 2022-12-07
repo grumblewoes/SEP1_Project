@@ -2,7 +2,11 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import model.BoardGamesModel;
 import model.BoardGamesModelManager;
+import model.Event;
 import view.ViewHandler;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * A class that is responsible for the creation of the GUI.
@@ -22,6 +26,7 @@ public class MyApplication extends Application
   public void start(Stage primaryStage)
   {
     BoardGamesModel model = new BoardGamesModelManager().getFileManager().importModelFromDatabase();
+
     model.getFileManager().exportModelToDatabase();
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);
