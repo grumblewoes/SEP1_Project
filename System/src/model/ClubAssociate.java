@@ -12,7 +12,6 @@ import java.io.Serializable;
 public class ClubAssociate extends Person
 {
   private int schoolId;
-  private Name name;
   private boolean isMember;
 
 
@@ -90,9 +89,9 @@ public class ClubAssociate extends Person
         return false;
     }
       ClubAssociate other = (ClubAssociate)obj;
-      return this.name.equals(other.name)  && this.schoolId == other.schoolId && this.isMember == other.isMember;
+      return this.schoolId == other.schoolId && this.isMember == other.isMember;
   }
   public String toString () {
-    return schoolId + " " + name + " " + isMember;
+    return schoolId + " " + isMember;
   }
 }

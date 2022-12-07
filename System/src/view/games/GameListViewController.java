@@ -81,8 +81,7 @@ public class GameListViewController extends ViewController
     public void removeGame() {
         errorLabel.setText("");
         try{
-            GameViewModel selectedItem = gameListTable.getSelectionModel()
-                .getSelectedItem();
+            GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
             if(selectedItem==null) {
                 throw new IndexOutOfBoundsException("Please select a game to remove.");
             }
@@ -91,7 +90,7 @@ public class GameListViewController extends ViewController
                 if (remove)
                 {
                     model.removeGame(selectedItem.getGame());
-                    viewModel.remove(model.getGameByTitle(selectedItem.getTitleProperty().get()));
+                    viewModel.remove(selectedItem.getTitleProperty().get());
                     gameListTable.getSelectionModel().clearSelection();
                     viewModel.update();
                 }
