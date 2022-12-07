@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.AddGameViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.AddGameViewController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Game">
          <font>
@@ -111,14 +111,14 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#cancelGame" text="Cancel">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button mnemonicParsing="false" onAction="#submitGame" text="Submit">
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets right="80.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#cancelGame" text="Cancel">
+                     <HBox.margin>
+                        <Insets left="80.0" />
                      </HBox.margin>
                   </Button>
                </children>
