@@ -14,91 +14,53 @@ public interface BoardGamesModel
 {
 
   /**
-   * 
-   * 
-   * @param wish 
-   *        
+   * @param wish
    */
   public void addWish(Wish wish);
 
   /**
-   * 
-   * 
-   * @param wish 
-   *        
+   * @param wish
    */
   public void removeWish(Wish wish);
 
   /**
-   * 
-   * 
-   * @param wish 
-   *        
+   * @param wish
    */
   public void voteForWish(Wish wish);
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
-   *
-   * @return 
-   *        
+   * @param title
+   * @return
    */
   public int getVotesForWish(String title);
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
-   *
-   * @return 
-   *        
+   * @param title
+   * @return
    */
   public Wish getWishByTitle(String title);
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public ArrayList<Wish> getAllWishes();
 
   /**
-   * 
-   * 
-   * @param game 
-   *        
+   * @param game
    */
   public void addGame(Game game);
 
   /**
-   * 
-   * 
-   * @param game 
-   *        
+   * @param game
    */
   public void removeGame(Game game);
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public ArrayList<Game> getAllGames();
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
-   *
-   * @return 
-   *        
+   * @param title
+   * @return
    */
   public Game getGameByTitle(String title);
 
@@ -111,115 +73,71 @@ public interface BoardGamesModel
   public Event getSelectedEvent();
 
   /**
-   * 
-   * 
-   * @param reservation 
-   *        
+   * @param reservation
    */
   public void addReservation(Reservation reservation);
 
   /**
-   * 
-   * 
+   *
    */
   public void removeExpiredReservations();
 
   /**
-   * 
-   * 
-   * @param game 
-   *        
-   *
-   * @return 
-   *        
+   * @param game
+   * @return
    */
   public boolean isReserved(Game game);
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public ArrayList<Reservation> getAllReservation();
 
   /**
-   * 
-   * 
-   * @param associate 
-   *        
+   * @param associate
    */
   public void addClubAssociate(ClubAssociate associate);
 
   /**
-   * 
-   * 
-   * @param id 
-   *        
+   * @param id
    */
   public void updateClubAssociate(int id);
 
   /**
-   * 
-   * 
-   * @param id 
-   *        
-   *
-   * @return 
-   *        
+   * @param id
+   * @return
    */
   public ClubAssociate getClubAssociate(int id);
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public ArrayList<ClubAssociate> getAllClubAssociates();
 
   /**
-   * 
-   * 
-   * @param event 
-   *        
+   * @param event
    */
   public void addEvent(Event event);
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
+   * @param title
    */
   public void removeEvent(String title);
 
   public Event getEventByTitle(String title);
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public int getNumberOfEvents();
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public ArrayList<Event> getAllEvents();
 
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   * @return
    */
   public BoardGamesFileManager getFileManager();
 
   public void removeExpiredEvents();
+
 }
+

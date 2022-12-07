@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import model.ClubAssociate;
 import view.ViewController;
 import view.ViewHandler;
 
@@ -32,19 +33,16 @@ public class ClubAssociateListViewController extends ViewController
     /**
      * Method that initialises the controller and its components.
      * Creates the connection with the viewModel and list of club associates displayed in the view as a table.
-     * 
-     * @param viewHandler 
-     *        the current viewHandler that connects view and model packages
-     * @param model 
-     *        the model of board games system that is being used
-     * @param root 
-     *        the root of the region
+     *
+     * @param viewHandler the current viewHandler that connects view and model packages
+     * @param model       the model of board games system that is being used
+     * @param root        the root of the region
      */
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
     {
-        this.viewHandler=viewHandler;
-        this.model=model;
-        this.root=root;
+        this.viewHandler = viewHandler;
+        this.model = model;
+        this.root = root;
 
         this.viewModel = new ClubAssociateListViewModel(model);
         nameColumn.setCellValueFactory(
@@ -58,16 +56,15 @@ public class ClubAssociateListViewController extends ViewController
     }
 
     /**
-     * 
      * A method that resets the data displayed in the view and updates it.
      */
-    public void reset(){
+    public void reset()
+    {
         errorLabel.setText("");
         viewModel.update();
     }
 
     /**
-     * 
      * A method that is executed when the button "Add associate" is clicked. When it is, it calls ViewHandler,
      * which has a method openView() and open the view with the id "addClubAssociate".
      */
@@ -77,42 +74,36 @@ public class ClubAssociateListViewController extends ViewController
     }
 
     /**
-     * 
-     * 
+     *
      */
-    public void toggleMembershipBtnClicked()
-    {
-//        ClubAssociateViewModel selected = clubAssociatesListTable.getSelectionModel().getSelectedItem();
-//        if
-//        (clubAssociatesListTable.getSelectionModel().getSelectedItem().getIsMemberProperty().get()== false)
-//        {
-//            clubAssociatesListTable.getSelectionModel().getSelectedItem().getIsMemberProperty().set;
-//        }
-//        }
-//        public void getDetails() {
-        //        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
-        //        if (selected == null)
-        //            errorLabel.setText("Please select a game to fetch information on.");
-        //        else
-        //        {
-        //            model.setSelectedGame(selected.getGame());
-        //            viewHandler.openView("gameDetails");
-        //        }
-        //    }
-    //        if (selected == null)
-    //            errorLabel.setText("PLease select an associate to change their status");
-    //        else
-    }
+    public void toggleMembershipBtnClicked() {
+        try
+        {
+        ClubAssociateViewModel selected = clubAssociatesListTable.getSelectionModel().getSelectedItem();
+        if (selected == null)
+        {
+            throw new IllegalStateException("No associate was selected.");
+        }
+       ClubAssociate clubAssociate = model.getClubAssociate().getIsMemberProperty().get();
+        if(selected.getIsMemberProperty().equals(false))
+            selected.getIsMemberProperty().equals(true);
 
-    /**
-     * A method that is executed when the button "Return" is clicked. When it is, it calls ViewHandler,
-     * which has a method openView() and open the view with the id "Menu", so the user goes back to the main window.
-     * 
-     */
-    public void returnBtnClicked()
-    {
-        viewHandler.openView("menu");
     }
+        catch (Exception e) {
+            errorLabel.setText(e.getMessage());
+        }
+    }
+            /**
+             * A method that is executed when the button "Return" is clicked. When it is, it calls ViewHandler,
+             * which has a method openView() and open the view with the id "Menu", so the user goes back to the main window.
+             *
+             */
 
-}
+            public void returnBtnClicked()
+        {
+            viewHandler.openView("menu");
+        }
+
+        }
+
 

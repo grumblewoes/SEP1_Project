@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class ClubAssociateList implements Serializable
 {
   private ArrayList<ClubAssociate> clubAssociates;
+  private ClubAssociate clubAssociate;
 
   /**
    * 0-argument constructor 
@@ -74,7 +75,6 @@ public class ClubAssociateList implements Serializable
     }
     return null;
   }
-
   /**
    * 
    * 

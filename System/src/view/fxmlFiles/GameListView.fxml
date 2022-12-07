@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
+            <Text fill="#545e75" strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -82,7 +82,7 @@
       </HBox>
       <HBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="600.0">
          <children>
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" text="Back">
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" styleClass="back" text="Back" textFill="#3c7c68">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>

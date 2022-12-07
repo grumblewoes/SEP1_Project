@@ -9,7 +9,7 @@
   -fx-background-repeat:no-repeat !important;
 }
 .body{
-  -fx-background-color:rgb(199, 218, 255);
+  -fx-background-color:#FFFF;
 }
 .submit{
   -fx-background-color:green;
@@ -20,12 +20,12 @@
   -fx-background-color:white;
 }
 .remove {
-  -fx-background-color: rgb(255, 83, 83);
+  -fx-background-color: #C03221;
   -fx-text-fill:white;
   -fx-font-weight:bold;
 }
 .details {
-  -fx-background-color: rgb(238, 238, 88);
+  -fx-background-color: #F0C808;
   -fx-text-fill:white;
   -fx-font-weight:bold;
 }
@@ -35,7 +35,7 @@
   -fx-font-weight:bold;
 }
 .add {
-  -fx-background-color:#7AF372;
+  -fx-background-color:#3F826D;
   -fx-text-fill:white;
   -fx-font-weight:bold;
 }
@@ -44,4 +44,16 @@
   -fx-text-fill:white;
   -fx-font-weight:bold;
 }
+.back {
+  -fx-font-weight:bold;
+  -fx-background-color:#545E75;
+  -fx-text-fill:white;
+}
+.header {
+  -fx-text-fill:#545E75;
+}
+/* .label {
+  -fx-text-fill:#C03221;
+} */
+
 

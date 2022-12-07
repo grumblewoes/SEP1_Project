@@ -73,7 +73,7 @@ public class ClubAssociate extends Person
   public void setGuest() {
     isMember = false;
   }
-  public ClubAssociate copy(){
+  public ClubAssociate copy() {
     ClubAssociate clubAssociate = new ClubAssociate(getName(),schoolId,isMember);
     return clubAssociate;
   }

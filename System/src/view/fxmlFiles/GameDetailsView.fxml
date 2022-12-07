@@ -12,7 +12,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Game Details">
+            <Text fill="#545e75" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Details">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -119,9 +119,9 @@
          <children>
             <HBox prefHeight="78.0" prefWidth="600.0">
                <children>
-                  <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="288.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="302.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#borrowGame" prefHeight="27.0" prefWidth="60.0" styleClass="details" stylesheets="@../styles.css" text="Borrow">
+                        <Button mnemonicParsing="false" onAction="#borrowGame" prefHeight="27.0" prefWidth="64.0" styleClass="details" stylesheets="@../styles.css" text="Borrow">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -129,7 +129,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#returnGame" prefHeight="25.0" prefWidth="58.0" styleClass="submit" stylesheets="@../styles.css" text="Return">
+                        <Button mnemonicParsing="false" onAction="#returnGame" prefHeight="27.0" prefWidth="61.0" styleClass="add" stylesheets="@../styles.css" text="Return">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -137,7 +137,7 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#reserveGame" prefHeight="27.0" prefWidth="64.0" styleClass="edit" stylesheets="@../styles.css" text="Reserve">
+                        <Button mnemonicParsing="false" onAction="#reserveGame" prefHeight="27.0" prefWidth="71.0" styleClass="remove" stylesheets="@../styles.css" text="Reserve">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
@@ -155,12 +155,12 @@
                   </HBox>
                   <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="348.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#goBack" text="Back">
+                        <Button mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" styleClass="back" text="Back" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
-                              <Font size="13.0" />
+                              <Font name="System Bold" size="13.0" />
                            </font>
                         </Button>
                      </children>
