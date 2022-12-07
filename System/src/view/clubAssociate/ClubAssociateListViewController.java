@@ -82,6 +82,13 @@ public class ClubAssociateListViewController extends ViewController
      */
     public void toggleMembershipBtnClicked()
     {
+//        ClubAssociateViewModel selected = clubAssociatesListTable.getSelectionModel().getSelectedItem();
+//        if
+//        (clubAssociatesListTable.getSelectionModel().getSelectedItem().getIsMemberProperty().get()== false)
+//        {
+//            clubAssociatesListTable.getSelectionModel().getSelectedItem().getIsMemberProperty().set;
+//        }
+//        }
 //        public void getDetails() {
         //        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
         //        if (selected == null)
@@ -92,7 +99,9 @@ public class ClubAssociateListViewController extends ViewController
         //            viewHandler.openView("gameDetails");
         //        }
         //    }
-
+    //        if (selected == null)
+    //            errorLabel.setText("PLease select an associate to change their status");
+    //        else
     }
 
     /**

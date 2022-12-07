@@ -38,7 +38,8 @@ public class ViewHandler implements Serializable
       gameDetailsViewController,
       wishListViewController,
       borrowViewController,
-      returnGameViewController;
+      returnGameViewController,
+      addParticipantViewController;
 
 
   /**
@@ -122,6 +123,10 @@ public class ViewHandler implements Serializable
       case "returnGame":
         returnGameViewController = loadViewController("ReturnGameView.fxml", returnGameViewController);
         root = returnGameViewController.getRoot();
+        break;
+      case "addParticipant":
+        addParticipantViewController = loadViewController("AddParticipantView.fxml", addParticipantViewController);
+        root = addParticipantViewController.getRoot();
         break;
       default:
         mainViewController = loadViewController("Menu.fxml", mainViewController);
