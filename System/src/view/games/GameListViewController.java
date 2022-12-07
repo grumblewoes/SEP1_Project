@@ -83,19 +83,27 @@ public class GameListViewController extends ViewController
         try{
             GameViewModel selectedItem = gameListTable.getSelectionModel()
                 .getSelectedItem();
+            if(selectedItem==null) {
+                throw new IndexOutOfBoundsException("Please select a game to remove.");
+            }
             boolean remove = confirmation();
-            for(int i=0;i<model.getAllGames().size();i++) {
-                if (remove && selectedItem.equals(model.getAllGames().get(i)))
+
+                if (remove)
                 {
-                    model.removeGame(model.getAllGames().get(i));
-                    viewModel.remove(selectedItem.getTitleProperty().get());
+                    model.removeGame(selectedItem.getGame());
+                    viewModel.remove(model.getGameByTitle(selectedItem.getTitleProperty().get()));
                     gameListTable.getSelectionModel().clearSelection();
+                    viewModel.update();
                 }
             }
-        }catch(Exception e){
-            errorLabel.setText("Exception:" + e.getMessage());
+        catch (IndexOutOfBoundsException i) {
+            errorLabel.setText(""+i);
         }
-    }
+        catch(Exception e){
+            errorLabel.setText("Exception:" + e.getMessage());
+            e.printStackTrace();
+        }
+        }
 
     private boolean confirmation(){
         int index = gameListTable.getSelectionModel().getSelectedIndex();

@@ -63,13 +63,13 @@ public class GameListViewModel implements Serializable
   /**
    * 
    * 
-   * @param title 
+   * @param game
    *        
    */
-  public void remove(String title){
-    for(GameViewModel game : list)
-      if( game.getTitleProperty().get().equals(title)){
-        list.remove(game);
+  public void remove(Game game){
+    for(GameViewModel gvm : list)
+      if(gvm.getGame().equals(game)){
+        list.remove(gvm);
         break;
       }
   }
