@@ -32,7 +32,7 @@
                             </VBox.margin>
                         </Button>
                   <Button mnemonicParsing="false" onAction="#editEventBtnClicked" prefHeight="25.0" prefWidth="100.0" text="Edit Event" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add Participant">
+                  <Button mnemonicParsing="false" onAction="#addParticipantBtnClicked" prefHeight="25.0" prefWidth="100.0" text="Add Participant">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -55,8 +55,9 @@
                                     <columns>
                                         <TableColumn fx:id="titleColumn" prefWidth="75.0" text="Name" />
                                         <TableColumn fx:id="dateColumn" prefWidth="126.79249572753906" text="Date" />
-                              <TableColumn fx:id="locationColumn" minWidth="0.0" prefWidth="81.50932312011719" text="Location" />
-                              <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="194.71707153320312" text="Description" />
+                                        <TableColumn fx:id="locationColumn" minWidth="0.0" prefWidth="81.50932312011719" text="Location" />
+                                        <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="194.71707153320312" text="Description" />
+                                        <TableColumn fx:id="participantsColumn" minWidth="0.0" prefWidth="194.71707153320312" text="No. of Participants" />
                                     </columns>
                                 </TableView>
                             </content>

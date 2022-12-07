@@ -43,6 +43,7 @@ public class Event implements Serializable
    *
    * @return the title of the event
    */
+
   public String getTitle(){ return title; }
 
   /**
@@ -119,13 +120,14 @@ public class Event implements Serializable
         + getStringDate();
   }
   public void addParticipant(ClubAssociate participant){
-    for (int i=0;i< participants.size();i++){
+    for (int i=0;i< getNumberOfParticipants();i++){
       if(participant.getSchoolId()==participants.get(i).getSchoolId()){
         throw new IllegalStateException("Associate is already on participation list.");
       }
     }
     participants.add(participant);
   }
+  public int getNumberOfParticipants(){return participants.size();}
 
   /**
    * Comparing an object to the current one

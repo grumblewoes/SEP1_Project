@@ -86,7 +86,7 @@ public class GameListViewController extends ViewController
                 .getSelectedItem();
             boolean remove = confirmation();
             for(int i=0;i<model.getAllGames().size();i++) {
-                if (remove && selectedItem.equals(model.getAllGames().get(i)))
+                if (remove && selectedItem.getTitleProperty().get().equals(model.getAllGames().get(i).getTitle()))
                 {
                     model.removeGame(model.getAllGames().get(i));
                     viewModel.remove(selectedItem.getTitleProperty().get());

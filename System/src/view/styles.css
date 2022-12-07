@@ -8,4 +8,15 @@
   -fx-background-position: center !important;
   -fx-background-repeat:no-repeat !important;
 }
+.body{
+  -fx-background-color:rgb(199, 218, 255);
+}
+.submit{
+  -fx-background-color:green;
+  -fx-text-fill:white;
+  -fx-font-weight:bold;
+}
+.choiceBox{
+  -fx-background-color:white;
+}
 
