@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -257,5 +258,16 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the size of the eventList
    */
   public int getNumberOfEvents(){ return eventList.getNumberOfEvents(); }
+
+  public void editEvent(Event selectedEvent,String title,String description, LocalDateTime dateTime,String location){
+    Event listEvent = eventList.getEventByTitle(selectedEvent.getTitle());
+    if(listEvent==null)return;
+    listEvent.setTitle(title);
+    listEvent.setDescription(description);
+    listEvent.setDateTime(dateTime);
+    listEvent.setLocation(location);
+
+    fileManager.exportModelToDatabase();
+  }
 
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
@@ -193,6 +194,9 @@ public interface BoardGamesModel
    *        
    */
   public void removeEvent(String title);
+
+
+  public void editEvent(Event selectedEvent,String title,String description, LocalDateTime dateTime,String location);
 
   public Event getEventByTitle(String title);
   /**
