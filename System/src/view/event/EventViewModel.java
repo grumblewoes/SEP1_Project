@@ -1,8 +1,11 @@
 package view.event;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Event;
+import model.Game;
 
 import java.io.Serializable;
 
@@ -15,12 +18,13 @@ import java.io.Serializable;
  */
 public class EventViewModel implements Serializable
 {
+  private Event event;
   private StringProperty
       titleProperty,
       descriptionProperty,
       dateProperty,
       locationProperty;
-
+private IntegerProperty participantsProperty;
   /**
    * 1-argument constructor that sets up the eventViewModel based on the Event.
    * It converts the event to the structure that is understood by GUI.
@@ -29,12 +33,16 @@ public class EventViewModel implements Serializable
    *        the instance of the Event that is to be converted
    */
   public EventViewModel(Event event){
+    this.event=event;
     titleProperty = new SimpleStringProperty(event.getTitle());
     descriptionProperty = new SimpleStringProperty(event.getDescription());
     dateProperty = new SimpleStringProperty(event.getStringDate());
     locationProperty=new SimpleStringProperty(event.getLocation());
+    participantsProperty=new SimpleIntegerProperty(event.getNumberOfParticipants());
   }
-
+  public Event getEvent(){
+    return event;
+  }
   /**
    * A method that returns the title property.
    * 
@@ -71,5 +79,10 @@ public class EventViewModel implements Serializable
   public StringProperty getLocationProperty()
   {
     return locationProperty;
+  }
+
+  public IntegerProperty getParticipantsProperty()
+  {
+    return participantsProperty;
   }
 }

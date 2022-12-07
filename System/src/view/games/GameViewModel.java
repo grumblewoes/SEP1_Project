@@ -28,7 +28,7 @@ public class GameViewModel implements Serializable
   {
     this.game = game;
     this.titleProperty=new SimpleStringProperty(game.getTitle());
-    this.ownerProperty=new SimpleStringProperty(game.getOwner());
+    this.ownerProperty=new SimpleStringProperty(game.getOwnerFullName());
     this.typeProperty=new SimpleStringProperty(game.getType());
     this.numberOfPlayersProperty=new SimpleStringProperty(game.getNumberOfPlayers());
     this.descriptionProperty=new SimpleStringProperty(game.getDescription());
