@@ -27,7 +27,6 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * 0-argument constructor that sets up the entire boardGamesModel.
    * 
-   * 
    */
   public BoardGamesModelManager(){
     wishList = new WishList();
@@ -42,7 +41,6 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
 
   /**
    * A method that returns fileManager - class that manages the usage of local files.
-   * 
    *
    * @return fileManager
    *        the boardGamesFile instance that imports/exports current model and sets xml file
@@ -54,7 +52,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *
    * @see BoardGamesFileManager
    * @param wish 
-   *        
+   *        wish to be added
    */
   public void addWish(Wish wish){ wishList.addWish(wish); fileManager.exportModelToDatabase(); }
 
@@ -101,7 +99,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method that calls wishList asking for the list of all wishes.
    *
-   * @retrun wishes
+   * @return wishes
    *        the list of all wishes
    */
   public ArrayList<Wish> getAllWishes(){ return wishList.getAllWishes(); }
@@ -111,7 +109,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *
    * @see BoardGamesFileManager
    * @param game 
-   *        
+   *        game to be added
    */
   public void addGame(Game game){ gameList.addGame(game);fileManager.exportModelToDatabase(); }
 
@@ -128,7 +126,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *
    * @see BoardGamesFileManager
    * @param game 
-   *        
+   *        game to be removed
    */
   public void removeGame(Game game){ gameList.removeGame(game); fileManager.exportModelToDatabase(); }
 
