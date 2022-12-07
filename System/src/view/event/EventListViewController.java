@@ -5,8 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
+import model.Event;
 import view.ViewController;
 import view.ViewHandler;
+import view.games.GameViewModel;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -24,6 +26,7 @@ public class EventListViewController extends ViewController
   @FXML private TableColumn<EventViewModel,String> dateColumn;
   @FXML private TableColumn<EventViewModel,String> locationColumn;
   @FXML private TableColumn<EventViewModel,String> descriptionColumn;
+  @FXML private TableColumn<EventViewModel,String> participantsColumn;
   @FXML private Label errorLabel;
 
 
@@ -57,6 +60,7 @@ public class EventListViewController extends ViewController
         .getDateProperty());
     descriptionColumn.setCellValueFactory( cellData -> cellData.getValue()
         .getDescriptionProperty());
+    participantsColumn.setCellValueFactory( cellData -> cellData.getValue().getParticipantsProperty().asString());
 
     eventListTable.setItems(viewModel.getList());
     reset();
@@ -79,6 +83,16 @@ public class EventListViewController extends ViewController
 
   @FXML private void addEventBtnPressed() {
     viewHandler.openView("addEvent");
+  }
+  @FXML private void addParticipantBtnClicked() {
+    EventViewModel selected = eventListTable.getSelectionModel().getSelectedItem();
+    if (selected == null)
+      errorLabel.setText("Please select an event to fetch information on.");
+    else
+    {
+      model.setSelectedEvent(selected.getEvent());
+      viewHandler.openView("addParticipant");
+    }
   }
 
   @FXML private void removeEventBtnPressed() {
