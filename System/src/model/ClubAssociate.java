@@ -32,7 +32,7 @@ public class ClubAssociate extends Person
     // if the ID is not a six digit number as is supposed to be, throw an exception
     if (!(schoolId > 0 && Integer.toString(schoolId).length() == 6) )
     {
-      throw new IllegalArgumentException("Invalid ID");
+      throw new IllegalArgumentException("Invalid ID. It should be a 6-digit number. ");
     }
 
     this.schoolId = schoolId;

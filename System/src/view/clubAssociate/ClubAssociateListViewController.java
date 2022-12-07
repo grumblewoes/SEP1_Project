@@ -82,6 +82,16 @@ public class ClubAssociateListViewController extends ViewController
      */
     public void toggleMembershipBtnClicked()
     {
+//        public void getDetails() {
+        //        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
+        //        if (selected == null)
+        //            errorLabel.setText("Please select a game to fetch information on.");
+        //        else
+        //        {
+        //            model.setSelectedGame(selected.getGame());
+        //            viewHandler.openView("gameDetails");
+        //        }
+        //    }
 
     }
 
