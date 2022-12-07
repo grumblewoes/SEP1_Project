@@ -41,6 +41,13 @@ public class Game implements Serializable
    */
   public Game(String title, ClubAssociate owner, String type, String numberOfPlayers, String description)
   {
+    //validate the input:
+    //1.game must have a title
+    //2.the owner cannot be null
+    //3.type cannot be empty
+    //4.string numberOfPlayers ? why not integer??
+    //5.description can posibbly be empty? idk
+    // throw proper exceptions
     this.title = title;
     this.owner = owner;
     this.type=type;
@@ -156,6 +163,7 @@ public class Game implements Serializable
    * @return 
    *        
    */
+  //getOwner would indicate clubAssociate => change name that would indicate their name or String value
   public String getOwner()
   {
     return owner.getFullName();

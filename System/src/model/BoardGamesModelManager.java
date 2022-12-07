@@ -16,10 +16,12 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   private GameList gameList;
 
   private Game selectedGame;
+
+  private Event selectedEvent;
   private ReservationList reservationList;
   private ClubAssociateList clubAssociateList;
   private EventList eventList;
-  private BoardGamesFile fileManager;
+  private BoardGamesFileManager fileManager;
 
   /**
    * 0-argument constructor that sets up the entire boardGamesModel.
@@ -32,7 +34,9 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
     reservationList = new ReservationList();
     clubAssociateList = new ClubAssociateList();
     eventList = new EventList();
-    fileManager = new BoardGamesFile(this);
+    fileManager = new BoardGamesFileManager(this);
+    selectedGame=null;
+    selectedEvent=null;
   }
 
   /**
@@ -42,12 +46,12 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    * @return fileManager
    *        the boardGamesFile instance that imports/exports current model and sets xml file
    */
-  public BoardGamesFile getFileManager(){ return fileManager; }
+  public BoardGamesFileManager getFileManager(){ return fileManager; }
 
   /**
    * A method that calls the wishList to add the wish and the fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param wish 
    *        
    */
@@ -56,7 +60,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method that calls wishList to vote for the wish and calls the fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param wish
    *        wish that is to be voted for
    */
@@ -65,7 +69,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method that calls wishList to remove the wish and calls the fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param wish
    *        wish that is to be removed
    */
@@ -73,7 +77,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method calls the wishList asking for the number of votes that the wish of a certain title have and fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param title
    *        the string value by which the wish is to be found
    *
@@ -104,7 +108,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method that calls gameList to add a game and fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param game 
    *        
    */
@@ -112,11 +116,14 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
 
   public void setSelectedGame(Game game) { selectedGame = game; }
 
+  public void removeExpiredEvents(){
+    eventList.removeExpiredEvents();
+  }
   public Game getSelectedGame() { return selectedGame; }
   /**
    * A method that calls the gameList to remove the games and fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param game 
    *        
    */
@@ -211,20 +218,29 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method that calls eventList to add the and calls the fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param event 
    *        the event that is to be added
    */
   public void addEvent(Event event){ eventList.addEvent(event); fileManager.exportModelToDatabase(); }
 
+
+  public Event getEventByTitle(String title){
+    return eventList.getEventByTitle(title);
+  }
   /**
    * A method that calls the eventList to remove the event and fileManager to save the model.
    *
-   * @see BoardGamesFile
+   * @see BoardGamesFileManager
    * @param title 
    *        the unique title of the event that is to be removed
    */
   public void removeEvent(String title){ eventList.removeEvent(title); fileManager.exportModelToDatabase(); }
+
+
+  public void setSelectedEvent(Event event) { selectedEvent = event; }
+
+  public Event getSelectedEvent() { return selectedEvent; }
 
   /**
    * A method that calls eventList to return a list of all events.

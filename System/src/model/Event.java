@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * A class representing an event - game board organised event in VIA.
@@ -13,8 +14,12 @@ import java.time.LocalDateTime;
 public class Event implements Serializable
 {
 
-  private String title, description;
+  private String title, description, location;
   private LocalDateTime dateTime;
+  private ArrayList<ClubAssociate> participants;
+  public static final String CANTEEN = "Canteen";
+  public static final String CLASSROOM = "C05.16b";
+  public static final String ASK_BOB = "Bob will decide...";
 
   /**
    * Three-argument constructor.
@@ -25,10 +30,12 @@ public class Event implements Serializable
    * @param description - the description of the event
    * @param dateTime - the date of the event (including starting hour)
    */
-  public Event( String title, String description, LocalDateTime dateTime){
+  public Event( String title, String description, LocalDateTime dateTime, String location){
     setTitle(title);
     setDescription(description);
     setDateTime(dateTime);
+    setLocation(location);
+    participants=new ArrayList<>();
   }
 
   /**
@@ -46,6 +53,13 @@ public class Event implements Serializable
   public String getDescription(){ return description; }
 
   /**
+   * A method that returns events' date.
+   *
+   * @return the localDateTime variable stroring the beginning of the event
+   */
+  public LocalDateTime getDateTime(){ return dateTime; }
+
+  /**
    * Methods that converts LocalDateTime to readable String in a wanted patten - D/M/Y hh:mm
    *
    * @return the date as a readable string
@@ -53,6 +67,7 @@ public class Event implements Serializable
   public String getStringDate(){
     String hourString = "0"+dateTime.getHour();
     String minuteString = "0"+dateTime.getMinute();
+
     return
       dateTime.getDayOfMonth()+"/"
       + dateTime.getMonthValue()+"/"
@@ -60,6 +75,27 @@ public class Event implements Serializable
       + hourString.substring( hourString.length()-2 )+":"
       + minuteString.substring( minuteString.length()-2);
   }
+
+  public ArrayList<ClubAssociate> getParticipants()
+  {
+    return participants;
+  }
+
+  public String getLocation() { return this.location; }
+
+  public void setLocation(String location) {
+    switch (location){
+      case CANTEEN :
+        this.location = CANTEEN;
+        break;
+      case CLASSROOM:
+        this.location = CLASSROOM;
+        break;
+      default:
+        this.location = ASK_BOB;
+    }
+  }
+
   private void setDateTime(LocalDateTime dateTime) {
     if(dateTime==null || dateTime.isBefore(LocalDateTime.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
     this.dateTime=dateTime;
@@ -81,6 +117,14 @@ public class Event implements Serializable
   @Override public String toString(){
     return title + " | " + description + " | "
         + getStringDate();
+  }
+  public void addParticipant(ClubAssociate participant){
+    for (int i=0;i< participants.size();i++){
+      if(participant.getSchoolId()==participants.get(i).getSchoolId()){
+        throw new IllegalStateException("Associate is already on participation list.");
+      }
+    }
+    participants.add(participant);
   }
 
   /**

@@ -1,11 +1,9 @@
 package view.event;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 import model.BoardGamesModel;
 import model.Event;
 import view.ViewController;
@@ -14,6 +12,8 @@ import view.ViewHandler;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+
+import static model.Event.*;
 
 /**
  * A class extending viewController which controls/manages the GUI regarding the addition of the event.
@@ -31,7 +31,9 @@ public class AddEventViewController extends ViewController
 
   @FXML private TextArea descriptionArea;
 
+  @FXML private Text headingText;
   @FXML private DatePicker datePicker;
+  @FXML private ChoiceBox<String> locationChoiceBox;
   @FXML private Label errorLabel;
 
 
@@ -49,6 +51,8 @@ public class AddEventViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    locationChoiceBox.getItems().addAll(CANTEEN,CLASSROOM,ASK_BOB);
+    locationChoiceBox.setValue(CANTEEN);
     reset();
   }
 
@@ -57,11 +61,25 @@ public class AddEventViewController extends ViewController
    *
    */
   public void reset(){
-    titleField.setText("");
-    startHourField.setText("");
-    descriptionArea.setText("");
+    Event selectedEvent = model.getSelectedEvent();
+    if(selectedEvent==null){
+      headingText.setText("Add Event");
+      titleField.setText("");
+      startHourField.setText("");
+      descriptionArea.setText("");
+      datePicker.setValue(LocalDate.now());
+      locationChoiceBox.setValue(CANTEEN);
+    }else{
+      headingText.setText("Edit Event");
+      titleField.setText( selectedEvent.getTitle() );
+      descriptionArea.setText( selectedEvent.getDescription() );
+      locationChoiceBox.setValue(selectedEvent.getLocation());
+      String timeString = selectedEvent.getStringDate();
+      startHourField.setText( timeString.substring(timeString.length()-5 ) );
+      datePicker.setValue(selectedEvent.getDateTime().toLocalDate());
+    }
     errorLabel.setText("");
-    datePicker.setValue(LocalDate.now());
+
   }
 
   private int[] convertStartInput(){
@@ -69,7 +87,7 @@ public class AddEventViewController extends ViewController
 
     if(
         !value.matches("((2[0-3])|([0-1][0-9]))[.,:]([0-5][0-9])")
-    ) throw new IllegalArgumentException("Given pattern does not match the criteria!");
+    ) throw new IllegalArgumentException("Invalid starting hour patter! You can use hh:mm format.");
 
     //version v2.0 h:mm | hh:m
     int h = Integer.parseInt( value.substring(0, 2  ) );
@@ -82,21 +100,37 @@ public class AddEventViewController extends ViewController
     String title = titleField.getText();
     String description = descriptionArea.getText();
     LocalDate date = datePicker.getValue();
+    String location = locationChoiceBox.getValue();
 
 
     try{
+      Event selectedEvent = model.getSelectedEvent();
+
+      if(
+        (selectedEvent==null && model.getEventByTitle(title) != null) ||
+        (selectedEvent!=null && !selectedEvent.getTitle().equals(title) && model.getEventByTitle(title) != null)
+      )
+        throw new IllegalStateException("An event with the same title already exists. Change title.");
+
       int[] arr = convertStartInput();
       LocalTime time = LocalTime.of(arr[0],arr[1]);
       LocalDateTime dateTime = LocalDateTime.of(date,time);
-      model.addEvent( new Event(title,description,dateTime) );
+
+      if(selectedEvent!=null){
+        model.removeEvent(selectedEvent.getTitle());
+        model.setSelectedEvent(null);
+      }
+
+      model.addEvent( new Event(title,description,dateTime,location) );
 
       cancelBtnClicked();
     }catch (Exception e){
-      errorLabel.setText("Exception: " +e.getMessage());
+      errorLabel.setText(e.getMessage());
     }
   }
 
   @FXML private void cancelBtnClicked(){
+    model.setSelectedEvent(null);
     viewHandler.openView("eventList");
   }
 

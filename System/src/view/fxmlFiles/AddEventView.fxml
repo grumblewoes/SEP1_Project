@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -15,7 +16,8 @@
     <children>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add event">
+                <Text fx:id="headingText" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Add Event">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
@@ -24,9 +26,9 @@
         </HBox>
         <HBox prefHeight="250.0" prefWidth="600.0">
          <children>
-            <VBox prefHeight="250.0" prefWidth="300.0">
+            <VBox prefHeight="241.0" prefWidth="285.0">
                <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="125.0" prefWidth="100.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="300.0">
                      <children>
                         <Label text="Title">
                            <HBox.margin>
@@ -39,7 +41,7 @@
                         <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="125.0" prefWidth="100.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="300.0">
                      <children>
                         <Label text="Date">
                            <HBox.margin>
@@ -52,7 +54,7 @@
                         <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="125.0" prefWidth="100.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="300.0">
                      <children>
                         <Label text="Starting time">
                            <HBox.margin>
@@ -65,12 +67,31 @@
                         <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Location">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="locationChoiceBox" prefWidth="150.0" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </HBox>
                </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="300.0">
                <children>
-                  <Label text="Description" />
-                  <TextArea fx:id="descriptionArea" prefHeight="215.0" prefWidth="262.0" />
+                  <Label text="Description">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin></Label>
+                  <TextArea fx:id="descriptionArea" prefHeight="215.0" prefWidth="260.0" />
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" />
@@ -80,7 +101,7 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" text="Label" />
+            <Label fx:id="errorLabel" textFill="RED" />
          </children>
         </HBox>
       <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
@@ -90,7 +111,10 @@
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="cancelBtn1" mnemonicParsing="false" onAction="#cancelBtnClicked" text="Cancel" />
+            <Button fx:id="cancelBtn1" mnemonicParsing="false" onAction="#cancelBtnClicked" text="Cancel">
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
     </children>
