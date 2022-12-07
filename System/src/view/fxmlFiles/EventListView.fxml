@@ -57,7 +57,7 @@
                                         <TableColumn fx:id="dateColumn" prefWidth="126.79249572753906" text="Date" />
                                         <TableColumn fx:id="locationColumn" minWidth="0.0" prefWidth="81.50932312011719" text="Location" />
                                         <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="194.71707153320312" text="Description" />
-                                        <TableColumn fx:id="participantsColumn" minWidth="0.0" prefWidth="194.71707153320312" text="No. of Participants" />
+                                        <TableColumn fx:id="participantsColumn" minWidth="50.0" prefWidth="194.71707153320312" text="No. of Participants" />
                                     </columns>
                                 </TableView>
                             </content>

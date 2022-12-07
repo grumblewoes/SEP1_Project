@@ -49,6 +49,14 @@ public class AddGameViewController extends ViewController
     reset();
   }
 
+  private boolean formatNumberOfPlayers(String value){
+    value = playersBox.getText();
+
+    if(!value.matches("[1-9]\\d*-[1-9]\\d*")&&value.charAt(0)<value.charAt(1)) {
+      return false;
+    }
+    return true;
+  }
   //submits game to game list. first checks that all fields are set. try-catch catches number formatting exceptions, fx.
   //if a name gets submitted in the owner field instead of an id.
   @FXML
@@ -64,7 +72,7 @@ public class AddGameViewController extends ViewController
       //fetch selected value
       String type = typeBox.getValue();
 
-      if (title.equals("") || players.equals("") || owner == 0 || description.equals("") || type == null)
+      if (title.equals("") || formatNumberOfPlayers(players) || owner == 0 || description.equals("") || type == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
 
       else

@@ -29,7 +29,7 @@ public class BorrowViewController extends ViewController
   private ClubAssociateListViewModel viewModel;
   @Override public void reset()
   {
-
+    errorLabel.setText("");
   }
 
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){

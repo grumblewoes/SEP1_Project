@@ -1,6 +1,5 @@
 package view.games;
 
-import java.io.Serializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -52,7 +51,7 @@ public class GameDetailsViewController extends ViewController
   //needs info from GameListViewController, but can't get it
   public void setFields(Game game) {
     titleField.setText(game.getTitle());
-    ownerField.setText(game.getOwner());
+    ownerField.setText(game.getOwnerFullName());
     playersField.setText(game.getNumberOfPlayers());
     genreField.setText(game.getType());
     descriptionField.setText(game.getDescription());
