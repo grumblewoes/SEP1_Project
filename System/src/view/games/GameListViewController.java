@@ -12,8 +12,8 @@ import java.util.Optional;
  * 
  * 
  * 
- * @author 
- * @version 
+ * @author Jakub C and Anna P
+ * @version 1.0
  */
 public class GameListViewController extends ViewController
 {
@@ -25,8 +25,7 @@ public class GameListViewController extends ViewController
 
     private GameListViewModel viewModel;
     /**
-     * 0-argument constructor 
-     * 
+     * 0-argument constructor
      * 
      */
     public GameListViewController(){
