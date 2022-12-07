@@ -27,6 +27,9 @@ public class MyApplication extends Application
   {
     BoardGamesModel model = new BoardGamesModelManager().getFileManager().importModelFromDatabase();
 
+//    to check if it works you need to deactivate validation for dateTime in Event
+//    model.addEvent(new Event("should expire in 15 seconds","lorem ipsum 50",LocalDateTime.now().minusDays(1).plusSeconds(15),"Canteen"));
+
     model.getFileManager().exportModelToDatabase();
     ViewHandler view = new ViewHandler(model);
     view.start(primaryStage);

@@ -1,23 +1,5 @@
 <root>
  <games>
- <game>
-   <title>UNO Dark</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>Deck Building</type>
-   <description>Dark nights can be fun!</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>Jakub Cerovsky</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>UNO</title>
-   <numberOfPlayers>2-6</numberOfPlayers>
-   <type>Deck Building</type>
-   <description>Funny card game.</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>Jakub Cerovsky</owner>
-   <ratings></ratings>
- </game>
   </games>
   <wishes>
   </wishes>
@@ -25,27 +7,7 @@
  <event>
    <title>should expire in 15 seconds</title>
    <description>lorem ipsum 50</description>
-   <date>7/12/2022 00:35</date>
- </event>
- <event>
-   <title>expired title</title>
-   <description>lorem ipsum 50</description>
-   <date>7/12/2022 00:33</date>
- </event>
- <event>
-   <title>expired title</title>
-   <description>lorem ipsum 50</description>
-   <date>7/12/2022 00:32</date>
- </event>
- <event>
-   <title>expired title</title>
-   <description>lorem ipsum 50</description>
-   <date>7/12/2022 00:30</date>
- </event>
- <event>
-   <title>expired title</title>
-   <description>lorem ipsum 50</description>
-   <date>7/12/2022 00:29</date>
+   <date>7/12/2022 00:40</date>
  </event>
   </events>
   </root>
