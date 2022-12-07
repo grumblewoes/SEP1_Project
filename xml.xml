@@ -1,13 +1,17 @@
 <root>
  <games>
+ <game>
+   <title>UNO</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description></description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Jakub  Cerovsky</owner>
+   <ratings></ratings>
+ </game>
   </games>
   <wishes>
   </wishes>
   <events>
- <event>
-   <title>dsa</title>
-   <description></description>
-   <date>7/12/2022 13:00</date>
- </event>
   </events>
   </root>

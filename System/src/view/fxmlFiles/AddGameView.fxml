@@ -18,14 +18,14 @@
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Game" wrappingWidth="172.119140625">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" wrappingWidth="172.119140625">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Text>
          </children>
       </HBox>
-      <HBox prefHeight="260.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="260.0" prefWidth="600.0">
          <children>
             <VBox alignment="CENTER" prefHeight="295.0" prefWidth="337.0">
                <children>
@@ -85,7 +85,7 @@
                                     <Insets bottom="10.0" top="7.0" />
                                  </VBox.margin>
                               </TextField>
-                              <ChoiceBox fx:id="genreBox" prefWidth="150.0" styleClass="choiceBox" stylesheets="@../styles.css">
+                              <ChoiceBox fx:id="typeBox" prefWidth="150.0" styleClass="choiceBox" stylesheets="@../styles.css">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="7.0" />
                                  </VBox.margin>
