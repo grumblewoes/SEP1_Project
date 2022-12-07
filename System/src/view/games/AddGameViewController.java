@@ -14,8 +14,6 @@ import model.Game;
 
 /**
  * A class extending ViewController that controls the GUI side of adding a game to the game list
- *
- *
  * @author Anna P, Catarina J
  * @version 1.0 - 04 December 2022
  */
@@ -117,9 +115,8 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    genreBox.getItems().add("Deduction");
-    genreBox.getItems().add("City Building");
-    genreBox.getItems().add("Deck Building");
+    genreBox.getItems().addAll("Abstract", "Deduction", "City Building", "Deck Building");
+    genreBox.setValue("Abstract");
   }
 }
 
