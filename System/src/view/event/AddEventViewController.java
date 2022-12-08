@@ -117,11 +117,8 @@ public class AddEventViewController extends ViewController
       LocalDateTime dateTime = LocalDateTime.of(date,time);
 
       if(selectedEvent!=null){
-        selectedEvent.setLocation(location);
-        selectedEvent.setDateTime(dateTime);
-        selectedEvent.setTitle(title);
-        selectedEvent.setDescription(description);
 
+        model.editEvent(selectedEvent,title,description,dateTime,location);
         model.setSelectedEvent(null);
       }else{
         model.addEvent( new Event(title,description,dateTime,location) );

@@ -1,11 +1,7 @@
 package view.borrowingProcess;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
 import model.Game;
@@ -15,11 +11,11 @@ import view.ViewHandler;
 
 
 /**
+ * A class extending viewController which controls/manages the GUI regarding the return of the game.
+ *
  * 
- * 
- * 
- * @author 
- * @version 
+ * @author Damian Trafiałek
+ * @version 1.0 - 05 December 2022
  */
 public class ReturnViewController extends ViewController
 {
@@ -27,32 +23,30 @@ public class ReturnViewController extends ViewController
   @FXML private Button oneStarBtn,twoStarBtn,threeStarBtn,fourStarBtn,fiveStarBtn;
 
   /**
-   *
+   * A method that initialises the controller alongside the rest of its components.
    *
    * @param viewHandler
-   *
+   *        the current viewHandler that connects view and model packages
    * @param model
-   *
+   *        the model of board games system that is being used
    * @param root
-   *
+   *        the root of the region
    */
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model, Region root){
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
+    reset();
   }
 
   /**
-   * 
-   * 
+   * A method that resets the data displayed in the view.
+   *
    */
   @Override public void reset()
   {
     setStars(0);
   }
-
-
-
 
   @FXML private void returnGameButton(){
     Game selectedGame = model.getSelectedGame();
@@ -97,7 +91,7 @@ public class ReturnViewController extends ViewController
   @FXML private void fourStarBtnClicked() { setStars(4); }
   @FXML private void fiveStarBtnClicked() { setStars(5); }
 
-  @FXML private void cancelButton(){
-    viewHandler.openView("menu");
+  @FXML private void goBack(){
+    viewHandler.openView("gameList");
   }
 }

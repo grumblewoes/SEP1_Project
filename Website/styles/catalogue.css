@@ -1,10 +1,7 @@
-/* .game{
-  background-color:white;
-  width:100%;
-  overflow:auto;
-  padding:1rem 0.5rem;
-  margin:1rem 0;
-} */
+ .game{
+  background-color:rgba(255, 255, 255, 0.3);
+  padding:0.5rem;
+}
 
 .game img{
   object-fit: cover;
@@ -23,6 +20,7 @@
   padding:5px;
   margin:5px;
   float:left;
+  background-color:white;
 
   cursor: default;
   transition:  background-color .25s ease-in-out,

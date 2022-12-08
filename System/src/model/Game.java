@@ -21,6 +21,7 @@ public class Game implements Serializable
   public static final String ABSTRACT="Abstract";
   public static final String CITY_BUILDING="City Building";
   public static final String DECK_BUILDING="Deck Building";
+  public static final String CARDS="Cards";
   private ArrayList<Rating> ratings;
 
   /**
@@ -143,6 +144,9 @@ public class Game implements Serializable
       case CITY_BUILDING:
         this.type = CITY_BUILDING;
         break;
+      case CARDS:
+        this.type = CARDS;
+        break;
       default:
         this.type = ABSTRACT;
     }
@@ -235,21 +239,21 @@ public class Game implements Serializable
 
 
   /**
-   * 
-   * 
-   * @param game 
+   *
    *        
    *
    * @return 
    *        
    */
-  public double calculateAverageRating(Game game){
+  public double calculateAverageRating(){
     double totalRating = 0.0;
     for(int i=0; i<ratings.size(); i++){
         totalRating = ratings.get(i).getRating();
         i++;
       }
+    if (ratings.size() > 0)
       return (double)(totalRating/ratings.size());
+    return -1;
   }
 
   /**

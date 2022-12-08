@@ -73,9 +73,11 @@ public class EventList implements Serializable
    */
   public void removeExpiredEvents(){
     LocalDateTime limit = LocalDateTime.now().minusDays(1);
-    for(Event event : events){
-      if(limit.isAfter(event.getDateTime()))
-        events.remove(event);
+    for(int i=events.size()-1;i>=0;--i){
+      if(limit.isAfter(events.get(i).getDateTime())){
+        System.out.println("removing expired event: "+events.get(i));
+        events.remove(i);
+      }
     }
   }
 

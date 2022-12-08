@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Is responsible for answering question : what event, when does it happen.
  *
  * @author Damian Trafiałek
- * @version 2.0 - 03 December 2021
+ * @version 2.0 - 03 December 2022
  */
 public class Event implements Serializable
 {
@@ -22,13 +22,15 @@ public class Event implements Serializable
   public static final String ASK_BOB = "Bob will decide...";
 
   /**
-   * Three-argument constructor.
+   * Four-argument constructor.
    * Illegal title and dateTime value will throw the IllegalArgumentException.
    *
    * @throws IllegalArgumentException
    * @param title - the name of the event
    * @param description - the description of the event
    * @param dateTime - the date of the event (including starting hour)
+   * @param location - the location of the event.
+   * The event has its own participant list.
    */
   public Event( String title, String description, LocalDateTime dateTime, String location){
     setTitle(title);
@@ -77,11 +79,20 @@ public class Event implements Serializable
       + minuteString.substring( minuteString.length()-2);
   }
 
+  /**
+   * Method that returns the participants of the event as a list of Club associates.
+   *
+   * @return the participants of the event
+   */
   public ArrayList<ClubAssociate> getParticipants()
   {
     return participants;
   }
-
+  /**
+   * Method that returns the location of an event as a String.
+   *
+   * @return the location of the event
+   */
   public String getLocation() { return this.location; }
 
   public void setLocation(String location) {
@@ -119,6 +130,13 @@ public class Event implements Serializable
     return title + " | " + description + " | "
         + getStringDate();
   }
+
+  /**
+   * Method that adds a given associate to the participation list as a participant
+   *
+   * @throws IllegalArgumentException - in case that parameter is already on the list
+   * @param participant - ClubAssociate
+   */
   public void addParticipant(ClubAssociate participant){
     for (int i=0;i< getNumberOfParticipants();i++){
       if(participant.getSchoolId()==participants.get(i).getSchoolId()){
@@ -127,6 +145,11 @@ public class Event implements Serializable
     }
     participants.add(participant);
   }
+  /**
+   * Method that returns the number of participants, that are on the list, as an Integer.
+   *
+   * @return the number of participants
+   */
   public int getNumberOfParticipants(){return participants.size();}
 
   /**

@@ -1,21 +1,21 @@
 <root>
  <games>
  <game>
-   <title>title</title>
-   <numberOfPlayers>3</numberOfPlayers>
-   <type>Abstract</type>
-   <description>WEWEW</description>
+   <title>UNO Dark</title>
+   <numberOfPlayers>4</numberOfPlayers>
+   <type>Deck Building</type>
+   <description>Dark nights can be fun!</description>
    <borrowedTo>Available</borrowedTo>
-   <owner>bla bla</owner>
+   <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
  </game>
  <game>
-   <title>ef</title>
-   <numberOfPlayers>4</numberOfPlayers>
+   <title>UNO</title>
+   <numberOfPlayers>2-6</numberOfPlayers>
    <type>Deck Building</type>
-   <description>frtgth</description>
+   <description>Funny card game.</description>
    <borrowedTo>Available</borrowedTo>
-   <owner>bla bla</owner>
+   <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
  </game>
   </games>
@@ -23,9 +23,9 @@
   </wishes>
   <events>
  <event>
-   <title>uno</title>
-   <description></description>
-   <date>9/12/2022 13:00</date>
+   <title>dfsdf</title>
+   <description>dasdsadasdasdasdadasdas</description>
+   <date>7/12/2022 23:00</date>
  </event>
   </events>
   </root>
