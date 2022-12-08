@@ -1,8 +1,31 @@
 <root>
  <games>
+ <game>
+   <title>title</title>
+   <numberOfPlayers>3</numberOfPlayers>
+   <type>Abstract</type>
+   <description>WEWEW</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>bla bla</owner>
+   <ratings></ratings>
+ </game>
+ <game>
+   <title>ef</title>
+   <numberOfPlayers>4</numberOfPlayers>
+   <type>Deck Building</type>
+   <description>frtgth</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>bla bla</owner>
+   <ratings></ratings>
+ </game>
   </games>
   <wishes>
   </wishes>
   <events>
+ <event>
+   <title>uno</title>
+   <description></description>
+   <date>9/12/2022 13:00</date>
+ </event>
   </events>
   </root>

@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" userData="Add Wish" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
     <children>
-      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" styleClass="gradient">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Wish">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Wish">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -35,12 +35,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="39.0" prefWidth="500.0">
          <children>
-            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="62.0" text="errorLabel" textFill="RED" />
+            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="62.0" styleClass="errorLabel" text="errorLabel" textFill="RED" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="80.0" prefWidth="500.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="500.0">
          <children>
-              <Button mnemonicParsing="false" onAction="#submitWish" styleClass="submit" text="Submit">
+              <Button mnemonicParsing="false" onAction="#submitWish" styleClass="btn2" text="Submit">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -48,7 +48,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-              <Button mnemonicParsing="false" onAction="#cancelWish" text="Cancel">
+              <Button mnemonicParsing="false" onAction="#cancelWish" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>

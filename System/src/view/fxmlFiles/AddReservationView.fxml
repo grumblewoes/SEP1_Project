@@ -15,16 +15,16 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Reservation" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.borrowingProcess.AddReservationViewController">
 
     <children>
-        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation">
                     <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="System Bold" size="30.0" />
                     </font>
                 </Text>
             </children>
         </HBox>
-        <HBox prefHeight="220.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="220.0" prefWidth="600.0">
             <children>
                 <VBox alignment="CENTER" prefHeight="198.0" prefWidth="220.0">
                     <children>
@@ -66,12 +66,18 @@
                      </content>
                         </ScrollPane>
                     </children>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
                 </VBox>
             </children>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
         </HBox>
       <HBox alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="600.0">
          <children>
-                    <Label fx:id="errorLabel" text="Label" textFill="RED">
+                    <Label fx:id="errorLabel" styleClass="errorLabel" text="Label" textFill="RED">
                         <HBox.margin>
                             <Insets />
                         </HBox.margin>
@@ -80,11 +86,11 @@
       </HBox>
             <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
                 <children>
-                    <Button mnemonicParsing="false" onAction="#addReservationButton" styleClass="submit" text="Submit">
+                    <Button mnemonicParsing="false" onAction="#addReservationButton" styleClass="btn2" text="Submit">
                <font>
                   <Font size="13.0" />
                </font></Button>
-                    <Button mnemonicParsing="false" onAction="#goBack" text="Cancel">
+                    <Button mnemonicParsing="false" onAction="#goBack" styleClass="btn3" text="Cancel">
                         <HBox.margin>
                             <Insets left="30.0" />
                         </HBox.margin>

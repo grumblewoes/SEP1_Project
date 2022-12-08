@@ -8,24 +8,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameDetailsViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" userData="Game Details" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameDetailsViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="116.0" prefWidth="600.0">
          <children>
-            <Text fill="#545e75" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Details">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Game Details" wrappingWidth="185.8740234375">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Text>
          </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="229.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="210.0" prefWidth="600.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="294.0" prefWidth="283.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -36,7 +39,7 @@
                   </Label>
                   <Label text="Owner">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -47,7 +50,7 @@
                   </Label>
                   <Label text="No. of Players">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -58,7 +61,7 @@
                   </Label>
                   <Label text="Genre">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -69,7 +72,7 @@
                   </Label>
                   <Label text="Description">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -83,7 +86,7 @@
                   <Insets />
                </opaqueInsets>
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="294.0" prefWidth="305.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="203.0" prefWidth="305.0">
                <children>
                   <Label fx:id="titleField" text="Title">
                      <font>
@@ -113,67 +116,73 @@
                </children>
             </VBox>
          </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
       </HBox>
-      <Label fx:id="errorLabel" textFill="RED" />
-      <VBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0">
+      <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <HBox prefHeight="78.0" prefWidth="600.0">
+            <VBox alignment="CENTER" prefHeight="66.0" prefWidth="600.0">
                <children>
-                  <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="302.0">
+                  <HBox prefHeight="87.0" prefWidth="560.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#borrowGame" prefHeight="27.0" prefWidth="64.0" styleClass="details" stylesheets="@../styles.css" text="Borrow">
+                        <HBox alignment="CENTER" prefHeight="32.0" prefWidth="401.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#borrowGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn1" stylesheets="@../styles.css" text="Borrow">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#reserveGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn2" stylesheets="@../styles.css" text="Reserve">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#returnGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn3" stylesheets="@../styles.css" text="Return">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets left="15.0" />
                            </HBox.margin>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#returnGame" prefHeight="27.0" prefWidth="61.0" styleClass="add" stylesheets="@../styles.css" text="Return">
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="348.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="64.0" styleClass="btn3" text="Back">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="15.0" />
                            </HBox.margin>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#reserveGame" prefHeight="27.0" prefWidth="71.0" styleClass="remove" stylesheets="@../styles.css" text="Reserve">
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
+                        </HBox>
                      </children>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
                      <padding>
-                        <Insets left="10.0" top="10.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="62.0" prefWidth="348.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" styleClass="back" text="Back" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets right="20.0" top="10.0" />
+                        <Insets bottom="15.0" />
                      </padding>
                   </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
+      </HBox>
    </children>
 </VBox>

@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.ClubAssociateListViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Club Associates" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.ClubAssociateListViewController">
     <children>
-        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Club Associates">
+                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Club Associates">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
@@ -24,22 +24,28 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
             <children>
-                <VBox alignment="CENTER_LEFT" prefHeight="241.0" prefWidth="180.0">
+                <VBox alignment="CENTER" prefHeight="241.0" prefWidth="180.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#addAssociateBtnClicked" prefHeight="25.0" prefWidth="130.0" text="Add Associate">
+                        <Button mnemonicParsing="false" onAction="#addAssociateBtnClicked" prefHeight="25.0" prefWidth="130.0" styleClass="btn1" text="Add Associate">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#toggleMembershipBtnClicked" prefHeight="25.0" prefWidth="130.0" text="Toggle membership">
+                        <Button mnemonicParsing="false" onAction="#toggleMembershipBtnClicked" prefHeight="25.0" prefWidth="130.0" styleClass="btn4" text="Change status">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                         </Button>
                     </children>
-                    <padding>
-                        <Insets left="20.0" right="20.0" />
-                    </padding>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="241.0" prefWidth="410.0">
                     <children>
@@ -60,23 +66,29 @@
                     </padding>
                 </VBox>
             </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
             <children>
-                <Label fx:id="errorLabel" text="Label" textFill="RED" />
+                <Label fx:id="errorLabel" styleClass="errorLabel" text="Label" />
             </children>
         </HBox>
-        <HBox alignment="TOP_RIGHT" prefHeight="75.0" prefWidth="600.0">
+        <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="600.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#returnBtnClicked" prefHeight="25.0" prefWidth="50.0" text="Back">
+                <Button mnemonicParsing="false" onAction="#returnBtnClicked" prefHeight="25.0" prefWidth="60.0" styleClass="btn3" text="Back">
                     <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                     </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
             </children>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
         </HBox>
     </children>
 </VBox>

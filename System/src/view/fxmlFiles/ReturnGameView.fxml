@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.borrowingProcess.ReturnViewController">
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="body" userData="Rate" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.borrowingProcess.ReturnViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rate your experience!">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Rate your experience!">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -55,7 +55,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#returnGameButton" prefHeight="25.0" prefWidth="60.0" styleClass="submit" stylesheets="@../styles.css" text="Return">
+            <Button mnemonicParsing="false" onAction="#returnGameButton" prefHeight="31.0" prefWidth="102.0" styleClass="btn2" stylesheets="@../styles.css" text="Return">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
@@ -63,7 +63,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#cancelButton" prefHeight="25.0" prefWidth="60.0" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelButton" prefHeight="31.0" prefWidth="102.0" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>

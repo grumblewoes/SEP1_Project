@@ -84,9 +84,9 @@ public class ClubAssociateListViewController extends ViewController
         {
             throw new IllegalStateException("No associate was selected.");
         }
-       ClubAssociate clubAssociate = model.getClubAssociate().getIsMemberProperty().get();
-        if(selected.getIsMemberProperty().equals(false))
-            selected.getIsMemberProperty().equals(true);
+//       ClubAssociate clubAssociate = model.getClubAssociate().getIsMemberProperty().get();
+//        if(selected.getIsMemberProperty().equals(false))
+//            selected.getIsMemberProperty().equals(true);
 
     }
         catch (Exception e) {

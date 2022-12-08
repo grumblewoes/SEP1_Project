@@ -14,24 +14,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.AddGameViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" userData="Add Game" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.AddGameViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" wrappingWidth="172.119140625">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" wrappingWidth="172.119140625">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Text>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="260.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
          <children>
             <VBox alignment="CENTER" prefHeight="295.0" prefWidth="337.0">
                <children>
                   <HBox>
                      <children>
-                        <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="106.0">
                            <children>
                               <Label text="Title">
                                  <font>
@@ -41,7 +41,7 @@
                                     <Insets bottom="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label text="No. of Players">
+                              <Label prefHeight="20.0" prefWidth="87.0" text="No. of Players">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -123,14 +123,14 @@
             <Insets right="20.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0" styleClass="errorLabel">
          <children>
-            <Label fx:id="errorLabel" textFill="RED" />
+            <Label fx:id="errorLabel" text="Label" textFill="RED" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="77.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#submitGame" styleClass="submit" stylesheets="@../styles.css" text="Submit">
+            <Button mnemonicParsing="false" onAction="#submitGame" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -138,7 +138,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#cancelGame" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#cancelGame" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -147,6 +147,12 @@
                </font>
             </Button>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
       </HBox>
    </children>
 </VBox>

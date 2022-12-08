@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.WishListViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" userData="Wishlist" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.WishListViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" stylesheets="@../styles.css">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient" stylesheets="@../styles.css">
          <children>
-            <Text fill="#545e75" strokeType="OUTSIDE" strokeWidth="0.0" text="Wish List">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Wish List">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -24,9 +24,9 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="241.0" prefWidth="175.0">
+            <VBox alignment="CENTER" prefHeight="221.0" prefWidth="183.0">
                <children>
-                  <Button fx:id="addWishBtn" mnemonicParsing="false" onAction="#addWish" prefHeight="25.0" prefWidth="90.0" styleClass="add" stylesheets="@../styles.css" text="Add Wish">
+                  <Button fx:id="addWishBtn" mnemonicParsing="false" onAction="#addWish" prefHeight="31.0" prefWidth="100.0" styleClass="btn1" stylesheets="@../styles.css" text="Add Wish">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -34,7 +34,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addVoteBtn" mnemonicParsing="false" onAction="#addVote" prefHeight="25.0" prefWidth="90.0" styleClass="details" stylesheets="@../styles.css" text="Vote">
+                  <Button fx:id="addVoteBtn" mnemonicParsing="false" onAction="#addVote" prefHeight="25.0" prefWidth="100.0" styleClass="btn2" stylesheets="@../styles.css" text="Vote">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#removeWish" prefHeight="25.0" prefWidth="90.0" styleClass="remove" stylesheets="@../styles.css" text="Remove">
+                  <Button mnemonicParsing="false" onAction="#removeWish" prefHeight="25.0" prefWidth="100.0" styleClass="btn3" stylesheets="@../styles.css" text="Remove">
                      <VBox.margin>
                         <Insets top="40.0" />
                      </VBox.margin>
@@ -50,6 +50,9 @@
                         <Font size="13.0" />
                      </font></Button>
                </children>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
             </VBox>
             <VBox alignment="CENTER" prefHeight="241.0" prefWidth="368.0">
                <children>
@@ -67,17 +70,32 @@
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
             </VBox>
          </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </HBox>
       <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" text="Label" textFill="RED" />
+            <Label fx:id="errorLabel" styleClass="errorLabel" text="Label" textFill="RED">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding></Label>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
-      <HBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="600.0">
+      <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="600.0">
          <children>
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" styleClass="back" text="Back">
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" styleClass="btn3" text="Back">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -86,9 +104,6 @@
                </font>
             </Button>
          </children>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
       </HBox>
    </children>
 </VBox>
