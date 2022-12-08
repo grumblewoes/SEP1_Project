@@ -114,6 +114,7 @@ public class AddGameViewController extends ViewController
     titleBox.setText("");
     playersBox.setText("");
     descriptionBox.setText("");
+    errorLabel.setText("");
     viewModel.update();
   }
 

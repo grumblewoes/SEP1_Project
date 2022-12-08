@@ -47,8 +47,11 @@ public class GameDetailsViewController extends ViewController
     playersField.setText("");
     genreField.setText("");
     descriptionField.setText("");
-    avgRating.setText("");
     Game game = model.getSelectedGame();
+    if (game.calculateAverageRating() == -1)
+    avgRating.setText("No ratings yet");
+    else
+    avgRating.setText(String.valueOf(game.calculateAverageRating()));
     setFields(game);
   }
 
@@ -63,7 +66,6 @@ public class GameDetailsViewController extends ViewController
       avgRating.setText("No ratings yet");
     else
       avgRating.setText(String.valueOf(game.calculateAverageRating()));
-    System.out.println(game.calculateAverageRating());
   }
 
   @FXML

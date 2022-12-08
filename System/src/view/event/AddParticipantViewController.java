@@ -51,7 +51,8 @@ public class AddParticipantViewController extends ViewController
       viewHandler.openView("eventList");
     }
     catch (Exception e){
-      errorLabel.setText("Error:" +e);
+      errorLabel.setText(e.getMessage());
+      e.printStackTrace();
     }
   }
 
