@@ -10,8 +10,8 @@ import javafx.application.Application;
 public class Main
 {
   /**
-   * 
-   * 
+   * Method launching the system
+   * @param args - The command line arguments
    */
   public static void main(String[] args)
   {

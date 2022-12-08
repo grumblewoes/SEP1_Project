@@ -80,7 +80,7 @@
       </HBox>
             <HBox alignment="CENTER" prefHeight="70.0" prefWidth="600.0">
                 <children>
-                    <Button mnemonicParsing="false" onAction="#addReservationButton" styleClass="submit" text="Submit">
+                    <Button mnemonicParsing="false" onAction="#addReservationSubmitButton" styleClass="submit" text="Submit">
                <font>
                   <Font size="13.0" />
                </font></Button>

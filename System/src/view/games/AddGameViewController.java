@@ -123,7 +123,7 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION);
+    typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION, CARDS);
     typeBox.setValue(ABSTRACT);
     this.viewModel = new ClubAssociateListViewModel(model);
     nameColumn.setCellValueFactory(

@@ -8,20 +8,20 @@ import java.io.Serializable;
 
 /**
  * 
+ * GameViewModel class converts the Game object into property that can be used by JavaFX
  * 
- * 
- * @author 
- * @version 
+ * @author Jakub Cerovsky
+ * @version 2.0 - 08 December 2022
  */
 public class GameViewModel implements Serializable
 {
   private Game game;
   private StringProperty titleProperty, ownerProperty, typeProperty, numberOfPlayersProperty, descriptionProperty, borrowedToProperty;
   /**
-   * 1-argument constructor 
+   * 1-argument constructor.
+   * constructor converting the game object into structure understandable for JavaFX
    * 
-   * 
-   * @param game 
+   * @param game - Game
    *        
    */
   public GameViewModel(Game game)
@@ -37,24 +37,27 @@ public class GameViewModel implements Serializable
 
   /**
    * 
-   * 
+   * Method that returns game, that is being converted, as a Game
    *
-   * @return 
+   * @return game that is being converted
    *        
    */
   public Game getGame() { return game; }
 
+  /**
+   *Method that returns converted title property as a StringProperty
+   *
+   * @return title property as a StringProperty
+   */
   public StringProperty getTitleProperty()
   {
     return titleProperty;
   }
 
   /**
-   * 
-   * 
+   *Method that returns converted owner property as a StringProperty
    *
-   * @return 
-   *        
+   * @return owner property as a StringProperty
    */
   public StringProperty getOwnerProperty()
   {
@@ -62,11 +65,9 @@ public class GameViewModel implements Serializable
   }
 
   /**
-   * 
-   * 
+   *Method that returns converted type property as a StringProperty
    *
-   * @return 
-   *        
+   * @return type property as a StringProperty
    */
   public StringProperty getTypeProperty()
   {
@@ -74,11 +75,9 @@ public class GameViewModel implements Serializable
   }
 
   /**
-   * 
-   * 
+   *Method that returns converted numberOfPlayers property as a StringProperty
    *
-   * @return 
-   *        
+   * @return numberOfPlayers property as a StringProperty
    */
   public StringProperty getNumberOfPlayersProperty()
   {
@@ -86,11 +85,9 @@ public class GameViewModel implements Serializable
   }
 
   /**
-   * 
-   * 
+   *Method that returns converted description property as a StringProperty
    *
-   * @return 
-   *        
+   * @return description property as a StringProperty
    */
   public StringProperty getDescriptionProperty()
   {
@@ -98,11 +95,9 @@ public class GameViewModel implements Serializable
   }
 
   /**
-   * 
-   * 
+   *Method that returns converted borrowedTo property as a StringProperty
    *
-   * @return 
-   *        
+   * @return borrowedTo property as a StringProperty
    */
   public StringProperty getBorrowedToProperty()
   {

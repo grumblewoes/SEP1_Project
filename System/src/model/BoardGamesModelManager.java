@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- * 
+ * A class implementing the BoardGamesModel interface
  * 
  * 
  * @author Damian Trafiałek
@@ -172,14 +172,14 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        true or false that indicates if the games is reserved
    */
   public boolean isReserved(Game game){return reservationList.isReserved(game);}
-
+  public int numberOfReservations(){return reservationList.numberOfReservations();}
   /**
    * A method that calls the reservationsList and returns the list of all reservations.
    *
    * @return reservations
    *        the list of all reservations
    */
-  public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservation(); }
+  public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservations(); }
 
   /**
    * A method that calls clubAssociateList to add the associate to the list and fileManager to save the model.

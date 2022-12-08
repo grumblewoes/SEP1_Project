@@ -12,14 +12,11 @@ const convertGameToObject = (game) => {
     return obj
 }
 
-
-
-
-// change this to style the event element
-//just write the html code in the string below
+// change this to style the game element
+// just write the html code in the string below
 const createGameElement = (title, description, type,numberOfPlayers,borrowedTo,owner) => `
 <div class="row game my-3">
-        <img class="col-12 col-md-4" src="images/egami.jpg" alt="game picture">
+        <img class="col-12 col-md-4 mb-3 mb-md-0 rounded" src="images/gamesImage.jpg" alt="game picture">
         <div class="col-12 col-md-8 info">
           <h3 class="game-name">${title}</h3>
           <div class="d-flex flex-row">
@@ -35,15 +32,6 @@ const createGameElement = (title, description, type,numberOfPlayers,borrowedTo,o
       </div>
 `
 
-
-
-
-
-
-
-
-
-//maybe sort the events by votes?? => in version 2.0
 $.get("../../xml.xml", function (xml, status) {
     try {
         const games = $(xml).find("game")

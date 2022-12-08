@@ -21,6 +21,7 @@ public class Game implements Serializable
   public static final String ABSTRACT="Abstract";
   public static final String CITY_BUILDING="City Building";
   public static final String DECK_BUILDING="Deck Building";
+  public static final String CARDS="Cards";
   private ArrayList<Rating> ratings;
 
   /**
@@ -142,6 +143,9 @@ public class Game implements Serializable
         break;
       case CITY_BUILDING:
         this.type = CITY_BUILDING;
+        break;
+      case CARDS:
+        this.type = CARDS;
         break;
       default:
         this.type = ABSTRACT;

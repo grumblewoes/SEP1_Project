@@ -80,7 +80,7 @@
                                     <Insets bottom="7.0" top="7.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="playersBox" prefHeight="25.0" prefWidth="325.0">
+                              <TextField fx:id="playersBox" prefHeight="25.0" prefWidth="325.0" promptText="x / x-y / xx-yy">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="7.0" />
                                  </VBox.margin>
