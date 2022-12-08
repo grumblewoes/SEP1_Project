@@ -1,17 +1,31 @@
 <root>
  <games>
  <game>
-   <title>asd</title>
-   <numberOfPlayers>2</numberOfPlayers>
-   <type>Abstract</type>
-   <description>3</description>
+   <title>UNO Dark</title>
+   <numberOfPlayers>4</numberOfPlayers>
+   <type>Deck Building</type>
+   <description>Dark nights can be fun!</description>
    <borrowedTo>Available</borrowedTo>
-   <owner>saf afs</owner>
+   <owner>Jakub Cerovsky</owner>
+   <ratings></ratings>
+ </game>
+ <game>
+   <title>UNO</title>
+   <numberOfPlayers>2-6</numberOfPlayers>
+   <type>Deck Building</type>
+   <description>Funny card game.</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
  </game>
   </games>
   <wishes>
   </wishes>
   <events>
+ <event>
+   <title>dfsdf</title>
+   <description>dasdsadasdasdasdadasdas</description>
+   <date>7/12/2022 23:00</date>
+ </event>
   </events>
   </root>

@@ -33,6 +33,9 @@ public class GameDetailsViewController extends ViewController
   private Label titleField;
 
   @FXML
+  private Label avgRating;
+
+  @FXML
   void goBack(ActionEvent event) {
     viewHandler.openView("gameList");
   }
@@ -44,6 +47,7 @@ public class GameDetailsViewController extends ViewController
     playersField.setText("");
     genreField.setText("");
     descriptionField.setText("");
+    avgRating.setText("");
     Game game = model.getSelectedGame();
     setFields(game);
   }
@@ -55,6 +59,11 @@ public class GameDetailsViewController extends ViewController
     playersField.setText(game.getNumberOfPlayers());
     genreField.setText(game.getType());
     descriptionField.setText(game.getDescription());
+    if (game.calculateAverageRating() == -1)
+      avgRating.setText("No ratings yet");
+    else
+      avgRating.setText(String.valueOf(game.calculateAverageRating()));
+    System.out.println(game.calculateAverageRating());
   }
 
   @FXML

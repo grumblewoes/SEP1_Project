@@ -239,21 +239,21 @@ public class Game implements Serializable
 
 
   /**
-   * 
-   * 
-   * @param game 
+   *
    *        
    *
    * @return 
    *        
    */
-  public double calculateAverageRating(Game game){
+  public double calculateAverageRating(){
     double totalRating = 0.0;
     for(int i=0; i<ratings.size(); i++){
         totalRating = ratings.get(i).getRating();
         i++;
       }
+    if (ratings.size() > 0)
       return (double)(totalRating/ratings.size());
+    return -1;
   }
 
   /**

@@ -52,14 +52,11 @@ public class GameList implements Serializable
   public ArrayList<Game> getAllGames(){ return games; }
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
    *
    * @return 
    *        
    */
+
   public Game getGameByTitle(String title){
    if(title!=null){
     for(int i=0; i<games.size();i++){
