@@ -1,7 +1,5 @@
 package view.wish;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -9,27 +7,17 @@ import javafx.scene.layout.Region;
 import view.ViewController;
 import view.ViewHandler;
 import model.BoardGamesModel;
-import view.event.EventViewModel;
 
-import java.io.Serializable;
 
 
 /**
  * A class extending ViewController that controls the GUI side of viewing/modifying the wishlist.
- *
  *
  * @author Anna Pomerantz
  * @version 1.0 - 04 December 2022
  */
 public class WishListViewController extends ViewController
 {
-
-    @FXML
-    private Button addVoteBtn;
-    @FXML
-    private Button addWishBtn;
-    @FXML
-    private Button backBtn;
     @FXML
     private Label errorLabel;
     @FXML
@@ -42,14 +30,15 @@ public class WishListViewController extends ViewController
     private WishListViewModel viewModel;
 
     /**
-     * 
-     * 
-     * @param viewHandler 
-     *        
-     * @param model 
-     *        
-     * @param root 
-     *        
+     * Method that is run once when the controller is first loaded. Facilitates
+     * easy controller load
+     *
+     * @param viewHandler connects to viewHandler class that contains a method to
+     *                    switch controllers easily
+     *
+     * @param model connects to model to grant access to model methods
+     *
+     * @param root connects to screen to switch scenes
      */
     public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
         this.viewHandler=viewHandler;
@@ -68,9 +57,11 @@ public class WishListViewController extends ViewController
         reset();
     }
 
-    //adds vote to currently selected table row. get() is there to convert SimpleStringProperty to String
+    /**
+     * Method that adds a vote to the currently selected wish.
+     */
     @FXML
-    void addVote(ActionEvent event) {
+    void addVote() {
         WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
         //display error if voting with a null selection. not the right way to do it currently
         if (wishView == null) {
@@ -83,14 +74,19 @@ public class WishListViewController extends ViewController
         }
     }
 
+    /**
+     * Method that adds a wish to the wishlist. Connects to WishList model
+     */
     @FXML
-    void addWish(ActionEvent event) {
+    void addWish() {
         viewHandler.openView("addWish");
     }
 
-    //removes a wish from the list
+    /**
+     * Method that removes a wish from the list. Connects to WishList model
+     */
     @FXML
-    void removeWish(ActionEvent event) {
+    void removeWish() {
         try{
             WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
             if (wishView == null) {
@@ -109,11 +105,17 @@ public class WishListViewController extends ViewController
         }
     }
 
+    /**
+     * Method that returns to the menu screen
+     */
     @FXML
-    void goBack(ActionEvent event) {
+    void goBack() {
         viewHandler.openView("menu");
     }
 
+    /**
+     * Method that resets the screen to its default values.
+     */
     public void reset () {
         errorLabel.setText("");
         viewModel.update();

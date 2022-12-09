@@ -1,5 +1,4 @@
 package view.wish;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,12 +8,8 @@ import view.ViewController;
 import view.ViewHandler;
 import model.Wish;
 
-//Anna P
-//for extra: add logic to submitWish where it scans for items in the list. if there is, show an error.
-
 /**
 * A class extending ViewController that controls the GUI side of allowing the user to add games to the wishlist.
-*
 *
 * @author Anna Pomerantz
 * @version 1.0 - 04 December 2022
@@ -27,14 +22,15 @@ public class AddWishViewController extends ViewController
   private Label errorLabel;
 
   /**
+   * Method that is run once when the controller is first loaded. Facilitates
+   * easy controller load
    * 
-   * 
-   * @param viewHandler 
+   * @param viewHandler connects to viewHandler class that contains a method to
+   *                    switch controllers easily
    *        
-   * @param model 
+   * @param model connects to model to grant access to model methods
    *        
-   * @param root 
-   *        
+   * @param root connects to screen to switch scenes
    */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root) {
     this.viewHandler=viewHandler;
@@ -42,17 +38,19 @@ public class AddWishViewController extends ViewController
     this.root=root;
   }
 
+  /**
+   * Method that resets the screen to its default values.
+   */
   public void reset () {
     wishTextField.setText("");
     errorLabel.setText("");
   }
 
-  //submits a wish to the list, initialized with 1 vote
-  @FXML
   /**
-   * 
-   * 
+   * Method that connects with the WishList in the model to add a wish to the
+   * wishlist.
    */
+  @FXML
   public void submitWish() {
     String name = wishTextField.getText();
 
@@ -72,14 +70,11 @@ public class AddWishViewController extends ViewController
       errorLabel.setText("That game is already on the wishlist.");
   }
 
-  @FXML
   /**
-   * 
-   * 
-   * @param event 
-   *        
+   * Method that exits the screen to add a wish.
    */
-  public void cancelWish(ActionEvent event) {
+  @FXML
+  public void cancelWish() {
     viewHandler.openView("wishList");
     reset();
   }

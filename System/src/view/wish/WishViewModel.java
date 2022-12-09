@@ -11,7 +11,6 @@ import java.io.Serializable;
 /**
  * A class that defines the javafx wish that corresponds to Wishes in the WishList
  *
- *
  * @author Anna Pomerantz
  * @version 1.0 - 04 December 2022
  */
@@ -20,6 +19,11 @@ public class WishViewModel implements Serializable
   private StringProperty titleProperty;
   private IntegerProperty votesProperty;
   private Wish wish;
+
+  /**
+   * 1-arg constructor
+   * @param wish the wish to be initialized as a WishViewModel in JavaFX
+   */
   public WishViewModel (Wish wish){
     this.wish = wish;
     titleProperty = new SimpleStringProperty(wish.getTitle());
@@ -27,13 +31,11 @@ public class WishViewModel implements Serializable
   }
 
   /**
-   * 
-   * 
+   * Method that returns the SimpleStringProperty of the title of the wish.
    *
-   * @return 
+   * @return returns the StringProperty title
    *        
    */
-  //collection of get methods for all field properties
   public StringProperty getTitleProperty()
   {
     return titleProperty;
@@ -41,19 +43,17 @@ public class WishViewModel implements Serializable
 
   //requires casting, returns error otherwise.
   /**
-   * 
-   * 
+   * Method that returns the SimpleIntegerProperty for the votes for the wish.
    *
-   * @return 
+   * @return returns the SimpleIntegerProperty votesProperty
    *        
    */
   public SimpleIntegerProperty getVotesProperty(){ return (SimpleIntegerProperty) votesProperty; }
 
   /**
-   * 
-   * 
+   * Method that returns the wish object associated with the WishViewModel
    *
-   * @return 
+   * @return the Wish object associated
    *        
    */
   public Wish getWish() { return wish; }
