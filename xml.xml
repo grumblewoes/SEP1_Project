@@ -1,11 +1,20 @@
 <root>
  <games>
  <game>
+   <title>uno</title>
+   <numberOfPlayers>3</numberOfPlayers>
+   <type>Abstract</type>
+   <description>dwd</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Jakub Cerovsky</owner>
+   <ratings></ratings>
+ </game>
+ <game>
    <title>Jakub</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
    <description>asgsagdsgag</description>
-   <borrowedTo>Available</borrowedTo>
+   <borrowedTo>Borrowed by Jakub Cerovsky</borrowedTo>
    <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
  </game>
