@@ -15,7 +15,9 @@ h3{
   font-size:23px;
   text-align:center;
 }
-
+.event{
+background-color:#FFFFFF;
+padding:1rem;}
 /*Using the bigBox id to establish characteristics I want this area to have*/ 
 /* #bigBox{
   height: auto;

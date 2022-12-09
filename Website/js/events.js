@@ -24,7 +24,16 @@ const createEventElement = (title, description, date) => `
     </div>
 `
 
-
+const emptyEventElement = () => `
+<div class="row event my-3">
+        <div class="col-12 info text-center">
+          <h3 class="game-name">No events in the system!</h3>
+          <p class="description">
+            No events are apparently happening. If you have any suggestion for an event, Contact Bob!
+          </p>
+        </div>
+      </div>
+`
 
 
 
@@ -36,6 +45,9 @@ const createEventElement = (title, description, date) => `
 $.get("../../xml.xml", function (xml, status) {
     try {
         const events = $(xml).find("event")
+                if(events.length==0){
+                $(eventsContainer).append(emptyEventElement())
+                }
         for (let event of events) {
             const { title, description, date } = convertEventToObject(event)
             $(eventsContainer).append(createEventElement(title, description, date))

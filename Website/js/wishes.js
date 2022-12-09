@@ -25,7 +25,16 @@ function createWishElement(title, votes) {
     return stringEl;
 }
 
-
+const emptyWishElement = () => `
+<div class="row wish my-3">
+        <div class="col-12 info text-center">
+          <h3 class="game-name">No wishes in the system!</h3>
+          <p class="description">
+            There are no wishes for a games so far. Contact Bob if you have any games you would like to suggest.
+          </p>
+        </div>
+      </div>
+`
 
 
 
@@ -36,6 +45,9 @@ function createWishElement(title, votes) {
 $.get("../../xml.xml", function (xml, status) {
     try {
         const wishes = $(xml).find("wish")
+                if(wishes.length==0){
+                $(wishesContainer).append(emptyWishElement())
+                }
         for (let wish of wishes) {
             const { title, votes } = convertWishToObject(wish)
             $(wishesContainer).append(createWishElement(title, votes))

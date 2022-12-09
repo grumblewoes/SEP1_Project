@@ -1,32 +1,5 @@
 <root>
  <games>
- <game>
-   <title>safsaf</title>
-   <numberOfPlayers>2</numberOfPlayers>
-   <type>Abstract</type>
-   <description>fsaf</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>asda sda</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>qwrwrq</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>Abstract</type>
-   <description>dqdqw</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>asda sda</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>safsaf</title>
-   <numberOfPlayers>2</numberOfPlayers>
-   <type>Abstract</type>
-   <description>fsaf</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>asda sda</owner>
-   <ratings></ratings>
- </game>
   </games>
   <wishes>
   </wishes>

@@ -31,10 +31,22 @@ const createGameElement = (title, description, type,numberOfPlayers,borrowedTo,o
         </div>
       </div>
 `
-
+const emptyGameElement = () => `
+<div class="row game_empty my-3">
+        <div class="col-12 info text-center">
+          <h3 class="game-name">No games in the system!</h3>
+          <p class="description">
+            There are no games in the association so far. Contact Bob if you have any games you would like to share with others.
+          </p>
+        </div>
+      </div>
+`
 $.get("../../xml.xml", function (xml, status) {
     try {
         const games = $(xml).find("game")
+        if(games.length==0){
+        $(gamesContainer).append(emptyGameElement())
+        }
         for (let game of games) {
             const { title, description, type,numberOfPlayers,borrowedTo,owner } = convertGameToObject(game)
             $(gamesContainer).append(createGameElement(title, description, type,numberOfPlayers,borrowedTo,owner))
