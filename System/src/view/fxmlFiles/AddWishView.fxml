@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" userData="Add Wish" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="body" stylesheets="@../styles.css" userData="Add Wish" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.wish.AddWishViewController">
     <children>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" styleClass="gradient">
          <children>
@@ -22,7 +22,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-                <Label alignment="CENTER" prefHeight="48.0" prefWidth="278.0" text="Title of wished game">
+                <Label alignment="CENTER" prefHeight="48.0" prefWidth="278.0" text="Title of desired game">
                     <font>
                         <Font size="15.0" />
                     </font>
@@ -35,7 +35,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="39.0" prefWidth="500.0">
          <children>
-            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="62.0" styleClass="errorLabel" text="errorLabel" textFill="RED" />
+            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="18.0" prefWidth="176.0" styleClass="errorLabel" textFill="RED" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="500.0">
