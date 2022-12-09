@@ -2,58 +2,49 @@ package model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Objects;
 
 /**
+ * A class representing a reservation of a game made by club associate on specific date
+ * Answers questions - Who reserved, which game and date, and if the reservation is equal to another
  * 
- * 
- * 
- * @author 
- * @version 
+ * @author Jakub Cerovsky
+ * @version 2.0 - 07 December 2022
  */
 public class Reservation implements Serializable
 {
   private Game game;
   private ClubAssociate associate;
-  private LocalDate dateFrom;
-  private LocalDate dateTo;
+  private LocalDate date;
 
   /**
    * 3-argument constructor 
-   * 
-   * 
-   * @param game 
-   *        
-   * @param associate 
-   *        
-   * @param dateFrom 
-   *        
+   * Illegal date, game and associate will throw the IllegalArgumentException
+   *
+   * @throws IllegalArgumentException
+   * @param game - game that is being reserved
+   * @param associate - associate that is reserving the game
+   * @param dateFrom - date of the reservation
    */
   public Reservation(Game game, ClubAssociate associate, LocalDate dateFrom){
-    setDateFrom(dateFrom);
-    this.game=game;
-    this.associate=associate;
+    setDate(dateFrom);
+    setGame(game);
+    setAssociate(associate);
   }
 
   /**
-   * 
-   * 
+   * Method that returns the id of associate, that created the reservation, as an Integer.
    *
-   * @return 
-   *        
+   * @return the id of club associate
    */
-  public String getAssociateName()
+  public int getAssociateId()
   {
-    return associate.getFullName();
+    return associate.getSchoolId();
   }
 
   /**
-   * 
-   * 
+   * Method that returns the title of game, that is reserved, as a String.
    *
-   * @return 
-   *        
+   * @return the title of the game
    */
   public String getGameTitle()
   {
@@ -61,69 +52,76 @@ public class Reservation implements Serializable
   }
 
   /**
-   * 
-   * 
+   * Method that returns the Date of reservation as a LocalDate.
    *
-   * @return 
-   *        
+   * @return the date of reservation
    */
-  public LocalDate getDateFrom()
+  public LocalDate getDate()
   {
-    return dateFrom;
+    return date;
   }
 
   /**
-   * 
-   * 
+   * Method that sets a given date to the Reservation
    *
-   * @return 
-   *        
+   * @throws IllegalArgumentException - in case that parameter is null or is in the past
+   * @param date - LocalDate
    */
-  public LocalDate getDateTo()
+  public void setDate(LocalDate date)
   {
-    return dateTo = dateFrom.plusDays(1);
+    if(date ==null || date.isBefore(LocalDate.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
+    this.date = date;
+  }
+  /**
+   * Method that sets a given game to the Reservation
+   *
+   * @throws IllegalArgumentException - in case that parameter is null
+   * @param game - Game
+   */
+  public void setGame(Game game)
+  {
+    if(game==null){
+      throw new IllegalArgumentException("Game has to be selected.");
+    }
+    this.game = game;
+  }
+  /**
+   * Method that sets a given associate to the Reservation
+   *
+   * @throws IllegalArgumentException - in case that parameter is null
+   * @param associate - ClubAssociate
+   */
+  public void setAssociate(ClubAssociate associate)
+  {
+    if(associate==null){
+      throw new IllegalArgumentException("Associate has to be selected.");
+    }
+    this.associate = associate;
   }
 
   /**
-   * 
-   * 
-   * @param dateFrom 
-   *        
-   */
-  public void setDateFrom(LocalDate dateFrom)
-  {
-    if(dateFrom==null || dateFrom.isBefore(LocalDate.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
-    this.dateFrom=dateFrom;
-  }
-
-  /**
-   * 
-   * 
+   *  Method that returns a String representation of the reservation
    *
-   * @return 
-   *        
+   * @return the string representation of the reservation and its all values (Club associate, Game , Date)
    */
   @Override public String toString()
   {
-    return "Reservation{" + "dateFrom=" + dateFrom + ", dateTo=" + dateTo + '}';
+    return "Reservation{"+ "Club associate: " + associate + ", Game: " + game + ", Date: " + date
+        +" }";
   }
 
   /**
+   * Method that compares two object and returns whether they are the same or not
    * 
-   * 
-   * @param o 
-   *        
-   *
-   * @return 
+   * @param obj - the object that being compared
+   * @return boolean - true or false depending on if the objects are same in each parameter
    *        
    */
-  @Override public boolean equals(Object o)
+  @Override public boolean equals(Object obj)
   {
-    if (this == o)
-      return true;
-    if (o == null || getClass() != o.getClass())
+    if (obj == null || getClass() != obj.getClass())
       return false;
-    Reservation that = (Reservation) o;
-    return Objects.equals(dateFrom, that.dateFrom);
+    Reservation other = (Reservation) obj;
+    return date.equals(other.date) && associate.equals(other.associate)&& game.equals(other.game);
   }
 }

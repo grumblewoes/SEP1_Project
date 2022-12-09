@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class ClubAssociateList implements Serializable
 {
   private ArrayList<ClubAssociate> clubAssociates;
+  private ClubAssociate clubAssociate;
 
   /**
    * 0-argument constructor 
@@ -30,6 +31,13 @@ public class ClubAssociateList implements Serializable
    *        
    */
   public void addClubAssociate(ClubAssociate associate) {
+    for (int i=0; i<clubAssociates.size(); i++)
+    {
+      if (associate.getSchoolId()==clubAssociates.get(i).getSchoolId())
+      {
+        throw new IllegalArgumentException("The associate with this ID is already registered.");
+      }
+    }
     clubAssociates.add(associate);
   }
 
@@ -67,7 +75,6 @@ public class ClubAssociateList implements Serializable
     }
     return null;
   }
-
   /**
    * 
    * 

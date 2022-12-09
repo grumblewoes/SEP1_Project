@@ -1,6 +1,5 @@
 package view.games;
 
-import java.io.Serializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -34,6 +33,9 @@ public class GameDetailsViewController extends ViewController
   private Label titleField;
 
   @FXML
+  private Label avgRating;
+
+  @FXML
   void goBack(ActionEvent event) {
     viewHandler.openView("gameList");
   }
@@ -46,16 +48,24 @@ public class GameDetailsViewController extends ViewController
     genreField.setText("");
     descriptionField.setText("");
     Game game = model.getSelectedGame();
+    if (game.calculateAverageRating() == -1)
+    avgRating.setText("No ratings yet");
+    else
+    avgRating.setText(String.valueOf(game.calculateAverageRating()));
     setFields(game);
   }
 
   //needs info from GameListViewController, but can't get it
   public void setFields(Game game) {
     titleField.setText(game.getTitle());
-    ownerField.setText(game.getOwner());
+    ownerField.setText(game.getOwnerFullName());
     playersField.setText(game.getNumberOfPlayers());
     genreField.setText(game.getType());
     descriptionField.setText(game.getDescription());
+    if (game.calculateAverageRating() == -1)
+      avgRating.setText("No ratings yet");
+    else
+      avgRating.setText(String.valueOf(game.calculateAverageRating()));
   }
 
   @FXML

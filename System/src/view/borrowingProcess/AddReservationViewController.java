@@ -4,21 +4,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
-import model.ClubAssociate;
 import model.Reservation;
 import view.ViewController;
 import view.ViewHandler;
 import view.clubAssociate.ClubAssociateListViewModel;
 import view.clubAssociate.ClubAssociateViewModel;
 
-import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
- * 
- * 
- * 
- * @author 
- * @version 
+ * AddReservationViewController is a class extending ViewController abstract class
+ * Main purpose is to add reservation to the list, taking the selected game, associate and date.
+ *
+ * @author Jakub Cerovsky
+ * @version 2.0 - 07 December 2022
  */
 public class AddReservationViewController extends ViewController
 {
@@ -30,26 +29,15 @@ public class AddReservationViewController extends ViewController
   @FXML private Label errorLabel;
   private ClubAssociateListViewModel viewModel;
 
-
   /**
-   * 0-argument constructor 
-   * 
-   * 
-   */
-  public AddReservationViewController()
-  {
-    // Called by FXMLLoader
-  }
-
-  /**
-   * 
-   * 
+   * Method that initialises the controller alongside the rest of its components.
+   * It sets values inside the Club Associate Table
+   *
    * @param viewHandler 
    *        
    * @param model 
    *        
-   * @param root 
-   *        
+   * @param root
    */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
@@ -68,28 +56,50 @@ public class AddReservationViewController extends ViewController
   }
 
   /**
-   * 
-   * 
+   * Method used to reset displayed data of the view
    */
   public void reset()
   {
     errorLabel.setText("");
   }
 
-
-  @FXML private void addReservationButton()
+  /**
+   * Method that adds reservation through the model to the reservation list when the button is clicked and all exceptions passed
+   *
+   * @throws IllegalStateException - in case that associate is not selected
+   * @throws IllegalStateException - in case that date is not chosen
+   * @throws IllegalStateException - in case that date is today and the game is already borrowed
+   */
+  @FXML private void addReservationSubmitButton()
   {
     errorLabel.setText("");
     try
     {
-      for(int i=0;i<model.getAllClubAssociates().size();i++){
-        if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
-          Reservation reservation = new Reservation(model.getSelectedGame(),model.getAllClubAssociates().get(i),datePicker.getValue());
-          model.addReservation(reservation);
-        }
+      ClubAssociateViewModel clubAssociate=clubAssociatesListTable.getSelectionModel().getSelectedItem();
+      if(clubAssociate==null){
+        throw new IllegalStateException("No Club associate selected.");
       }
-      errorLabel.setText("Success");
-      viewHandler.openView("gameList");
+      LocalDate reservationDate=datePicker.getValue();
+      if (reservationDate!=null)
+      {
+        if (reservationDate.isEqual(LocalDate.now())&&!model.getSelectedGame().isAvailable()){
+          throw new IllegalStateException("Game is borrowed for today.");
+        }
+        for (int i = 0; i < model.getAllClubAssociates().size(); i++)
+        {
+          if (clubAssociate.getSchoolIdProperty().get() == model.getAllClubAssociates().get(i).getSchoolId())
+          {
+            Reservation reservation = new Reservation(model.getSelectedGame(),
+                model.getAllClubAssociates().get(i), reservationDate);
+            model.addReservation(reservation);
+          }
+        }
+        errorLabel.setText("Success");
+        viewHandler.openView("gameList");
+      }
+      {
+        throw new IllegalStateException("Choose a date please.");
+      }
     }
     catch (Exception e)
     {
@@ -97,8 +107,12 @@ public class AddReservationViewController extends ViewController
     }
 
   }
+  /**
+   * Method that opens another view by given string id when button is clicked
+   */
   @FXML private void goBack()
   {
-    viewHandler.openView("menu");
+    model.setSelectedGame(null);
+    viewHandler.openView("gameList");
   }
 }

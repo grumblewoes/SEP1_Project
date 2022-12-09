@@ -1,11 +1,169 @@
-.white-star{
+.white-star {
   -fx-background-image: url("./fxmlFiles/whiteStar.jpg");
-  -fx-background-position: center ;
-  -fx-background-repeat:no-repeat ;
-}
-.yellow-star{
-  -fx-background-image: url("./fxmlFiles/yellowStar.jpg") !important;
-  -fx-background-position: center !important;
-  -fx-background-repeat:no-repeat !important;
+  -fx-background-color: #FFFF !important;
+  -fx-background-position: center;
+  -fx-background-repeat: no-repeat;
 }
 
+.yellow-star {
+  -fx-background-image: url("./fxmlFiles/yellowStar.jpg") !important;
+  -fx-background-position: center !important;
+  -fx-background-repeat: no-repeat !important;
+}
+
+.body {
+  -fx-background-color: #FFFF;
+}
+
+.header {
+  -fx-fill: linear-gradient(to top right, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
+}
+
+.gradient {
+  -fx-background-color: linear-gradient(to top right, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
+}
+
+.button {
+  -fx-background-color: #FFFF;
+  -fx-background-radius: 30px;
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
+}
+
+.button:hover {
+  -fx-background-color: #845EC2;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
+}
+
+.errorLabel {
+  -fx-text-fill: #fd1d1d;
+}
+
+.btn1 {
+  -fx-background-color: #FFFF;
+  -fx-border-radius: 30px;
+  -fx-border-color: #FFC75F;
+  -fx-border-width: 2px;
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+}
+
+.btn1:hover {
+  -fx-background-color: #FFC75F;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.btn2 {
+  -fx-background-color: #FFFF;
+  -fx-border-radius: 30px;
+  -fx-border-color: #FF9671;
+  -fx-border-width: 2px;
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+}
+
+.btn2:hover {
+  -fx-background-color: #FF9671;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.btn3 {
+  -fx-background-color: #FFFF;
+  -fx-border-radius: 30px;
+  -fx-border-color: #845EC2;
+  -fx-border-width: 2px;
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+}
+
+.btn3:hover {
+  -fx-background-color: #845EC2;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+
+}
+
+.btn4 {
+  -fx-background-color: #FFFF;
+  -fx-border-radius: 30px;
+  -fx-border-color: #FF6F91;
+  -fx-border-width: 2px;
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+}
+
+.btn4:hover {
+  -fx-background-color: #FF6F91;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.scroll {
+  -fx-border-color: white;
+
+}
+
+
+/* .label { for the table text!!!!
+  -fx-text-fill: #fd1d1d;
+} */
+
+/* .table {
+  -fx-background-color: #FFFF;
+  -fx-border-width: 0px;
+
+}
+
+.tc {
+  -fx-background-color: #845EC2;
+  -fx-border-color: #845EC2;
+  -fx-text-fill: #FFFF;
+} */
+
+
+
+.choiceBox {
+  -fx-background-color: white;
+  -fx-border-color: #c5c5c5;
+  -fx-border-radius: 3px;
+
+}
+
+
+/* VERSION 2 */
+
+/* .gradientBtn {
+  -fx-background-color: #FFFF;
+  -fx-border-radius: 30px;
+  -fx-border-color: linear-gradient(to right, #845EC2, #D65DB1, #FF6F91, #FF9671, #FFC75F, #F9F871);
+  -fx-border-width: 2px;
+
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+} */
+
+/* VERSION 3
+.btn1 {
+  -fx-background-color: #FFC75F;
+  -fx-border-radius: 30px;
+  -fx-text-fill: #FFFF;
+  -fx-font-weight: bold;
+}
+
+.btn2 {
+  -fx-background-color: #FF9671;
+  -fx-border-radius: 30px;
+  -fx-text-fill: #FFFF;
+  -fx-font-weight: bold;
+}
+
+.btn3 {
+  -fx-background-color: #845EC2;
+  -fx-border-radius: 30px;
+  -fx-text-fill: #FFFF;
+  -fx-font-weight: bold;
+} */

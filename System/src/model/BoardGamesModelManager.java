@@ -1,10 +1,11 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- * 
+ * A class implementing the BoardGamesModel interface
  * 
  * 
  * @author Damian Trafiałek
@@ -26,7 +27,6 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * 0-argument constructor that sets up the entire boardGamesModel.
    * 
-   * 
    */
   public BoardGamesModelManager(){
     wishList = new WishList();
@@ -41,7 +41,6 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
 
   /**
    * A method that returns fileManager - class that manages the usage of local files.
-   * 
    *
    * @return fileManager
    *        the boardGamesFile instance that imports/exports current model and sets xml file
@@ -53,7 +52,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *
    * @see BoardGamesFileManager
    * @param wish 
-   *        
+   *        wish to be added
    */
   public void addWish(Wish wish){ wishList.addWish(wish); fileManager.exportModelToDatabase(); }
 
@@ -100,7 +99,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   /**
    * A method that calls wishList asking for the list of all wishes.
    *
-   * @retrun wishes
+   * @return wishes
    *        the list of all wishes
    */
   public ArrayList<Wish> getAllWishes(){ return wishList.getAllWishes(); }
@@ -110,11 +109,13 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *
    * @see BoardGamesFileManager
    * @param game 
-   *        
+   *        game to be added
    */
   public void addGame(Game game){ gameList.addGame(game);fileManager.exportModelToDatabase(); }
 
   public void setSelectedGame(Game game) { selectedGame = game; }
+
+  public double getAverageRating(Game game) { return gameList.getGameByTitle(game.getTitle()).calculateAverageRating();}
 
   public void removeExpiredEvents(){
     eventList.removeExpiredEvents();
@@ -125,7 +126,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *
    * @see BoardGamesFileManager
    * @param game 
-   *        
+   *        game to be removed
    */
   public void removeGame(Game game){ gameList.removeGame(game); fileManager.exportModelToDatabase(); }
 
@@ -171,14 +172,14 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        true or false that indicates if the games is reserved
    */
   public boolean isReserved(Game game){return reservationList.isReserved(game);}
-
+  public int numberOfReservations(){return reservationList.numberOfReservations();}
   /**
    * A method that calls the reservationsList and returns the list of all reservations.
    *
    * @return reservations
    *        the list of all reservations
    */
-  public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservation(); }
+  public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservations(); }
 
   /**
    * A method that calls clubAssociateList to add the associate to the list and fileManager to save the model.
@@ -257,5 +258,16 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the size of the eventList
    */
   public int getNumberOfEvents(){ return eventList.getNumberOfEvents(); }
+
+  public void editEvent(Event selectedEvent,String title,String description, LocalDateTime dateTime,String location){
+    Event listEvent = eventList.getEventByTitle(selectedEvent.getTitle());
+    if(listEvent==null)return;
+    listEvent.setTitle(title);
+    listEvent.setDescription(description);
+    listEvent.setDateTime(dateTime);
+    listEvent.setLocation(location);
+
+    fileManager.exportModelToDatabase();
+  }
 
 }

@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameListViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Games" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameListViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Games">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -24,37 +24,46 @@
       </HBox>
       <HBox prefHeight="250.0" prefWidth="600.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="224.0" prefWidth="157.0">
+            <VBox alignment="CENTER" prefHeight="241.0" prefWidth="179.0">
                <children>
-                  <Button fx:id="addGameBtn" mnemonicParsing="false" onAction="#addGame" prefHeight="25.0" prefWidth="90.0" text="Add Games">
+                  <Button fx:id="addGameBtn" mnemonicParsing="false" onAction="#addGame" prefHeight="31.0" prefWidth="107.0" styleClass="btn1" stylesheets="@../styles.css" text="Add Games">
                      <VBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="gameDetailsBtn" mnemonicParsing="false" onAction="#getDetails" prefHeight="25.0" prefWidth="90.0" text="Details">
+                  <Button fx:id="gameDetailsBtn" mnemonicParsing="false" onAction="#getDetails" prefHeight="31.0" prefWidth="107.0" styleClass="btn2" stylesheets="@../styles.css" text="Details">
                      <VBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="removeGameBtn" mnemonicParsing="false" onAction="#removeGame" prefHeight="25.0" prefWidth="90.0" text="Remove">
+                  <Button fx:id="removeGameBtn" mnemonicParsing="false" onAction="#removeGame" prefHeight="31.0" prefWidth="100.0" styleClass="btn3" stylesheets="@../styles.css" text="Remove">
                      <VBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                   </Button>
                </children>
                <padding>
-                  <Insets left="20.0" right="20.0" />
+                  <Insets left="20.0" />
                </padding>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="226.0" prefWidth="484.0">
+            <VBox alignment="CENTER" prefHeight="228.0" prefWidth="402.0">
                <children>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                  <ScrollPane prefHeight="200.0" prefWidth="356.0" styleClass="scroll">
                      <content>
-                        <TableView fx:id="gameListTable" prefHeight="200.0" prefWidth="420.0">
+                        <TableView fx:id="gameListTable" editable="true" prefHeight="200.0" prefWidth="350.0" styleClass="table" stylesheets="@../styles.css">
                            <columns>
-                              <TableColumn fx:id="titleColumn" prefWidth="153.05659174919128" text="Title" />
-                              <TableColumn fx:id="ownerColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Owner" />
-                              <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" text="Status" />
+                              <TableColumn fx:id="titleColumn" prefWidth="153.05659174919128" styleClass="tc" text="Title" />
+                              <TableColumn fx:id="ownerColumn" minWidth="0.0" prefWidth="96.00003051757812" styleClass="tc" text="Owner" />
+                              <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="96.00003051757812" styleClass="tc" text="Status" />
                            </columns>
                         </TableView>
                      </content>
@@ -63,20 +72,32 @@
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
          <children>
             <Label fx:id="errorLabel" textFill="RED" />
          </children>
       </HBox>
-      <HBox alignment="TOP_RIGHT" prefHeight="74.0" prefWidth="600.0">
+      <HBox alignment="TOP_RIGHT" prefHeight="77.0" prefWidth="600.0">
          <children>
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" text="Back">
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefWidth="70.0" styleClass="btn3" stylesheets="@../styles.css" text="Back">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
             </Button>
          </children>
          <padding>

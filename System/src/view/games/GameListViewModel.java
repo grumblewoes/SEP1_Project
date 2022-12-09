@@ -10,22 +10,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
+ * GameListViewModel class is able to display GameViewModel objects in the listViewControllers
  * 
- * 
- * 
- * @author 
- * @version 
+ * @author Jakub Cerovsky
+ * @version 2.0 - 08 December 2022
  */
 public class GameListViewModel implements Serializable
 {
+  /**
+   *ObservableList is an ArrayList readable by JavaFX
+   */
   private ObservableList<GameViewModel> list;
   private BoardGamesModel model;
 
   /**
-   * 1-argument constructor 
+   * 1-argument constructor.
+   * constructor is creating an observableArrayList and keeps it updated after addition
    * 
-   * 
-   * @param model 
+   * @param model - BoardGamesModel
    *        
    */
   public GameListViewModel(BoardGamesModel model){
@@ -35,17 +37,16 @@ public class GameListViewModel implements Serializable
   }
 
   /**
-   * 
-   * 
+   *Method that returns the list of GameViewModels
    *
-   * @return 
-   *        
+   * @return list as a ObservableList of GameViewModels
    */
   public ObservableList<GameViewModel> getList(){
     return list;
   }
+
   /**
-   * 
+   * Method that clears the list when called and add games that has been created
    * 
    */
   public void update(){
@@ -54,17 +55,18 @@ public class GameListViewModel implements Serializable
     for(Game game : games)
       list.add(new GameViewModel(game));
   }
+
   /**
+   * Method that adds a converted game into the ObservableList
    * 
-   * 
-   * @param game 
-   *        
+   * @param game - Game
    */
   public void add(Game game){list.add(new GameViewModel(game));}
+
   /**
+   * Method that removes the game from the list in case it matches the title
    * 
-   * 
-   * @param game
+   * @param title - String
    *        
    */
   public void remove(String title){

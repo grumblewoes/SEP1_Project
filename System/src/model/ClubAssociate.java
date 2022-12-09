@@ -26,29 +26,19 @@ public class ClubAssociate extends Person
    * @param isMember 
    *        
    */
-  public ClubAssociate(Name name, int schoolId, boolean isMember) throws Exception{
+  public ClubAssociate(Name name, int schoolId, boolean isMember) throws NumberFormatException{
     super(name);
 
     // if the ID is not a six digit number as is supposed to be, throw an exception
-    if (!(schoolId > 0 && Integer.toString(schoolId).length() == 6))
+    if (!(schoolId > 0 && Integer.toString(schoolId).length() == 6) )
     {
-      throw new IllegalArgumentException("Invalid ID");
+      throw new IllegalArgumentException("Invalid ID. Enter a 6-digit number. ");
     }
 
     this.schoolId = schoolId;
     this.isMember = isMember;
   }
-  /**
-   * 
-   * 
-   *
-   * @return 
-   *        
-   */
-  public String getName()
-  {
-    return getFullName();
-  }
+
   /**
    * 
    * 
@@ -82,6 +72,10 @@ public class ClubAssociate extends Person
    */
   public void setGuest() {
     isMember = false;
+  }
+  public ClubAssociate copy() {
+    ClubAssociate clubAssociate = new ClubAssociate(getName(),schoolId,isMember);
+    return clubAssociate;
   }
   public boolean equals (Object obj) {
       if(obj ==null || getClass() != obj.getClass() )

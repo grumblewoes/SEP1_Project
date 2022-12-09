@@ -12,12 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.event.AddEventViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" userData="Add Event" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.event.AddEventViewController">
     <children>
-        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
             <children>
-                <Text fx:id="headingText" strokeType="OUTSIDE" strokeWidth="0.0"
-                      text="Add Event">
+                <Text fx:id="headingText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Event">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
@@ -34,6 +33,9 @@
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
                         <TextField fx:id="titleField" prefWidth="150.0" />
                      </children>
@@ -47,6 +49,9 @@
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
                         <DatePicker fx:id="datePicker" prefWidth="150.0" showWeekNumbers="true" />
                      </children>
@@ -56,12 +61,15 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="300.0">
                      <children>
-                        <Label text="Starting time">
+                        <Label prefHeight="20.0" prefWidth="90.0" text="Starting time">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
-                        <TextField fx:id="startHourField" prefWidth="150.0" promptText="hh:mm / hh.mm / hh.mm" />
+                        <TextField fx:id="startHourField" prefHeight="25.0" prefWidth="159.0" promptText="hh:mm / hh.mm / hh.mm" />
                      </children>
                      <padding>
                         <Insets left="20.0" right="20.0" />
@@ -73,8 +81,11 @@
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
-                        <ChoiceBox fx:id="locationChoiceBox" prefWidth="150.0" />
+                        <ChoiceBox fx:id="locationChoiceBox" prefWidth="150.0" styleClass="choiceBox" stylesheets="@../styles.css" />
                      </children>
                      <padding>
                         <Insets left="20.0" right="20.0" />
@@ -90,31 +101,46 @@
                   <Label text="Description">
                      <VBox.margin>
                         <Insets bottom="5.0" />
-                     </VBox.margin></Label>
-                  <TextArea fx:id="descriptionArea" prefHeight="215.0" prefWidth="260.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextArea fx:id="descriptionArea" prefHeight="190.0" prefWidth="260.0" />
                </children>
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
             </VBox>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
         </HBox>
         <HBox alignment="CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" textFill="RED" />
+            <Label fx:id="errorLabel" styleClass="errorLabel" text="errorLabel" textFill="#942424" />
          </children>
         </HBox>
       <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
          <children>
-            <Button fx:id="submitBtn1" mnemonicParsing="false" onAction="#submitBtnClicked" text="Submit">
+            <Button fx:id="submitBtn1" mnemonicParsing="false" onAction="#submitBtnClicked" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
             </Button>
-            <Button fx:id="cancelBtn1" mnemonicParsing="false" onAction="#cancelBtnClicked" text="Cancel">
+            <Button fx:id="cancelBtn1" mnemonicParsing="false" onAction="#cancelBtnClicked" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
          </children>
       </HBox>
     </children>

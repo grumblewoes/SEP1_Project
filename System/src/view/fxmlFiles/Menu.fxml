@@ -9,20 +9,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #FFFFEA;" userData="Board Games Association System" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" styleClass="gradient" stylesheets="@../styles.css" userData="Board Games Association System" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainViewController">
     <children>
         <HBox alignment="CENTER">
             <children>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <!-- Changed png to jpg in order for it to work... -->
-                        <Image url="@boardgame_blackandwhite.jpg" />
+                        <Image url="@boardgame.jpg" />
                     </image>
                     <HBox.margin>
                         <Insets left="20.0" />
                     </HBox.margin>
                 </ImageView>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Board Games Association System" wrappingWidth="371.2187805175781">
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Board Games Association System" wrappingWidth="371.2187805175781">
                     <font>
                         <Font name="System Bold" size="38.0" />
                     </font>
@@ -34,12 +34,18 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="50.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#gamesBtnClicked" prefHeight="28.0" prefWidth="155.0" text="Games">
+                <Button mnemonicParsing="false" onAction="#gamesBtnClicked" prefWidth="155.0" stylesheets="@../styles.css" text="Games">
                     <HBox.margin>
                         <Insets right="50.0" />
                     </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#clubAssociateBtnClicked" prefHeight="25.0" prefWidth="155.0" text="Club associates" />
+                <Button mnemonicParsing="false" onAction="#clubAssociateBtnClicked" prefWidth="155.0" stylesheets="@../styles.css" text="Club associates">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
             </children>
             <VBox.margin>
                 <Insets top="10.0" />
@@ -47,25 +53,37 @@
         </HBox>
         <HBox alignment="CENTER" prefHeight="60.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#wishListBtnClicked" prefHeight="25.0" prefWidth="155.0" text="Wishlist">
+                <Button mnemonicParsing="false" onAction="#wishListBtnClicked" prefWidth="155.0" stylesheets="@../styles.css" text="Wishlist">
                     <HBox.margin>
                         <Insets right="50.0" />
                     </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#eventsBtnClicked" prefWidth="155.0" text="Events" />
+                <Button mnemonicParsing="false" onAction="#eventsBtnClicked" prefWidth="155.0" stylesheets="@../styles.css" text="Events">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="59.0" prefWidth="600.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#exitBtnClicked" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #FF2A2A;" text="Exit">
+                <Button mnemonicParsing="false" onAction="#exitBtnClicked" prefWidth="105.0" styleClass="exit" stylesheets="@../styles.css" text="Exit">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
                     <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font size="13.0" />
                     </font>
                 </Button>
             </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
         </HBox>
     </children>
 </VBox>

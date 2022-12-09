@@ -21,6 +21,7 @@ public class Game implements Serializable
   public static final String ABSTRACT="Abstract";
   public static final String CITY_BUILDING="City Building";
   public static final String DECK_BUILDING="Deck Building";
+  public static final String CARDS="Cards";
   private ArrayList<Rating> ratings;
 
   /**
@@ -47,11 +48,11 @@ public class Game implements Serializable
     //4.string numberOfPlayers ? why not integer??
     //5.description can posibbly be empty? idk
     // throw proper exceptions
-    this.title = title;
-    this.owner = owner;
-    this.type=type;
-    this.numberOfPlayers = numberOfPlayers;
-    this.description = description;
+    setTitle(title);
+    setOwner(owner);
+    setType(type);
+    setNumberOfPlayers(numberOfPlayers);
+    setDescription(description);
     ratings=new ArrayList<Rating>();
     this.borrowedTo=null;
     this.borrowedFrom=null;
@@ -97,6 +98,33 @@ public class Game implements Serializable
     return numberOfPlayers;
   }
 
+  public void setTitle(String title)
+  {
+    if(title==null){
+      throw new IllegalArgumentException("Title cannot be null.");
+    }
+    this.title = title;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
+  }
+
+  public void setNumberOfPlayers(String numberOfPlayers)
+  {
+
+    this.numberOfPlayers = numberOfPlayers;
+  }
+
+  public void setOwner(ClubAssociate owner)
+  {
+    if(owner==null){
+      throw new IllegalArgumentException("Owner has to be declared.");
+    }
+    this.owner=owner.copy();
+  }
+
   /**
    * 
    * 
@@ -115,6 +143,9 @@ public class Game implements Serializable
         break;
       case CITY_BUILDING:
         this.type = CITY_BUILDING;
+        break;
+      case CARDS:
+        this.type = CARDS;
         break;
       default:
         this.type = ABSTRACT;
@@ -179,7 +210,7 @@ public class Game implements Serializable
    *        
    */
   //getOwner would indicate clubAssociate => change name that would indicate their name or String value
-  public String getOwner()
+  public String getOwnerFullName()
   {
     return owner.getFullName();
   }
@@ -208,21 +239,21 @@ public class Game implements Serializable
 
 
   /**
-   * 
-   * 
-   * @param game 
+   *
    *        
    *
    * @return 
    *        
    */
-  public double calculateAverageRating(Game game){
+  public double calculateAverageRating(){
     double totalRating = 0.0;
     for(int i=0; i<ratings.size(); i++){
         totalRating = ratings.get(i).getRating();
         i++;
       }
+    if (ratings.size() > 0)
       return (double)(totalRating/ratings.size());
+    return -1;
   }
 
   /**
