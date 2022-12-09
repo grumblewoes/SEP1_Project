@@ -27,13 +27,14 @@
   -fx-background-color: #FFFF;
   -fx-background-radius: 30px;
   -fx-font-weight: bold;
+  -fx-font-size: 13px;
 }
 
 .button:hover {
   -fx-background-color: #845EC2;
   -fx-text-fill: white;
-  -fx-font-size: 15px;
-
+  -fx-font-weight: bold;
+  -fx-font-size: 13px;
 }
 
 .errorLabel {
@@ -52,8 +53,7 @@
 .btn1:hover {
   -fx-background-color: #FFC75F;
   -fx-text-fill: white;
-  -fx-font-size: 15px;
-
+  -fx-font-weight: bold;
 }
 
 .btn2 {
@@ -68,8 +68,7 @@
 .btn2:hover {
   -fx-background-color: #FF9671;
   -fx-text-fill: white;
-  -fx-font-size: 15px;
-
+  -fx-font-weight: bold;
 }
 
 .btn3 {
@@ -84,7 +83,7 @@
 .btn3:hover {
   -fx-background-color: #845EC2;
   -fx-text-fill: white;
-  -fx-font-size: 15px;
+  -fx-font-weight: bold;
 
 }
 
@@ -100,7 +99,7 @@
 .btn4:hover {
   -fx-background-color: #FF6F91;
   -fx-text-fill: white;
-  -fx-font-size: 14px;
+  -fx-font-weight: bold;
 }
 
 .scroll {
