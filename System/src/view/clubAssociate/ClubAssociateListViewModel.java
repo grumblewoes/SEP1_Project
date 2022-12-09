@@ -69,13 +69,18 @@ public class ClubAssociateListViewModel implements Serializable
    *
    */
   public void updateMembers(){
-    listOfMembers.clear();
-    ArrayList<ClubAssociate> clubAssociates = model.getAllClubAssociates();
-    for(int i=0;i< clubAssociates.size();i++){
-      if(clubAssociates.get(i).isMember()==true){
-        listOfMembers.add(new ClubAssociateViewModel(clubAssociates.get(i)));
+    listOfMembers.clear(); // method call (1)
+    ArrayList<ClubAssociate> clubAssociates = model.getAllClubAssociates(); //initialization,
+    // assignment and method call (3)
+    for(int i=0;i< clubAssociates.size();i++){ //2n+2
+      if(clubAssociates.get(i).isMember()){ //2 method calls and comparison (3)
+        listOfMembers.add(new ClubAssociateViewModel(clubAssociates.get(i))); //method call,
+        // instantiation, method call (3)
       }
     }
+    //worst case scenario, every club associate is a member, so if statement
+    // logic would be executed each time
+    // T(n) = 1+3+(2n(3+3)+2) = 6 + 8n --> O(n)
   }
   /**
    * A method that takes the Club Associate and adds it to observableList as a conversion of ClubAssociateViewModel
