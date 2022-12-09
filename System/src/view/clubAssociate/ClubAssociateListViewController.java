@@ -1,8 +1,6 @@
 package view.clubAssociate;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -11,8 +9,6 @@ import model.BoardGamesModel;
 import model.ClubAssociate;
 import view.ViewController;
 import view.ViewHandler;
-
-import java.io.Serializable;
 
 /**
  * A class extending ViewController, which controls the GUI side of displaying the club associates' list.
@@ -84,10 +80,32 @@ public class ClubAssociateListViewController extends ViewController
         {
             throw new IllegalStateException("No associate was selected.");
         }
-//       ClubAssociate clubAssociate = model.getClubAssociate().getIsMemberProperty().get();
-//        if(selected.getIsMemberProperty().equals(false))
-//            selected.getIsMemberProperty().equals(true);
+       ClubAssociate clubAssociate = selected.getClubAssociate();
+        if(!clubAssociate.isMember()){
+            clubAssociate.setMember();
+        }
+        else{
+            int numberOfBorrows=0;
+            for (int i=0; i< model.getAllGames().size(); i++) {
+                if (clubAssociate.getSchoolId()==model.getAllGames().get(i).getBorrowedToID()) {
+                    numberOfBorrows++;
+                    if(numberOfBorrows>1) {
+                        throw new IllegalStateException("This associate has borrowed multiple games.");
+                    }
+                }
 
+            }
+            if (model.numberOfReservations()!=0){
+                for (int i=0; i< model.numberOfReservations();i++) {
+                    if(clubAssociate.getSchoolId()==model.getAllReservation().get(i).getAssociateId()) {
+                        throw new IllegalStateException("This associate has reservations.");
+                    }
+                }
+            }
+
+            clubAssociate.setGuest();
+        }
+        reset();
     }
         catch (Exception e) {
             errorLabel.setText(e.getMessage());

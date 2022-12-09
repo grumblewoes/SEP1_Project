@@ -17,6 +17,7 @@ import java.io.Serializable;
  */
 public class ClubAssociateViewModel implements Serializable
 {
+  private ClubAssociate clubAssociate;
   private StringProperty nameProperty;
   private IntegerProperty schoolIdProperty;
   private StringProperty isMemberProperty;
@@ -30,6 +31,7 @@ public class ClubAssociateViewModel implements Serializable
    */
 
   public ClubAssociateViewModel (ClubAssociate clubAssociate) {
+    this.clubAssociate = clubAssociate;
     this.nameProperty = new SimpleStringProperty(clubAssociate.getFullName());
     this.schoolIdProperty = new SimpleIntegerProperty(clubAssociate.getSchoolId());
     this.isMemberProperty = new SimpleStringProperty(clubAssociate.isMember() ? "Member" :"Guest");
@@ -66,6 +68,9 @@ public class ClubAssociateViewModel implements Serializable
   public StringProperty getIsMemberProperty() {
 
     return isMemberProperty;
+  }
+  public ClubAssociate getClubAssociate() {
+    return clubAssociate;
   }
 
 

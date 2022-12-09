@@ -63,6 +63,7 @@ public class BorrowViewController extends ViewController
   @Override public void reset()
   {
     errorLabel.setText("");
+    viewModel.update();
   }
 
   /**
@@ -82,32 +83,25 @@ public class BorrowViewController extends ViewController
       if(clubAssociate==null){
         throw new IllegalStateException("No Club associate selected.");
       }
-      for (int x = 0; x < model.getAllClubAssociates().size(); x++)
-      {
-        if (clubAssociate.getSchoolIdProperty().get() == model.getAllClubAssociates().get(x)
-            .getSchoolId())
-        {
-          if (!model.getAllClubAssociates().get(x).isMember())
+      ClubAssociate associate = clubAssociate.getClubAssociate();
+          if (!associate.isMember())
           {
             for (int i = 0; i < model.getAllGames().size(); i++)
             {
-              if (model.getAllClubAssociates().get(x)
-                  .equals(model.getAllGames().get(i).getBorrowedTo()))
+              if (associate.getSchoolId()==model.getAllGames().get(i).getBorrowedToID())
               {
                 throw new IllegalArgumentException(
                     "Guest cannot borrow more then one game. Please return game first.");
               }
             }
-            checkBorrowedDate(model.getSelectedGame(), model.getAllClubAssociates().get(x));
+            checkBorrowedDate(model.getSelectedGame(), associate);
           }
           else
           {
-            checkBorrowedDate(model.getSelectedGame(), model.getAllClubAssociates().get(x));
+            checkBorrowedDate(model.getSelectedGame(), associate);
           }
-          model.getSelectedGame().setBorrowedTo(model.getAllClubAssociates().get(x));
+          model.getSelectedGame().setBorrowedTo(associate);
           model.getSelectedGame().setBorrowedFrom(LocalDate.now());
-        }
-      }
       errorLabel.setText("Success");
       viewHandler.openView("gameList");
     }
