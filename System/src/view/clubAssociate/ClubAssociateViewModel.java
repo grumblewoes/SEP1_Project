@@ -69,9 +69,25 @@ public class ClubAssociateViewModel implements Serializable
 
     return isMemberProperty;
   }
+  /**
+   * A method that returns the isMember property.
+   *
+   *
+   * @return clubAssociate
+   *        the simpleStringProperty of the ClubAssociateViewModel title
+   */
   public ClubAssociate getClubAssociate() {
     return clubAssociate;
   }
 
+  @Override public boolean equals(Object obj){
+    if(obj==null || !(obj instanceof ClubAssociateViewModel) ) return false;
 
+    ClubAssociateViewModel other = (ClubAssociateViewModel) obj;
+
+    return clubAssociate.equals(other.clubAssociate) &&
+        nameProperty.get().equals(other.nameProperty.get()) &&
+        schoolIdProperty.get() == other.schoolIdProperty.get() &&
+        isMemberProperty.get().equals( other.isMemberProperty.get());
+  }
 }

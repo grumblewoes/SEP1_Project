@@ -111,7 +111,7 @@ public class BorrowViewController extends ViewController
 
   }
   /**
-   * Method used during borrowing proccess in order to help find exceptions in the date selection
+   * Method used during borrowing process in order to help find exceptions in the date selection
    *
    * @throws IllegalStateException - in case that game is already borrowed
    * @throws IllegalStateException - in case that this game is reserved by somebody else then the selected associate
