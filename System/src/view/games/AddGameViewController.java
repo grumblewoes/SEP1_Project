@@ -49,10 +49,7 @@ public class AddGameViewController extends ViewController
   }
 
   private boolean validNumberOfPlayers(String value){
-    if(!value.matches("[1-9]\\d*-[1-9]\\d*|[1-9]\\d*")) {
-      return false;
-    }
-    return true;
+    return value.matches("[1-9]\\d*-[1-9]\\d*|[1-9]\\d*");
   }
   //submits game to game list. first checks that all fields are set. try-catch catches number formatting exceptions, fx.
   //if a name gets submitted in the owner field instead of an id.
@@ -76,10 +73,10 @@ public class AddGameViewController extends ViewController
 
       else
       {
-        //ur still adding the game to the model even tho clubAssociate doesnt exsit
-        //thats because there no validation for Game
-        //and then theres the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
-        //so "NullPointerException e" happens not because the clubAssociate by given id doesnt exist but because we have no validation in Game
+        //ur still adding the game to the model even tho clubAssociate doesn't exist
+        //that's because there's no validation for Game
+        //and then there's the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
+        //so "NullPointerException e" happens not because the clubAssociate by given id doesn't exist but because we have no validation in Game
 
         Game game = new Game(title, clubAssociate, type, players, description);
         model.addGame(game);
@@ -106,8 +103,7 @@ public class AddGameViewController extends ViewController
   }
 
   /**
-   * 
-   * 
+   * Method that resets all fields to default values.
    */
   @Override public void reset()
   {
@@ -118,6 +114,17 @@ public class AddGameViewController extends ViewController
     viewModel.update();
   }
 
+  /**
+   * Method that is run once when the controller is first loaded. Facilitates
+   * easy controller load
+   *
+   * @param viewHandler connects to viewHandler class that contains a method to
+   *                    switch controllers easily
+   *
+   * @param model connects to model to grant access to model methods
+   *
+   * @param root connects to screen to switch scenes
+   */
   @Override public void init(ViewHandler viewHandler, BoardGamesModel model,
       Region root)
   {
