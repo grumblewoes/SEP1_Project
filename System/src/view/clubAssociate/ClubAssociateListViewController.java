@@ -84,10 +84,32 @@ public class ClubAssociateListViewController extends ViewController
         {
             throw new IllegalStateException("No associate was selected.");
         }
-//       ClubAssociate clubAssociate = model.getClubAssociate().getIsMemberProperty().get();
-//        if(selected.getIsMemberProperty().equals(false))
-//            selected.getIsMemberProperty().equals(true);
+       ClubAssociate clubAssociate = selected.getClubAssociate();
+        if(!clubAssociate.isMember()){
+            clubAssociate.setMember();
+        }
+        else{
+            int numberOfBorrows=0;
+            for (int i=0; i< model.getAllGames().size(); i++) {
+                if (clubAssociate.equals(model.getAllGames().get(i).getBorrowedTo())) {
+                    numberOfBorrows++;
+                    if(numberOfBorrows>1) {
+                        throw new IllegalStateException("This associate has borrowed multiple games.");
+                    }
+                }
 
+            }
+            if (model.numberOfReservations()!=0){
+                for (int i=0; i< model.numberOfReservations();i++) {
+                    if(clubAssociate.getSchoolId()==model.getAllReservation().get(i).getAssociateId()) {
+                        throw new IllegalStateException("This associate has reservations.");
+                    }
+                }
+            }
+
+            clubAssociate.setGuest();
+        }
+        reset();
     }
         catch (Exception e) {
             errorLabel.setText(e.getMessage());
