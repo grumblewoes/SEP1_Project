@@ -114,7 +114,7 @@ public class BoardGamesFileManager implements Serializable
         "\n   <numberOfPlayers>"+game.getNumberOfPlayers()+"</numberOfPlayers>"+
         "\n   <type>"+game.getType()+"</type>"+
         "\n   <description>"+game.getDescription()+"</description>"+
-        "\n   <borrowedTo>"+game.getBorrowedTo()+"</borrowedTo>"+
+        "\n   <borrowedTo>"+game.getBorrowedToName()+"</borrowedTo>"+
         "\n   <owner>"+game.getOwnerFullName()+"</owner>"+
         "\n   <ratings>"+ratingsTemp+"</ratings>"+
         "\n </game>";

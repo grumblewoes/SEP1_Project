@@ -174,11 +174,18 @@ public class Game implements Serializable
    * @return 
    *        
    */
-  public String getBorrowedTo()
+  public String getBorrowedToName()
   {
     if(borrowedTo==null)
       return "Available";
     return "Borrowed by "+borrowedTo.getFullName();
+  }
+
+  public int getBorrowedToID(){
+    if(borrowedTo==null){
+      return 0;
+    }
+    return borrowedTo.getSchoolId();
   }
 
   /**

@@ -160,7 +160,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#returnGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn3" stylesheets="@../styles.css" text="Return">
+                              <Button mnemonicParsing="false" fx:id="returnButton" onAction="#returnGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn3" stylesheets="@../styles.css" text="Return">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>

@@ -1,5 +1,6 @@
 package view.games;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
@@ -26,7 +27,7 @@ public class GameDetailsViewController extends ViewController
   private Label playersField;
   @FXML
   private Label titleField;
-
+@FXML private Button returnButton;
   @FXML
   private Label avgRating;
 
@@ -49,11 +50,16 @@ public class GameDetailsViewController extends ViewController
     genreField.setText("");
     descriptionField.setText("");
     Game game = model.getSelectedGame();
+    returnButton.setVisible(game.getBorrowedToID()!=0);
+    System.out.println(game.getBorrowedToID());
+    System.out.println(game.getBorrowedToName());
     if (game.calculateAverageRating() == -1)
       avgRating.setText("No ratings yet");
     else
       avgRating.setText(String.valueOf(game.calculateAverageRating()));
+
     setFields(game);
+
   }
 
   /**
@@ -112,8 +118,8 @@ public class GameDetailsViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    Game game = model.getSelectedGame();
-    setFields(game);
+
+    reset();
   }
 
 }

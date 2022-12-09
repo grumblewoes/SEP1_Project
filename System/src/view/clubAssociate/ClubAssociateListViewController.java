@@ -1,8 +1,6 @@
 package view.clubAssociate;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -11,8 +9,6 @@ import model.BoardGamesModel;
 import model.ClubAssociate;
 import view.ViewController;
 import view.ViewHandler;
-
-import java.io.Serializable;
 
 /**
  * A class extending ViewController, which controls the GUI side of displaying the club associates' list.
@@ -91,7 +87,7 @@ public class ClubAssociateListViewController extends ViewController
         else{
             int numberOfBorrows=0;
             for (int i=0; i< model.getAllGames().size(); i++) {
-                if (clubAssociate.equals(model.getAllGames().get(i).getBorrowedTo())) {
+                if (clubAssociate.getSchoolId()==model.getAllGames().get(i).getBorrowedToID()) {
                     numberOfBorrows++;
                     if(numberOfBorrows>1) {
                         throw new IllegalStateException("This associate has borrowed multiple games.");

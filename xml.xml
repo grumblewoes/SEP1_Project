@@ -1,31 +1,26 @@
 <root>
  <games>
  <game>
-   <title>uno</title>
-   <numberOfPlayers>3</numberOfPlayers>
+   <title>sabdg</title>
+   <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description>dwd</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>Jakub Cerovsky</owner>
+   <description>adfsgsgs</description>
+   <borrowedTo>Borrowed by Bob Bobby</borrowedTo>
+   <owner>Bob Bobby</owner>
    <ratings></ratings>
  </game>
  <game>
-   <title>Jakub</title>
+   <title>UNO</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description>asgsagdsgag</description>
-   <borrowedTo>Borrowed by Jakub Cerovsky</borrowedTo>
-   <owner>Jakub Cerovsky</owner>
+   <description>ofsnsaofnosanf</description>
+   <borrowedTo>Borrowed by Bob Bobby</borrowedTo>
+   <owner>Bob Bobby</owner>
    <ratings></ratings>
  </game>
   </games>
   <wishes>
   </wishes>
   <events>
- <event>
-   <title>UNO</title>
-   <description>oansofnas</description>
-   <date>9/12/2022 22:00</date>
- </event>
   </events>
   </root>
