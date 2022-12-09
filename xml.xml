@@ -1,8 +1,22 @@
 <root>
  <games>
+ <game>
+   <title>Jakub</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description>asgsagdsgag</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Jakub Cerovsky</owner>
+   <ratings></ratings>
+ </game>
   </games>
   <wishes>
   </wishes>
   <events>
+ <event>
+   <title>UNO</title>
+   <description>oansofnas</description>
+   <date>9/12/2022 22:00</date>
+ </event>
   </events>
   </root>

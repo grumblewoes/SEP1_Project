@@ -68,7 +68,9 @@ public class AddClubAssociateViewController extends ViewController
     {
       // to be updated
       RadioButton membershipGroupBtn = (RadioButton) membershipGroup.getSelectedToggle();
-
+      if(idField.getText().equals("")){
+        throw new IllegalStateException("ID is required.");
+      }
       ClubAssociate associate = new ClubAssociate(
           new Name(nameField.getText(), surnameField.getText()),
           Integer.parseInt(idField.getText()), !"guestRadioBtn".equals(membershipGroupBtn.getId()));
@@ -76,11 +78,14 @@ public class AddClubAssociateViewController extends ViewController
       errorLabel.setText("Success");
       viewHandler.openView("clubAssociateList");
     }
-    catch (NumberFormatException e)
+    catch (NumberFormatException n)
     {
-      errorLabel.setText("Make sure to enter the valid ID.");
+      errorLabel.setText("ID should be an integer.");
     }
-    catch (IllegalArgumentException e) {
+    catch (IllegalArgumentException i) {
+      errorLabel.setText(i.getMessage());
+    }
+    catch (Exception e) {
       errorLabel.setText(e.getMessage());
     }
   }

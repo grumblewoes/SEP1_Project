@@ -96,10 +96,10 @@ public class GameListViewController extends ViewController
                 }
             }
         catch (IndexOutOfBoundsException i) {
-            errorLabel.setText(""+i);
+            errorLabel.setText(i.getMessage());
         }
         catch(Exception e){
-            errorLabel.setText("Exception:" + e.getMessage());
+            errorLabel.setText("Something went wrong. Check the stack trace");
             e.printStackTrace();
         }
         }
