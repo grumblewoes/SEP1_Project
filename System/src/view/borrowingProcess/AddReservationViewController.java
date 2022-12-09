@@ -72,40 +72,41 @@ public class AddReservationViewController extends ViewController
    */
   @FXML private void addReservationSubmitButton()
   {
-    errorLabel.setText("");
+    errorLabel.setText(""); //O(1)
     try
     {
-      ClubAssociateViewModel clubAssociate=clubAssociatesListTable.getSelectionModel().getSelectedItem();
-      if(clubAssociate==null){
-        throw new IllegalStateException("No Club associate selected.");
+      ClubAssociateViewModel clubAssociate=clubAssociatesListTable.getSelectionModel().getSelectedItem(); //0(1)
+      if(clubAssociate==null){ //0(1)
+        throw new IllegalStateException("No Club associate selected."); //0(1)
       }
-      LocalDate reservationDate=datePicker.getValue();
-      if (reservationDate!=null)
+      LocalDate reservationDate=datePicker.getValue(); //0(1)
+      if (reservationDate!=null) //0(1)
       {
-        if (reservationDate.isEqual(LocalDate.now())&&!model.getSelectedGame().isAvailable()){
-          throw new IllegalStateException("Game is borrowed for today.");
+        if (reservationDate.isEqual(LocalDate.now())&&!model.getSelectedGame().isAvailable()){ //0(1)
+          throw new IllegalStateException("Game is borrowed for today."); //0(1)
         }
-        for (int i = 0; i < model.getAllClubAssociates().size(); i++)
+        for (int i = 0; i < model.getAllClubAssociates().size(); i++) //O(n)
         {
-          if (clubAssociate.getSchoolIdProperty().get() == model.getAllClubAssociates().get(i).getSchoolId())
+          if (clubAssociate.getSchoolIdProperty().get() == model.getAllClubAssociates().get(i).getSchoolId()) //0(1)
           {
             Reservation reservation = new Reservation(model.getSelectedGame(),
-                model.getAllClubAssociates().get(i), reservationDate);
-            model.addReservation(reservation);
+                model.getAllClubAssociates().get(i), reservationDate); //O(n)
+            model.addReservation(reservation); //O(n)
+            break;
           }
         }
-        errorLabel.setText("Success");
-        viewHandler.openView("gameList");
+        errorLabel.setText("Success"); //0(1)
+        viewHandler.openView("gameList"); //0(1)
       }
       {
-        throw new IllegalStateException("Choose a date please.");
+        throw new IllegalStateException("Choose a date please."); //0(1)
       }
     }
     catch (Exception e)
     {
-      errorLabel.setText(e.getMessage());
+      errorLabel.setText(e.getMessage()); //0(1)
     }
-
+    //O(addReservationSubmitButton) = 8*O(1)+O(n)*O(1)+O(n) = O(n)  , where n is a number of clubAssociates in the list
   }
   /**
    * Method that opens another view by given string id when button is clicked
