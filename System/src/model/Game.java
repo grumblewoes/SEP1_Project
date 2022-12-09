@@ -221,7 +221,18 @@ public class Game implements Serializable
   {
     return owner.getFullName();
   }
-
+  /**
+   *
+   *
+   *
+   * @return
+   *
+   */
+  //getOwner would indicate clubAssociate => change name that would indicate their name or String value
+  public ClubAssociate getOwner()
+  {
+    return owner;
+  }
   /**
    * 
    * 

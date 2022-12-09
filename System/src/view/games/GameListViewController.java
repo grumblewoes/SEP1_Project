@@ -72,7 +72,21 @@ public class GameListViewController extends ViewController
     public void addGame() {
         viewHandler.openView("addGame");
     }
-
+    @FXML
+    /**
+     *
+     * adds a game to the game list
+     */
+    public void editGame() {
+        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
+        if (selected == null)
+            errorLabel.setText("Please select a game to fetch information on.");
+        else
+        {
+            model.setSelectedGame(selected.getGame());
+            viewHandler.openView("addGame");
+        }
+    }
     @FXML
     /**
      * 

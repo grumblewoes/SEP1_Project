@@ -2,6 +2,7 @@ package view.games;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 import model.BoardGamesModel;
 import model.ClubAssociate;
 import model.Wish;
@@ -22,7 +23,7 @@ import static model.Game.*;
 
 public class AddGameViewController extends ViewController
 {
-
+ @FXML private Text headingText;
   @FXML
   private TextArea descriptionBox;
 
@@ -57,7 +58,11 @@ public class AddGameViewController extends ViewController
   void submitGame() {
     try
     {
+      Game selectedGame = model.getSelectedGame();
       String title = titleBox.getText();
+      if(selectedGame==null && model.getGameByTitle(title) !=null||selectedGame!=null && !selectedGame.getTitle().equals(title) && model.getGameByTitle(title)!=null){
+        throw new IllegalArgumentException("A game with the same title already exists. Change title");
+      }
       String players = playersBox.getText();
       ClubAssociateViewModel owner = clubAssociatesListTable.getSelectionModel().getSelectedItem();
       if (owner == null){
@@ -107,9 +112,24 @@ public class AddGameViewController extends ViewController
    */
   @Override public void reset()
   {
-    titleBox.setText("");
-    playersBox.setText("");
-    descriptionBox.setText("");
+    Game selectedGame = model.getSelectedGame();
+    if (selectedGame == null)
+    {
+      headingText.setText("Add Game");
+      titleBox.setText("");
+      playersBox.setText("");
+      descriptionBox.setText("");
+      typeBox.setValue(ABSTRACT);
+    }
+    else {
+      headingText.setText("Edit Game");
+      titleBox.setText(selectedGame.getTitle());
+      playersBox.setText(selectedGame.getNumberOfPlayers());
+      typeBox.setValue(selectedGame.getType());
+// please enter me here damian
+      ClubAssociate owner = selectedGame.getOwner();
+      descriptionBox.setText(selectedGame.getDescription());
+    }
     errorLabel.setText("");
     viewModel.update();
   }
