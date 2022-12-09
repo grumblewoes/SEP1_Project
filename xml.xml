@@ -1,19 +1,10 @@
 <root>
  <games>
  <game>
-   <title>UNO Dark</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>Deck Building</type>
-   <description>Dark nights can be fun!</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>Jakub Cerovsky</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>UNO</title>
-   <numberOfPlayers>2-6</numberOfPlayers>
-   <type>Deck Building</type>
-   <description>Funny card game.</description>
+   <title>Jakub</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description>asgsagdsgag</description>
    <borrowedTo>Available</borrowedTo>
    <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
@@ -23,9 +14,9 @@
   </wishes>
   <events>
  <event>
-   <title>dfsdf</title>
-   <description>dasdsadasdasdasdadasdas</description>
-   <date>7/12/2022 23:00</date>
+   <title>UNO</title>
+   <description>oansofnas</description>
+   <date>9/12/2022 22:00</date>
  </event>
   </events>
   </root>
