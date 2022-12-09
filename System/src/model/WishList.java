@@ -3,35 +3,27 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
+ * A class representing the overall list of wishes, and manages them (adding, removing, and voting).
  * 
- * 
- * 
- * @author 
- * @version 
+ * @author Anna Pomerantz
+ * @version 1
  */
 public class WishList implements Serializable
 {
-  //getVotesForWish moved from Wish
-  //add addWish to the class diagram
   private ArrayList<Wish> wishes;
 
   /**
-   * 0-argument constructor 
-   * 
-   * 
+   * 0-argument constructor initializing the empty list of wishes.
    */
   public WishList() {
     wishes = new ArrayList<Wish>();
   }
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
-   *
-   * @return 
-   *        
+   * Method that returns an int for the number of votes for a wish given its
+   * title.
+   * @param title of the wish in question
+   * @return the int value of the number of votes
    */
   public int getVotesForWish(String title) {
     //loops through list for the specified wish's title
@@ -44,49 +36,38 @@ public class WishList implements Serializable
   }
 
   /**
-   * 
-   * 
-   * @param wish 
-   *        
+   * A method that calls the Wish class's increment method for the given wish.
+   * @param wish for the wish to be incremented
    */
   public void voteForWish(Wish wish){
     wish.incrementVoteBy1();
   }
 
   /**
-   * 
-   * 
-   *
-   * @return 
-   *        
+   *  Method that returns the list of wishes.
+   * @return arraylist wishes
    */
   public ArrayList<Wish> getAllWishes() { return wishes; }
 
   /**
-   * 
-   * 
-   * @param w 
-   *        
+   * Method that adds a given wish to the list
+   * @param w the wish to be added
    */
   public void addWish(Wish w) {
     wishes.add(w);
   }
 
   /**
-   * 
-   * 
-   * @param w 
-   *        
+   * Method that removes a wish from the wishlist
+   * @param w wish to be removed
    */
   public void removeWish(Wish w) { wishes.remove(w); }
 
   /**
-   * 
-   * 
-   * @param title 
-   *        
+   * Method that returns a Wish object given its title
+   * @param title the title of the Wish to be returned.
    *
-   * @return 
+   * @return Wish object
    *        
    */
   public Wish getWishByTitle(String title) {
@@ -99,10 +80,8 @@ public class WishList implements Serializable
   }
 
   /**
-   * 
-   * 
-   *
-   * @return 
+   * Method that loops through each wish in the wishlist and concatenates it to a string
+   * @return arraylist wishes as a String
    *        
    */
   public String toString() {
