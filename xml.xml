@@ -1,6 +1,15 @@
 <root>
  <games>
  <game>
+   <title>xxxxx</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description>xxxxxxxxxxx</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>asda sda</owner>
+   <ratings></ratings>
+ </game>
+ <game>
    <title>safsaf</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
@@ -31,5 +40,15 @@
   <wishes>
   </wishes>
   <events>
+ <event>
+   <title>dsf</title>
+   <description></description>
+   <date>14/12/2022 21:00</date>
+ </event>
+ <event>
+   <title>das</title>
+   <description>ads</description>
+   <date>9/12/2022 16:00</date>
+ </event>
   </events>
   </root>

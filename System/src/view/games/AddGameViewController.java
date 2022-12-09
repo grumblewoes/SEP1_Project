@@ -112,6 +112,7 @@ public class AddGameViewController extends ViewController
    */
   @Override public void reset()
   {
+    viewModel.update();
     Game selectedGame = model.getSelectedGame();
     if (selectedGame == null)
     {
@@ -126,12 +127,20 @@ public class AddGameViewController extends ViewController
       titleBox.setText(selectedGame.getTitle());
       playersBox.setText(selectedGame.getNumberOfPlayers());
       typeBox.setValue(selectedGame.getType());
-// please enter me here damian
+
+
       ClubAssociate owner = selectedGame.getOwner();
+      System.out.println("im here ");
+
+
+      clubAssociatesListTable.getSelectionModel().select(
+          viewModel.getList().indexOf(new ClubAssociateViewModel(owner))
+      );
+
       descriptionBox.setText(selectedGame.getDescription());
     }
     errorLabel.setText("");
-    viewModel.update();
+
   }
 
   /**
