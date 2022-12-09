@@ -69,6 +69,13 @@ public class ClubAssociateViewModel implements Serializable
 
     return isMemberProperty;
   }
+  /**
+   * A method that returns the isMember property.
+   *
+   *
+   * @return clubAssociate
+   *        the simpleStringProperty of the ClubAssociateViewModel title
+   */
   public ClubAssociate getClubAssociate() {
     return clubAssociate;
   }
