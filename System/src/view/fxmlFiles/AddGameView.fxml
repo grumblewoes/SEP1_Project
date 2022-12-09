@@ -18,7 +18,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" wrappingWidth="172.119140625">
+            <Text fill="WHITE" fx:id="headingText" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" wrappingWidth="172.119140625">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>

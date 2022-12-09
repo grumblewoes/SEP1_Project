@@ -1,21 +1,30 @@
 <root>
  <games>
  <game>
-   <title>sabdg</title>
+   <title>safsaf</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description>adfsgsgs</description>
-   <borrowedTo>Borrowed by Bob Bobby</borrowedTo>
-   <owner>Bob Bobby</owner>
+   <description>fsaf</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>asda sda</owner>
    <ratings></ratings>
  </game>
  <game>
-   <title>UNO</title>
+   <title>qwrwrq</title>
+   <numberOfPlayers>4</numberOfPlayers>
+   <type>Abstract</type>
+   <description>dqdqw</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>asda sda</owner>
+   <ratings></ratings>
+ </game>
+ <game>
+   <title>safsaf</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description>ofsnsaofnosanf</description>
-   <borrowedTo>Borrowed by Bob Bobby</borrowedTo>
-   <owner>Bob Bobby</owner>
+   <description>fsaf</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>asda sda</owner>
    <ratings></ratings>
  </game>
   </games>
