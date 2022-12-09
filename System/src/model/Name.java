@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 /**
  * 
+ * A class representing associate's first name and last name
  * 
- * 
- * @author 
- * @version 
+ * @author Julia Gramovicha
+ * @version 1.0 - 03 December 2022
  */
 public class Name implements Serializable
 {
@@ -17,10 +17,9 @@ public class Name implements Serializable
   /**
    * 2-argument constructor 
    * 
-   * 
-   * @param firstName 
-   *        
-   * @param lastName 
+   * @throws IllegalArgumentException in case if either name or surname wasn't entered
+   * @param firstName name of the Associate
+   * @param lastName surname of the Associate
    *        
    */
   public Name(String firstName, String lastName) {
@@ -36,9 +35,9 @@ public class Name implements Serializable
   }
   /**
    * 
-   * 
+   * Method that returns full name which consists of a name and surname
    *
-   * @return 
+   * @return Full Name (first name and last name)
    *        
    */
   public String getFullName() {
@@ -46,9 +45,9 @@ public class Name implements Serializable
   }
   /**
    * 
-   * 
+   * Method that returns first name
    *
-   * @return 
+   * @return first name
    *        
    */
   public String getFirstName() {
@@ -56,14 +55,21 @@ public class Name implements Serializable
   }
   /**
    * 
-   * 
+   * Method that returns last name
    *
-   * @return 
+   * @return last name
    *        
    */
   public String getLastName() {
     return lastName;
   }
+  /**
+   * Method that compares objects and returns whether they are the same or not
+   *
+   * @param obj - the object that is being compared
+   * @return boolean - whether true or false, if the objects' parameters are the same or not
+   *
+   */
   public boolean equals (Object obj) {
     if(obj ==null || getClass() != obj.getClass() )
     {
@@ -74,11 +80,9 @@ public class Name implements Serializable
 
   }
   /**
-   * 
-   * 
+   *  Method that returns a String representation of the Full Name
    *
-   * @return 
-   *        
+   * @return the string with Full Name
    */
   public String toString() {
     return getFullName();
