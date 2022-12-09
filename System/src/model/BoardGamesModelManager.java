@@ -113,13 +113,32 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    */
   public void addGame(Game game){ gameList.addGame(game);fileManager.exportModelToDatabase(); }
 
+  /**
+   * Method that allows game info to be transferred between the gameList and gameDetails
+   * controller
+   * @param game the game in question
+   */
   public void setSelectedGame(Game game) { selectedGame = game; }
 
+  /**
+   * Method that returns the average rating for a given game as a double
+   * @param game the game to get the rating from
+   * @return the double value of the average score
+   */
   public double getAverageRating(Game game) { return gameList.getGameByTitle(game.getTitle()).calculateAverageRating();}
 
+  /**
+   * Method that removes expired events from the event list
+   */
   public void removeExpiredEvents(){
     eventList.removeExpiredEvents();
   }
+
+  /**
+   * Method that gets the selected game that was previously stored for the gameDetails
+   * controller
+   * @return the Game object to fetch info on
+   */
   public Game getSelectedGame() { return selectedGame; }
   /**
    * A method that calls the gameList to remove the games and fileManager to save the model.
@@ -172,6 +191,11 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        true or false that indicates if the games is reserved
    */
   public boolean isReserved(Game game){return reservationList.isReserved(game);}
+
+  /**
+   * Method that returns the number of reservations
+   * @return the int value for the number of reservations
+   */
   public int numberOfReservations(){return reservationList.numberOfReservations();}
   /**
    * A method that calls the reservationsList and returns the list of all reservations.
@@ -225,7 +249,11 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    */
   public void addEvent(Event event){ eventList.addEvent(event); fileManager.exportModelToDatabase(); }
 
-
+  /**
+   * Method that returns the Event object for a given title
+   * @param title the String representation of the event in question
+   * @return the Event object that has that title
+   */
   public Event getEventByTitle(String title){
     return eventList.getEventByTitle(title);
   }
