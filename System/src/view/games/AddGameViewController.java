@@ -25,28 +25,26 @@ public class AddGameViewController extends ViewController
 {
  @FXML private Text headingText;
   @FXML
-  private TextArea descriptionBox;
+  private TextArea descriptionArea;
 
   @FXML
   private Label errorLabel;
 
   @FXML
-  private ChoiceBox<String> typeBox;
+  private ChoiceBox<String> typeField;
   @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
   @FXML private TableColumn<ClubAssociateViewModel, String> nameColumn;
   @FXML private TableColumn<ClubAssociateViewModel, Number> schoolIdColumn;
   private ClubAssociateListViewModel viewModel;
   @FXML
-  private TextField playersBox;
+  private TextField playersField;
 
   @FXML
-  private TextField titleBox;
+  private TextField titleField;
 
   @FXML
-  void cancelGame() {
+  private void goBack() {
     viewHandler.openView("gameList");
-    //why reset after canceling? no need
-    reset();
   }
 
   private boolean validNumberOfPlayers(String value){
@@ -55,23 +53,23 @@ public class AddGameViewController extends ViewController
   //submits game to game list. first checks that all fields are set. try-catch catches number formatting exceptions, fx.
   //if a name gets submitted in the owner field instead of an id.
   @FXML
-  void submitGame() {
+  private void addGameSubmitButton() {
     try
     {
       Game selectedGame = model.getSelectedGame();
-      String title = titleBox.getText();
-      if(selectedGame==null && model.getGameByTitle(title) !=null||selectedGame!=null && !selectedGame.getTitle().equals(title) && model.getGameByTitle(title)!=null){
+      String title = titleField.getText();
+      if(selectedGame==null && model.getGameByTitle(title)!=null||selectedGame!=null && !selectedGame.getTitle().equals(title) && model.getGameByTitle(title)!=null){
         throw new IllegalArgumentException("A game with the same title already exists. Change title");
       }
-      String players = playersBox.getText();
+      String players = playersField.getText();
       ClubAssociateViewModel owner = clubAssociatesListTable.getSelectionModel().getSelectedItem();
       if (owner == null){
         throw new IllegalStateException("No owner selected.");
       }
       ClubAssociate clubAssociate = model.getClubAssociate(owner.getSchoolIdProperty().get());
-      String description = descriptionBox.getText();
+      String description = descriptionArea.getText();
       //fetch selected value
-      String type = typeBox.getValue();
+      String type = typeField.getValue();
 
       if (title.equals("") || !validNumberOfPlayers(players) || clubAssociate == null|| type == null)
         errorLabel.setText("Make sure all fields are filled before submission.");
@@ -82,17 +80,25 @@ public class AddGameViewController extends ViewController
         //that's because there's no validation for Game
         //and then there's the assumption that the clubAssociate is not null in one of the functions that return name of the owner like owner.getFullName() but owner is null
         //so "NullPointerException e" happens not because the clubAssociate by given id doesn't exist but because we have no validation in Game
+        if(selectedGame!=null){
+          model.editGame(selectedGame,clubAssociate,title,description,type,players);
+      }
+        else
+        {
+          Game game = new Game(title, clubAssociate, type, players,
+              description);
+          model.addGame(game);
+          System.out.println("the game was added");
 
-        Game game = new Game(title, clubAssociate, type, players, description);
-        model.addGame(game);
-        System.out.println("the game was added");
+          //check if game is on the wishlist. if it is, remove it
+          //covers [ALT2] in RegisterNewGame
+          Wish wish = model.getWishByTitle(game.getTitle());
+          if (wish != null)
+          {
+            //confirmation that the wish will be removed would be useful here
+            model.removeWish(wish);
+          }
 
-        //check if game is on the wishlist. if it is, remove it
-        //covers [ALT2] in RegisterNewGame
-        Wish wish = model.getWishByTitle(game.getTitle());
-        if ( wish != null){
-          //confirmation that the wish will be removed would be useful here
-          model.removeWish(wish);
         }
         viewHandler.openView("gameList");
       }
@@ -117,16 +123,16 @@ public class AddGameViewController extends ViewController
     if (selectedGame == null)
     {
       headingText.setText("Add Game");
-      titleBox.setText("");
-      playersBox.setText("");
-      descriptionBox.setText("");
-      typeBox.setValue(ABSTRACT);
+      titleField.setText("");
+      playersField.setText("");
+      descriptionArea.setText("");
+      typeField.setValue(ABSTRACT);
     }
     else {
       headingText.setText("Edit Game");
-      titleBox.setText(selectedGame.getTitle());
-      playersBox.setText(selectedGame.getNumberOfPlayers());
-      typeBox.setValue(selectedGame.getType());
+      titleField.setText(selectedGame.getTitle());
+      playersField.setText(selectedGame.getNumberOfPlayers());
+      typeField.setValue(selectedGame.getType());
 
 
       ClubAssociate owner = selectedGame.getOwner();
@@ -137,7 +143,7 @@ public class AddGameViewController extends ViewController
           viewModel.getList().indexOf(new ClubAssociateViewModel(owner))
       );
 
-      descriptionBox.setText(selectedGame.getDescription());
+      descriptionArea.setText(selectedGame.getDescription());
     }
     errorLabel.setText("");
 
@@ -160,8 +166,8 @@ public class AddGameViewController extends ViewController
     this.viewHandler=viewHandler;
     this.model=model;
     this.root=root;
-    typeBox.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION, CARDS);
-    typeBox.setValue(ABSTRACT);
+    typeField.getItems().addAll(ABSTRACT, DECK_BUILDING, CITY_BUILDING, DEDUCTION, CARDS);
+    typeField.setValue(ABSTRACT);
     this.viewModel = new ClubAssociateListViewModel(model);
     nameColumn.setCellValueFactory(
         cellData -> cellData.getValue().getNameProperty());

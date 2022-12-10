@@ -39,7 +39,7 @@ public class AddParticipantViewController extends ViewController
     errorLabel.setText("");
     viewModel.update();
   }
-  @FXML public void addParticipantSubmit(){
+  @FXML private void addParticipantSubmit(){
     errorLabel.setText("");
     try
     {
@@ -52,11 +52,10 @@ public class AddParticipantViewController extends ViewController
     }
     catch (Exception e){
       errorLabel.setText(e.getMessage());
-      e.printStackTrace();
     }
   }
 
-  @FXML public void goBack(){
+  @FXML private void goBack(){
     viewHandler.openView("eventList");
   }
 }

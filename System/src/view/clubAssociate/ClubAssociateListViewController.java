@@ -64,7 +64,7 @@ public class ClubAssociateListViewController extends ViewController
      * A method that is executed when the button "Add associate" is clicked. When it is, it calls ViewHandler,
      * which has a method openView() and open the view with the id "addClubAssociate".
      */
-    public void addAssociateBtnClicked()
+    @FXML private void goToAddClubAssociate()
     {
         viewHandler.openView("addClubAssociate");
     }
@@ -72,7 +72,7 @@ public class ClubAssociateListViewController extends ViewController
     /**
      *
      */
-    public void toggleMembershipBtnClicked() {
+    @FXML private void toggleMembership() {
         try
         {
         ClubAssociateViewModel selected = clubAssociatesListTable.getSelectionModel().getSelectedItem();
@@ -117,7 +117,7 @@ public class ClubAssociateListViewController extends ViewController
              *
              */
 
-            public void returnBtnClicked()
+            @FXML private void goBack()
         {
             viewHandler.openView("menu");
         }

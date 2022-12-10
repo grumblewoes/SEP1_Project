@@ -26,7 +26,7 @@
             <children>
                 <VBox alignment="CENTER" prefHeight="241.0" prefWidth="180.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#addAssociateBtnClicked" prefHeight="25.0" prefWidth="130.0" styleClass="btn1" text="Add Associate">
+                        <Button mnemonicParsing="false" onAction="#goToAddClubAssociate" prefHeight="25.0" prefWidth="130.0" styleClass="btn1" text="Add Associate">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
@@ -34,7 +34,7 @@
                         <Font size="13.0" />
                      </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#toggleMembershipBtnClicked" prefHeight="25.0" prefWidth="130.0" styleClass="btn4" text="Change status">
+                        <Button mnemonicParsing="false" onAction="#toggleMembership" prefHeight="25.0" prefWidth="130.0" styleClass="btn4" text="Change status">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
@@ -77,7 +77,7 @@
         </HBox>
         <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="600.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#returnBtnClicked" prefHeight="25.0" prefWidth="60.0" styleClass="btn3" text="Back">
+                <Button mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="60.0" styleClass="btn3" text="Back">
                     <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                     </HBox.margin>

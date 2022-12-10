@@ -20,14 +20,15 @@ public class GameDetailsViewController extends ViewController
   @FXML
   private Label descriptionField;
   @FXML
-  private Label genreField;
+  private Label typeField;
   @FXML
   private Label ownerField;
   @FXML
   private Label playersField;
   @FXML
   private Label titleField;
-@FXML private Button returnButton;
+@FXML private Button returnGameButton;
+@FXML private Button borrowGameButton;
   @FXML
   private Label avgRating;
 
@@ -47,10 +48,13 @@ public class GameDetailsViewController extends ViewController
     titleField.setText("");
     ownerField.setText("");
     playersField.setText("");
-    genreField.setText("");
+    typeField.setText("");
     descriptionField.setText("");
     Game game = model.getSelectedGame();
-    returnButton.setVisible(game.getBorrowedToID()!=0);
+    returnGameButton.setVisible(game.getBorrowedToID()!=0);
+    returnGameButton.managedProperty().bind(returnGameButton.visibleProperty());
+    borrowGameButton.setVisible(game.getBorrowedToID()==0);
+    borrowGameButton.managedProperty().bind(borrowGameButton.visibleProperty());
     System.out.println(game.getBorrowedToID());
     System.out.println(game.getBorrowedToName());
     if (game.calculateAverageRating() == -1)
@@ -70,7 +74,7 @@ public class GameDetailsViewController extends ViewController
     titleField.setText(game.getTitle());
     ownerField.setText(game.getOwnerFullName());
     playersField.setText(game.getNumberOfPlayers());
-    genreField.setText(game.getType());
+    typeField.setText(game.getType());
     descriptionField.setText(game.getDescription());
     if (game.calculateAverageRating() == -1)
       avgRating.setText("No ratings yet");
@@ -82,7 +86,7 @@ public class GameDetailsViewController extends ViewController
    * Method that switches to the borrow screen
    */
   @FXML
-  void borrowGame() {
+  void goToBorrowGame() {
     viewHandler.openView("borrow");
   }
 
@@ -90,13 +94,13 @@ public class GameDetailsViewController extends ViewController
    * Method that switches to the reserve screen
    */
   @FXML
-  void reserveGame() {
+  void goToReserveGame() {
     viewHandler.openView("addReservation");
   }
 
 
   @FXML
-  void returnGame() {
+  void goToReturnGame() {
     viewHandler.openView("returnGame");
   }
 

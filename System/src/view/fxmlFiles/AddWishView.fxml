@@ -40,7 +40,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="500.0">
          <children>
-              <Button mnemonicParsing="false" onAction="#submitWish" styleClass="btn2" text="Submit">
+              <Button mnemonicParsing="false" onAction="#addWishSubmit" styleClass="btn2" text="Submit">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -48,7 +48,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-              <Button mnemonicParsing="false" onAction="#cancelWish" styleClass="btn3" text="Cancel">
+              <Button mnemonicParsing="false" onAction="#goBack" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>

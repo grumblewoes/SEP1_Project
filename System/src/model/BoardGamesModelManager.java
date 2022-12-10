@@ -148,7 +148,17 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        game to be removed
    */
   public void removeGame(Game game){ gameList.removeGame(game); fileManager.exportModelToDatabase(); }
+  public void editGame(Game selectedGame,ClubAssociate owner ,String title,String description, String type,String numberOfPlayers){
+    Game listGame = gameList.getGameByTitle(selectedGame.getTitle());
+    if(listGame==null)return;
+    listGame.setTitle(title);
+    listGame.setDescription(description);
+    listGame.setOwner(owner);
+    listGame.setType(type);
+    listGame.setNumberOfPlayers(numberOfPlayers);
 
+    fileManager.exportModelToDatabase();
+  }
   /**
    * A method that returns the list of all games.
    *
@@ -196,7 +206,7 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    * Method that returns the number of reservations
    * @return the int value for the number of reservations
    */
-  public int numberOfReservations(){return reservationList.numberOfReservations();}
+  public int numberOfReservations(){return reservationList.getNumberOfReservations();}
   /**
    * A method that calls the reservationsList and returns the list of all reservations.
    *

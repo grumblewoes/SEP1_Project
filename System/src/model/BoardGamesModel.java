@@ -27,6 +27,7 @@ public interface BoardGamesModel
   public void addGame(Game game);
 
   public void removeGame(Game game);
+  public void editGame(Game selectedGame,ClubAssociate owner ,String title,String description, String type,String numberOfPlayers);
 
   public ArrayList<Game> getAllGames();
 

@@ -1,10 +1,7 @@
 package view;
 
-import javafx.event.ActionEvent;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
-
-import java.io.Serializable;
 
 /**
  * MainViewController is a class extending a ViewController abstract class
@@ -41,7 +38,7 @@ public class MainViewController extends  ViewController
   /**
    * Method that opens another view by given string id when button is clicked
    */
-  public void gamesBtnClicked()
+  public void goToGameList()
   {
     viewHandler.openView("gameList");
   }
@@ -49,7 +46,7 @@ public class MainViewController extends  ViewController
   /**
    * Method that opens another view by given string id when button is clicked
    */
-  public void clubAssociateBtnClicked()
+  public void goToClubAssociateList()
   {
     viewHandler.openView("clubAssociateList");
   }
@@ -57,7 +54,7 @@ public class MainViewController extends  ViewController
   /**
    * Method that opens another view by given string id when button is clicked
    */
-  public void wishListBtnClicked()
+  public void goToWishList()
   {
     viewHandler.openView("wishList");
   }
@@ -65,7 +62,7 @@ public class MainViewController extends  ViewController
   /**
    * Method that opens another view by given string id when button is clicked
    */
-  public void eventsBtnClicked()
+  public void goToEventList()
   {
     viewHandler.openView("eventList");
   }
@@ -73,7 +70,7 @@ public class MainViewController extends  ViewController
   /**
    * Method that closes the system when button is clicked
    */
-  public void exitBtnClicked()
+  public void exitSystem()
   {
     viewHandler.closeView();
   }

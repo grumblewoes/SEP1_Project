@@ -74,7 +74,7 @@ public class BorrowViewController extends ViewController
    * @throws IllegalStateException - in case that date is today and the game is already borrowed
    * @throws IllegalStateException - in case that borrowing proccess did not pass any exception in checkBorrowDate method
    */
-  @FXML private void borrowGameButton()
+  @FXML private void borrowGameSubmit()
   {
     errorLabel.setText("");
     try

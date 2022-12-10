@@ -1,35 +1,31 @@
 <root>
  <games>
  <game>
-   <title>safsaf</title>
+   <title>UNO</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description>fsaf</description>
+   <description></description>
    <borrowedTo>Available</borrowedTo>
-   <owner>asda sda</owner>
+   <owner>Bob Bobby</owner>
    <ratings></ratings>
  </game>
  <game>
-   <title>qwrwrq</title>
-   <numberOfPlayers>4</numberOfPlayers>
-   <type>Abstract</type>
-   <description>dqdqw</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>asda sda</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>safsaf</title>
+   <title>UNO6</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description>fsaf</description>
+   <description>sfaaf</description>
    <borrowedTo>Available</borrowedTo>
-   <owner>asda sda</owner>
+   <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
  </game>
   </games>
   <wishes>
   </wishes>
   <events>
+ <event>
+   <title>asgg</title>
+   <description>asgas</description>
+   <date>10/12/2022 20:22</date>
+ </event>
   </events>
   </root>

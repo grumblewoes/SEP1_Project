@@ -61,7 +61,7 @@ public class WishListViewController extends ViewController
      * Method that adds a vote to the currently selected wish.
      */
     @FXML
-    void addVote() {
+    private void addVote() {
         WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
         //display error if voting with a null selection. not the right way to do it currently
         if (wishView == null) {
@@ -78,7 +78,7 @@ public class WishListViewController extends ViewController
      * Method that adds a wish to the wishlist. Connects to WishList model
      */
     @FXML
-    void addWish() {
+    private void goToAddWish() {
         viewHandler.openView("addWish");
     }
 
@@ -86,7 +86,7 @@ public class WishListViewController extends ViewController
      * Method that removes a wish from the list. Connects to WishList model
      */
     @FXML
-    void removeWish() {
+    private void removeWish() {
         try{
             WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
             if (wishView == null) {
@@ -109,7 +109,7 @@ public class WishListViewController extends ViewController
      * Method that returns to the menu screen
      */
     @FXML
-    void goBack() {
+    private void goBack() {
         viewHandler.openView("menu");
     }
 

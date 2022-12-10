@@ -26,7 +26,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="241.0" prefWidth="179.0">
                <children>
-                  <Button fx:id="addGameBtn" mnemonicParsing="false" onAction="#addGame" prefHeight="31.0" prefWidth="107.0" styleClass="btn1" stylesheets="@../styles.css" text="Add Games">
+                  <Button fx:id="addGameBtn" mnemonicParsing="false" onAction="#goToAddGame" prefHeight="31.0" prefWidth="107.0" styleClass="btn1" stylesheets="@../styles.css" text="Add Games">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -34,7 +34,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="gameDetailsBtn" mnemonicParsing="false" onAction="#getDetails" prefHeight="31.0" prefWidth="107.0" styleClass="btn2" stylesheets="@../styles.css" text="Details">
+                  <Button fx:id="gameDetailsBtn" mnemonicParsing="false" onAction="#goToGetDetails" prefHeight="31.0" prefWidth="107.0" styleClass="btn2" stylesheets="@../styles.css" text="Details">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="editDetailsBtn" mnemonicParsing="false" onAction="#editGame" prefHeight="31.0" prefWidth="107.0" styleClass="btn2" stylesheets="@../styles.css" text="Details">
+                  <Button fx:id="editDetailsBtn" mnemonicParsing="false" onAction="#goToEditGame" prefHeight="31.0" prefWidth="107.0" styleClass="btn4" stylesheets="@../styles.css" text="Edit">
                   <VBox.margin>
                      <Insets top="10.0" />
                   </VBox.margin>
@@ -50,7 +50,7 @@
                      <Font size="13.0" />
                   </font>
                </Button>
-                  <Button fx:id="removeGameBtn" mnemonicParsing="false" onAction="#removeGame" prefHeight="31.0" prefWidth="100.0" styleClass="btn3" stylesheets="@../styles.css" text="Remove">
+                  <Button fx:id="removeGameBtn" mnemonicParsing="false" onAction="#removeGameSubmitButton" prefHeight="31.0" prefWidth="100.0" styleClass="btn3" stylesheets="@../styles.css" text="Remove">
                      <VBox.margin>
                         <Insets top="50.0" />
                      </VBox.margin>

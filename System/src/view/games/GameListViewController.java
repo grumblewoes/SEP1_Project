@@ -25,12 +25,6 @@ public class GameListViewController extends ViewController
 
     private GameListViewModel viewModel;
     /**
-     * 0-argument constructor
-     * 
-     */
-    public GameListViewController(){
-    }
-    /**
      * 
      * @param viewHandler 
      *        
@@ -62,6 +56,7 @@ public class GameListViewController extends ViewController
     public void reset(){
         errorLabel.setText("");
         viewModel.update();
+        model.setSelectedGame(null);
     }
 
     @FXML
@@ -69,7 +64,7 @@ public class GameListViewController extends ViewController
      * 
      * adds a game to the game list
      */
-    public void addGame() {
+    public void goToAddGame() {
         viewHandler.openView("addGame");
     }
     @FXML
@@ -77,22 +72,30 @@ public class GameListViewController extends ViewController
      *
      * adds a game to the game list
      */
-    public void editGame() {
-        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
-        if (selected == null)
-            errorLabel.setText("Please select a game to fetch information on.");
-        else
+    public void goToEditGame() {
+        errorLabel.setText("");
+        try
         {
-            model.setSelectedGame(selected.getGame());
-            viewHandler.openView("addGame");
+            GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
+            if (selected == null){
+                throw new IllegalStateException("Please select a game.");
+            }
+            else
+            {
+                model.setSelectedGame(selected.getGame());
+                viewHandler.openView("addGame");
+            }
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
         }
+
     }
     @FXML
     /**
      * 
      * removes game from the game list
      */
-    public void removeGame() {
+    public void removeGameSubmitButton() {
         errorLabel.setText("");
         try{
             GameViewModel selectedItem = gameListTable.getSelectionModel().getSelectedItem();
@@ -142,14 +145,21 @@ public class GameListViewController extends ViewController
     /**
      *  get details of a selected game
      */
-    public void getDetails() {
-        GameViewModel selected = gameListTable.getSelectionModel().getSelectedItem();
-        if (selected == null)
-            errorLabel.setText("Please select a game to fetch information on.");
-        else
+    public void goToGetDetails() {
+        errorLabel.setText("");
+        try
         {
-            model.setSelectedGame(selected.getGame());
-            viewHandler.openView("gameDetails");
+            GameViewModel selected = gameListTable.getSelectionModel()
+                .getSelectedItem();
+            if (selected == null)
+                throw new IllegalStateException("Please select a game.");
+            else
+            {
+                model.setSelectedGame(selected.getGame());
+                viewHandler.openView("gameDetails");
+            }
+        }catch (Exception e){
+            errorLabel.setText(e.getMessage());
         }
     }
 

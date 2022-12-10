@@ -36,7 +36,7 @@ public class ReservationList implements Serializable
   public void addReservation(Reservation reservation){
     if(reservation!=null)
     {
-      for (int i = 0; i < numberOfReservations(); i++)
+      for (int i = 0; i < getNumberOfReservations(); i++)
       {
         if (reservation.equals(reservations.get(i)))
         {
@@ -79,11 +79,12 @@ public class ReservationList implements Serializable
    * Method returning the size of the reservation list as an Integer
    * @return the size of the reservation list
    */
-  public int numberOfReservations(){
+  public int getNumberOfReservations(){
     return reservations.size();
   }
+
   /**
-   * 
+   * @version 3.0
    * 
    */
   public void removeExpiredReservation(){

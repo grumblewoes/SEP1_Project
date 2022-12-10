@@ -60,7 +60,7 @@ public class GameList implements Serializable
   public Game getGameByTitle(String title){
    if(title!=null){
     for(int i=0; i<games.size();i++){
-      if(title==games.get(i).getTitle()){
+      if(title.equals(games.get(i).getTitle())){
         return games.get(i);
       }
     }

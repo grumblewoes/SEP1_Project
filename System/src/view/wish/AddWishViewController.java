@@ -51,7 +51,7 @@ public class AddWishViewController extends ViewController
    * wishlist.
    */
   @FXML
-  public void submitWish() {
+  private void addWishSubmit() {
     String name = wishTextField.getText();
 
     //checks if wishlist already has the specified game
@@ -74,9 +74,8 @@ public class AddWishViewController extends ViewController
    * Method that exits the screen to add a wish.
    */
   @FXML
-  public void cancelWish() {
+  private void goBack() {
     viewHandler.openView("wishList");
-    reset();
   }
 
 }

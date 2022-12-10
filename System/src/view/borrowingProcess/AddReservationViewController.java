@@ -63,26 +63,19 @@ public class AddReservationViewController extends ViewController
     errorLabel.setText("");
   }
 
-  /**
-   * Method that adds reservation through the model to the reservation list when the button is clicked and all exceptions passed
-   *
-   * @throws IllegalStateException - in case that associate is not selected
-   * @throws IllegalStateException - in case that date is not chosen
-   * @throws IllegalStateException - in case that date is today and the game is already borrowed
-   */
-  @FXML private void addReservationSubmitButton()
+  @FXML private void addReservationSubmit()
   {
     errorLabel.setText(""); //O(1)
     try
     {
-      ClubAssociateViewModel clubAssociate=clubAssociatesListTable.getSelectionModel().getSelectedItem(); //0(1)
-      if(clubAssociate==null){ //0(1)
+      ClubAssociateViewModel clubAssociate = clubAssociatesListTable.getSelectionModel().getSelectedItem(); //0(1)
+      if(clubAssociate == null){ //0(1)
         throw new IllegalStateException("No Club associate selected."); //0(1)
       }
-      LocalDate reservationDate=datePicker.getValue(); //0(1)
+      LocalDate reservationDate = datePicker.getValue(); //0(1)
       if (reservationDate!=null) //0(1)
       {
-        if (reservationDate.isEqual(LocalDate.now())&&!model.getSelectedGame().isAvailable()){ //0(1)
+        if (reservationDate.isEqual(LocalDate.now()) && !model.getSelectedGame().isAvailable()){ //0(1)
           throw new IllegalStateException("Game is borrowed for today."); //0(1)
         }
         for (int i = 0; i < model.getAllClubAssociates().size(); i++) //O(n)
@@ -108,9 +101,7 @@ public class AddReservationViewController extends ViewController
     }
     //O(addReservationSubmitButton) = 8*O(1)+O(n)*O(1)+O(n) = O(n)  , where n is a number of clubAssociates in the list
   }
-  /**
-   * Method that opens another view by given string id when button is clicked
-   */
+
   @FXML private void goBack()
   {
     model.setSelectedGame(null);

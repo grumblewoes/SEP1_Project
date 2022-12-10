@@ -56,12 +56,12 @@
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="153.0" prefWidth="230.0">
                <children>
-                  <TextField fx:id="nameField">
+                  <TextField fx:id="firstNameField">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="surnameField">
+                  <TextField fx:id="lastNameField">
                      <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
@@ -120,7 +120,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="648.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addClubAssociateBtnClicked" prefHeight="31.0" prefWidth="80.0" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
+            <Button mnemonicParsing="false" onAction="#addClubAssociateSubmit" prefHeight="31.0" prefWidth="80.0" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
@@ -128,7 +128,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#cancelClubAssociateBtnClicked" prefHeight="31.0" prefWidth="80.0" styleClass="btn3" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="80.0" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

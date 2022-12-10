@@ -20,7 +20,7 @@ import view.ViewHandler;
 public class ReturnViewController extends ViewController
 {
 
-  @FXML private Button oneStarBtn,twoStarBtn,threeStarBtn,fourStarBtn,fiveStarBtn;
+  @FXML private Button oneStarButton, twoStarButton, threeStarButton, fourStarButton, fiveStarButton;
 
   /**
    * A method that initialises the controller alongside the rest of its components.
@@ -48,7 +48,7 @@ public class ReturnViewController extends ViewController
     setStars(0);
   }
 
-  @FXML private void returnGameButton(){
+  @FXML private void returnGameSubmitButton(){
     Game selectedGame = model.getSelectedGame();
     if(selectedGame != null){
       int ratingValue = 0;
@@ -67,11 +67,11 @@ public class ReturnViewController extends ViewController
 
   private Button getStar(int n){
     switch (n){
-      case 1: return oneStarBtn;
-      case 2: return twoStarBtn;
-      case 3: return threeStarBtn;
-      case 4: return fourStarBtn;
-      case 5: return fiveStarBtn;
+      case 1: return oneStarButton;
+      case 2: return twoStarButton;
+      case 3: return threeStarButton;
+      case 4: return fourStarButton;
+      case 5: return fiveStarButton;
       default: return null;
     }
   }

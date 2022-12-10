@@ -126,7 +126,7 @@
         </HBox>
       <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0">
          <children>
-            <Button fx:id="submitBtn1" mnemonicParsing="false" onAction="#submitBtnClicked" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
+            <Button fx:id="submitBtn1" mnemonicParsing="false" onAction="#addEventSubmit" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -134,7 +134,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button fx:id="cancelBtn1" mnemonicParsing="false" onAction="#cancelBtnClicked" styleClass="btn3" text="Cancel">
+            <Button fx:id="cancelBtn1" mnemonicParsing="false" onAction="#goBack" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>

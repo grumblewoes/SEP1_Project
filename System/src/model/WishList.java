@@ -51,17 +51,17 @@ public class WishList implements Serializable
 
   /**
    * Method that adds a given wish to the list
-   * @param w the wish to be added
+   * @param wish the wish to be added
    */
-  public void addWish(Wish w) {
-    wishes.add(w);
+  public void addWish(Wish wish) {
+    wishes.add(wish);
   }
 
   /**
    * Method that removes a wish from the wishlist
-   * @param w wish to be removed
+   * @param wish wish to be removed
    */
-  public void removeWish(Wish w) { wishes.remove(w); }
+  public void removeWish(Wish wish) { wishes.remove(wish); }
 
   /**
    * Method that returns a Wish object given its title

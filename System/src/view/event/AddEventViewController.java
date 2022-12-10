@@ -96,7 +96,7 @@ public class AddEventViewController extends ViewController
     return new int[]{h,m};
   }
 
-  @FXML private void submitBtnClicked(){
+  @FXML private void addEventSubmit(){
     String title = titleField.getText();
     String description = descriptionArea.getText();
     LocalDate date = datePicker.getValue();
@@ -124,13 +124,13 @@ public class AddEventViewController extends ViewController
         model.addEvent( new Event(title,description,dateTime,location) );
       }
 
-      cancelBtnClicked();
+      goBack();
     }catch (Exception e){
       errorLabel.setText(e.getMessage());
     }
   }
 
-  @FXML private void cancelBtnClicked(){
+  @FXML private void goBack(){
     model.setSelectedEvent(null);
     viewHandler.openView("eventList");
   }

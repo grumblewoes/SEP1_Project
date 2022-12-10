@@ -75,22 +75,22 @@
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="195.0">
                            <children>
-                              <TextField fx:id="titleBox" prefHeight="25.0" prefWidth="439.0">
+                              <TextField fx:id="titleField" prefHeight="25.0" prefWidth="439.0">
                                  <VBox.margin>
                                     <Insets bottom="7.0" top="7.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="playersBox" prefHeight="25.0" prefWidth="325.0" promptText="x / x-y / xx-yy">
+                              <TextField fx:id="playersField" prefHeight="25.0" prefWidth="325.0" promptText="x / x-y / xx-yy">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="7.0" />
                                  </VBox.margin>
                               </TextField>
-                              <ChoiceBox fx:id="typeBox" prefWidth="150.0" styleClass="choiceBox" stylesheets="@../styles.css">
+                              <ChoiceBox fx:id="typeField" prefWidth="150.0" styleClass="choiceBox" stylesheets="@../styles.css">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="7.0" />
                                  </VBox.margin>
                               </ChoiceBox>
-                              <TextArea fx:id="descriptionBox" prefHeight="70.0" prefWidth="195.0">
+                              <TextArea fx:id="descriptionArea" prefHeight="70.0" prefWidth="195.0">
                                  <VBox.margin>
                                     <Insets bottom="10.0" top="7.0" />
                                  </VBox.margin>
@@ -130,7 +130,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="77.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#submitGame" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
+            <Button mnemonicParsing="false" onAction="#addGameSubmitButton" styleClass="btn2" stylesheets="@../styles.css" text="Submit">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>
@@ -138,7 +138,7 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#cancelGame" styleClass="btn3" text="Cancel">
+            <Button mnemonicParsing="false" onAction="#goBack" styleClass="btn3" text="Cancel">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" />
                </HBox.margin>

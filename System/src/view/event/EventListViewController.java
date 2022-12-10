@@ -1,16 +1,12 @@
 package view.event;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import model.BoardGamesModel;
-import model.Event;
 import view.ViewController;
 import view.ViewHandler;
-import view.games.GameViewModel;
 
-import java.io.Serializable;
 import java.util.Optional;
 
 /**
@@ -77,14 +73,14 @@ public class EventListViewController extends ViewController
   }
 
 
-  @FXML private void returnBtnClicked(){
+  @FXML private void goBack(){
     viewHandler.openView("menu");
   }
 
-  @FXML private void addEventBtnPressed() {
+  @FXML private void goToAddEvent() {
     viewHandler.openView("addEvent");
   }
-  @FXML private void addParticipantBtnClicked() {
+  @FXML private void goToAddParticipants() {
     EventViewModel selected = eventListTable.getSelectionModel().getSelectedItem();
     if (selected == null)
       errorLabel.setText("Please select an event to fetch information on.");
@@ -95,7 +91,7 @@ public class EventListViewController extends ViewController
     }
   }
 
-  @FXML private void removeEventBtnPressed() {
+  @FXML private void removeEvent() {
     errorLabel.setText("");
     try{
       EventViewModel selectedItem = eventListTable.getSelectionModel().getSelectedItem();
@@ -123,7 +119,7 @@ public class EventListViewController extends ViewController
     return (result.isPresent())&&(result.get()==ButtonType.OK);
   }
 
-  public void editEventBtnClicked()
+  public void goToEditEvent()
   {
     errorLabel.setText("");
     try{

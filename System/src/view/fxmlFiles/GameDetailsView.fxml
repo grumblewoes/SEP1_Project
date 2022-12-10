@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Game Details" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameDetailsViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Game Details" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameDetailsViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="116.0" prefWidth="600.0">
          <children>
@@ -114,7 +114,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="genreField" text="Genre">
+                  <Label fx:id="typeField" text="Genre">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -140,11 +140,11 @@
          <children>
             <VBox alignment="CENTER" prefHeight="66.0" prefWidth="600.0">
                <children>
-                  <HBox prefHeight="87.0" prefWidth="560.0">
+                  <HBox alignment="CENTER" prefHeight="87.0" prefWidth="560.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="32.0" prefWidth="401.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="401.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#borrowGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn1" stylesheets="@../styles.css" text="Borrow">
+                              <Button mnemonicParsing="false" onAction="#goToReserveGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn1" stylesheets="@../styles.css" text="Reserve">
                                  <HBox.margin>
                                     <Insets right="20.0" />
                                  </HBox.margin>
@@ -152,15 +152,15 @@
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#reserveGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn2" stylesheets="@../styles.css" text="Reserve">
+                              <Button fx:id="borrowGameButton" mnemonicParsing="false" onAction="#goToBorrowGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn2" stylesheets="@../styles.css" text="Borrow">
                                  <HBox.margin>
-                                    <Insets right="20.0" />
+                                    <Insets />
                                  </HBox.margin>
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" fx:id="returnButton" onAction="#returnGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn3" stylesheets="@../styles.css" text="Return">
+                              <Button fx:id="returnGameButton" mnemonicParsing="false" onAction="#goToReturnGame" prefHeight="27.0" prefWidth="85.0" styleClass="btn3" stylesheets="@../styles.css" text="Return">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
