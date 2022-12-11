@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -75,4 +76,9 @@ public interface BoardGamesModel
   public BoardGamesFileManager getFileManager();
 
   public void removeExpiredEvents();
+  public void addParticipantToEvent(Event event, ClubAssociate associate);
+  public void borrowGame(Game selectedGame, ClubAssociate associate, LocalDate now);
+  public void returnGame(Game selectedGame, int ratingValue);
+  public void setClubAssociateAsMember(ClubAssociate clubAssociate);
+  public void setClubAssociateAsGuest(ClubAssociate clubAssociate);
 }

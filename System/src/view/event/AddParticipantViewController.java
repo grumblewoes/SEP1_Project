@@ -45,7 +45,8 @@ public class AddParticipantViewController extends ViewController
     {
       for(int i=0;i<model.getAllClubAssociates().size();i++){
         if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
-          model.getSelectedEvent().addParticipant(model.getAllClubAssociates().get(i));
+          model.addParticipantToEvent(model.getSelectedEvent(),model.getAllClubAssociates().get(i));
+//          model.getSelectedEvent().addParticipant(model.getAllClubAssociates().get(i));
         }
       }
       viewHandler.openView("eventList");

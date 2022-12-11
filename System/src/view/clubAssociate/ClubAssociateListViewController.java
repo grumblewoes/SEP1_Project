@@ -82,7 +82,7 @@ public class ClubAssociateListViewController extends ViewController
         }
        ClubAssociate clubAssociate = selected.getClubAssociate();
         if(!clubAssociate.isMember()){
-            clubAssociate.setMember();
+            model.setClubAssociateAsMember(clubAssociate);
         }
         else{
             int numberOfBorrows=0;
@@ -103,7 +103,7 @@ public class ClubAssociateListViewController extends ViewController
                 }
             }
 
-            clubAssociate.setGuest();
+            model.setClubAssociateAsGuest(clubAssociate);
         }
         reset();
     }

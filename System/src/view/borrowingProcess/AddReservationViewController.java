@@ -83,7 +83,7 @@ public class AddReservationViewController extends ViewController
           if (clubAssociate.getSchoolIdProperty().get() == model.getAllClubAssociates().get(i).getSchoolId()) //0(1)
           {
             Reservation reservation = new Reservation(model.getSelectedGame(),
-                model.getAllClubAssociates().get(i), reservationDate); //O(n)
+            model.getAllClubAssociates().get(i), reservationDate); //O(n)
             model.addReservation(reservation); //O(n)
             break;
           }

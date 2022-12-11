@@ -56,10 +56,7 @@ public class ReturnViewController extends ViewController
         if(getStar(i).getStyleClass().contains("yellow-star"))
           ratingValue = i;
 
-      if(ratingValue!=0)
-        model.getGameByTitle(selectedGame.getTitle()).addRatings( new Rating(ratingValue) );
-
-      model.getGameByTitle(selectedGame.getTitle()).setBorrowedTo(null);
+      model.returnGame(selectedGame,ratingValue);
     }
     viewHandler.openView("gameList");
   }

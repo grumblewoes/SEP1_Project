@@ -14,6 +14,8 @@ import view.clubAssociate.ClubAssociateListViewModel;
 import view.clubAssociate.ClubAssociateViewModel;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * BorrowViewController is a class extending ViewController abstract class
@@ -86,9 +88,11 @@ public class BorrowViewController extends ViewController
       ClubAssociate associate = clubAssociate.getClubAssociate();
           if (!associate.isMember())
           {
-            for (int i = 0; i < model.getAllGames().size(); i++)
+            ArrayList<Game> gameList = model.getAllGames();
+            int size = gameList.size();
+            for (int i = 0; i < size ; i++)
             {
-              if (associate.getSchoolId()==model.getAllGames().get(i).getBorrowedToID())
+              if (associate.getSchoolId()==gameList.get(i).getBorrowedToID())
               {
                 throw new IllegalArgumentException(
                     "Guest cannot borrow more then one game. Please return game first.");
@@ -100,8 +104,7 @@ public class BorrowViewController extends ViewController
           {
             checkBorrowedDate(model.getSelectedGame(), associate);
           }
-          model.getSelectedGame().setBorrowedTo(associate);
-          model.getSelectedGame().setBorrowedFrom(LocalDate.now());
+          model.borrowGame(model.getSelectedGame(),associate, LocalDate.now());
       errorLabel.setText("Success");
       viewHandler.openView("gameList");
     }

@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -134,6 +135,10 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
     eventList.removeExpiredEvents();
   }
 
+  public void addParticipantToEvent(Event event, ClubAssociate associate){
+    event.addParticipant(associate);
+    fileManager.exportModelToDatabase();
+  }
   /**
    * Method that gets the selected game that was previously stored for the gameDetails
    * controller
@@ -215,6 +220,21 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    */
   public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservations(); }
 
+  public void borrowGame(Game selectedGame, ClubAssociate associate, LocalDate date){
+    selectedGame.setBorrowedTo(associate);
+    selectedGame.setBorrowedFrom(date);
+
+    fileManager.exportModelToDatabase();
+  }
+
+  public void returnGame(Game selectedGame, int ratingValue){
+    if(ratingValue>=1 && ratingValue<=5)
+      selectedGame.addRatings( new Rating(ratingValue) );
+
+    selectedGame.setBorrowedTo(null);
+    fileManager.exportModelToDatabase();
+  }
+
   /**
    * A method that calls clubAssociateList to add the associate to the list and fileManager to save the model.
    * 
@@ -249,6 +269,15 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the list of all club associates
    */
   public ArrayList<ClubAssociate> getAllClubAssociates(){ return clubAssociateList.getAllClubAssociates(); }
+
+  public void setClubAssociateAsMember(ClubAssociate clubAssociate){
+    clubAssociate.setMember();
+    fileManager.exportModelToDatabase();
+  }
+  public void setClubAssociateAsGuest(ClubAssociate clubAssociate){
+    clubAssociate.setGuest();
+    fileManager.exportModelToDatabase();
+  }
 
   /**
    * A method that calls eventList to add the and calls the fileManager to save the model.
