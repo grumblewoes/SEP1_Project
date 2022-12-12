@@ -1,97 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Kanit:wght@300&family=Montserrat&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html, body {
+
+html,
+body {
   height: 100%;
   width: 100%;
-  padding-top: 75px; /*navbar will block content at the top unless padded*/
+  padding-top: 75px;
+  /*navbar will block content at the top unless padded*/
 }
-body{
+
+body {
   background: #ffffff;
   font-family: 'Kanit', sans-serif;
 }
-nav{
-  background: linear-gradient(35deg, transparent, #ff5c5c 50%); 
-/*   nice linear gradient for the navigation bar - 40 degree gradient line and red covering 60% */
+
+nav {
+  background: linear-gradient(35deg, transparent, #ff5c5c 50%);
+  /*   nice linear gradient for the navigation bar - 40 degree gradient line and red covering 60% */
 }
-.my-toggler{
-  border:none;
+
+.my-toggler {
+  border: none;
 }
+
 /* changing bootstrap button for hamburger menu to look as we want it to look */
-.my-toggler:focus{
+.my-toggler:focus {
   box-shadow: none;
 }
-.logo{
+
+.logo {
   height: 100px;
   width: auto;
 }
 
-.tk-blob{
-  z-index:-1001;
-  position:fixed;
+.tk-blob {
+  z-index: -1001;
+  position: fixed;
 }
-#main{
-  z-index:1000;
+
+#main {
+  z-index: 1000;
 }
-#blob0{
-  width:80%;
-  min-width:1000px;
-  left:10%;
-  top:0;
-  z-index:-1003;
+
+#blob0 {
+  width: 80%;
+  min-width: 1000px;
+  left: 10%;
+  top: 0;
+  z-index: -1003;
 }
-#blob1{
-  left:1%;
-  top:5%;
+
+#blob1 {
+  left: 1%;
+  top: 5%;
   width: 50%;
-  min-width:400px;
+  min-width: 400px;
 }
-#blob2{
-  left:60%;
-  top:30%;
-  width:40%;
-  min-width:300px;
+
+#blob2 {
+  left: 60%;
+  top: 30%;
+  width: 40%;
+  min-width: 300px;
 }
+
 @media only screen and (max-width: 992px) {
-#blob2{
-  top:45%;
-}
-  #blob0{
-    left:5%;
+  #blob2 {
+    top: 45%;
   }
-}
-@media only screen and (max-width: 576px) {
-  #blob1{
-  left:-10%;
-}
-  #blob2{
-    left:40%;
-    top:60%;
-  }
-  #blob0{
-    left:-45%;
-  }
-}
-@media only screen and (min-width: 576px) {
-  .contactPhoto{
-      min-width:200px;
+
+  #blob0 {
+    left: 5%;
   }
 }
 
-.footer{
+@media only screen and (max-width: 576px) {
+  #blob1 {
+    left: -10%;
+  }
+
+  #blob2 {
+    left: 40%;
+    top: 60%;
+  }
+
+  #blob0 {
+    left: -45%;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .contactPhoto {
+    min-width: 200px;
+  }
+}
+
+.footer {
   background: transparent;
 }
 
-@media only screen and (max-width: 1050px){
-  nav{
-  background: linear-gradient(35deg, transparent, #ff5c5c 35%); 
+@media only screen and (max-width: 1050px) {
+  nav {
+    background: linear-gradient(35deg, transparent, #ff5c5c 35%);
   }
 }
-@media only screen and (max-width: 767px){
-  nav{
-  background: #ff5c5c;
+
+@media only screen and (max-width: 767px) {
+  nav {
+    background: #ff5c5c;
   }
 }

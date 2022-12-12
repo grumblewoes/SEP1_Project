@@ -24,16 +24,7 @@ const createEventElement = (title, description, date) => `
     </div>
 `
 
-const emptyEventElement = () => `
-<div class="row event my-3">
-        <div class="col-12 info text-center">
-          <h3 class="game-name">No events in the system!</h3>
-          <p class="description">
-            No events are apparently happening. If you have any suggestion for an event, Contact Bob!
-          </p>
-        </div>
-      </div>
-`
+
 
 
 
@@ -42,27 +33,24 @@ const emptyEventElement = () => `
 
 
 //maybe sort the events by votes?? => in version 2.0
+
 $.get("../../xml.xml", function (xml, status) {
-    try {
-        const events = $(xml).find("event")
-                if(events.length==0){
-                $(eventsContainer).append(emptyEventElement())
-                }
-        for (let event of events) {
-            const { title, description, date } = convertEventToObject(event)
-            $(eventsContainer).append(createEventElement(title, description, date))
-        }
-        VanillaTilt.init(
-            document.querySelectorAll(".events .event"),
-            {
-                max: 2,
-                speed: 200,
-                glare: true,
-                "max-glare": 0.5
-            }
-        );
-    } catch (e) {
-        console.warn("...Unable to read xml or load events...")
+    const events = $(xml).find("event")
+    if (events.length != 0) {
+        $(".even_empty").remove()
     }
+    for (let event of events) {
+        const { title, description, date } = convertEventToObject(event)
+        $(eventsContainer).append(createEventElement(title, description, date))
+    }
+    VanillaTilt.init(
+        document.querySelectorAll(".events .event"),
+        {
+            max: 2,
+            speed: 200,
+            glare: true,
+            "max-glare": 0.5
+        }
+    );
 })
 

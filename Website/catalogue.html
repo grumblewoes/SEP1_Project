@@ -49,7 +49,7 @@
             </li>
             <li class="nav-item mx-3">
               <a class="nav-link text-dark text-center fw-semibold"
-                 href="wishes.html">Wishes</a>
+                href="wishes.html">Wishes</a>
             </li>
             <li class="nav-item mx-3">
               <a class="nav-link text-dark text-center fw-semibold"
@@ -60,10 +60,19 @@
       </div>
     </nav>
 
-    <div class="row text-center">
-      <h1>Games</h1>
-    </div>
     <main class="container-fluid games pl-3 pr-3">
+      <div class="row text-center">
+        <h1>Games</h1>
+      </div>
+      <div class="row game_empty my-3">
+        <div class="col-12 info text-center">
+          <h3 class="game-name">No games in the system!</h3>
+          <p class="description">
+            There are no games in the association so far. Contact Bob if you
+            have any games you would like to share with others.
+          </p>
+        </div>
+      </div>
 
 
 
@@ -73,13 +82,13 @@
 
 
     <!--copyright information-->
-    <div class="fixed-bottom container-fluid footer">
+    <footer class="fixed-bottom container-fluid footer">
       <!-- 100% width footer with class given by me so I can play with it in css(background color) -->
       <div class="row">
         <div class="col-12 text-center mt-1 mb-3">Copyright&#169; SEP Group 3,
           Class Y 2022.</div>
       </div>
-    </div>
+    </footer>
     <!--end of footer-->
 
     <div class="tk-blob" id="blob0" style="--time: 20s; --amount: 5; --fill:
@@ -114,7 +123,7 @@
         </path>
       </svg>
     </div>
-  <script src="./js/games.js"></script>
+    <script src="./js/games.js"></script>
   </body>
 
 </html>
