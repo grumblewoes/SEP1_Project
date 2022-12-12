@@ -1,19 +1,29 @@
 <root>
  <games>
  <game>
+   <title>Catan</title>
+   <numberOfPlayers>2-4</numberOfPlayers>
+   <type>City Building</type>
+   <description>Lets build your own empire!</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Natalia Koziara</owner>
+   <ratings></ratings>
+ </game>
+ <game>
    <title>UNO</title>
-   <numberOfPlayers>2</numberOfPlayers>
+   <numberOfPlayers>2-8</numberOfPlayers>
    <type>Abstract</type>
-   <description></description>
+   <description>Funny card game!</description>
    <borrowedTo>Available</borrowedTo>
    <owner>Bob Bobby</owner>
    <ratings></ratings>
  </game>
  <game>
-   <title>UNO6</title>
-   <numberOfPlayers>2</numberOfPlayers>
-   <type>Abstract</type>
-   <description>sfaaf</description>
+   <title>UNO Night</title>
+   <numberOfPlayers>2-4</numberOfPlayers>
+   <type>Cards</type>
+   <description> American shedding-type card game that is played with a specially printed deck. The game's general principles put it into the crazy eights family of card games, and it is similar to the traditional European game mau-mau.
+It has been a Mattel brand since 1992.[3]</description>
    <borrowedTo>Available</borrowedTo>
    <owner>Jakub Cerovsky</owner>
    <ratings></ratings>
@@ -23,9 +33,9 @@
   </wishes>
   <events>
  <event>
-   <title>asgg</title>
-   <description>asgas</description>
-   <date>10/12/2022 20:22</date>
+   <title>asfaf</title>
+   <description></description>
+   <date>12/12/2022 22:00</date>
  </event>
   </events>
   </root>

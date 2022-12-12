@@ -43,8 +43,12 @@ public class AddParticipantViewController extends ViewController
     errorLabel.setText("");
     try
     {
+      ClubAssociateViewModel clubAssociate = clubAssociatesListTable.getSelectionModel().getSelectedItem();
+      if(clubAssociate==null){
+        throw new IllegalStateException("Need to select a participant first.");
+      }
       for(int i=0;i<model.getAllClubAssociates().size();i++){
-        if(clubAssociatesListTable.getSelectionModel().getSelectedItem().getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
+        if(clubAssociate.getSchoolIdProperty().get()==model.getAllClubAssociates().get(i).getSchoolId()){
           model.getSelectedEvent().addParticipant(model.getAllClubAssociates().get(i));
         }
       }
