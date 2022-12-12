@@ -49,7 +49,6 @@ public class BoardGamesFileManager implements Serializable
     }catch (IOException e){
       System.out.println("ALLERT : No previous or current model exists in database. Generating a new model...");
       System.out.println("NOTE   : Every slightest change in the code may result that the previous model will be redundant thus impossible to import: ");
-      System.out.println("         EXAMPLE : A new model has a method that the old one didn't have. They are incompatible and a new model must be created.");
       System.out.println("");
     }
     catch (ClassNotFoundException e)

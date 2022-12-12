@@ -61,6 +61,7 @@ public class AddReservationViewController extends ViewController
   public void reset()
   {
     errorLabel.setText("");
+    viewModel.updateMembers();
   }
 
   @FXML private void addReservationSubmit()
