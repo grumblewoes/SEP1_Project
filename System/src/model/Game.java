@@ -5,11 +5,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
+ * A class representing a game in board games collection
+ * Is responsible for answering question : what game, what type, to whom it is borrowed and when and who is the owner
  * 
- * 
- * 
- * @author 
- * @version 
+ * @author ?????????
+ * @version ?????
  */
 public class Game implements Serializable
 {
@@ -28,15 +28,15 @@ public class Game implements Serializable
    * 5-argument constructor 
    * 
    * 
-   * @param title 
+   * @param title  title of the game
    *        
-   * @param owner 
+   * @param owner owner of the game
    *        
-   * @param type 
+   * @param type type of the game
    *        
-   * @param numberOfPlayers 
+   * @param numberOfPlayers number of players in the game
    *        
-   * @param description 
+   * @param description description of the game
    *        
    */
   public Game(String title, ClubAssociate owner, String type, String numberOfPlayers, String description)
@@ -60,9 +60,9 @@ public class Game implements Serializable
 
   /**
    * 
-   * 
+   * Methods that returns whether the game is available or not
    *
-   * @return 
+   * @return boolean depending on if the game is available or not
    *        
    */
   public boolean isAvailable()
@@ -76,9 +76,9 @@ public class Game implements Serializable
 
   /**
    * 
-   * 
+   * Method that returns the title of the game as a String
    *
-   * @return 
+   * @return title of the game
    *        
    */
   public String getTitle()
@@ -88,9 +88,9 @@ public class Game implements Serializable
 
   /**
    * 
-   * 
+   * Method that returns the number of players in game as a String
    *
-   * @return 
+   * @return number of players
    *        
    */
   public String getNumberOfPlayers()
@@ -125,14 +125,6 @@ public class Game implements Serializable
     this.owner=owner.copy();
   }
 
-  /**
-   * 
-   * 
-   *
-   * @return 
-   *        
-   */
-
   public void setType(String type) {
     switch (type){
       case DEDUCTION:
@@ -151,28 +143,35 @@ public class Game implements Serializable
         this.type = ABSTRACT;
     }
   }
+  /**
+   *
+   * Method that returns the type of the game as a String
+   *
+   * @return type of the game
+   *
+   */
   public String getType()
   {
     return type;
   }
 
   /**
-   * 
-   * 
    *
-   * @return 
-   *        
+   * Method that returns the description of the game as a String
+   *
+   * @return description of the game
+   *
    */
   public String getDescription(){
     return description;
   }
 
   /**
-   * 
-   * 
    *
-   * @return 
-   *        
+   * Method that returns whether the game is available or borrowed, if so, by whom.
+   *
+   * @return depending on whether the game is available or borrowed
+   *
    */
   public String getBorrowedToName()
   {
@@ -180,7 +179,13 @@ public class Game implements Serializable
       return "Available";
     return "Borrowed by "+borrowedTo.getFullName();
   }
-
+  /**
+   *
+   * Method that returns the ID of a person by whom the game is borrowed
+   *
+   * @return if the game is borrowed, then person's ID, if not, then 0
+   *
+   */
   public int getBorrowedToID(){
     if(borrowedTo==null){
       return 0;
@@ -188,22 +193,10 @@ public class Game implements Serializable
     return borrowedTo.getSchoolId();
   }
 
-  /**
-   * 
-   * 
-   * @param borrowedTo 
-   *        
-   */
   public void setBorrowedTo(ClubAssociate borrowedTo)
   {
     this.borrowedTo=borrowedTo;
   }
-  /**
-   * 
-   * 
-   * @param borrowedFrom 
-   *        
-   */
   public void setBorrowedFrom(LocalDate borrowedFrom)
   {
     this.borrowedFrom=borrowedFrom;
@@ -211,9 +204,9 @@ public class Game implements Serializable
 
   /**
    * 
-   * 
+   * Method that returns the name and surname of the game's owner as a String
    *
-   * @return 
+   * @return Full Name
    *        
    */
   //getOwner would indicate clubAssociate => change name that would indicate their name or String value
@@ -223,9 +216,9 @@ public class Game implements Serializable
   }
   /**
    *
+   * Method that returns the owner of the game
    *
-   *
-   * @return
+   * @return owner
    *
    */
   //getOwner would indicate clubAssociate => change name that would indicate their name or String value
@@ -235,9 +228,9 @@ public class Game implements Serializable
   }
   /**
    * 
-   * 
+   * Method that returns the date from which the game was borrowed as LocalDate
    *
-   * @return 
+   * @return borrowed from (date)
    *        
    */
   public LocalDate getBorrowedFrom()
@@ -246,7 +239,7 @@ public class Game implements Serializable
   }
 
   /**
-   * 
+   * Method that adds the given rating to the ratings list
    * 
    * @param rating 
    *        
@@ -255,12 +248,11 @@ public class Game implements Serializable
     ratings.add(rating);
   }
 
-
   /**
    *
-   *        
+   * Method that calculates the average rating of the game
    *
-   * @return 
+   * @return average rating
    *        
    */
   public double calculateAverageRating(){
@@ -275,11 +267,11 @@ public class Game implements Serializable
 
   /**
    * 
-   * 
-   * @param obj 
-   *        
+   * Method that compares an object to the current one
    *
-   * @return 
+   * @param obj 
+   *
+   * @return boolean depending on if the objects passed as a parameter has the same content as the current one
    *        
    */
   public boolean equals(Object obj){
@@ -294,9 +286,9 @@ public class Game implements Serializable
 
  /**
   * 
-  * 
+  * Method that returns the string representation of the game
   *
-  * @return 
+  * @return string of game's information
   *        
   */
  public String toString()
@@ -306,10 +298,10 @@ public class Game implements Serializable
  }
 
   /**
-   * 
+   * Method that returns the list of ratings
    * 
    *
-   * @return 
+   * @return ratings from the list
    *        
    */
   public ArrayList<Rating> getRatings() { return ratings; }
