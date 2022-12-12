@@ -1,31 +1,19 @@
 <root>
  <games>
  <game>
-   <title>UNO</title>
+   <title>sda</title>
    <numberOfPlayers>2</numberOfPlayers>
    <type>Abstract</type>
-   <description></description>
+   <description>sda</description>
    <borrowedTo>Available</borrowedTo>
-   <owner>Bob Bobby</owner>
-   <ratings></ratings>
- </game>
- <game>
-   <title>UNO6</title>
-   <numberOfPlayers>2</numberOfPlayers>
-   <type>Abstract</type>
-   <description>sfaaf</description>
-   <borrowedTo>Available</borrowedTo>
-   <owner>Jakub Cerovsky</owner>
-   <ratings></ratings>
+   <owner>das das</owner>
+   <ratings>
+  <rating>5</rating>
+  <rating>3</rating></ratings>
  </game>
   </games>
   <wishes>
   </wishes>
   <events>
- <event>
-   <title>asgg</title>
-   <description>asgas</description>
-   <date>10/12/2022 20:22</date>
- </event>
   </events>
   </root>

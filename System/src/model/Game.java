@@ -266,8 +266,7 @@ public class Game implements Serializable
   public double calculateAverageRating(){
     double totalRating = 0.0;
     for(int i=0; i<ratings.size(); i++){
-        totalRating = ratings.get(i).getRating();
-        i++;
+        totalRating += ratings.get(i).getRating();
       }
     if (ratings.size() > 0)
       return (double)(totalRating/ratings.size());
