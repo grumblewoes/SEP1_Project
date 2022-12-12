@@ -144,6 +144,7 @@ public class BoardGamesFileManager implements Serializable
         "\n   <title>"+event.getTitle()+"</title>"+
         "\n   <description>"+event.getDescription()+"</description>"+
         "\n   <date>"+event.getStringDate()+"</date>"+
+        "\n   <location>"+event.getLocation()+"</location>"+
         "\n </event>";
 
     xml=xml.substring(0,index+search.length())+temp+xml.substring(index+search.length());
