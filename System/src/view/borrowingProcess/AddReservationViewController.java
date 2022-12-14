@@ -61,6 +61,8 @@ public class AddReservationViewController extends ViewController
   public void reset()
   {
     errorLabel.setText("");
+    datePicker.setValue(null);
+    datePicker.focusedProperty();
     viewModel.updateMembers();
   }
 

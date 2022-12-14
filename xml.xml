@@ -1,0 +1,37 @@
+<root>
+ <games>
+ <game>
+   <title>ab</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description></description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>Bob Bobinson</owner>
+   <ratings></ratings>
+ </game>
+ <game>
+   <title>a</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description></description>
+   <borrowedTo>Borrowed by Bob Bobinson</borrowedTo>
+   <owner>Bob Bobinson</owner>
+   <ratings></ratings>
+ </game>
+  </games>
+  <wishes>
+ <wish>
+   <title>b</title>
+   <votes>1</votes>
+  </wish>
+  </wishes>
+  <events>
+ <event>
+   <title>asf</title>
+   <description></description>
+   <date>15/12/2022 02:00</date>
+   <location>Canteen</location>
+   <participants>0</participants>
+ </event>
+  </events>
+  </root>

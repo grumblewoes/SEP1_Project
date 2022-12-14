@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" userData="Add Event" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.event.AddEventViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Add Event" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.event.AddEventViewController">
     <children>
         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
             <children>
@@ -23,7 +23,7 @@
                 </Text>
             </children>
         </HBox>
-        <HBox prefHeight="250.0" prefWidth="600.0">
+        <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
          <children>
             <VBox prefHeight="241.0" prefWidth="285.0">
                <children>

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" styleClass="body" userData="Add Club Associate" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.AddClubAssociateViewController">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Add Club Associate" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.clubAssociate.AddClubAssociateViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
          <children>

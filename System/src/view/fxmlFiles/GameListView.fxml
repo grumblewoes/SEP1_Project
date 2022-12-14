@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Games" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameListViewController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="body" stylesheets="@../styles.css" userData="Games" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.games.GameListViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" styleClass="gradient">
          <children>
@@ -22,7 +22,7 @@
             </Text>
          </children>
       </HBox>
-      <HBox prefHeight="250.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="250.0" prefWidth="600.0">
          <children>
             <VBox alignment="CENTER" prefHeight="241.0" prefWidth="179.0">
                <children>
@@ -97,7 +97,7 @@
             <Label fx:id="errorLabel" textFill="RED" />
          </children>
       </HBox>
-      <HBox alignment="TOP_RIGHT" prefHeight="77.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="77.0" prefWidth="600.0">
          <children>
             <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefWidth="70.0" styleClass="btn3" stylesheets="@../styles.css" text="Back">
                <HBox.margin>
