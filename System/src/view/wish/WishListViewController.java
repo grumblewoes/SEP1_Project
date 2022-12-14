@@ -57,9 +57,6 @@ public class WishListViewController extends ViewController
         reset();
     }
 
-    /**
-     * Method that adds a vote to the currently selected wish.
-     */
     @FXML
     private void addVote() {
         WishViewModel wishView = wishTable.getSelectionModel().getSelectedItem();
@@ -74,17 +71,12 @@ public class WishListViewController extends ViewController
         }
     }
 
-    /**
-     * Method that adds a wish to the wishlist. Connects to WishList model
-     */
     @FXML
     private void goToAddWish() {
         viewHandler.openView("addWish");
     }
 
-    /**
-     * Method that removes a wish from the list. Connects to WishList model
-     */
+
     @FXML
     private void removeWish() {
         try{
@@ -104,10 +96,6 @@ public class WishListViewController extends ViewController
             errorLabel.setText("Exception:" + e.getMessage());
         }
     }
-
-    /**
-     * Method that returns to the menu screen
-     */
     @FXML
     private void goBack() {
         viewHandler.openView("menu");

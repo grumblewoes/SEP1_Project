@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
- * A class representing an event - game board organised event in VIA.
- * Is responsible for answering question : what event, when does it happen.
+
  *
  * @author Damian Trafiałek
  * @version 2.0 - 03 December 2022

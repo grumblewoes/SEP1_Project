@@ -68,14 +68,6 @@ public class BorrowViewController extends ViewController
     viewModel.update();
   }
 
-  /**
-   * Method that set the borrow person and date through the model to the game when the button is clicked and all exceptions passed
-   *
-   * @throws IllegalStateException - in case that associate is not selected
-   * @throws IllegalArgumentException - in case that associate is a guest and want to borrow more than one game
-   * @throws IllegalStateException - in case that date is today and the game is already borrowed
-   * @throws IllegalStateException - in case that borrowing proccess did not pass any exception in checkBorrowDate method
-   */
   @FXML private void borrowGameSubmit()
   {
     errorLabel.setText("");
@@ -113,12 +105,7 @@ public class BorrowViewController extends ViewController
     }
 
   }
-  /**
-   * Method used during borrowing process in order to help find exceptions in the date selection
-   *
-   * @throws IllegalStateException - in case that game is already borrowed
-   * @throws IllegalStateException - in case that this game is reserved by somebody else then the selected associate
-   */
+
   private void checkBorrowedDate(Game game, ClubAssociate clubAssociate){
     if(!game.isAvailable()){
       throw new IllegalStateException("Game is already borrowed.");

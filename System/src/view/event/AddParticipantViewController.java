@@ -10,7 +10,12 @@ import view.ViewController;
 import view.ViewHandler;
 import view.clubAssociate.ClubAssociateListViewModel;
 import view.clubAssociate.ClubAssociateViewModel;
-
+/**
+ * A class extending viewController which adds participants to the event.
+ *
+ * @author Jakub Cerovsky
+ * @version 1.0 - 08 December 2022
+ */
 public class AddParticipantViewController extends ViewController
 {
   @FXML private TableView<ClubAssociateViewModel> clubAssociatesListTable;
@@ -20,6 +25,17 @@ public class AddParticipantViewController extends ViewController
   @FXML private Label errorLabel;
   private ClubAssociateListViewModel viewModel;
 
+  /**
+   * A method that initialises the controller alongside the rest of its components.
+   * It sets values inside the Club Associate Table.
+   *
+   * @param viewHandler
+   *        the current viewHandler that connects view and model packages
+   * @param model
+   *        the model of board games system that is being used
+   * @param root
+   *        the root of the region
+   */
   public void init(ViewHandler viewHandler, BoardGamesModel model, Region root)
   {
     this.viewHandler=viewHandler;
@@ -35,6 +51,10 @@ public class AddParticipantViewController extends ViewController
     clubAssociatesListTable.setItems(viewModel.getList());
     reset();
   }
+  /**
+   * A method that resets the data displayed in the view.
+   *
+   */
   public void reset(){
     errorLabel.setText("");
     viewModel.update();

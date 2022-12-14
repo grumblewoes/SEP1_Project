@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * A class representing a game in board games collection
  * Is responsible for answering question : what game, what type, to whom it is borrowed and when and who is the owner
  * 
- * @author ?????????
- * @version ?????
+ * @author Catarina de Jesus
+ * @version 1.0 - 03 December 2022
  */
 public class Game implements Serializable
 {
