@@ -7,8 +7,8 @@ import java.util.ArrayList;
  * 
  * 
  * 
- * @author 
- * @version 
+ * @author Jakub Cerovsky
+ * @version 1.0 3 December 2022
  */
 public class Rating implements Serializable
 {
@@ -17,7 +17,7 @@ public class Rating implements Serializable
   /**
    * 1-argument constructor 
    * 
-   * 
+   * @throws IllegalArgumentException in case that rating is not legal value
    * @param rating 
    *        
    */
@@ -35,9 +35,9 @@ public class Rating implements Serializable
 
   /**
    * 
-   * 
+   * Method that returns rating as an Integer
    *
-   * @return 
+   * @return rating as an Integer
    *        
    */
   public int getRating()
@@ -46,12 +46,11 @@ public class Rating implements Serializable
   }
 
   /**
+   * Method that is looping through legal ratings and returns if given one is legal or not
    * 
-   * 
-   * @param rating 
-   *        
+   * @param rating
    *
-   * @return 
+   * @return if the rating is a legal value
    *        
    */
   public static boolean isLegalRating(int rating)

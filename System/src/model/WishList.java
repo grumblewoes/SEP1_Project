@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * A class representing the overall list of wishes, and manages them (adding, removing, and voting).
  * 
  * @author Anna Pomerantz
- * @version 1
+ * @version 1.0 - 02 December 2022
  */
 public class WishList implements Serializable
 {

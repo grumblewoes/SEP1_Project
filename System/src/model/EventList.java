@@ -40,6 +40,13 @@ public class EventList implements Serializable
   public void removeEvent(String title){ events.removeIf(
       event -> event.getTitle().equals(title) // beacuse title cant be null for event
   );}
+  /**
+   *
+   * Method that returns the event with the given title
+   * @param title
+   * @return game with the given title
+   *
+   */
 
 
   public Event getEventByTitle(String title){

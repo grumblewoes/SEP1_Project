@@ -134,7 +134,14 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
   public void removeExpiredEvents(){
     eventList.removeExpiredEvents();
   }
-
+  /**
+   * A method that calls the adds associate to the list for given event
+   *
+   * @param event
+   *        the reservation that is to be added
+   * @param associate
+   *        the associate that is to be added as participant
+   */
   public void addParticipantToEvent(Event event, ClubAssociate associate){
     event.addParticipant(associate);
     fileManager.exportModelToDatabase();
@@ -153,6 +160,13 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        game to be removed
    */
   public void removeGame(Game game){ gameList.removeGame(game); fileManager.exportModelToDatabase(); }
+  /**
+   * A method that calls the gameList to edit the game and fileManager to save the model.
+   *
+   * @see BoardGamesFileManager
+   * @param selectedGame
+   *        the game to be edited, rest of the parameter are being set into existing game
+   */
   public void editGame(Game selectedGame,ClubAssociate owner ,String title,String description, String type,String numberOfPlayers){
     Game listGame = gameList.getGameByTitle(selectedGame.getTitle());
     if(listGame==null)return;
@@ -219,14 +233,32 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the list of all reservations
    */
   public ArrayList<Reservation> getAllReservation(){ return reservationList.getAllReservations(); }
-
+  /**
+   * A method that sets given game as borrowed with all information needed(who, when)
+   *
+   * @see BoardGamesFileManager
+   * @param selectedGame
+   *        the game that is to be modified
+   * @param associate
+   *        the associate that is to be set as person borrowing
+   * @param date
+   *        the date that is to be set
+   */
   public void borrowGame(Game selectedGame, ClubAssociate associate, LocalDate date){
     selectedGame.setBorrowedTo(associate);
     selectedGame.setBorrowedFrom(date);
 
     fileManager.exportModelToDatabase();
   }
-
+  /**
+   * A method that adds the given rating value into given game and change its status into available.
+   *
+   * @see BoardGamesFileManager
+   * @param selectedGame
+   *        the game that is to be modified
+   * @param ratingValue
+   *        the rating that is to be added
+   */
   public void returnGame(Game selectedGame, int ratingValue){
     if(ratingValue>=1 && ratingValue<=5)
       selectedGame.addRatings( new Rating(ratingValue) );
@@ -269,11 +301,24 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the list of all club associates
    */
   public ArrayList<ClubAssociate> getAllClubAssociates(){ return clubAssociateList.getAllClubAssociates(); }
-
+  /**
+   * A method that sets the given associate instance into member.
+   *
+   * @see BoardGamesFileManager
+   * @param clubAssociate
+   *        the associate that is to be modified
+   */
   public void setClubAssociateAsMember(ClubAssociate clubAssociate){
     clubAssociate.setMember();
     fileManager.exportModelToDatabase();
   }
+  /**
+   * A method that sets the given associate instance into guest.
+   *
+   * @see BoardGamesFileManager
+   * @param clubAssociate
+   *        the associate that is to be modified
+   */
   public void setClubAssociateAsGuest(ClubAssociate clubAssociate){
     clubAssociate.setGuest();
     fileManager.exportModelToDatabase();
@@ -305,9 +350,18 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    */
   public void removeEvent(String title){ eventList.removeEvent(title); fileManager.exportModelToDatabase(); }
 
-
+  /**
+   * A method that sets given event into selectedEvent instance
+   *
+   * @param event
+   *        the event that is to be initialised to the selectedEvent instance
+   */
   public void setSelectedEvent(Event event) { selectedEvent = event; }
-
+  /**
+   * Method that gets the selected event from the event list controller
+   *
+   * @return the Event object to fetch info on
+   */
   public Event getSelectedEvent() { return selectedEvent; }
 
   /**
@@ -325,7 +379,13 @@ public class BoardGamesModelManager implements BoardGamesModel, Serializable
    *        the size of the eventList
    */
   public int getNumberOfEvents(){ return eventList.getNumberOfEvents(); }
-
+  /**
+   * A method that calls the eventList to edit the event and fileManager to save the model.
+   *
+   * @see BoardGamesFileManager
+   * @param selectedEvent
+   *        the event to be edited, rest of the parameter are being set into existing event
+   */
   public void editEvent(Event selectedEvent,String title,String description, LocalDateTime dateTime,String location){
     Event listEvent = eventList.getEventByTitle(selectedEvent.getTitle());
     if(listEvent==null)return;
