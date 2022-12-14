@@ -79,7 +79,15 @@ public class ClubAssociateViewModel implements Serializable
   public ClubAssociate getClubAssociate() {
     return clubAssociate;
   }
-
+  /**
+   *
+   * Method that compares an object to the current one
+   *
+   * @param obj
+   *
+   * @return boolean depending on if the objects passed as a parameter has the same content as the current one
+   *
+   */
   @Override public boolean equals(Object obj){
     if(obj==null || !(obj instanceof ClubAssociateViewModel) ) return false;
 

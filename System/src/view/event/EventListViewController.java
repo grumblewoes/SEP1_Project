@@ -118,7 +118,10 @@ public class EventListViewController extends ViewController
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent())&&(result.get()==ButtonType.OK);
   }
-
+  /**
+   * A method that allows to edit the event by selecting it and opening the window "Add Event"
+   *
+   */
   public void goToEditEvent()
   {
     errorLabel.setText("");

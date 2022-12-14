@@ -106,11 +106,7 @@ public class ClubAssociateListViewController extends ViewController
             errorLabel.setText(e.getMessage());
         }
     }
-            /**
-             * A method that is executed when the button "Return" is clicked. When it is, it calls ViewHandler,
-             * which has a method openView() and open the view with the id "Menu", so the user goes back to the main window.
-             *
-             */
+
 
             @FXML private void goBack()
         {

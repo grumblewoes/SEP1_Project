@@ -34,7 +34,7 @@ private IntegerProperty participantsProperty;
    */
   public EventViewModel(Event event){
     this.event=event;
-    titleProperty = new SimpleStringProperty(event.getTitle());
+      titleProperty = new SimpleStringProperty(event.getTitle());
     descriptionProperty = new SimpleStringProperty(event.getDescription());
     dateProperty = new SimpleStringProperty(event.getStringDate());
     locationProperty=new SimpleStringProperty(event.getLocation());
@@ -75,11 +75,26 @@ private IntegerProperty participantsProperty;
   {
     return dateProperty;
   }
+  /**
+   * A method that returns the location property.
+   *
+   *
+   * @return locationProperty
+   *        the simpleStringProperty of the eventViewModel location
+   */
 
   public StringProperty getLocationProperty()
   {
     return locationProperty;
   }
+  /**
+   * A method that returns the participants' property.
+   *
+   *
+   * @return participantsProperty
+   *        the simpleIntegerProperty of the eventViewModel participants
+   */
+
 
   public IntegerProperty getParticipantsProperty()
   {

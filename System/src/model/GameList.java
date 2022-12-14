@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**
  *
  * A class that stores the games and manages them (addition, removal, getting).
- * 
- * @author ????
- * @version ???????
+ *
+ * @author Catarina de Jesus
+ * @version 1.0 - 03 December 2022
  */
 public class GameList implements Serializable
 {
