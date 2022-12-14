@@ -64,7 +64,10 @@ public class BoardGamesFileManager implements Serializable
         e.printStackTrace();
       }
     }
-    if(newModel==null) newModel = new BoardGamesModelManager();
+    if(newModel==null) {
+      newModel = new BoardGamesModelManager();
+      newModel.addClubAssociate(new ClubAssociate(new Name("Bob","Bobinson"),111111,true));
+    }
 
     return newModel;
   }
