@@ -103,7 +103,6 @@ public class BorrowViewController extends ViewController
     catch (Exception e){
       errorLabel.setText(e.getMessage());
     }
-
   }
 
   private void checkBorrowedDate(Game game, ClubAssociate clubAssociate){
