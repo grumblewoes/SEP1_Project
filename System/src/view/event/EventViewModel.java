@@ -40,6 +40,13 @@ private IntegerProperty participantsProperty;
     locationProperty=new SimpleStringProperty(event.getLocation());
     participantsProperty=new SimpleIntegerProperty(event.getNumberOfParticipants());
   }
+  /**
+   * 
+   * 
+   *
+   * @return 
+   *        
+   */
   public Event getEvent(){
     return event;
   }

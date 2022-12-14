@@ -98,6 +98,12 @@ public class Game implements Serializable
     return numberOfPlayers;
   }
 
+  /**
+   * 
+   * 
+   * @param title 
+   *        
+   */
   public void setTitle(String title)
   {
     if(title==null){
@@ -106,17 +112,35 @@ public class Game implements Serializable
     this.title = title;
   }
 
+  /**
+   * 
+   * 
+   * @param description 
+   *        
+   */
   public void setDescription(String description)
   {
     this.description = description;
   }
 
+  /**
+   * 
+   * 
+   * @param numberOfPlayers 
+   *        
+   */
   public void setNumberOfPlayers(String numberOfPlayers)
   {
 
     this.numberOfPlayers = numberOfPlayers;
   }
 
+  /**
+   * 
+   * 
+   * @param owner 
+   *        
+   */
   public void setOwner(ClubAssociate owner)
   {
     if(owner==null){
@@ -125,6 +149,12 @@ public class Game implements Serializable
     this.owner=owner.copy();
   }
 
+  /**
+   * 
+   * 
+   * @param type 
+   *        
+   */
   public void setType(String type) {
     switch (type){
       case DEDUCTION:
@@ -193,10 +223,22 @@ public class Game implements Serializable
     return borrowedTo.getSchoolId();
   }
 
+  /**
+   * 
+   * 
+   * @param borrowedTo 
+   *        
+   */
   public void setBorrowedTo(ClubAssociate borrowedTo)
   {
     this.borrowedTo=borrowedTo;
   }
+  /**
+   * 
+   * 
+   * @param borrowedFrom 
+   *        
+   */
   public void setBorrowedFrom(LocalDate borrowedFrom)
   {
     this.borrowedFrom=borrowedFrom;
