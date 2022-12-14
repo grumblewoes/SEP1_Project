@@ -94,7 +94,11 @@ public class Event implements Serializable
    * @return the location of the event
    */
   public String getLocation() { return this.location; }
-
+  /**
+   *
+   * Method that sets a location of event by different cases
+   * @param location
+   */
   public void setLocation(String location) {
     switch (location){
       case CANTEEN :
@@ -107,18 +111,34 @@ public class Event implements Serializable
         this.location = ASK_BOB;
     }
   }
-
+  /**
+   *
+   * Method that sets a date time of event if they are acceptable
+   * @throws IllegalArgumentException in case that date time is in past or null
+   * @param dateTime
+   */
   public void setDateTime(LocalDateTime dateTime) {
     if(dateTime==null || dateTime.isBefore(LocalDateTime.now())) throw new IllegalArgumentException("Invalid date. The date cannot be in the past.");
     this.dateTime=dateTime;
   }
+  /**
+   *
+   * Method that sets a title of event if it is acceptable
+   * @throws IllegalStateException in case that title is empty or null
+   * @param title
+   */
   public void setTitle(String title){
     if(title==null || title.equals(""))
       throw new IllegalStateException("Title cannot be left blank!");
 
     this.title = title;
   }
-
+  /**
+   *
+   * Method that sets a description of event
+   *
+   * @param description
+   */
   public void setDescription(String description){ this.description = description; }
   /**
    * A method that returns the string representation of the event

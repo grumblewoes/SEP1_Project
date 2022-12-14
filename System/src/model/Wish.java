@@ -7,7 +7,7 @@ import java.io.Serializable;
  * want to include in the association's game collection.
  *
  * @author Anna Pomerantz
- * @version 1
+ * @version 1.0 - 02 December 2022
  */
 public class Wish implements Serializable
 {

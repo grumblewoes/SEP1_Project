@@ -1,6 +1,15 @@
 <root>
  <games>
  <game>
+   <title>asfsa</title>
+   <numberOfPlayers>2</numberOfPlayers>
+   <type>Abstract</type>
+   <description>Uno is an American shedding-type card game that is played with a specially printed deck. The game's general principles put it into the crazy eights family ...</description>
+   <borrowedTo>Available</borrowedTo>
+   <owner>213123 1213123</owner>
+   <ratings></ratings>
+ </game>
+ <game>
    <title>dsadas</title>
    <numberOfPlayers>23</numberOfPlayers>
    <type>Abstract</type>
@@ -11,10 +20,6 @@
  </game>
   </games>
   <wishes>
- <wish>
-   <title>dsa</title>
-   <votes>1</votes>
-  </wish>
   </wishes>
   <events>
  <event>
@@ -22,12 +27,14 @@
    <description>saffaf</description>
    <date>14/12/2022 20:00</date>
    <location>C05.16b</location>
+   <participants>0</participants>
  </event>
  <event>
    <title>asfasfasfas</title>
    <description>asfasfasf</description>
    <date>13/12/2022 22:00</date>
    <location>Canteen</location>
+   <participants>1</participants>
  </event>
   </events>
   </root>

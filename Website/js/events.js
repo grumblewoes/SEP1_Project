@@ -6,6 +6,7 @@ const convertEventToObject = (event) => {
         description: $($(event).find("description")[0]).text(),
         date: $($(event).find("date")[0]).text(),
         location: $($(event).find("location")[0]).text(),
+        participants: $($(event).find("participants")[0]).text(),
     }
     return obj
 }
@@ -15,12 +16,13 @@ const convertEventToObject = (event) => {
 
 // change this to style the event element
 //just write the html code in the string below
-const createEventElement = (title, description, date, location) => `
+const createEventElement = (title, description, date, location, participants) => `
     <div class="event col-11 border border-dark bg-white p-3 my-3" data-tilt data-tilt-scale="1.02">
-        <h5 class="d-flex justify-content-between">
+        <h4 class="d-flex justify-content-between">
             <span>${title}</span>
             <span>${location} | ${date}</span>
-        </h5>
+        </h4>
+        <h5><span>Number of participants: ${participants}</span></h5>
         <p class="mt-3"> ${description} </p>
     </div>
 `
@@ -41,8 +43,8 @@ $.get("../../xml.xml", function (xml, status) {
         $(".event_empty").remove()
     }
     for (let event of events) {
-        const { title, description, date, location } = convertEventToObject(event)
-        $(eventsContainer).append(createEventElement(title, description, date, location))
+        const { title, description, date, location, participants } = convertEventToObject(event)
+        $(eventsContainer).append(createEventElement(title, description, date, location, participants))
     }
     VanillaTilt.init(
         document.querySelectorAll(".events .event"),

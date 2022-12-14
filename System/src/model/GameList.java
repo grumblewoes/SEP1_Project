@@ -51,7 +51,7 @@ public class GameList implements Serializable
 
   /**
    *
-   * Method that returns the name with the given title
+   * Method that returns the game with the given title
    * @param title
    * @return game with the given title
    *        
