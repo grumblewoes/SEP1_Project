@@ -41,13 +41,6 @@ public class Game implements Serializable
    */
   public Game(String title, ClubAssociate owner, String type, String numberOfPlayers, String description)
   {
-    //validate the input:
-    //1.game must have a title
-    //2.the owner cannot be null
-    //3.type cannot be empty
-    //4.string numberOfPlayers ? why not integer??
-    //5.description can posibbly be empty? idk
-    // throw proper exceptions
     setTitle(title);
     setOwner(owner);
     setType(type);
@@ -99,8 +92,8 @@ public class Game implements Serializable
   }
 
   /**
-   * 
-   * 
+   * Method that sets game title of the Game object if possible
+   * @throws IllegalArgumentException in case that title is empty or null
    * @param title 
    *        
    */
@@ -113,7 +106,7 @@ public class Game implements Serializable
   }
 
   /**
-   * 
+   * Method that sets description of the Game object
    * 
    * @param description 
    *        
@@ -124,7 +117,7 @@ public class Game implements Serializable
   }
 
   /**
-   * 
+   * Method that sets number of players of the Game object
    * 
    * @param numberOfPlayers 
    *        
@@ -136,8 +129,8 @@ public class Game implements Serializable
   }
 
   /**
-   * 
-   * 
+   * Method that sets owner of the Game object if he is not null
+   * @throws IllegalArgumentException if the owner is null
    * @param owner 
    *        
    */
@@ -150,7 +143,7 @@ public class Game implements Serializable
   }
 
   /**
-   * 
+   * Method that sets type of the Game object in all given cases
    * 
    * @param type 
    *        
@@ -224,7 +217,7 @@ public class Game implements Serializable
   }
 
   /**
-   * 
+   * Method that sets who borrowed the Game object
    * 
    * @param borrowedTo 
    *        
@@ -234,7 +227,7 @@ public class Game implements Serializable
     this.borrowedTo=borrowedTo;
   }
   /**
-   * 
+   * Method that sets when the Game object was borrowed
    * 
    * @param borrowedFrom 
    *        

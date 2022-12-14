@@ -42,9 +42,9 @@ private IntegerProperty participantsProperty;
   }
   /**
    * 
-   * 
+   * Method that returns the event that is being converted as Event type
    *
-   * @return 
+   * @return event that is being converted
    *        
    */
   public Event getEvent(){
