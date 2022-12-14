@@ -87,7 +87,7 @@ public class AddEventViewController extends ViewController
 
     if(
         !value.matches("((2[0-3])|([0-1][0-9]))[.,:]([0-5][0-9])")
-    ) throw new IllegalArgumentException("Invalid starting hour patter! You can use hh:mm format.");
+    ) throw new IllegalArgumentException("Invalid starting hour pattern! You can use hh:mm format.");
 
     //version v2.0 h:mm | hh:m
     int h = Integer.parseInt( value.substring(0, 2  ) );
